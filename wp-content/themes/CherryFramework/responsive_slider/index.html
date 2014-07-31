@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ResponsiveSlides.js &middot; Responsive jQuery Slider &amp; Slideshow</title>
+<link rel="stylesheet" href="responsiveslides.css?v=1.55">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="responsiveslides.min.js?v=1.66"></script>
+<link rel="stylesheet" href="themes.css?v=1.5">
+<script>
+$(function () {
+$(".rslides").responsiveSlides({
+  auto: true,             // Boolean: Animate automatically, true or false
+  speed: 500,            // Integer: Speed of the transition, in milliseconds
+  timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+  pager: true,           // Boolean: Show pager, true or false
+  nav: true,             // Boolean: Show navigation, true or false
+  random: false,          // Boolean: Randomize the order of the slides, true or false
+  pause: false,           // Boolean: Pause on hover, true or false
+  pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+  prevText: "Previous",   // String: Text for the "previous" button
+  nextText: "Next",       // String: Text for the "next" button
+  maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+  navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+  manualControls: "",     // Selector: Declare custom pager navigation
+  namespace: "centered-btns",   // String: Change the default namespace used
+  before: function(){},   // Function: Before callback
+  after: function(){}     // Function: After callback
+});
+
+});
+</script>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+}
+</style>
+</head>
+<body>
+<ul class="rslides">
+<li><img src="clean-room-classification.png" alt=""></li>
+<li><img src="illlustration-6_sec.png" alt=""></li>
+<li><img src="illustration-4a.png" alt=""></li>
+<li><img src="upstream-downstream-utility-system.png" alt=""></li>
+<li><img src="water-system.png" alt=""></li>
+</ul>
+
+</body>
+</html>

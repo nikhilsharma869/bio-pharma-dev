@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Captain Slider\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-10 10:46-0000\n"
+"PO-Revision-Date: 2012-11-10 10:46-0000\n"
+"Last-Translator: Sunny Ratilal <ratilal.sunny@gmail.com>\n"
+"Language-Team: Captain Theme <bryce@captaintheme.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_x;_n\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../captain-slider.php:146 ../includes/admin/settings.php:130
+msgid "Settings"
+msgstr ""
+
+#: ../includes/admin/meta-box.php:6
+msgid "Slider Settings"
+msgstr ""
+
+#: ../includes/admin/meta-box.php:12
+msgid "Slide Link"
+msgstr ""
+
+#: ../includes/admin/meta-box.php:13
+msgid ""
+"Where you'd like the slide to link to. If you leave this field blank the "
+"slide will not link anywhere."
+msgstr ""
+
+#: ../includes/admin/meta-box.php:22
+msgid "Caption Text"
+msgstr ""
+
+#: ../includes/admin/meta-box.php:23
+msgid ""
+"If you'd like to have a caption displayed with the slide, enter it here. If "
+"you leave this field blank, there will be no caption."
+msgstr ""
+
+#: ../includes/admin/meta-box.php:32
+msgid "Video Embed Code"
+msgstr ""
+
+#: ../includes/admin/meta-box.php:33
+msgid ""
+"Paste here the iFrame Video Embed code. It will replace the image if you've "
+"set one. If you're copying from Vimeo, make sure you don't include the text "
+"link below."
+msgstr ""
+
+#: ../includes/admin/meta-box.php:150 ../includes/admin/sorter.php:30
+#: ../includes/admin/sorter.php:46 ../includes/admin/ui.php:70
+msgid "Slide Image"
+msgstr ""
+
+#: ../includes/admin/post-types.php:7
+msgid "Slides"
+msgstr ""
+
+#: ../includes/admin/post-types.php:8 ../includes/admin/post-types.php:10
+#: ../includes/admin/post-types.php:27
+msgid "Slide"
+msgstr ""
+
+#: ../includes/admin/post-types.php:9
+msgid "Add New Slide"
+msgstr ""
+
+#: ../includes/admin/post-types.php:11
+msgid "Edit Slide"
+msgstr ""
+
+#: ../includes/admin/post-types.php:12
+msgid "New Slide"
+msgstr ""
+
+#: ../includes/admin/post-types.php:13
+msgid "View Slide"
+msgstr ""
+
+#: ../includes/admin/post-types.php:14
+msgid "Search Slides"
+msgstr ""
+
+#: ../includes/admin/post-types.php:15
+msgid "No Slides Found"
+msgstr ""
+
+#: ../includes/admin/post-types.php:16
+msgid "No Slides Found In Trash"
+msgstr ""
+
+#: ../includes/admin/post-types.php:17
+msgid "Parent Slide"
+msgstr ""
+
+#: ../includes/admin/post-types.php:18
+msgid "All Slides"
+msgstr ""
+
+#: ../includes/admin/settings.php:65
+msgid "Captain Slider Settings"
+msgstr ""
+
+#: ../includes/admin/settings.php:78
+msgid ""
+"If you love Captain Slider, any donation would be appreciated! It helps to "
+"continue the development and support of the plugin."
+msgstr ""
+
+#: ../includes/admin/settings.php:79
+#, php-format
+msgid ""
+"%sBut seriously, I just want to drink beer and coffee for free, so help a "
+"developer out.%sLove, Captain Theme (Bryce)%s"
+msgstr ""
+
+#: ../includes/admin/settings.php:90
+msgid "Documentation"
+msgstr ""
+
+#: ../includes/admin/settings.php:91
+#, php-format
+msgid ""
+"I love writing documentation, so I wrote a lot of it for you: %sVisit "
+"Captain Slider Documentation%s."
+msgstr ""
+
+#: ../includes/admin/settings.php:138
+msgid "Width (px)"
+msgstr ""
+
+#: ../includes/admin/settings.php:147
+msgid "Height (px)"
+msgstr ""
+
+#: ../includes/admin/settings.php:165
+msgid "Slide Effect / Animation"
+msgstr ""
+
+#: ../includes/admin/settings.php:183
+msgid "Hide Bullets"
+msgstr ""
+
+#: ../includes/admin/settings.php:188
+msgid "Check the box to hide the slide bullets."
+msgstr ""
+
+#: ../includes/admin/settings.php:195
+msgid "Hide Navigation Arrows"
+msgstr ""
+
+#: ../includes/admin/settings.php:200
+msgid "Check the box to hide the navigation arrows."
+msgstr ""
+
+#: ../includes/admin/settings.php:207
+msgid "Slide Length (ms)"
+msgstr ""
+
+#: ../includes/admin/settings.php:216
+msgid "Animation Length (ms)"
+msgstr ""
+
+#: ../includes/admin/settings.php:225
+msgid "No Automatic Start"
+msgstr ""
+
+#: ../includes/admin/settings.php:230
+msgid "If the box is checked the slider will not automatically start/play."
+msgstr ""
+
+#: ../includes/admin/settings.php:237
+msgid "Hide Donation Link"
+msgstr ""
+
+#: ../includes/admin/settings.php:242
+msgid ""
+"Tick this box to hide the donation link above. ANY donations are appreciated!"
+msgstr ""
+
+#: ../includes/admin/settings.php:272
+msgid "You can use the following settings to configure the Captain Slider."
+msgstr ""
+
+#: ../includes/admin/settings.php:298 ../includes/admin/settings.php:313
+msgid "If left at 0, the original image size will be used."
+msgstr ""
+
+#: ../includes/admin/settings.php:319
+msgid ""
+"If you change the width/height above, you will need to regenerate the slider "
+"images."
+msgstr ""
+
+#: ../includes/admin/settings.php:321
+#, php-format
+msgid ""
+"Either %sInstall the %sRegenate Thumbnails%s Plugin%s or reupload your "
+"slides."
+msgstr ""
+
+#: ../includes/admin/settings.php:329
+msgid "Fade"
+msgstr ""
+
+#: ../includes/admin/settings.php:330
+msgid "Slide Horizontal"
+msgstr ""
+
+#: ../includes/admin/settings.php:331
+msgid "Slide Vertical"
+msgstr ""
+
+#: ../includes/admin/settings.php:339
+msgid ""
+"If you select Slide Vertical, your slides must all share the same height or "
+"they will display strangely."
+msgstr ""
+
+#: ../includes/admin/settings.php:374
+msgid "Length each slide will play for in milliseconds. Default is 6000."
+msgstr ""
+
+#: ../includes/admin/settings.php:391
+msgid ""
+"Length the slide animation/effect will go for in milliseconds. Default is "
+"600."
+msgstr ""
+
+#: ../includes/admin/sorter.php:29 ../includes/admin/sorter.php:45
+msgid "Order"
+msgstr ""
+
+#: ../includes/admin/sorter.php:31 ../includes/admin/sorter.php:47
+msgid "Title"
+msgstr ""
+
+#: ../includes/admin/sorter.php:37
+msgid "Move Icon"
+msgstr ""
+
+#: ../includes/admin/sorter.php:54
+#, php-format
+msgid "No slides found, why not %screate one%s?\t"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:9
+msgid "Sliders"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:10 ../includes/admin/taxonomy.php:26
+msgid "Slider"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:11 ../includes/admin/taxonomy.php:12
+msgid "Add New Slider"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:13
+msgid "Edit Slider"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:14
+msgid "New Slider"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:15
+msgid "View Slider"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:16
+msgid "Search Sliders"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:17
+msgid "No Slider found"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:18
+msgid "No Slider found in Trash"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:19
+msgid "Slider Manager"
+msgstr ""
+
+#: ../includes/admin/taxonomy.php:45
+msgid "ID"
+msgstr ""
+
+#: ../includes/admin/ui.php:19
+msgid "Show All "
+msgstr ""

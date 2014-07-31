@@ -1,0 +1,5 @@
+
+# BEGIN Buddydrive
+Order Allow,Deny
+Deny from all
+# END Buddydrive

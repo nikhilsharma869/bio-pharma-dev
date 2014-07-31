@@ -1,0 +1,319 @@
+<IfModule mod_rewrite.c>
+
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymLinks
+Options +SymLinksIfOwnerMatch
+RewriteEngine on
+
+
+RewriteCond %{HTTP_HOST} ^/odesk-clone [NC]
+RewriteRule ^(.*)$ /odesk-clone/$1 [L,R=301]
+
+#RewriteBase odesk-clone/
+
+RewriteRule ^publicprofile/(.*)/$ publicprofile.php?username=$1 [L]
+RewriteRule ^publicprofile/(.*)$ publicprofile.php?username=$1 [L]
+
+RewriteRule ^bid/(.*)$ bid.php?id=$1 [L]
+
+
+RewriteRule ^message_board/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ message.board.php?id=$1&mid=$2&private_id=$3&user_id=$4 [L]
+RewriteRule ^message_board/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ message.board.php?id=$1&mid=$2&private_id=$3&user_id=$4 [L]
+
+RewriteRule ^conversation/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ message.board.php?id=$1&con_id=$2 [L]
+
+RewriteRule ^conversation/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ message.board.php?id=$1&con_id=$2 [L]
+
+
+RewriteRule ^message_board/([a-zA-Z0-9_-]+)/$ message.board.php?id=$1 [L]
+
+RewriteRule ^message_board/([a-zA-Z0-9_-]+)$ message.board.php?id=$1 [L]
+
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ sear_all_jobs.php?page=$1&cat_id=$2&sub_cat_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9&keyword=$10 [L]
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ sear_all_jobs.php?page=$1&cat_id=$2&sub_cat_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9&keyword=$10 [L]
+
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/$ sear_all_jobs.php?page=$1&cat_id=$2&sub_cat_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9 [L]
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)$ sear_all_jobs.php?page=$1&cat_id=$2&sub_cat_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9 [L]
+
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/$ sear_all_jobs.php?page=$1&cat_id=$2&projectStatus=$4&budget_min=$5&budget_max=$6&keyword=$7 [L]
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)$ sear_all_jobs.php?page=$1&cat_id=$2&projectStatus=$4&budget_min=$5&budget_max=$6&keyword=$7 [L]
+
+RewriteRule ^all_jobs.html$ sear_all_jobs.php [L]
+
+RewriteRule ^latest_jobs.html$ sear_all_jobs.php?projectStatus=$1 [L]
+
+RewriteRule ^featured_jobs.html$ sear_all_jobs.php?featured_jobs=featured [L]
+
+RewriteRule ^publicprofile/(.*)$ publicprofile.php?profileid=$1 [L]
+
+#project section
+RewriteRule ^project/([a-zA-Z0-9_-]+)/(.*).html$ project-dtl.php?id=$1 [L]
+RewriteRule ^project/([a-zA-Z0-9_-]+)$ project-dtl.php?id=$1 [L]
+RewriteRule ^project/([a-zA-Z0-9_-]+)/$ project-dtl.php?id=$1 [L]
+RewriteRule ^login/(.*)$ login.php?referer2=$1 [L]
+
+#snap view for timetracker
+RewriteRule ^snap/([a-zA-Z0-9_-]+)$ snap.php?id=$1 [L]
+RewriteRule ^snap/([a-zA-Z0-9_-]+)/$ snap.php?id=$1 [L]
+
+#FIND TALENTS 
+RewriteRule ^find-talents/$ browse-freelancers.php?user1=W [L]
+RewriteRule ^find-talents$ browse-freelancers.php?user1=W [L]
+#browse-freelancers
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-freelancers.php?user1=W&page=$1&skills=$2&cate_id=$3&profile_type_user=$4&start=$5&rate=$6&country=$7&keyword=$7 [L]
+
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-freelancers.php?user1=W&page=$1&skills=$2&cate_id=$3&profile_type_user=$4&start=$5&rate=$6&country=$7 [L]
+
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-freelancers.php?user1=W&page=$1&skills=$2&cate_id=$3&profile_type_user=$4&start=$5&rate=$6 [L]
+
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-freelancers.php?user1=W&page=$1&skills=$2&cate_id=$3&profile_type_user=$4&start=$5 [L]
+
+
+
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-freelancers.php?user1=W&page=$1&skills=$2&cate_id=$3&profile_type_user=$4 [L]
+
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-freelancers.php?user1=W&page=$1&skills=$2&cate_id=$3 [L]
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ browse-freelancers.php?user1=W&page=$1&skills=$2&cate_id=$3 [L]
+
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-freelancers.php?user1=W&page=$1&cate_id=$2 [L]
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ browse-freelancers.php?user1=W&page=$1&cate_id=$2 [L]
+
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)/$ browse-freelancers.php?user1=W&page=$1 [L]
+RewriteRule ^browse-freelancers/([a-zA-Z0-9_-]+)$ browse-freelancers.php?user1=W&page=$1 [L]
+
+RewriteRule ^browse-freelancers/$ browse-freelancers.php?user1=W [L]
+RewriteRule ^browse-freelancers$ browse-freelancers.php?user1=W [L]
+
+#topuser
+RewriteRule ^topuser/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ topuser.php?user=W&page=$1&skills=$2&cate_id=$3 [L]
+RewriteRule ^topuser/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ topuser.php?user=W&page=$1&skills=$2&cate_id=$3 [L]
+
+RewriteRule ^topuser/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ topuser.php?user=W&page=$1&cate_id=$2 [L]
+RewriteRule ^topuser/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ topuser.php?user=W&page=$1&cate_id=$2 [L]
+
+RewriteRule ^topuser/([a-zA-Z0-9_-]+)/$ topuser.php?user=W&page=$1 [L]
+RewriteRule ^topuser/([a-zA-Z0-9_-]+)$ topuser.php?user=W&page=$1 [L]
+
+RewriteRule ^topuser/$ topuser.php?user=W [L]
+RewriteRule ^topuser$ topuser.php?user=W [L]
+
+RewriteRule ^signup.html$ singup.php?type=W [L]
+
+RewriteRule ^signup-employer.html$ register1.php [L]
+
+
+RewriteRule ^signup-worker.html$ register2.php [L]
+
+RewriteRule ^signup/([a-zA-Z0-9_-]+)/$ singup.php?type=$1 [L]
+RewriteRule ^signup/([a-zA-Z0-9_-]+)$ singup.php?type=$1 [L]
+
+#review from browsefrelancer
+RewriteRule ^review/([a-zA-Z0-9_-]+)/(.*)/$ reviews.php?page=$1&username=$2 [L]
+RewriteRule ^review/([a-zA-Z0-9_-]+)/(.*)$ reviews.php?page=$1&username=$2 [L]
+
+RewriteRule ^reviews/(.*)/$ reviews.php?username=$1 [L]
+RewriteRule ^reviews/(.*)$ reviews.php?username=$1 [L]
+
+#portfolio
+RewriteRule ^portfolio/(.*)/$ portfolio.php?username=$1 [L]
+RewriteRule ^portfolio/(.*)$ portfolio.php?username=$1 [L]
+
+RewriteRule ^edit-portfolio/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ edit_portfolio.php?ed=$1&EDIT=$2 [L]
+RewriteRule ^edit-portfolio/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ edit_portfolio.php?ed=$1&EDIT=$2 [L]
+RewriteRule ^delete-portfolio/([a-zA-Z0-9_-]+)/$ upload-portfolio.php?DELT=$1 [L]
+RewriteRule ^delete-portfolio/([a-zA-Z0-9_-]+)$ upload-portfolio.php?DELT=$1 [L]
+
+
+
+RewriteRule ^view-portfolio/(.*)/([a-zA-Z0-9_-]+)/$ portfolio1.php?username=$1&port_id=$2
+RewriteRule ^view-portfolio/(.*)/([a-zA-Z0-9_-]+)$ portfolio1.php?username=$1&port_id=$2
+
+#invite_provider
+RewriteRule ^invite-provider/(.*)/$ invite_provider.php?username=$1 [L]
+RewriteRule ^invite-provider/(.*)$ invite_provider.php?username=$1 [L]
+
+#Edit Job
+RewriteRule ^editjob/([a-zA-Z0-9_-]+)$ postjob.html?edit=$1 [L]
+RewriteRule ^editjob/([a-zA-Z0-9_-]+)/$ postjob.html?edit=$1 [L]
+
+#Post JOb
+RewriteRule ^postjob$ postjob.html [L]
+RewriteRule ^postjob/$ postjob.html [L]
+
+#Browse Employers
+RewriteRule ^browse-employers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-members.php?user=E&page=$1&skills=$2&cate_id=$3 [L]
+RewriteRule ^browse-employers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ browse-members.php?user=E&page=$1&skills=$2&cate_id=$3 [L]
+
+RewriteRule ^browse-employers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ browse-members.php?user=E&page=$1&cate_id=$2 [L]
+RewriteRule ^browse-employers/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ browse-members.php?user=E&page=$1&cate_id=$2 [L]
+
+RewriteRule ^browse-employers/([a-zA-Z0-9_-]+)/$ browse-members.php?user=E&page=$1 [L]
+RewriteRule ^browse-employers/([a-zA-Z0-9_-]+)$ browse-members.php?user=E&page=$1 [L]
+
+
+RewriteRule ^browse-employers/$ browse-members.php?user=E [L]
+RewriteRule ^browse-employers$ browse-members.php?user=E [L]
+
+#browse job
+
+RewriteRule ^Jobs/([a-zA-Z0-9_-]+)$ sear_all_jobs.php?page=$1 [L]
+RewriteRule ^Jobs/([a-zA-Z0-9_-]+)/$ sear_all_jobs.php?page=$1 [L]
+
+RewriteRule ^Jobs$ sear_all_jobs.php [L]
+RewriteRule ^Jobs/$ sear_all_jobs.php [L]
+
+RewriteRule ^Jobs/([a-zA-Z0-9_-]+)/(.*)$ sear_all_jobs.php?page=$1&qstr=$2 [L]
+RewriteRule ^Jobs/([a-zA-Z0-9_-]+)/(.*)/$ sear_all_jobs.php?page=$1&qstr=$2 [L]
+
+#My Payment
+RewriteRule ^payment/([a-zA-Z0-9_-]+)$ payment.html?type=$1 [L]
+RewriteRule ^payment/([a-zA-Z0-9_-]+)/$ payment.html?type=$1 [L]
+
+#messege section 
+RewriteRule ^message/([a-zA-Z0-9_-]+)$ message.php?page=$1 [L]
+RewriteRule ^message/([a-zA-Z0-9_-]+)/$ message.php?page=$1 [L]
+
+RewriteRule ^showmessage/(.*)/(.*)$ showmessage.php?id=$1&adm=$2 [L]
+RewriteRule ^showmessage/(.*)/(.*)/$ showmessage.php?id=$1&adm=$2 [L]
+RewriteRule ^Sent/([a-zA-Z0-9_-]+)$ sent_message.php?page=$1 [L]
+RewriteRule ^Sent/([a-zA-Z0-9_-]+)/$ sent_message.php?page=$1 [L]
+RewriteRule ^showsentmessage/(.*)$ show_sent_message.php?id=$1 [L]
+RewriteRule ^showsentmessage/(.*)/$ show_sent_message.php?id=$1 [L]
+
+#notifiaction
+RewriteRule ^notification/([a-zA-Z0-9_-]+)$ notification.php?page=$1 [L]
+RewriteRule ^notification/([a-zA-Z0-9_-]+)/$ notification.php?page=$1 [L]
+
+#my jobs
+RewriteRule ^my-jobs/([a-zA-Z0-9_-]+)$ my-jobs.php?page=$1 [L]
+RewriteRule ^my-jobs/([a-zA-Z0-9_-]+)/$ my-jobs.php?page=$1 [L]
+
+#my jobs
+RewriteRule ^extend_project/([a-zA-Z0-9_-]+)$ extend_project.php?extend=$1 [L]
+RewriteRule ^extend_project/([a-zA-Z0-9_-]+)/$ extend_project.php?extend=$1 [L]
+
+RewriteRule ^my-jobs/close/([a-zA-Z0-9_-]+)$ my-jobs.php?close=$1 [L]
+RewriteRule ^my-jobs/close/([a-zA-Z0-9_-]+)/$ my-jobs.php?close=$1 [L]
+RewriteRule ^my-jobs/extend/([a-zA-Z0-9_-]+)$ my-jobs.php?extend=$1 [L]
+RewriteRule ^my-jobs/extend/([a-zA-Z0-9_-]+)/$ my-jobs.php?extend=$1 [L]
+RewriteRule ^my-jobs/pick/([a-zA-Z0-9_-]+)/$ my-jobs-select-provider.php?pick=$1 [L]
+RewriteRule ^my-jobs/pick/([a-zA-Z0-9_-]+)$ my-jobs-select-provider.php?pick=$1 [L]
+
+
+
+#pay
+RewriteRule ^payment/money/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ payment.php?transfer=money&transfer2=$1&tamount=$2 [L]
+RewriteRule ^payment/money/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ payment.php?transfer=money&transfer2=$1&tamount=$2 [L]
+
+
+
+
+
+#bidhistory
+RewriteRule ^bidhistory/([a-zA-Z0-9_-]+)$ bidhistory.php?page=$1 [L]
+RewriteRule ^bidhistory/([a-zA-Z0-9_-]+)/$ bidhistory.php?page=$1 [L]
+
+#profesional section
+#mybids
+RewriteRule ^mybids/([a-zA-Z0-9_-]+)/$ mybids.php?page=$1 [L]
+RewriteRule ^mybids/([a-zA-Z0-9_-]+)$ mybids.php?page=$1 [L]
+#working job
+RewriteRule ^working_jobs/([a-zA-Z0-9_-]+)/$ working_jobs.php?page=$1 [L]
+RewriteRule ^working_jobs/([a-zA-Z0-9_-]+)$ working_jobs.php?page=$1 [L]
+#complted job
+RewriteRule ^completed_jobs/([a-zA-Z0-9_-]+)/$ completed_jobs.php?page=$1 [L]
+RewriteRule ^completed_jobs/([a-zA-Z0-9_-]+)$ completed_jobs.php?page=$1 [L]
+
+
+#client section 
+#active job
+RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)/$ active_jobs.php?user=W&page=$1 [L]
+RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)$ active_jobs.php?user=W&page=$1 [L]
+#frozen job
+RewriteRule ^frozen_project/([a-zA-Z0-9_-]+)/$ frozen_project.php?page=$1 [L]
+RewriteRule ^frozen_project/([a-zA-Z0-9_-]+)$ frozen_project.php?page=$1 [L]
+#running job
+RewriteRule ^running_jobs/([a-zA-Z0-9_-]+)/$ running_jobs.php?user=W&page=$1 [L]
+RewriteRule ^running_jobs/([a-zA-Z0-9_-]+)$ running_jobs.php?user=W&page=$1 [L]
+#expire job
+RewriteRule ^expire_project/([a-zA-Z0-9_-]+)/$ expire_project.php?page=$1 [L]
+RewriteRule ^expire_project/([a-zA-Z0-9_-]+)$ expire_project.php?page=$1 [L]
+#completed job
+RewriteRule ^closed_jobs/([a-zA-Z0-9_-]+)/$ closed_jobs.php?page=$1 [L]
+RewriteRule ^closed_jobs/([a-zA-Z0-9_-]+)$ closed_jobs.php?page=$1 [L]
+
+#lostbids
+RewriteRule ^lostbids/([a-zA-Z0-9_-]+)$ lostbids.php?page=$1 [L]
+RewriteRule ^lostbids/([a-zA-Z0-9_-]+)/$ lostbids.php?page=$1 [L]
+
+#closed bids
+RewriteRule ^closedbids/([a-zA-Z0-9_-]+)$ closedbids.php?user=W&page=$1 [L]
+RewriteRule ^closedbids/([a-zA-Z0-9_-]+)/$ closedbids.php?user=W&page=$1 [L]
+
+#milestone
+RewriteRule ^milestone/([a-zA-Z0-9_-]+)$ milestone.php?page=$1 [L]
+RewriteRule ^milestone/([a-zA-Z0-9_-]+)/$ milestone.php?page=$1 [L]
+
+#widthdrawfund
+RewriteRule ^withdrawfund/([a-zA-Z0-9_-]+)$ withdrawfund.php?meth=$1 [L]
+RewriteRule ^withdrawfund/([a-zA-Z0-9_-]+)/$ withdrawfund.php?meth=$1 [L]
+
+#deipute details
+RewriteRule ^disputes_details/([a-zA-Z0-9_-]+)$ disputes_details.php?disput_id=$1 [L]
+RewriteRule ^disputes_details/([a-zA-Z0-9_-]+)/$ disputes_details.php?disput_id=$1 [L]
+
+#Active Dispute
+RewriteRule ^active_dispute/([a-zA-Z0-9_-]+)$ active_dispute.html?page=$1 [L]
+RewriteRule ^active_dispute/([a-zA-Z0-9_-]+)/$ active_dispute.html?page=$1 [L]
+
+#Resolved Dispute
+RewriteRule ^resolved_disputes/([a-zA-Z0-9_-]+)$ resolved_disputes.html?page=$1 [L]
+RewriteRule ^resolved_disputes/([a-zA-Z0-9_-]+)/$ resolved_disputes.html?page=$1 [L]
+
+#footer link
+RewriteRule ^terms-and-conditions.html$ info.html?id=31 [L]
+
+RewriteRule ^service-provider-agreement.html$ info.html?id=34 [L]
+
+RewriteRule ^refund-policy.html$ info.html?id=33 [L]
+
+RewriteRule ^privacy-policy.html$ info.html?id=32 [L]
+
+#indexpage link for 
+RewriteRule ^flexibility/$ info.html?id=35 [L]
+RewriteRule ^flexibility$ info.html?id=35 [L]
+RewriteRule ^cost-saving/$ info.html?id=36 [L]
+RewriteRule ^cost-saving$ info.html?id=36 [L]
+RewriteRule ^access-to-talent/$ info.html?id=37 [L]
+RewriteRule ^access-to-talent$ info.html?id=37 [L]
+RewriteRule ^testimonials/$ info.html?id=38 [L]
+RewriteRule ^testimonials$ info.html?id=38 [L]
+
+#faq section
+RewriteRule ^faq-details/([a-zA-Z0-9_-]+)/(.*)/$ view.php?id=$1 [L]
+RewriteRule ^faq-details/([a-zA-Z0-9_-]+)/(.*)$ view.php?id=$1 [L]
+
+#invite provider
+RewriteRule ^invite-provider/([a-zA-Z0-9_-]+)/$ invite_provider.php?id=$1 [L]
+RewriteRule ^invite-provider/([a-zA-Z0-9_-]+)$ invite_provider.php?id=$1 [L]
+
+#testimonial
+RewriteRule ^information/testimonial/$ testimonial.php [L]
+RewriteRule ^information/testimonial$ testimonial.php [L]
+
+
+
+#cms page
+RewriteRule ^information/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ cms.php?cms_id=$1&cont_title=$2 [L]
+RewriteRule ^information/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ cms.php?cms_id=$1&cont_title=$2 [L]
+
+
+
+RewriteRule ^timetrackerchecklogin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)$ loginfrotimetraker.php?user_id=$1&username=$2&email=$3&returnpage=$4 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+).html?$    $1.php  [QSA,L,NC]
+
+
+ErrorDocument 404 404.php
+
+</IfModule>

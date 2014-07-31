@@ -1,0 +1,59 @@
+		.trigger{
+			cursor:pointer;
+			cursor: pointer;
+			background: #3268a3;
+			margin-top: 3px;
+			font-family:Arial, Helvetica, sans-serif;
+			font-size:13px;
+			font-weight:bold;
+			text-align:left;
+			color:#FFFFFF;
+			padding: 4px 0px 4px 9px;
+		}		
+		.trigger:hover{
+			cursor:pointer;
+			background: #1b4471;
+			cursor: pointer;
+			color:#FFFFFF;
+			padding: 4px 0px 4px 9px;
+			
+		}		
+		.expanded{
+			
+			cursor:pointer;
+			background: #1b4471;
+			cursor: pointer;
+			margin-top: 3px;
+			font-family:Arial, Helvetica, sans-serif;
+			font-size:13px;
+			font-weight:bold;
+			color:#FFFFFF;
+			text-align:left;
+			padding: 4px 0px 4px 9px;
+		    }
+			
+		.expanded:hover{			
+			cursor:pointer;
+			background: #1b4471;
+			cursor: pointer;
+			padding: 4px 0px 4px 9px;
+		    }
+			
+		.show{
+     position:static;
+     display: table;
+		}
+		.hide{
+			position:absolute;
+			left:-999em;
+			height:1px;
+			width:100%;
+			overflow:hidden;
+		}
+		
+	.clpsbk{
+		
+	}
+	
+	
+.link{ font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#666;}

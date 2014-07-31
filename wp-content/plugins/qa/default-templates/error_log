@@ -1,0 +1,6 @@
+[09-Aug-2013 01:10:36] PHP Fatal error:  Call to undefined function  get_header() in /home3/biophar4/public_html/wp-content/plugins/qa/default-templates/single-question.php on line 3
+[09-Aug-2013 01:10:38] PHP Fatal error:  Call to undefined function  get_header() in /home3/biophar4/public_html/wp-content/plugins/qa/default-templates/edit-question.php on line 1
+[09-Aug-2013 01:10:46] PHP Fatal error:  Call to undefined function  get_header() in /home3/biophar4/public_html/wp-content/plugins/qa/default-templates/edit-answer.php on line 1
+[09-Aug-2013 01:10:52] PHP Fatal error:  Call to undefined function  get_header() in /home3/biophar4/public_html/wp-content/plugins/qa/default-templates/user-question.php on line 1
+[08-Nov-2013 02:53:37] PHP Fatal error:  Call to undefined function  get_header() in /home3/biophar4/public_html/wp-content/plugins/qa/default-templates/single-question.php on line 3
+[08-Nov-2013 03:14:15] PHP Fatal error:  Call to undefined function  get_header() in /home3/biophar4/public_html/wp-content/plugins/qa/default-templates/edit-question.php on line 1

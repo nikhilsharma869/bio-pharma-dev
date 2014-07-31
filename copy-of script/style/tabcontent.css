@@ -1,0 +1,116 @@
+
+
+/* ######### CSS for Indented CSS Tabs. Remove if not using ######### */
+
+
+.indentmenu{
+width:558px; margin-left:3px; /*leave this value as is in most cases*/
+}
+
+.indentmenu ul{
+margin: 0;
+margin-left:6px;
+padding: 0;
+width:530px;
+float: left;
+/* width: 80%; width of menu*/
+border-top:#fff 1px solid ;
+
+}
+
+.indentmenu ul li{
+display: inline;
+font-size:13px;
+font-weight: bold; font-family:Arial, Helvetica, sans-serif;
+}
+
+.indentmenu ul li a{
+float: left;
+color: #4f575d; /*text color*/
+padding: 5px 11px;
+font-size:13px;
+font-weight: bold; font-family:Arial, Helvetica, sans-serif;
+margin-left:2px;
+text-decoration: none;
+border-right:#fff 1px solid ;
+border-radius:8px 8px 0px 0px;
+background:url(../images/tab.png) repeat-x center center ; /*navy divider between menu items*/
+}
+
+.indentmenu ul li a:hover{
+color: #FFFFFF;
+font-size:13px;
+font-weight: bold; font-family:Arial, Helvetica, sans-serif;
+background:url(../images/tab-hover.png) repeat-x center center; /*text color*/
+}
+
+.indentmenu ul li a.selected{
+color: #FFFFFF; /*text color*/
+padding-top: 6px; /*shift text down 1px*/
+padding-bottom: 4px;
+font-size:13px;
+font-weight: bold; font-family:Arial, Helvetica, sans-serif;
+background:url(../images/tab-hover.png) repeat-x center center;
+
+}
+
+
+.tabcontentstyle{ /*style of tab content oontainer*/
+border: #CCCCCC 1px solid ;
+width: 552px;
+margin-bottom: 1em;
+margin-right:6px;
+padding: 10px;
+}
+
+.tabcontent{
+display:none;
+}
+
+@media print {
+.tabcontent {
+display:block !important;
+}
+}
+
+.tab-content1 {
+	clear:both; border:#e3e3e1 1px solid; background:#fff; color:#666666; padding:5px 5px 45px 5px; width:533px; margin-left:3px; overflow:hidden;
+	border-radius:8px ;  
+}
+
+.tab-sectors{ 
+          padding:0px 0px 15px 0px;
+          margin:5px 5px 12px 5px;
+		  margin-left:5px;
+          width:523px; 
+		  float:left;
+		  border-bottom:#dde1e3 1px dotted;
+	      }
+		  
+.tab-sectors p{
+    margin:0px;
+	padding:8px 0px 8px 0px;
+	width:99%;
+    color: #828384;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight: normal;
+	float:left;
+    }
+.tab-sectors h1{
+    margin:0px;
+	padding:8px 0px 8px 12px;
+	width:95%;
+    color: #1594e9;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight: bold;
+	float:left;
+    }
+
+
+
+.tab-content2 {
+	clear:both; border:#e3e3e1 1px solid; background:#fff; color:#666666; padding:5px; width:950px; overflow:hidden; height:180px; 
+  
+}

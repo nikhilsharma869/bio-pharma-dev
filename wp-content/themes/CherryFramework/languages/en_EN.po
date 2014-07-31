@@ -1,0 +1,1628 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-14 12:40+0200\n"
+"PO-Revision-Date: 2012-11-14 12:40+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ./\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:9
+msgid "Sorry!"
+msgstr "Сори"
+
+#: ../404.php:10
+msgid "Page Not Found"
+msgstr ""
+
+#: ../404.php:12
+msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+msgstr ""
+
+#: ../404.php:13
+msgid "Please try using our search box below to look for information on the internet."
+msgstr ""
+
+#: ../archive.php:16
+#: ../category.php:17
+#: ../index.php:15
+msgid "There has been an error."
+msgstr ""
+
+#: ../archive.php:17
+#: ../category.php:18
+#: ../index.php:16
+msgid "We apologize for any inconvenience, please"
+msgstr ""
+
+#: ../archive.php:17
+#: ../category.php:18
+#: ../index.php:16
+msgid "return to the home page"
+msgstr ""
+
+#: ../archive.php:17
+#: ../category.php:18
+#: ../index.php:16
+msgid "or use the search form below."
+msgstr ""
+
+#: ../author.php:16
+msgid "About:"
+msgstr ""
+
+#: ../author.php:29
+msgid "Recent Posts by"
+msgstr ""
+
+#: ../author.php:48
+msgid "No post yet."
+msgstr ""
+
+#: ../author.php:58
+msgid "Recent Comments by"
+msgstr ""
+
+#: ../author.php:66
+#, php-format
+msgid "%1$s on %2$s"
+msgstr ""
+
+#: ../author.php:69
+msgid "No comments by"
+msgstr ""
+
+#: ../author.php:69
+msgid "yet."
+msgstr ""
+
+#: ../comments.php:7
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: ../comments.php:31
+msgid "No Comments Yet."
+msgstr ""
+
+#: ../comments.php:34
+msgid "Comments are closed."
+msgstr ""
+
+#: ../comments.php:44
+msgid "Leave a reply"
+msgstr ""
+
+#: ../comments.php:51
+msgid "You must be"
+msgstr ""
+
+#: ../comments.php:51
+msgid "logged in"
+msgstr ""
+
+#: ../comments.php:51
+msgid "to post a comment."
+msgstr ""
+
+#: ../comments.php:58
+msgid "Logged in as"
+msgstr ""
+
+#: ../comments.php:58
+msgid "Log out of this account"
+msgstr ""
+
+#: ../comments.php:58
+msgid "Log out &raquo;"
+msgstr ""
+
+#: ../comments.php:62
+msgid "Name"
+msgstr ""
+
+#: ../comments.php:62
+#: ../comments.php:64
+msgid "(required)"
+msgstr ""
+
+#: ../comments.php:64
+msgid "Mail"
+msgstr ""
+
+#: ../comments.php:64
+msgid "(will not be published)"
+msgstr ""
+
+#: ../comments.php:66
+msgid "Website"
+msgstr ""
+
+#: ../comments.php:72
+msgid "Message"
+msgstr ""
+
+#: ../comments.php:74
+msgid "Submit Comment"
+msgstr ""
+
+#: ../footer.php:5
+msgid "Back to Top"
+msgstr ""
+
+#: ../footer.php:33
+msgid "is proudly powered by"
+msgstr ""
+
+#: ../footer.php:33
+msgid "Entries (RSS)"
+msgstr ""
+
+#: ../footer.php:33
+msgid "Comments (RSS)"
+msgstr ""
+
+#: ../footer.php:34
+msgid "Privacy Policy"
+msgstr ""
+
+#: ../header.php:9
+msgid "Category Archive for &quot;"
+msgstr ""
+
+#: ../header.php:9
+#: ../header.php:11
+#: ../header.php:15
+msgid "&quot; | "
+msgstr ""
+
+#: ../header.php:11
+msgid "Tag Archive for &quot;"
+msgstr ""
+
+#: ../header.php:13
+msgid " Archive | "
+msgstr ""
+
+#: ../header.php:15
+msgid "Search for &quot;"
+msgstr ""
+
+#: ../header.php:19
+msgid "Error 404 Not Found | "
+msgstr ""
+
+#: ../header.php:155
+msgid "Search"
+msgstr ""
+
+#: ../header.php:155
+msgid "Go"
+msgstr ""
+
+#: ../options.php:33
+msgid "Image Logo"
+msgstr ""
+
+#: ../options.php:34
+msgid "Text Logo"
+msgstr ""
+
+#: ../options.php:574
+msgid "General"
+msgstr ""
+
+#: ../options.php:748
+msgid "Logo"
+msgstr ""
+
+#: ../options.php:783
+msgid "Slider"
+msgstr ""
+
+#: ../options.php:898
+msgid "Blog"
+msgstr ""
+
+#: ../options.php:961
+msgid "Footer"
+msgstr ""
+
+#: ../page-archives.php:16
+msgid "Pages:"
+msgstr ""
+
+#: ../page-archives.php:18
+msgid "Last 30 Posts"
+msgstr ""
+
+#: ../page-archives.php:25
+msgid "Archives by Month:"
+msgstr ""
+
+#: ../page-archives.php:29
+msgid "Archives by Subject:"
+msgstr ""
+
+#: ../page-faq.php:19
+msgid "Q?"
+msgstr ""
+
+#: ../page-faq.php:21
+msgid "A."
+msgstr ""
+
+#: ../page-Portfolio1Col.php:21
+#: ../page-Portfolio1Cols-filterable.php:29
+msgid "Not Found"
+msgstr ""
+
+#: ../page-Portfolio1Col.php:23
+#: ../page-Portfolio1Cols-filterable.php:31
+msgid "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
+msgstr ""
+
+#: ../page-Portfolio1Col.php:98
+#: ../page-Portfolio1Cols-filterable.php:113
+msgid "Permanent Link to"
+msgstr ""
+
+#: ../page-Portfolio1Col.php:105
+#: ../page-Portfolio1Cols-filterable.php:121
+msgid "Read more"
+msgstr ""
+
+#: ../page-testi.php:43
+#: ../single-testi.php:30
+msgid ", "
+msgstr ""
+
+#: ../page-testi.php:65
+#: ../single-portfolio.php:51
+#: ../single-testi.php:51
+msgid "&laquo; Previous post"
+msgstr ""
+
+#: ../page-testi.php:68
+#: ../single-portfolio.php:55
+#: ../single-testi.php:54
+msgid "Next Post &raquo;"
+msgstr ""
+
+#: ../sidebar.php:9
+msgid "Navigation"
+msgstr ""
+
+#: ../sidebar.php:14
+msgid "Archives"
+msgstr ""
+
+#: ../sidebar.php:21
+msgid "Meta"
+msgstr ""
+
+#: ../single-portfolio.php:86
+msgid "Client:"
+msgstr ""
+
+#: ../single-portfolio.php:93
+msgid "Date:"
+msgstr ""
+
+#: ../single-portfolio.php:100
+msgid "Info:"
+msgstr ""
+
+#: ../single-portfolio.php:107
+msgid "Launch Project"
+msgstr ""
+
+#: ../single.php:16
+msgid "Written by"
+msgstr ""
+
+#: ../title.php:13
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../title.php:17
+msgid "Search for: "
+msgstr ""
+
+#: ../title.php:20
+#, php-format
+msgid "Daily Archives: <small>%s</small>"
+msgstr ""
+
+#: ../title.php:23
+#, php-format
+msgid "Monthly Archives: <small>%s</small>"
+msgstr ""
+
+#: ../title.php:26
+#, php-format
+msgid "Yearly Archives: <small>%s</small>"
+msgstr ""
+
+#: ../title.php:33
+msgid "by "
+msgstr ""
+
+#: ../title.php:36
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../admin/options-backup.php:131
+msgid "Import"
+msgstr ""
+
+#: ../admin/options-backup.php:160
+msgid "Step 1. Theme Options Import"
+msgstr ""
+
+#: ../admin/options-backup.php:161
+msgid "Select the file that contains Theme Options (e.g. <b>options.json</b> )"
+msgstr ""
+
+#: ../admin/options-backup.php:169
+msgid "Upload File and Import"
+msgstr ""
+
+#: ../admin/options-backup.php:197
+msgid "Export"
+msgstr ""
+
+#: ../admin/options-backup.php:220
+msgid "Theme Options Export"
+msgstr ""
+
+#: ../admin/options-backup.php:225
+msgid "Download Export File"
+msgstr ""
+
+#: ../admin/options-backup.php:277
+msgid "There was a problem importing your settings. Please Try again."
+msgstr ""
+
+#: ../admin/options-backup.php:279
+msgid "There was a problem exporting your settings. Please Try again."
+msgstr ""
+
+#: ../admin/options-backup.php:281
+msgid "The import file you've provided is invalid. Please try again."
+msgstr ""
+
+#: ../admin/options-framework.php:266
+#: ../admin/options-framework.php:272
+msgid "Click OK to reset. Any theme settings will be lost!"
+msgstr ""
+
+#: ../admin/options-framework.php:304
+msgid "Default options restored."
+msgstr ""
+
+#: ../admin/options-framework.php:347
+msgid "Options saved."
+msgstr ""
+
+#: ../admin/options-framework.php:398
+msgid "Theme Options"
+msgstr ""
+
+#: ../admin/options-medialibrary-uploader.php:26
+msgid "Theme Options Media"
+msgstr ""
+
+#: ../admin/options-medialibrary-uploader.php:129
+msgid "Upload"
+msgstr ""
+
+#: ../admin/options-medialibrary-uploader.php:152
+msgid "View File"
+msgstr ""
+
+#: ../admin/options-medialibrary-uploader.php:289
+msgid "Gallery"
+msgstr ""
+
+#: ../admin/options-medialibrary-uploader.php:289
+msgid "Previously Uploaded"
+msgstr ""
+
+#: ../admin/options-sanitize.php:244
+msgid "No Repeat"
+msgstr ""
+
+#: ../admin/options-sanitize.php:245
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: ../admin/options-sanitize.php:246
+msgid "Repeat Vertically"
+msgstr ""
+
+#: ../admin/options-sanitize.php:247
+msgid "Repeat All"
+msgstr ""
+
+#: ../admin/options-sanitize.php:260
+msgid "Top Left"
+msgstr ""
+
+#: ../admin/options-sanitize.php:261
+msgid "Top Center"
+msgstr ""
+
+#: ../admin/options-sanitize.php:262
+msgid "Top Right"
+msgstr ""
+
+#: ../admin/options-sanitize.php:263
+msgid "Middle Left"
+msgstr ""
+
+#: ../admin/options-sanitize.php:264
+msgid "Middle Center"
+msgstr ""
+
+#: ../admin/options-sanitize.php:265
+msgid "Middle Right"
+msgstr ""
+
+#: ../admin/options-sanitize.php:266
+msgid "Bottom Left"
+msgstr ""
+
+#: ../admin/options-sanitize.php:267
+msgid "Bottom Center"
+msgstr ""
+
+#: ../admin/options-sanitize.php:268
+msgid "Bottom Right"
+msgstr ""
+
+#: ../admin/options-sanitize.php:281
+msgid "Scroll Normally"
+msgstr ""
+
+#: ../admin/options-sanitize.php:282
+msgid "Fixed in Place"
+msgstr ""
+
+#: ../admin/options-sanitize.php:333
+msgid "1"
+msgstr ""
+
+#: ../admin/options-sanitize.php:334
+msgid "1.2"
+msgstr ""
+
+#: ../admin/options-sanitize.php:335
+msgid "1.5"
+msgstr ""
+
+#: ../admin/options-sanitize.php:336
+msgid "2"
+msgstr ""
+
+#: ../admin/options-sanitize.php:378
+msgid "Normal"
+msgstr ""
+
+#: ../admin/options-sanitize.php:379
+msgid "Italic"
+msgstr ""
+
+#: ../admin/options-sanitize.php:380
+msgid "Bold"
+msgstr ""
+
+#: ../admin/options-sanitize.php:381
+msgid "Bold Italic"
+msgstr ""
+
+#: ../admin/parsers.php:43
+#: ../admin/parsers.php:66
+msgid "There was an error when reading this WXR file"
+msgstr ""
+
+#: ../admin/parsers.php:44
+msgid "Details are shown above. The importer will now try again with a different parser..."
+msgstr ""
+
+#: ../admin/parsers.php:70
+#: ../admin/parsers.php:75
+#: ../admin/parsers.php:267
+#: ../admin/parsers.php:458
+msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:134
+#: ../admin/wordpress-importer.php:143
+#: ../admin/wordpress-importer.php:194
+#: ../admin/wordpress-importer.php:198
+#: ../admin/wordpress-importer.php:207
+msgid "Sorry, there has been an error."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:135
+msgid "The file does not exist, please try again."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:178
+msgid "All done."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:178
+msgid "Have fun!"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:179
+msgid "Remember to update the passwords and roles of imported users."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:199
+#, php-format
+msgid "The export file could not be found at <code>%s</code>. It is likely that this was caused by a permissions problem."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:215
+#, php-format
+msgid "This WXR file (version %s) may not be supported by this version of the importer. Please consider updating."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:240
+#, php-format
+msgid "Failed to import author %s. Their posts will be attributed to the current user."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:266
+msgid "Assign Authors"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:267
+msgid "To make it easier for you to edit and save the imported content, you may want to reassign the author of the imported item to an existing user of this site. For example, you may want to import all the entries as <code>admin</code>s entries."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:269
+#, php-format
+msgid "If a new user is created by WordPress, a new password will be randomly generated and the new user&#8217;s role will be set as %s. Manually changing the new user&#8217;s details will be necessary."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:279
+msgid "Import Attachments"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:282
+msgid "Download and import file attachments"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:299
+msgid "Import author:"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:310
+msgid "or create new user with login name:"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:313
+msgid "as a new user:"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:321
+msgid "assign posts to an existing user:"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:323
+msgid "or assign posts to an existing user:"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:324
+msgid "- Select -"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:374
+#, php-format
+msgid "Failed to create new user for %s. Their posts will be attributed to the current user."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:423
+#, php-format
+msgid "Failed to import category %s"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:461
+#, php-format
+msgid "Failed to import post tag %s"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:505
+#: ../admin/wordpress-importer.php:631
+#, php-format
+msgid "Failed to import %s %s"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:527
+#, php-format
+msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:548
+#, php-format
+msgid "%s &#8220;%s&#8221; already exists."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:603
+#, php-format
+msgid "Failed to import %s &#8220;%s&#8221;"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:749
+msgid "Menu item skipped due to missing menu slug"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:756
+#, php-format
+msgid "Menu item skipped due to invalid menu slug: %s"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:819
+msgid "Fetching attachments is not enabled"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:832
+msgid "Invalid file type"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:876
+msgid "Remote server did not respond"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:882
+#, php-format
+msgid "Remote server returned error response %1$d %2$s"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:889
+msgid "Remote file is incorrect size"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:894
+msgid "Zero size file downloaded"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:900
+#, php-format
+msgid "Remote file is too large, limit is %s"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:999
+msgid "Step 3. Data Import"
+msgstr ""
+
+#: ../admin/wordpress-importer.php:1006
+#, php-format
+msgid "A new version of this importer is available. Please update to version %s to ensure compatibility with newer export files."
+msgstr ""
+
+#: ../admin/wordpress-importer.php:1021
+msgid "Select (<b>.xml</b>) file to upload, then click Upload file and import."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:164
+#: ../includes/register-plugins.php:80
+msgid "Install Required Plugins"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:165
+#: ../includes/register-plugins.php:81
+msgid "Install Plugins"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:166
+#: ../includes/register-plugins.php:82
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:167
+msgid "Something went wrong."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:178
+#: ../includes/class-tgm-plugin-activation.php:490
+#: ../includes/register-plugins.php:94
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:179
+#: ../includes/class-tgm-plugin-activation.php:1846
+#: ../includes/register-plugins.php:95
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:180
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:517
+#: ../includes/class-tgm-plugin-activation.php:2058
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:545
+#, php-format
+msgid "The following plugin was activated successfully: %s."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:704
+msgid "Dismiss this notice"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1091
+msgid "External Link"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1096
+msgid "Private Repository"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1099
+msgid "Pre-Packaged"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1103
+msgid "WordPress Repository"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1106
+msgid "Required"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1106
+msgid "Recommended"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1109
+msgid "Not Installed"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1111
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1281
+#, php-format
+msgid "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1297
+msgid "Plugin"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1298
+msgid "Source"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1299
+msgid "Type"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1300
+msgid "Status"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1318
+msgid "Install"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1319
+msgid "Activate"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1829
+msgid "Install package not available."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1830
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1831
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1832
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1833
+msgid "Plugin install failed."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1834
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1845
+msgid "Plugin activation failed."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1955
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1956
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1956
+#: ../includes/class-tgm-plugin-activation.php:1965
+msgid "Show Details"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1956
+#: ../includes/class-tgm-plugin-activation.php:1965
+msgid "Hide Details"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1957
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1958
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1962
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1963
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1964
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1965
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1966
+msgid "All installations have been completed."
+msgstr ""
+
+#: ../includes/class-tgm-plugin-activation.php:1967
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../includes/register-plugins.php:83
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: ../includes/register-plugins.php:96
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: ../includes/sidebar-init.php:8
+msgid "Located at the right side of pages."
+msgstr ""
+
+#: ../includes/sidebar-init.php:19
+msgid "Located at the bottom of pages."
+msgstr ""
+
+#: ../includes/theme-function.php:129
+msgid "Thumbnail"
+msgstr ""
+
+#: ../includes/theme-function.php:150
+msgid "None"
+msgstr ""
+
+#: ../includes/theme-function.php:174
+msgid "Show All "
+msgstr ""
+
+#: ../includes/theme-function.php:390
+msgid "&larr;"
+msgstr ""
+
+#: ../includes/theme-function.php:391
+msgid "&rarr;"
+msgstr ""
+
+#: ../includes/theme-function.php:646
+#, php-format
+msgid "<span class=\"author\">%1$s</span>"
+msgstr ""
+
+#: ../includes/theme-function.php:649
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../includes/theme-function.php:659
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: ../includes/theme-init.php:41
+msgid "Slides"
+msgstr ""
+
+#: ../includes/theme-init.php:42
+msgid "Slide"
+msgstr ""
+
+#: ../includes/theme-init.php:71
+msgid "Portfolio"
+msgstr ""
+
+#: ../includes/theme-init.php:72
+msgid "Porfolio Item"
+msgstr ""
+
+#: ../includes/theme-init.php:103
+msgid "Testimonial"
+msgstr ""
+
+#: ../includes/theme-init.php:128
+msgid "Services"
+msgstr ""
+
+#: ../includes/theme-init.php:153
+msgid "FAQs"
+msgstr ""
+
+#: ../includes/theme-init.php:154
+msgid "FAQ"
+msgstr ""
+
+#: ../includes/theme-init.php:176
+msgid "Our Team"
+msgstr ""
+
+#: ../includes/theme-init.php:177
+msgid "Person"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:18
+msgid "Portfolio Options"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:24
+msgid "Format"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:25
+msgid "Choose post format that most fit your needs. "
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:32
+msgid "Date"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:33
+msgid "Input project end date. "
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:39
+msgid "Client"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:40
+msgid "Input project owner name. "
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:46
+#: ../includes/theme-teammeta.php:31
+#: ../includes/theme-testimeta.php:38
+msgid "Info"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:47
+msgid "Additional info for this portfolio item."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:53
+#: ../includes/theme-slidermeta.php:31
+#: ../includes/theme-testimeta.php:31
+msgid "URL"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:54
+msgid "Input the project URL (external link)"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:64
+msgid "Image Uploader"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:80
+#: ../includes/theme-postmeta.php:98
+msgid "Video Settings"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:85
+#: ../includes/theme-portfoliometa.php:118
+#: ../includes/theme-postmeta.php:71
+#: ../includes/theme-postmeta.php:103
+msgid "Title"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:86
+#: ../includes/theme-postmeta.php:104
+msgid "Input the video title (for playlist)."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:90
+#: ../includes/theme-portfoliometa.php:123
+#: ../includes/theme-postmeta.php:76
+#: ../includes/theme-postmeta.php:108
+msgid "Artist"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:91
+#: ../includes/theme-postmeta.php:109
+msgid "Input the video artist (for playlist)."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:95
+#: ../includes/theme-postmeta.php:113
+msgid "Video format"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:96
+#: ../includes/theme-postmeta.php:114
+msgid "Choose video format."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:102
+#: ../includes/theme-postmeta.php:120
+msgid "Video URL"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:103
+#: ../includes/theme-postmeta.php:121
+msgid "Input the video URL."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:113
+#: ../includes/theme-postmeta.php:66
+msgid "Audio Settings"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:119
+#: ../includes/theme-postmeta.php:72
+msgid "Input the audio title (for playlist)."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:124
+#: ../includes/theme-postmeta.php:77
+msgid "Input the audio artist (for playlist)."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:128
+#: ../includes/theme-postmeta.php:81
+msgid "Audio format"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:129
+#: ../includes/theme-postmeta.php:82
+msgid "Choose audio format."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:135
+#: ../includes/theme-postmeta.php:88
+msgid "Audio URL"
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:136
+#: ../includes/theme-postmeta.php:89
+msgid "Input the audio URL."
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:171
+msgid "Please choose desired Portfolio Format and fill additional fields. "
+msgstr ""
+
+#: ../includes/theme-portfoliometa.php:234
+msgid "Please upload an image using the button below. Your images should be not thess than 620px width. Selecting post type \"Slideshow\" or \"Grid Gallery\" you will make the Featured Image to appear among others. "
+msgstr ""
+
+#: ../includes/theme-postmeta.php:12
+msgid "Quote Settings"
+msgstr ""
+
+#: ../includes/theme-postmeta.php:17
+msgid "The Quote"
+msgstr ""
+
+#: ../includes/theme-postmeta.php:18
+msgid "Put your quote in this field."
+msgstr ""
+
+#: ../includes/theme-postmeta.php:29
+msgid "Link Settings"
+msgstr ""
+
+#: ../includes/theme-postmeta.php:34
+msgid "The URL"
+msgstr ""
+
+#: ../includes/theme-postmeta.php:35
+msgid "Insert the URL you wish to link to."
+msgstr ""
+
+#: ../includes/theme-postmeta.php:45
+msgid "Image Settings"
+msgstr ""
+
+#: ../includes/theme-postmeta.php:50
+msgid "Enable Lightbox"
+msgstr ""
+
+#: ../includes/theme-postmeta.php:51
+msgid "Check this to enable the lightbox."
+msgstr ""
+
+#: ../includes/theme-slidermeta.php:18
+msgid "Slider Options"
+msgstr ""
+
+#: ../includes/theme-slidermeta.php:24
+msgid "Caption"
+msgstr ""
+
+#: ../includes/theme-slidermeta.php:25
+msgid "Input your caption for slide (HTML tags are allowed). "
+msgstr ""
+
+#: ../includes/theme-slidermeta.php:32
+msgid "Input the slide URL (can be external link)"
+msgstr ""
+
+#: ../includes/theme-slidermeta.php:62
+msgid "Please fill additional fields for slide. "
+msgstr ""
+
+#: ../includes/theme-teammeta.php:18
+msgid "Personal Options"
+msgstr ""
+
+#: ../includes/theme-teammeta.php:24
+msgid "Position"
+msgstr ""
+
+#: ../includes/theme-teammeta.php:25
+msgid "Input position of the person."
+msgstr ""
+
+#: ../includes/theme-teammeta.php:32
+msgid "Input additional info."
+msgstr ""
+
+#: ../includes/theme-teammeta.php:62
+msgid "Please fill additional fields for person. "
+msgstr ""
+
+#: ../includes/theme-testimeta.php:18
+msgid "Testimonial Options"
+msgstr ""
+
+#: ../includes/theme-testimeta.php:25
+msgid "Input author's name. "
+msgstr ""
+
+#: ../includes/theme-testimeta.php:32
+msgid "Input author's URL."
+msgstr ""
+
+#: ../includes/theme-testimeta.php:39
+msgid "Input author's additional info."
+msgstr ""
+
+#: ../includes/theme-testimeta.php:69
+msgid "Please fill additional fields for testimonial. "
+msgstr ""
+
+#: ../includes/post-formats/audio.php:5
+#: ../includes/post-formats/gallery.php:8
+#: ../includes/post-formats/image.php:7
+#: ../includes/post-formats/link.php:8
+msgid "Permalink to:"
+msgstr ""
+
+#: ../includes/post-formats/post-meta.php:5
+msgid "Posted in:"
+msgstr ""
+
+#: ../includes/post-formats/post-meta.php:5
+msgid "at"
+msgstr ""
+
+#: ../includes/post-formats/post-meta.php:5
+msgid "by"
+msgstr ""
+
+#: ../includes/post-formats/post-nav.php:7
+msgid "&laquo; Older Entries"
+msgstr ""
+
+#: ../includes/post-formats/post-nav.php:10
+msgid "Newer Entries &raquo;"
+msgstr ""
+
+#: ../includes/post-formats/related-posts.php:28
+msgid "Related Posts"
+msgstr ""
+
+#: ../includes/post-formats/social-share.php:27
+msgid "Tweet this article"
+msgstr ""
+
+#: ../includes/theme_shortcodes/tinymce/dialog.php:23
+msgid "Shortcode Options"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:81
+#: ../includes/widgets/my-flickr-widget.php:70
+msgid "Title:"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:82
+msgid "1st banner path:"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:83
+msgid "1st banner Link:"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:85
+msgid "2nd banner path:"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:86
+msgid "2nd banner Link:"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:88
+msgid "3rd banner path:"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:89
+msgid "3rd banner Link:"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:91
+msgid "4th banner path:"
+msgstr ""
+
+#: ../includes/widgets/my-banners-widget.php:92
+msgid "4th banner Link:"
+msgstr ""
+
+#: ../includes/widgets/my-comment-widget.php:6
+#: ../includes/widgets/my-comment-widget.php:7
+msgid "My - Recent Comments"
+msgstr ""
+
+#: ../includes/widgets/my-comment-widget.php:14
+msgid "My Recent Comments"
+msgstr ""
+
+#: ../includes/widgets/my-comment-widget.php:47
+msgid "Go to this comment"
+msgstr ""
+
+#: ../includes/widgets/my-flickr-widget.php:72
+msgid "Flickr ID:"
+msgstr ""
+
+#: ../includes/widgets/my-flickr-widget.php:73
+msgid "Images count:"
+msgstr ""
+
+#: ../includes/widgets/my-flickr-widget.php:74
+msgid "Link Text:"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:7
+msgid "Show custom posts"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:9
+msgid "My - Advanced Cycle"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:181
+msgid "Posts type"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:201
+msgid "Number of posts to show"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:208
+msgid "Sort by"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:224
+msgid "Reverse sort order (ascending)"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:230
+msgid "Show number of comments"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:237
+msgid "Show meta"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:243
+msgid "Container class"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:244
+msgid "(default: \"featured_custom_posts\")"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:249
+msgid "Post title"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:253
+msgid "Show post title"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:259
+msgid "Date as title <span style=\"font-size:11px; color:#999;\">(\"[mm-dd-yyyy]\")</span>"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:266
+msgid "Excerpt"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:270
+msgid "Show post excerpt"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:275
+msgid "Excerpt length (words):"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:282
+msgid "Excerpt as link"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:289
+msgid "More link"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:293
+msgid "Show \"More link\""
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:299
+#: ../includes/widgets/my-posts-type-widget.php:346
+msgid "Link text"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:300
+msgid "(default: \"Read more\")"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:305
+msgid "Link class"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:306
+msgid "(default: \"link\")"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:311
+msgid "Thumbnail dimensions"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:316
+msgid "Show post thumbnail"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:332
+msgid "Thumbnail as link"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:337
+msgid "Link to all posts"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:341
+msgid "Show global link to all posts"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:347
+msgid "(default: \"View all\")"
+msgstr ""
+
+#: ../includes/widgets/my-posts-type-widget.php:352
+msgid "Link URL"
+msgstr ""
+
+#: ../includes/widgets/my-recent-posts.php:134
+msgid "Category Slug:"
+msgstr ""
+
+#: ../includes/widgets/my-recent-posts.php:136
+msgid "Post format:"
+msgstr ""
+
+#: ../includes/widgets/my-recent-posts.php:150
+msgid "Post order:"
+msgstr ""
+
+#: ../includes/widgets/my-recent-posts.php:160
+msgid "Posts per page:"
+msgstr ""
+
+#: ../includes/widgets/my-recent-posts.php:166
+msgid "Link Url:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:6
+msgid "Link to your social networks."
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:7
+msgid "My - Social Networks"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:121
+msgid "Facebook"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:123
+msgid "Facebook URL:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:126
+msgid "Facebook label:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:131
+msgid "Twitter"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:132
+msgid "Twitter URL:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:134
+msgid "Twitter label:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:139
+msgid "Flickr"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:140
+msgid "Flickr URL:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:142
+msgid "Flickr label:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:147
+msgid "RSS feed"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:148
+msgid "RSS feed:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:150
+msgid "RSS label:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:155
+msgid "Linkedin"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:156
+msgid "Linkedin URL:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:158
+msgid "Linkedin label:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:163
+msgid "Delicious"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:164
+msgid "Delicious URL:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:166
+msgid "Delicious label:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:171
+msgid "Youtube"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:172
+msgid "Youtube URL:"
+msgstr ""
+
+#: ../includes/widgets/my-social-widget.php:174
+msgid "Youtube label:"
+msgstr ""
+
+#: ../includes/widgets/my-twitter-widget.php:59
+msgid "Twitter Name:"
+msgstr ""
+
+#: ../includes/widgets/my-twitter-widget.php:60
+msgid "Twitts Number:"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:5
+msgid "Use this widget to add a vCard"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:6
+msgid "My - vCard"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:33
+msgid "vCard"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:98
+msgid "Title (optional):"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:102
+msgid "Street Address:"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:106
+msgid "City/Locality:"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:110
+msgid "State/Region:"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:114
+msgid "Zipcode/Postal Code:"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:118
+msgid "Telephone:"
+msgstr ""
+
+#: ../includes/widgets/my-vcard-widget.php:122
+msgid "Email:"
+msgstr ""
+

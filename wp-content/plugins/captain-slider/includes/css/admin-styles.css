@@ -1,0 +1,8 @@
+/* Hide Date Select Menu From Showing */
+#posts-filter .tablenav select[name=m] {
+    display: none;
+}
+
+#ctslider_post_thumb {
+	width: 15%;
+}

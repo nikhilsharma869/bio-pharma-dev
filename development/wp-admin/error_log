@@ -1,0 +1,4 @@
+[14-Jun-2014 05:50:26 UTC] PHP Warning:  Creating default object from empty value in /home3/biophar4/public_html/development/wp-content/plugins/iflychat/iflychat.php on line 256
+[14-Jun-2014 05:50:37 UTC] PHP Warning:  Creating default object from empty value in /home3/biophar4/public_html/development/wp-content/plugins/iflychat/iflychat.php on line 256
+[16-Jun-2014 18:08:48 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home3/biophar4/public_html/development/wp-content/themes/bio-pharma/functions.php on line 180
+[16-Jun-2014 18:08:48 UTC] PHP Parse error:  syntax error, unexpected ''twentyfourte' (T_ENCAPSED_AND_WHITESPACE), expecting ')' in /home3/biophar4/public_html/development/wp-content/themes/bio-pharma/functions.php on line 253

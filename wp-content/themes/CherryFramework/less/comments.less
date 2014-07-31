@@ -1,0 +1,202 @@
+/* #Comments
+================================================== */
+
+.comment-holder {
+  padding: 0;
+  margin: 0 0 2em;
+}
+
+/* Comment Heading */
+.comments-h {  
+  padding: 0;
+  margin: 0;
+}
+
+/* Comment List */
+.comment-list {
+  position: relative;
+  overflow: hidden;
+  margin:0;
+  padding:0;
+  list-style-type:none;
+}
+  .comment {
+    overflow:hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background:none;
+    list-style-type:none;
+    text-transform:none;
+  }
+  .odd {
+
+  }
+  .even {
+
+  }
+  .comment .comment-body {
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 20px;
+		border: 1px solid #eee;
+    background: #eee;
+    zoom: 1;
+  }
+  .comment.bypostauthor .comment-body {
+    background: #fafafa;
+  }
+    .comment .comment-body p {
+    }
+  .author-comment {
+
+  }
+  .comment-author {
+    float: left;
+    margin: 0 20px 0 0;
+  }
+  .comment-author .author {
+    display: block;
+    padding-top: 6px;
+    width:65px;
+    text-align:center;
+    text-transform:capitalize;
+    font-weight: bold;
+    font-size:12px;
+  }
+  .comment-text {
+
+  }
+	
+	/* Comment meta */
+  .comment-meta {
+    float: right;
+  }
+
+		/* Reply */
+    .reply {
+      float: right;
+      margin-left: 28px;
+    }
+    .reply a {
+      display:inline-block;
+      text-decoration:none !important;
+    }
+     .reply a:hover {
+      
+    }
+
+  .waiting-for-approval {
+
+  }
+
+ #trackbacks {
+
+ }
+  li.trackback {
+
+  }
+ p#no-comments {
+
+ }
+
+  .allowed_tags {
+    padding:15px;
+    background:#eee;
+    color:#666;
+    font-size:11px;
+    font-family:"Courier New", Courier, monospace;
+  }
+  .allowed_tags strong {
+    font-family:Tahoma, Geneva, sans-serif;
+  }
+  #respond {
+    padding-top: 25px;
+    & h3 {
+    }
+  }
+  .cancel-comment-reply a {
+    
+  }
+  .cancel-comment-reply a:hover {
+    
+  }
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) {
+    .comment-list ul.children {
+      margin: 0;
+    } 
+  }
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) {
+    .comment-list ul.children {
+      margin: 0;
+    }  
+  }
+
+
+/* Comment form */
+#commentform {
+  
+}
+  #commentform p.field {
+    margin-bottom:10px;
+  }
+    #commentform small {
+      color:#8b8b8b;
+    }
+  #commentform label {
+    display:block;
+  }
+  #commentform input[type="text"] { 
+    margin: 0;
+    padding: 6px;
+    width: 288px;
+  }
+  #commentform input[type="submit"] {
+    
+  }
+  #commentform input[type="submit"]:hover {
+    
+  }
+  #commentform textarea {
+    overflow:auto;
+    margin: 0;
+    min-width: 530px;
+    min-height:230px;
+    max-width: 530px;
+    width: 530px;
+    height:230px;
+  }
+
+  /* Large desktop */
+  @media (min-width: 1200px) {
+    #commentform {
+    }
+  }
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) {
+    #commentform textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+  }
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) {
+    #commentform input[type="text"] {
+      width: 100%;
+      height: 30px;
+      box-sizing: border-box;
+    }
+    #commentform textarea {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+  }

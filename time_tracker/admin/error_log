@@ -1,0 +1,9 @@
+[10-Jun-2014 01:48:16 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 11
+[10-Jun-2014 01:48:16 America/Chicago] PHP Warning:  mysql_select_db(): Access denied for user 'hashour'@'localhost' (using password: NO) in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 12
+[10-Jun-2014 01:48:16 America/Chicago] PHP Warning:  mysql_select_db(): A link to the server could not be established in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 12
+[10-Jun-2014 01:48:27 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 11
+[10-Jun-2014 01:48:27 America/Chicago] PHP Warning:  mysql_select_db(): Access denied for user 'hashour'@'localhost' (using password: NO) in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 12
+[10-Jun-2014 01:48:27 America/Chicago] PHP Warning:  mysql_select_db(): A link to the server could not be established in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 12
+[10-Jun-2014 01:48:41 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 11
+[10-Jun-2014 01:48:41 America/Chicago] PHP Warning:  mysql_select_db(): Access denied for user 'hashour'@'localhost' (using password: NO) in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 12
+[10-Jun-2014 01:48:41 America/Chicago] PHP Warning:  mysql_select_db(): A link to the server could not be established in /home4/hashour/public_html/PINOYTUNIDAD.COM/time_tracker/admin/main.php on line 12
