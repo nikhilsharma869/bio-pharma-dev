@@ -1,5 +1,4 @@
 <?php
-include "configs/path.php";
 include "function.php";
 ?>
 <?php
