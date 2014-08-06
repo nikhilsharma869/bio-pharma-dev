@@ -1,2 +1,1 @@
-This is the development repository for bio-pharma.com
-Add auto pull.
+This is the development repository for bio-pharma.com!
