@@ -1,8 +1,10 @@
 <?php 
+$current_page = "job"; 
 
+include "configs/config.php"; 
 include "includes/header.php"; 
 
-CheckLogin();
+//CheckLogin();
 
 	$row_settings=mysql_fetch_array(mysql_query("select * from ".$prev."paypal_settings where 1"));
 

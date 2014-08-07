@@ -200,7 +200,7 @@ function chktype()
 </script>
 
 
-
+<div id="loginPage">
  <form onsubmit="return validateLogin(this);" id="login_form" name="login_form" method="POST" action="">
   
 
@@ -215,9 +215,9 @@ function chktype()
 	
 	<table width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
   <tbody><tr>
-    <td width="16%"></td>
+    <!--<td width="16%"></td>
     <td width="40%"><h3 lang="en">Sign in to <?=$dotcom_site?></h3></td>
-    <td width="19%">&nbsp;</td>
+    <td width="19%">&nbsp;</td>-->
     <td width="19%"><div>
       <p><span lang="en"><?=$lang['NOT_REGISTER_YET']?></span>?<br>
         <a href="<?=$vpath;?>signup.html"><span lang="en"><?=$lang['SIGNUP_NOW']?></span>!</a></p>
@@ -240,29 +240,46 @@ function chktype()
   <input type="hidden" value="1" name="hiddLogin">
 
   <input type="hidden" value="<?=$_GET[referer2]?>" name="referer2">
-<div class="register-form">&nbsp;&nbsp;</div>
 
-<div class="register-form"><p><span lang="en"><?=$lang['USER_EMAIL']?></span>:</p>
-<input type="text" id="username" name="username" style="background:url(images/user1.jpg) 0 50% no-repeat; padding-left:28px;" class="reg_input" <?php if ($_COOKIE['cookname']) { ?> value="<?=$_COOKIE['cookname']?>" <?php } ?>></div>
-
-<div class="register-form"><p><span lang="en"><?=$lang['PASSWORD']?></span>:</p>
-<input type="password" id="password" name="password" style="background:url(images/lock.jpg) 0 50% no-repeat; padding-left:30px;" class="reg_input" <?php if ($_COOKIE['password']) { ?> value="<?=$_COOKIE['password']?>" <?php } ?>></div>
+<div class="height20"></div>
+<div class="register-form" style="font-size:17.3px;">Log in and get to work</div>
+<div class="height20"></div><div class="height20"></div>
 
 <div class="register-form">
-<input type="checkbox" name="remember" id="remember" value="1" <?php if (($_COOKIE['cookname']) && $_COOKIE['password']) { echo 'checked'; } ?> >Remember Me!</div>
-
-
-
-
+<input type="text" id="username" name="username" class="reg_input" <?php if ($_COOKIE['cookname']) { ?> value="<?=$_COOKIE['cookname']?>" <?php } ?> placeholder="Email"></div>
+<div class="height10"></div>
 
 <div class="register-form">
+<input type="password" id="password" name="password" class="reg_input" <?php if ($_COOKIE['password']) { ?> value="<?=$_COOKIE['password']?>" <?php } ?>  placeholder="Password"></div>
+<div class="height20"></div>
 
-
- 
-      <input type="submit" value="Sign in" name="sub" class="creatbnt"><br clear="all">
-
-        <a lang="en" class="link" onclick="return hs.htmlExpand(this, { objectType: 'iframe'} )" href="forget_password.php"><?=$lang['FORGOT_YOUR_PASS']?></a>
+<div class="register-form">
+    <div style="width:35%; float:left;">
+    	<input type="submit" value="&nbsp;&nbsp;&nbsp;Log in&nbsp;&nbsp;&nbsp;" name="sub" class="creatbnt"><br clear="all">
+	</div>
+    <div style="width:50%; float:left;color:#FFF; padding-top:5px;">
+	    <input type="checkbox" name="remember" id="remember" value="1" <?php if (($_COOKIE['cookname']) && $_COOKIE['password']) { echo 'checked'; } ?> >&nbsp;Remember me next time
+	</div>
 </div>
+
+<div class="register-form" id="forgetPass">
+    <a lang="en" class="link" onclick="return hs.htmlExpand(this, { objectType: 'iframe'} )" href="forget_password.php">Forgot Your Password?</a>
+</div>
+
+<div class="height20"></div>
+<div class="register-form" id="forgetPass">
+    <a lang="en" class="link" href="#">Join Bio Pharma</a>
+</div>
+
+<div class="height20"></div>
+<div class="height20"></div><div class="height10"></div>
+<div class="register-form" id="forgetPass">
+    <a lang="en" class="link" href="#">Terms</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
+    <a lang="en" class="link" href="#">FAQ</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a lang="en" class="link" href="#">Support</a>
+</div>
+
+
 
 </div>   
 <!--Register Form End-->
@@ -273,7 +290,6 @@ function chktype()
 </div>
 
 </form>
-
-<div style="clear:both; height:10px;"></div>
+</div><!--LoginPage DIV-->
 
 <?php include 'includes/footer.php';?>
