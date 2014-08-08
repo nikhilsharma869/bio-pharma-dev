@@ -1,7 +1,4 @@
-<?php 
-include "configs/path.php";
-
-$current_page = "home"; ?>
+<?php $current_page = "home"; ?>
 
 <?php include ('includes/header.php'); ?>
 
@@ -9,10 +6,11 @@ $current_page = "home"; ?>
 
 <?php include ('country.php'); ?>
 
-<?php 
-include 'includes/banner.php'; 
-include 'includes/logo-stripe.php';
-?>
+<?php include 'includes/banner.php'; ?>
+
+
+
+
 
 <style>
 
@@ -252,34 +250,12 @@ include 'includes/logo-stripe.php';
 
 <div class="main_div">
 
-<div class="overlap_wrapper">
-	<div class="big_search">
-    	<div class="big_search_inner">
-        	<input type="text" placeholder="Search Categories" class="input_txtbox" name="">
-            
-            <div class="drop_style">All Categories</div>
-            <select class="input_drop" name="">
-           		 <option>Subject Matter Experts (Professionals)</option>
-                  <option>Projects</option>
-                   <option>Skills</option>
-            </select>
-            <input type="button" class="big_srch" name="">
-            
-        </div>
-       
-    </div>
-    <ul>
-    	<li><a href="#">Post my Project</a></li>
-        <li><a style="background:#be202e;" href="#">Are you an SME? Join Now</a></li>
-    </ul>
-</div>
+
 
     <div class="option_section">
 
-        <h3 class="get_job_hdr">Services offered by our Subject Matter Expert (SMEs)!
-        <br /><font>View available services by category</font>
-        </h3>
-		
+        <h3 class="get_job_hdr">Find talented <span style="color:#07b3b8;">Subject Matter Expert</span> ready to...</h3>
+
 
 
         <?php
@@ -298,7 +274,7 @@ include 'includes/logo-stripe.php';
 
                 <div class="talentbox">
 
-                    <div class="ImgSec"><img src="<?= $vpath . $cat_row['cat_logo'] ?>" style="width: 174px; height: 140px;" /></div>
+                    <div class="ImgSec"><img src="<?= $vpath . $cat_row['cat_logo'] ?>" style="width: 174px; height: 156px;" /></div>
 
                     <div class="talentlink"><a href="#" style="color: #fff"><?= ucfirst($cat_row['cat_name']) ?></a></div>
 
@@ -336,7 +312,7 @@ include 'includes/logo-stripe.php';
 
         ?>
 
-        <!--<input type="button"  class="viewCatBtn" value="View All Categorie" onclick="javascript: window.location = '<?= $vpath ?>find-talents/'" />-->
+        <input type="button"  class="viewCatBtn" value="View All Categorie" onclick="javascript: window.location = '<?= $vpath ?>find-talents/'" />
 
 
 
@@ -522,7 +498,9 @@ if ($_SESSION[lang_id]) {
 
         <div class="ClientLft">
 
-            <h2>Talent knows no boundaries.</h2>
+            <h2>Talent knows<br />
+
+                no boundaries.</h2>
 
             <p>Skills, integrity, and amazing results make
 
@@ -585,41 +563,20 @@ if ($_SESSION[lang_id]) {
 <div class="TestiAreaDiv">
 
     <div class="main_div2">
-    
-<h3 class="get_job_hdr get_job_hdr_white">How it Works<br><font>Easily hire Subject Matter Experts (SMEs), Manage Projects, and Pay for work</font></h3>
+
 
 
         <div class="HowItSecArea">
 
             <div class="HowSec1">
 
-                <div class="WorkIconarea"><img src="images/howitwork_icon1.png"></div>
+                <div class="WorkIconarea"><img src="images/howitwork_icon.png" /></div>
 
-                <h1>Hire Subject Matter Experts</h1>
+                <h1>How It Works</h1>
 
-                <p>Search our database to find the
-specific services you need.</p>
+                <p>Hire, manage, and pay<br />an online Subject Matter Expert</p>
 
-                <!--<a href="<?php echo $vpath;?>howitworks.html"><input type="button" class="learnmore_btn" value="Learn More"/></a>-->
-
-            </div>
-
-
-
-            <div class="blk_area"></div><!--blank area div-->
-
-
-
-            <div class="HowSec1">
-
-                <div class="WorkIconarea"><img src="images/moneyback_icon1.png"></div>
-
-                <h1>Manage Projects</h1>
-
-                <p>Use the Work Room to keep
-everything on track.</p>
-
-                <!--<a href="<?php echo $vpath;?>moneyback.html"><input type="button" class="learnmore_btn" value="Learn More"/></a>-->
+                <a href="<?= $vpath ?>howitworks.html"><input type="button" class="learnmore_btn" value="Learn More"/></a>
 
             </div>
 
@@ -631,14 +588,31 @@ everything on track.</p>
 
             <div class="HowSec1">
 
-                <div class="WorkIconarea"><img src="images/solution_icon1.png"></div>
+                <div class="WorkIconarea"><img src="images/moneyback_icon.png" /></div>
 
-                <h1>Pay for Work</h1>
+                <h1>Money Back Guarnted</h1>
 
-                <p>Pay only for work you approve.
-100% PCI Compliant Gateway.</p>
+                <p>Love the work<br />or get your money back.</p>
 
-               <!-- <a href="<?php echo $vpath;?>enterpricesolution.html"><input type="button" class="learnmore_btn" value="Learn More"/></a>-->
+                <a href="<?= $vpath ?>moneyback.html"><input type="button" class="learnmore_btn" value="Learn More"/></a>
+
+            </div>
+
+
+
+            <div class="blk_area"></div><!--blank area div-->
+
+
+
+            <div class="HowSec1">
+
+                <div class="WorkIconarea"><img src="images/solution_icon.png" /></div>
+
+                <h1>Enterprice Solution</h1>
+
+                <p>Go big and<br />get more done—fast.</p>
+
+                <a href="<?= $vpath ?>enterpricesolution.html"><input type="button" class="learnmore_btn" value="Learn More"/></a>
 
             </div>
 
@@ -648,73 +622,106 @@ everything on track.</p>
 
 
 
-        
-    </div>
+        <h3 class="get_job_hdr">what <span style="color:#05b6bc;">people say</span> about us</h3>
 
-</div>
+        <?php
 
+        $i = 1;
 
-<div style="background:#fff;" class="TestiAreaDiv">
+        $tstmqry = mysql_query("SELECT * FROM `" . $prev . "testimonial` WHERE `status`='Y' ORDER BY RAND() LIMIT 2");
 
-    <div class="main_div3">
+        while ($tstrow = mysql_fetch_assoc($tstmqry)) {
 
-        <h3 class="get_job_hdr get_job_hdr_new">What <span style="color:#2272ba">People Say</span> About Us</h3>
+            ?>
 
-        
-            <div class="testimonilas1">
+            <div class="testimonilas<?= $i ?>">
 
-                <div style="border-radius: 51.5px;overflow: hidden;text-align: center;" class="TImg">
+                <div class="TImg" style="border-radius: 51.5px;overflow: hidden;text-align: center;">
 
-                    <img width="104px" height="104px" src="<?php echo $vpath;?>viewimage.php?img=testimonial_images/photo1.png&amp;width=106&amp;height=106">
+                    <img src="<?= $vpath . 'viewimage.php?img=' . $tstrow['picture'] ?>&width=106&height=106" height="104px" width="104px" />
 
                 </div>
 
                 <div class="testTextArea">
 
-                    <h3>Somnath</h3>
+                    <h3><?= ucwords($tstrow['client_name']) ?></h3>
 
-                    <h4>March 27, 2014</h4>
+                    <h4><?= date('F d, Y', strtotime($tstrow['post_date'])) ?></h4>
 
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus
-                        
-                            <a style="color: #fda006;" href="<?php echo $vpath;?>alltestimonial.html#testimonial11"> View Details</a>
+                    <p><?= substr($tstrow['comment'], 0, 105); ?>
 
-                            
+                        <?php
+
+                        if (strlen($tstrow['comment']) > 105) {
+
+                            ?>
+
+                            <a href="<?= $vpath ?>alltestimonial.html#testimonial<?= $tstrow['testi_id'] ?>" style="color: #fda006;"> View Details</a>
+
+                            <?php
+
+                        }
+
+                        ?>
+
                     </p>
 
                 </div>
 
             </div>
 
-            
-            <div class="testimonilas2">
+            <?php
 
-                <div style="border-radius: 51.5px;overflow: hidden;text-align: center;" class="TImg">
+            $i++;
 
-                    <img width="104px" height="104px" src="<?php echo $vpath;?>viewimage.php?img=testimonial_images/1400665792.JPG&amp;width=106&amp;height=106">
+        }
 
-                </div>
+        ?>
 
-                <div class="testTextArea">
-
-                    <h3>Swarup Malgope</h3>
-
-                    <h4>May 21, 2014</h4>
-
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                        
-                    </p>
-
-                </div>
-
-            </div>
-
-            
-       <div class="viewbtn_wrapper"> <input type="button" onclick="javascript: window.location = '<?php echo $vpath;?>alltestimonial.html'" value="View All Testimonial" class="viewCatBtn"></div>
+        <input type="button"  class="viewCatBtn" value="View All Testimonial" onclick="javascript: window.location = '<?= $vpath ?>alltestimonial.html'" />
 
     </div>
 
 </div>
+
+
+
+
+
+
+
+<div class="ClientLogoARea"><!--Client logo 100% area-->
+
+    <!--<div class="main_div2">
+
+        <div class="MoreThenARea">
+
+            <h3 class="get_job_hdr2">More than <span style="color:#05b6bc;">1 million companies</span> use BEE lANCER </h3>
+
+            <div class="ClientLogoSec">
+
+                <img src="images/c_logo1.jpg" class="c_logoimg" />
+
+                <img src="images/c_logo2.jpg" class="c_logoimg" />
+
+                <img src="images/c_logo3.jpg" class="c_logoimg" />
+
+                <img src="images/c_logo4.jpg" class="c_logoimg" />
+
+                <img src="images/c_logo5.jpg" class="c_logoimg"/>
+
+                <img src="images/c_logo1.jpg" class="c_logoimg" />
+
+            </div>
+
+        </div>
+
+    </div>-->
+
+</div>
+
+
+
 
 
 
