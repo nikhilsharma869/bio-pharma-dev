@@ -195,6 +195,10 @@ function chktype()
 
 }
 
+function openLinkedinLogin() {
+	window.open('/includes/linkedin.php', 'linkedin_login', 'resizable=no,width=780,height=640');
+}
+
 
 
 </script>
@@ -259,7 +263,8 @@ function chktype()
 
 
  
-      <input type="submit" value="Sign in" name="sub" class="creatbnt"><br clear="all">
+      <input type="submit" value="Sign in" name="sub" class="creatbnt">
+      <input type="button" value="Log in with Linkedin" name="login_linkedin" onclick="openLinkedinLogin();" class="login_linkedin_btn"><br clear="all">
 
         <a lang="en" class="link" onclick="return hs.htmlExpand(this, { objectType: 'iframe'} )" href="forget_password.php"><?=$lang['FORGOT_YOUR_PASS']?></a>
 </div>
