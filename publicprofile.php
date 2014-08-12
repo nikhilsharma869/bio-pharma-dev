@@ -132,13 +132,110 @@ if (!empty($row_user[logo])) {
 
                     </div>
                     <div class="myproblockleft">
+                        <strong style="padding:12px 0; display:block;"><?= 'Languages' ?></strong>
+                        <p>
+                            <?php 
+                            $lang_q = "select languages from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+                            $res_lang = mysql_query($lang_q);
+                            echo @mysql_result($res_lang,0,"languages");
+                            ?>
+                        </p>
+
+
+                    </div>
+                    <!-- <div class="myproblockleft">
                         <strong style="padding:12px 0; display:block;"><?= $lang['WORK_EXP'] ?></strong>
                         <p><?= $row_user['work_experience'] ?></p>
 
 
-                    </div>
+                    </div> -->
+
+                    
                 </div>
 
+            </div>
+            <div class="myproheading"><h3><?= $lang['WORK_EXP'] ?></h3></div>
+            <div class="myproblock">                
+                <?php
+                    $exp_q = "select experience from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+
+                    $res_exp = mysql_query($exp_q);
+                    $data_exps = @mysql_result($res_exp,0,"experience");
+                    $data_exps = json_decode($data_exps);
+                    // echo "<pre>";
+                    // var_dump($data_exps);
+                    for($i=0;$i<count($data_exps->values);$i++){
+                        ?>
+                        <p>
+                            <strong><?php echo $data_exps->values[$i]->title.' at '.$data_exps->values[$i]->company->name; ?></strong><br />
+                            <span style="font-size:12px;">
+                                <?php echo date("F Y", mktime(0, 0, 0, $data_exps->values[$i]->startDate->month, 1 , $data_exps->values[$i]->startDate->year)); ?> 
+                                -
+                                <?php if($data_exps->values[$i]->isCurrent) {
+                                    echo "Present";
+                                } else {
+                                    echo date("F Y", mktime(0, 0, 0, $data_exps->values[$i]->endDate->month, 1 , $data_exps->values[$i]->endDate->year)); 
+                                } ?>
+                            </span>
+                            <p style="font-size:14px; padding-left: 10px;">
+                                <?php if(isset($data_exps->values[$i]->summary)) { ?>
+                                <?php echo $data_exps->values[$i]->summary; ?>
+                                <?php } ?>
+                            </p>
+                        </p>
+                        <?php                        
+                    }
+                    
+                ?>                
+            </div>
+
+            <div class="myproheading"><h3><?= 'Skills' ?></h3></div>
+            <div class="myproblock">
+                <p>
+                    <?php
+                        $skill_q = "select skills from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+
+                        $res_skill = mysql_query($skill_q);
+                        $data_skills = @mysql_result($res_skill,0,"skills");
+                        $data_skills = explode(',', $data_skills);
+
+                        foreach ($data_skills as $skill) {
+                            $data_skill_name.= "<a class='skilslinks'>". $skill . '</a>  ';
+                        }
+                       
+                        $skill_name = $data_skill_name;
+                        echo $skill_name;
+                        
+                    ?>
+                </p>
+            </div>
+            <div class="myproheading"><h3><?= 'Educations' ?></h3></div>
+            <div class="myproblock">                
+                <?php
+                    $edu_q = "select educations from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+
+                    $res_edu = mysql_query($edu_q);
+                    $data_edus = @mysql_result($res_edu,0,"educations");
+                    $data_edus = json_decode($data_edus);
+                    // echo "<pre>";
+                    // var_dump($data_edus);
+                    for($i=0;$i<count($data_edus->values);$i++){
+                        ?>
+                        <p>
+                            <strong><?php echo $data_edus->values[$i]->schoolName; ?></strong><br />
+                            <span style="font-size:12px;">
+                                <?php if(isset($data_edus->values[$i]->startDate)) { ?>
+                                <?php echo $data_edus->values[$i]->startDate->year; ?>
+                                <?php } ?>
+                                <?php if(isset($data_edus->values[$i]->endDate)) { ?>
+                                <?php echo ' - '.$data_edus->values[$i]->endDate->year; ?>
+                                <?php } ?>
+                            </span>                            
+                        </p>
+                        <?php                        
+                    }
+                    
+                ?>                
             </div>
 
             <div class="myproheading"><h3><?= $lang['Category'] ?></h3></div>

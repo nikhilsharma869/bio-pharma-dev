@@ -189,13 +189,15 @@ function chktype()
 
    
 
-   
 
 	
 
 }
 
 
+function openLinkedinLogin() {
+	window.open('/includes/linkedin.php', 'linkedin_login', 'resizable=no,width=780,height=640');
+}
 
 </script>
 
@@ -236,13 +238,16 @@ function chktype()
 <div class="register-form">
 <input type="password" id="password" name="password" class="reg_input" <?php if ($_COOKIE['password']) { ?> value="<?=$_COOKIE['password']?>" <?php } ?>  placeholder="Password"></div>
 <div class="height20"></div>
-
+	    
+<div class="register-form">
+	<input type="checkbox" name="remember" id="remember" value="1" <?php if (($_COOKIE['cookname']) && $_COOKIE['password']) { echo 'checked'; } ?> >&nbsp;Remember me next time
+</div>
 <div class="register-form">
     <div style="width:35%; float:left;">
     	<input type="submit" value="&nbsp;&nbsp;&nbsp;Log in&nbsp;&nbsp;&nbsp;" name="sub" class="creatbnt"><br clear="all">
 	</div>
-    <div style="width:50%; float:left;color:#FFF; padding-top:5px;">
-	    <input type="checkbox" name="remember" id="remember" value="1" <?php if (($_COOKIE['cookname']) && $_COOKIE['password']) { echo 'checked'; } ?> >&nbsp;Remember me next time
+    <div style="width:50%; float:left;">
+	    <input type="button" value="Log in with Linkedin" name="login_linkedin" onclick="openLinkedinLogin();" class="login_linkedin_btn"><br clear="all">
 	</div>
 </div>
 
