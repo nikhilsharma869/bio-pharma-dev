@@ -224,7 +224,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                     ?>style="-moz-box-shadow:  0px 0px 5px -1px #747474;
                                          -webkit-box-shadow: 0px 0px 5px -1px #747474;
                                          box-shadow:         0px 0px 5px -1px #747474;background: none;"<? } ?>>
-                                     <?php /*;
+                                     
                                      <div class="topBlock">
                                         <div class="topMobileMenu">
                                             <button>Primary Menu</button>
@@ -232,48 +232,41 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                         </div>
                                         <div class="topBlockLeft">
                                             <ul>
-                                                <li><a href="http://bio-pharma.com/news/">News</a></li>
-                                                <li><a href="http://bio-pharma.com/blog/">Blog</a></li>    
-                                                <li><a href="javascript:alert('Coming Soon!');">People</a></li>    
-                                                <li><a href="javascript:alert('Coming Soon!');">White Papers</a></li>    
-                                                <li><a href="javascript:alert('Coming Soon!');">Strategic Partners</a></li>    
-                                            </ul>                	
+                                                <li><a href="<?php echo $vpath;?>about-us/">About Us</a></li>
+                                                <li><a href="javascript:void(0);">Management Consulting</a></li>    
+                                                <li><a href="javascript:void(0);">Industrial Training</a></li>    
+                                            </ul>                   
                                         </div>
                                 
                                         <div class="topBlockRight">
-                                            <a class="login" href="http://bio-pharma.com/login/">Login</a>
-                                            <a class="login" href="http://bio-pharma.com/signup.html">Signup</a>
-                                            <a class="icons" href="javascript:alert('Coming Soon!');"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/question-mark.png"></a>
-                                            <a class="icons" href="javascript:alert('Coming Soon!');"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/settings.png"></a>
+                                            <a class="login" href="<?php echo $vpath;?>login.html">Sign in</a>
                                         </div>
                                     </div>
                                     
                                     <div class="header-main">
                                         <div class="logo">
-                                        <a href="http://bio-pharma.com/"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/logo.png"></a>
+                                        <a href="<? $vpath?>"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/logo.png"></a>
                                         </div>
                                         <nav role="navigation" class="site-navigation primary-navigation" id="primary-navigation">
                                             <!--<button class="menu-toggle"> Primary Menu</button>
                                             <a href="#content" class="screen-reader-text skip-link">Skip to content</a>-->
                                             <div class="menu-main-nav-container">
-                                            	<ul class="nav-menu" id="menu-main-nav">
-                                                	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="http://bio-pharma.com/bio-pharma/about-us/">About Us</a></li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="http://bio-pharma.com/management-consulting/">Management Consulting</a></li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="http://bio-pharma.com/industrial-training/">Industrial Training</a></li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14" id="menu-item-14"><a href="http://bio-pharma.com/talent-sourcing/">Talent Sourcing</a></li>
+                                                <ul class="nav-menu" id="menu-main-nav">
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="<?php echo $vpath;?>Jobs/">Find Project</a></li>
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>find-talents/">Find SME</a></li>
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>howitworks.html">How it Works</a></li>
                                                 </ul>
                                             </div>
-                                    	</nav>
+                                        </nav>
                                     </div>
                                     
-                                    <?php */?>
-                                    <div class="topnav">
+                                    <!--<div class="topnav">
                                         <div class="main_div">
                                             <div class="logo"><a href="<?= $vpath; ?>"><img src="<?= $vpath; ?>images/logo.png" alt="" title="Freelancer4less" border="0" /></a></div>
-                                            <!--add new div 21-03-14-->
+                                            
 
                                             <div class="TopRhtSec">
-                                                <div class="hdr_top_rht" style="width:auto;"><!--add_21-03-14_headertopright-->
+                                                <div class="hdr_top_rht" style="width:auto;">
 
                                                     <div style="<?php if ($_SESSION['user_id'] != "") {
                                     ?>min-width:240px;<?php } else { ?>min-width:402px;<?php } ?>">
@@ -344,7 +337,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                             </div>
                                             <div class="clr"></div>                          
                                         </div>
-                                    </div>
+                                    </div>-->
                                     
                                     <!--start_header-->
                                     <div class="header">
