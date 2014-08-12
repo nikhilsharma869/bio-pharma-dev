@@ -1,4 +1,3 @@
-<!--5, August 2014-->
 <?php
 include "configs/path.php";
 include "function.php";
