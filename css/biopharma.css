@@ -156,34 +156,164 @@
 .topBlockRight .icons{ float:right; margin-right:20px;}
 
 
+.logoStrip {
+    background: url("../images/logoStrip_bg.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 100%;
+	float:left;
+	margin-bottom:50px;
+}
+#logoStripPanel {
+    margin: auto;
+    width: 85%;
+}
+#logoStripPanel #logos {
+    border: 2px solid #cccccc;
+    float: left;
+    height: 100%;
+    margin-left: 2%;
+    margin-top: 0.5%;
+    padding-left: 1%;
+}
+#logoStripPanel #logos ul {
+    margin: 0;
+    padding: 0;
+}
+#logoStripPanel #logos li {
+    display: inline-block;
+    float: left;
+    list-style: none outside none;
+    margin-right: 20px;
+}
+#loved_by {
+    float: left;
+}
+#be_our_buddy {
+    float: left;
+    margin-left: 50px;
+}
+#logoStripPanel #social {
+    border: 2px solid #cccccc;
+    float: left;
+    height: 100%;
+    margin-left: 1%;
+    margin-top: 0.5%;
+    padding-left: 1%;
+}
+#logoStripPanel #social ul {
+    margin: 0;
+    padding: 0;
+}
+#logoStripPanel #social li {
+    display: inline-block;
+    float: left;
+    list-style: none outside none;
+    margin-right: 10px;
+}
 
+.overlap_wrapper {
+	margin:auto;
+    width:70%;
+}
+.big_search {
+    background: url("../images/trans_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    padding: 4px;
+    width: 100%;
+}
+.big_search_inner {
+    background: none repeat scroll 0 0 #fff;
+    float: left;
+    width: 100%;
+}
+.big_search_inner .input_txtbox {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #b7b7b7 -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-style: none solid none none;
+    border-width: medium 2px medium medium;
+    color: #a1a1a1;
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 12px 0;
+    padding: 12px 20px;
+    width: 55%;
+}
+.drop_style {
+    border: medium none;
+    color: #8a8a8a;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px 0;
+    padding: 16px 20px;
+    width: 18%;
+}
+.big_search_inner .input_drop {
+    border: medium none;
+    margin: 12px -195px;
+    opacity: 0;
+    padding: 19px 20px;
+    position: absolute;
+    width: 22%;
+}
+.big_srch {
+    background: url("../images/big_btn.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    cursor: pointer;
+    float: right;
+    height: 81px;
+    width: 134px;
+}
+.overlap_wrapper ul {
+    float: left;
+    margin: 55px 0 0 161px;
+    padding: 0;
+}
+.overlap_wrapper ul li {
+    float: left;
+    list-style: none outside none;
+}
+.overlap_wrapper ul li a {
+    background: none repeat scroll 0 0 #2272ba;
+    box-shadow: 1px 2px 6px 1px rgba(36, 36, 36, 1);
+    font-size: 23px;
+    font-weight: bold;
+    margin-right: 10px;
+    padding: 10px 20px;
+}
 
+.option_section{float:left; padding-top:40px; margin:0 10px 55px!important;}
 
 /*Footer*/
-.site-footer{width:100%; margin:auto; float:left;}
+.site-footer{width:100%; margin:auto; float:left; background:none repeat scroll 0 0 #414042;}
 
 #footerHouse{
 	float:left; width:43.8%;background-color: #414042;
 }
 #footerHouse img{width:100%;}
 #footer_main{
-    float: right;
-    width: 56.2%;
+	margin:24px auto;
+    width:65%;
 }
 .footer_main{
-	margin-top:24px;
 	background-color: #414042;
+	width:100%;
 	float:left;
 }
 
 #footer_block{
-	float: left;
-	margin-left: 5%;
-	margin-top: 2.8%;
-	width: 35%;
+	float:left;
+	width: 100%;
+	margin-left:65px;
+	margin-bottom:20px;
 }
 #footer_block .siteInfo, #footer_block .siteInfo a{ color:#FFF; margin-top:20px; line-height:15px; font-size:13px;}
-#footer_block .siteInfo{float:left; width:100%;}
+#footer_block .siteInfo{float:left; width:30%;}
 #footer_block .siteInfo img{float:left; margin-right:10px;}
 #footer_block .siteInfo input{ padding:10px; margin-right:2px;}
 .subscribe_to_us{width:40%!important;}
@@ -191,7 +321,7 @@
 #footer_main .copyright{border-top:2px solid #575758; float:left; width:85%;color:#FFF;
 	font-size: 62%;;
 	margin-top:1%;
-	padding-top:1%;
+	padding-top:20px;
 	margin-left:5%;
 	padding-bottom:1.8%;
 }

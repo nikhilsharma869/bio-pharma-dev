@@ -1,26 +1,24 @@
-<footer role="contentinfo" class="site-footer" id="colophon">
-			<div id="footerHouse"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/footer-house.jpg" style="height: 281px;"></div>
+<footer id="colophon" class="site-footer" role="contentinfo">
+			<!--<div id="footerHouse"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/footer-house.jpg" style="height: 281px;"></div>-->
 			<div id="footer_main">
             <div class="footer_main">
             	<div id="footer_block">
-                	<a href="#"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/contactus.jpg"></a>
-                    <div class="siteInfo">
+                    <div class="siteInfo" style="width:30%;">
                     	<img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/icon-home.jpg">
                         10480 Little Patuxent, Parkway<br>
                         Columbia, MD 21044
                     </div>
-                    <div class="siteInfo">
+                    <div class="siteInfo" style="width:25%;">
                     	<img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/icon-phone.jpg">
                         410 980 2823
                     </div>
-                    <div class="siteInfo">
+                    <div class="siteInfo" style="width:25%;">
                     	<img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/icon-mail.jpg">
                         <a href="mailto:support@bio-pharma.com">support@bio-pharma.com</a>
                     </div>
                 </div>
                 
-                <div class="subscribe_to_us" id="footer_block">
-                	<a href="#"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/subscribe.jpg"></a>
+                <!--<div id="footer_block" class="subscribe_to_us">
                     <div class="siteInfo">
                     	Receive the most recent industry updates and<br>
 						benchmarks by simply subscribing with us!
@@ -28,15 +26,14 @@
                     <div class="siteInfo">
                     	<input type="text" placeholder="Email">&nbsp;<a href="javascript:alert('Try later');">Subscribe Now!</a>
                     </div>
-                </div>
+                </div>-->
                 
                 <div class="copyright">
-                	Bio-Pharma &copy; 2014&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;Privacy Policy &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href='<?=$vpath?>/Timetracker.zip'>Download Software</a>
+                	Bio-Pharma &copy; 2014&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;Privacy Policy
                     
                     <ul>
                     	<li><a href="javascript:alert('Coming Soon!');">Talent Sourcing</a></li>
                     	<li><a href="javascript:alert('Coming Soon!');">Management Consulting</a></li>
-                    	<li><a href="javascript:alert('Coming Soon!');">Talent Sourcing</a></li>
                     	<li><a href="javascript:alert('Coming Soon!');">Ask an Expert</a></li>
                     	<li><a href="javascript:alert('Coming Soon!');">Industrial Training</a></li>
                     	<li><a href="javascript:alert('Coming Soon!');">Jobs</a></li>
