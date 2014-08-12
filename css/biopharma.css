@@ -220,6 +220,7 @@
     float: left;
     padding: 4px;
     width: 100%;
+	margin-top:50px;
 }
 .big_search_inner {
     background: none repeat scroll 0 0 #fff;
