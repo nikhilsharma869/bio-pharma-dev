@@ -270,7 +270,7 @@ if (!empty($row_user[logo])) {
                     
                 ?>                
             </div>
-            <div class="myproheading"><h3><?= 'Recommend' ?></h3></div>
+            <div class="myproheading"><h3><?= 'Recommendations' ?></h3></div>
             <div class="myproblock">                
                 <?php
                     $edu_rec = "select recommendations from " . $prev . "user_profile where user_id=" . $row_user[user_id];
