@@ -124,7 +124,25 @@ if (!empty($row_user[logo])) {
 
                         </div>
                     </div>
+                    <?php 
+                        $lang_dob = "select dateofbirth from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+                        $res_dob = mysql_query($lang_dob);
+                        $dob = json_decode(@mysql_result($res_dob,0,"dateofbirth"));
+                        if(!empty($dob)) { ?>
+                            <div class="myproblockleft">
+                                <strong style="padding:12px 0; display:block;"><?= 'Date Of Birth' ?></strong>
+                                <p>                                    
+                                  <?php 
+                                    echo date("F", mktime(0, 0, 0, $dob->month, 1 , 0));
+                                    echo " ".$dob->day." ";
+                                    if(isset($dob->year)) {
+                                        echo date("Y", mktime(0, 0, 0, 0, 1, $dob->year));
+                                    } 
+                                  ?>
+                                </p>                    
 
+                            </div>
+                    <?php } ?>
                     <div class="myproblockleft">
                         <strong style="padding:12px 0; display:block;"><?= $lang['CM_PRFL'] ?></strong>
                         <p><?= $row_user['profile'] ?></p>
@@ -143,6 +161,21 @@ if (!empty($row_user[logo])) {
 
 
                     </div>
+                    <?php 
+                        $lang_ins = "select interests from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+                        $res_ins = mysql_query($lang_ins);
+                        $interests = json_decode(@mysql_result($res_ins,0,"interests"));
+                        if(!empty($interests)) { ?>
+                            <div class="myproblockleft">
+                                <strong style="padding:12px 0; display:block;"><?= 'Interests' ?></strong>
+                                <p>                                    
+                                  <?php 
+                                    echo $interests;
+                                  ?>
+                                </p>                    
+
+                            </div>
+                    <?php } ?>
                     <!-- <div class="myproblockleft">
                         <strong style="padding:12px 0; display:block;"><?= $lang['WORK_EXP'] ?></strong>
                         <p><?= $row_user['work_experience'] ?></p>
@@ -230,6 +263,29 @@ if (!empty($row_user[logo])) {
                                 <?php if(isset($data_edus->values[$i]->endDate)) { ?>
                                 <?php echo ' - '.$data_edus->values[$i]->endDate->year; ?>
                                 <?php } ?>
+                            </span>                            
+                        </p>
+                        <?php                        
+                    }
+                    
+                ?>                
+            </div>
+            <div class="myproheading"><h3><?= 'Recommend' ?></h3></div>
+            <div class="myproblock">                
+                <?php
+                    $edu_rec = "select recommendations from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+
+                    $res_rec = mysql_query($edu_rec);
+                    $data_recs = @mysql_result($res_rec,0,"recommendations");
+                    $data_recs = json_decode($data_recs);
+                    // echo "<pre>";
+                    // var_dump($data_edus);
+                    for($i=0;$i<count($data_recs->values);$i++){
+                        ?>
+                        <p>
+                            <strong><?php echo $data_recs->values[$i]->recommender->firstName." ".$data_recs->values[$i]->recommender->lastName; ?></strong><br />
+                            <span style="font-size:12px;">
+                                <?php echo  $data_recs->values[$i]->recommendationText; ?>
                             </span>                            
                         </p>
                         <?php                        

@@ -70,6 +70,12 @@ for($i=0;$i<count($user->skills->values);$i++){
 }
 $skills = substr($skills,0,-2);
 
+
+if(isset($user->dateOfBirth)) {
+    $dateOfBirth = $user->dateOfBirth;
+} else {
+    $dateOfBirth = array();
+}
  
 
 
@@ -83,13 +89,16 @@ if($n>0){
     $ru=mysql_query($query_update_user);
 
     // $query_update_profile = "update ".$prev."user_profile set summary='" . $user->summary . "', experience='" . $positions . "', publications='" . $publications . "', languages='" . $languages . "', skills='" . $skills . "' where user_id=".@mysql_result($r,0,"user_id");
-    $query_update_profile = sprintf("update ".$prev."user_profile set summary='%s', experience='%s', publications='%s', languages='%s', skills='%s', educations='%s' where user_id='%s'",
+    $query_update_profile = sprintf("update ".$prev."user_profile set summary='%s', experience='%s', publications='%s', languages='%s', skills='%s', educations='%s', dateofbirth='%s', interests='%s', recommendations='%s' where user_id='%s'",
         mysql_real_escape_string($user->summary),
         mysql_real_escape_string(json_encode($user->positions)),
         mysql_real_escape_string($publications),
         mysql_real_escape_string($languages),
         mysql_real_escape_string($skills),
         mysql_real_escape_string(json_encode($user->educations)),
+        mysql_real_escape_string(json_encode($dateOfBirth)),
+        mysql_real_escape_string(json_encode($user->interests)),
+        mysql_real_escape_string(json_encode($user->recommendationsReceived)),
         @mysql_result($r,0,"user_id")
     );
     $rup=mysql_query($query_update_profile);
@@ -101,14 +110,17 @@ if($n>0){
     $ri = mysql_query($query_insert_user);
     
     // $query_insert_profile = "Insert into ".$prev."user_profile (user_id,summary,experience,publications,languages,skills,educations) values ('".mysql_insert_id()."','".$user->summary."','".$positions."','".$publications."','".$languages."','".$skills."')";
-    $query_insert_profile = sprintf("Insert into ".$prev."user_profile (user_id,summary,experience,publications,languages,skills,educations) values ('%s','%s','%s','%s','%s','%s','%s')",
+    $query_insert_profile = sprintf("Insert into ".$prev."user_profile (user_id,summary,experience,publications,languages,skills,educations,dateofbirth,interests,recommendations) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
         mysql_insert_id(),
         mysql_real_escape_string($user->summary),
         mysql_real_escape_string(json_encode($user->positions)),
         mysql_real_escape_string($publications),
         mysql_real_escape_string($languages),
         mysql_real_escape_string($skills),
-        mysql_real_escape_string(json_encode($user->educations))
+        mysql_real_escape_string(json_encode($user->educations)),
+        mysql_real_escape_string(json_encode($dateOfBirth)),
+        mysql_real_escape_string(json_encode($user->interests)),
+        mysql_real_escape_string(json_encode($user->recommendationsReceived))
     );
     
     $rp = mysql_query($query_insert_profile); 
