@@ -79,16 +79,16 @@ $n=@mysql_num_rows($r);
   
 if($n>0){        
 
-    $query_update_user = "update ".$prev."user set ip='" . $_SERVER['REMOTE_ADDR'] . "', ldate='".$datetime."', profile='".$user->summary."', work_experience='".$positions."' where user_id=".@mysql_result($r,0,"user_id");
+    $query_update_user = "update ".$prev."user set ip='" . $_SERVER['REMOTE_ADDR'] . "', ldate='".$datetime."', profile='".mysql_real_escape_string($user->summary)."', work_experience='".mysql_real_escape_string($positions)."' where user_id=".@mysql_result($r,0,"user_id");
     $ru=mysql_query($query_update_user);
 
     // $query_update_profile = "update ".$prev."user_profile set summary='" . $user->summary . "', experience='" . $positions . "', publications='" . $publications . "', languages='" . $languages . "', skills='" . $skills . "' where user_id=".@mysql_result($r,0,"user_id");
     $query_update_profile = sprintf("update ".$prev."user_profile set summary='%s', experience='%s', publications='%s', languages='%s', skills='%s', educations='%s' where user_id='%s'",
-        $user->summary,
+        mysql_real_escape_string($user->summary),
         mysql_real_escape_string(json_encode($user->positions)),
-        $publications,
-        $languages,
-        $skills,
+        mysql_real_escape_string($publications),
+        mysql_real_escape_string($languages),
+        mysql_real_escape_string($skills),
         mysql_real_escape_string(json_encode($user->educations)),
         @mysql_result($r,0,"user_id")
     );
@@ -97,21 +97,21 @@ if($n>0){
 
 } else {
 
-    $query_insert_user = "Insert into ".$prev."user (email,username,password,fname,lname,status,reg_date,ldate,profile,ip,work_experience) values ('".$user->emailAddress."','".$user->emailAddress."','".md5($user->emailAddress)."','".$user->firstName."','".$user->lastName."','Y','".$datetime."','".$datetime."','".$user->summary."','".$_SERVER['REMOTE_ADDR']."','".$positions."')";
+    $query_insert_user = "Insert into ".$prev."user (email,username,password,fname,lname,status,reg_date,ldate,profile,ip,work_experience) values ('".$user->emailAddress."','".$user->emailAddress."','".md5($user->emailAddress)."','".$user->firstName."','".$user->lastName."','Y','".$datetime."','".$datetime."','".mysql_real_escape_string($user->summary)."','".$_SERVER['REMOTE_ADDR']."','".mysql_real_escape_string($positions)."')";
     $ri = mysql_query($query_insert_user);
     
     // $query_insert_profile = "Insert into ".$prev."user_profile (user_id,summary,experience,publications,languages,skills,educations) values ('".mysql_insert_id()."','".$user->summary."','".$positions."','".$publications."','".$languages."','".$skills."')";
     $query_insert_profile = sprintf("Insert into ".$prev."user_profile (user_id,summary,experience,publications,languages,skills,educations) values ('%s','%s','%s','%s','%s','%s','%s')",
         mysql_insert_id(),
-        $user->summary,
+        mysql_real_escape_string($user->summary),
         mysql_real_escape_string(json_encode($user->positions)),
-        $publications,
-        $languages,
-        $skills,
+        mysql_real_escape_string($publications),
+        mysql_real_escape_string($languages),
+        mysql_real_escape_string($skills),
         mysql_real_escape_string(json_encode($user->educations))
     );
     
-    $rp = mysql_query($query_insert_profile);  
+    $rp = mysql_query($query_insert_profile); 
 
 
 }
