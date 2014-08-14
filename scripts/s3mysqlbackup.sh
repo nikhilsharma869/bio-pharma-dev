@@ -37,5 +37,5 @@ for db in $databases; do
 
 done;
 
-# Jobs a goodun
-echo -e "\e[1;32mJobs a goodun\e[00m"
+# Completed
+echo -e "\e[1;32mMYSQL Backup Task Complete!\e[00m"
