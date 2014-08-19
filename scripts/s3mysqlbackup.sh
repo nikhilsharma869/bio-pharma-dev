@@ -30,7 +30,7 @@ for db in $databases; do
 
   # Upload
   echo -e "  uploading..."
-  s3cmd put "$tmpfile" "$object"
+  s3cmd --config /root/.s3cfg put "$tmpfile" "$object"
 
   # Delete
   rm -f "$tmpfile"
