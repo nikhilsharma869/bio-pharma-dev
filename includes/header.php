@@ -245,7 +245,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                     
                                     <div class="header-main">
                                         <div class="logo">
-                                        <a href="<? $vpath?>"><img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/logo.png"></a>
+                                        <a href="<? $vpath?>"><img src="/images/logo.png"></a>
                                         </div>
                                         <nav role="navigation" class="site-navigation primary-navigation" id="primary-navigation">
                                             <!--<button class="menu-toggle"> Primary Menu</button>
