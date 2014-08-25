@@ -862,7 +862,8 @@ if($_REQUEST['keyword']!=''){
 $srt=@explode(" ",$_REQUEST['keyword']);
 if(count($srt)>0){
 foreach($srt as $val){
-$condser.= " and (".$prev."user.username like '%".$val."%' or ".$prev."user.fname like '%".$val."%'  or ".$prev."user.lname like '%".$val."%')";
+// $condser.= " and (".$prev."user.username like '%".$val."%' or ".$prev."user.fname like '%".$val."%'  or ".$prev."user.lname like '%".$val."%')";
+$condser.= " and (".$prev."user.username like '%".$val."%' or ".$prev."user.fname like '%".$val."%'  or ".$prev."user.lname like '%".$val."%' or ".$prev."user_profile.skills like '%".$val."%')";
 
 }
 if($condser){
@@ -875,12 +876,14 @@ $rec.=$condser;
 
 
 
-$sql1=mysql_query("select * from  ".$prev."user left join ".$prev."user_cats on ".$prev."user_cats.user_id=".$prev."user.user_id  where  ".$prev."user.status='Y'  and ".$prev."user_cats.user_id=".$prev."user.user_id  ".$cond2." $userond $rec group by ".$prev."user.user_id");
+// $sql1=mysql_query("select * from  ".$prev."user left join ".$prev."user_cats on ".$prev."user_cats.user_id=".$prev."user.user_id  where  ".$prev."user.status='Y'  and ".$prev."user_cats.user_id=".$prev."user.user_id  ".$cond2." $userond $rec group by ".$prev."user.user_id");
+$sql1=mysql_query("select * from  ".$prev."user left join ".$prev."user_profile on ".$prev."user_profile.user_id=".$prev."user.user_id  where  ".$prev."user.status='Y'  and ".$prev."user_profile.user_id=".$prev."user.user_id  ".$cond2." $userond $rec group by ".$prev."user.user_id");
 
 
 
 $total =@mysql_num_rows($sql1);
-
+// var_dump($total); exit();
+// var_dump("select * from  ".$prev."user left join ".$prev."user_profile on ".$prev."user_profile.user_id=".$prev."user.user_id  where  ".$prev."user.status='Y'  and ".$prev."user_profile.user_id=".$prev."user.user_id  ".$cond2." $userond $rec group by ".$prev."user.user_id"); exit();
 
 
 	
@@ -889,10 +892,12 @@ $total =@mysql_num_rows($sql1);
 
 if($_GET['page'])
 {
- $sql="select * from  ".$prev."user left join ".$prev."user_cats on ".$prev."user_cats.user_id=".$prev."user.user_id  where  status='Y' and ".$prev."user_cats.user_id=".$prev."user.user_id  ".$cond2." $userond $rec group by ".$prev."user.user_id limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."";
+ // $sql="select * from  ".$prev."user left join ".$prev."user_cats on ".$prev."user_cats.user_id=".$prev."user.user_id  where  status='Y' and ".$prev."user_cats.user_id=".$prev."user.user_id  ".$cond2." $userond $rec group by ".$prev."user.user_id limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."";
+ $sql="select * from  ".$prev."user left join ".$prev."user_profile on ".$prev."user_profile.user_id=".$prev."user.user_id  where  status='Y' and ".$prev."user_profile.user_id=".$prev."user.user_id  ".$cond2." $userond $rec group by ".$prev."user.user_id limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."";
 
 }else{	
-$sql="select * from  ".$prev."user left join ".$prev."user_cats on ".$prev."user_cats.user_id=".$prev."user.user_id  where  status='Y' and ".$prev."user_cats.user_id=".$prev."user.user_id   ".$cond2." $userond $rec group by ".$prev."user.user_id limit 0,".$no_of_records."";
+// $sql="select * from  ".$prev."user left join ".$prev."user_cats on ".$prev."user_cats.user_id=".$prev."user.user_id  where  status='Y' and ".$prev."user_cats.user_id=".$prev."user.user_id   ".$cond2." $userond $rec group by ".$prev."user.user_id limit 0,".$no_of_records."";
+$sql="select * from  ".$prev."user left join ".$prev."user_profile on ".$prev."user_profile.user_id=".$prev."user.user_id  where  status='Y' and ".$prev."user_profile.user_id=".$prev."user.user_id   ".$cond2." $userond $rec group by ".$prev."user.user_id limit 0,".$no_of_records."";
 }
 
 
@@ -1008,31 +1013,45 @@ while($d=@mysql_fetch_array($r))
             <?=$lang['TOP_SKILLS']?>
             :	
        <?
+       
+$skill_q = "select skills from " . $prev . "user_profile where user_id=" . $d[user_id];
 
-$skill_q="select c.cat_name,c.cat_id,c.parent_id from ".$prev."categories c inner join ".$prev."user_cats u on c.cat_id=u.cat_id where user_id=".$d[user_id];
+                        $res_skill = mysql_query($skill_q);
+                        $data_skills = @mysql_result($res_skill,0,"skills");
+                        $data_skills = explode(',', $data_skills);
 
-$res_skill=mysql_query($skill_q);
-$ca=0;
-while($data_skill=@mysql_fetch_array($res_skill))
+                        foreach ($data_skills as $skill) {
+                            $data_skill_name.= "<a href='browse-freelancers.php?keyword=".$skill."' class='skilslinks'>". $skill . '</a>  ';
+                        }
+                       
+                        $skill_name = $data_skill_name;
+                        echo $skill_name;
+                        $data_skill_name = "";
 
-{
-$ca++;
-$cs="";
-$more="";
-if($ca>6){
-$cs="hidecss showcss_".$d[user_id]."";
-$more='<a href="javascript:void(0)" onclick="showcat('.$d[user_id].')" id="more_'.$d[user_id].'" class="moreless">'.$lang['MORE'].'</a><a href="javascript:void(0)" onclick="hidecat('.$d[user_id].')" id="less_'.$d[user_id].'" style="display:none;" class="moreless">'.$lang['LESS'].'</a>';
-}
- $catnamesk=@languagechagevalue($data_skill['cat_id'],'cat_name','categories',$data_skill['cat_name']);
-	$data_cat_name.=  " <a class='skilslinks $cs' href='".$vpath."browse-freelancers/1/".$data_skill[cat_id]."/".$data_skill[parent_id]."/'>".$catnamesk.'</a> ';
+// $skill_q="select c.cat_name,c.cat_id,c.parent_id from ".$prev."categories c inner join ".$prev."user_cats u on c.cat_id=u.cat_id where user_id=".$d[user_id];
 
-}
+// $res_skill=mysql_query($skill_q);
+// $ca=0;
+// while($data_skill=@mysql_fetch_array($res_skill))
 
-$cat_name=$data_cat_name;
+// {
+// $ca++;
+// $cs="";
+// $more="";
+// if($ca>6){
+// $cs="hidecss showcss_".$d[user_id]."";
+// $more='<a href="javascript:void(0)" onclick="showcat('.$d[user_id].')" id="more_'.$d[user_id].'" class="moreless">'.$lang['MORE'].'</a><a href="javascript:void(0)" onclick="hidecat('.$d[user_id].')" id="less_'.$d[user_id].'" style="display:none;" class="moreless">'.$lang['LESS'].'</a>';
+// }
+//  $catnamesk=@languagechagevalue($data_skill['cat_id'],'cat_name','categories',$data_skill['cat_name']);
+// 	$data_cat_name.=  " <a class='skilslinks $cs' href='".$vpath."browse-freelancers/1/".$data_skill[cat_id]."/".$data_skill[parent_id]."/'>".$catnamesk.'</a> ';
 
-echo $cat_name."<div style='clear:both'></div>".$more;
+// }
 
-$data_cat_name="";
+// $cat_name=$data_cat_name;
+
+// echo $cat_name."<div style='clear:both'></div>".$more;
+
+// $data_cat_name="";
 
    ?>
 	   

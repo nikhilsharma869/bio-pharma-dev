@@ -80,7 +80,7 @@ jQuery.noConflict();
 <select name="select2" id="tech1" class="selectyze3" onChange="this.form.action=this.options[this.selectedIndex].value;">
   <option value="browse-freelancers.php" ><?=$lang['FIND_TALENT']?></option>
    <option value="sear_all_jobs.php" selected="selected" ><?=$lang['PROJECT_NAME']?></option>
-<option value="sear_all_jobs.php" ><?=$lang['SKILLS']?></option>
+<!-- <option value="sear_all_jobs.php" ><?=$lang['SKILLS']?></option> -->
 </select>
  <input name="keyword" id="keyword" type="text" size="20px" class="search_input" onblur="if(this.value=='')this.value='<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>';" onfocus="if(this.value=='<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>')this.value='';" style="width:250px;" value="<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>">
            <input name="submit2" type="submit" value="" class="search_bnt1">
@@ -270,7 +270,8 @@ endfor;
 $no_of_records=10;
 if($_REQUEST['keyword']!="" || $_REQUEST['keyword']=='Search Job')
 {
-$conds="(" .$prev ."projects.project rlike '".$_REQUEST['keyword']."' or " .$prev ."projects.description rlike '".$_REQUEST['keyword']."')";
+// $conds="(" .$prev ."projects.project rlike '".$_REQUEST['keyword']."' or " .$prev ."projects.description rlike '".$_REQUEST['keyword']."')";
+	$query[]="(" .$prev ."projects.project rlike '".$_REQUEST['keyword']."' or " .$prev ."projects.description rlike '".$_REQUEST['keyword']."' or " .$prev ."categories.cat_name rlike '".$_REQUEST['keyword']."' or " .$prev ."categories.cat_desc rlike '".$_REQUEST['keyword']."')";
 }
 $conds=$prev ."projects.status='".$_GET['projectStatus']."'";
 $conds=$prev ."projects.budgetmin='".$_REQUEST['budget_min']."'";
@@ -313,7 +314,8 @@ $i=30;
 
 if($_REQUEST['keyword']!="Search Job" && $_REQUEST['keyword'])
 	{
-	    $query[]="(" .$prev ."projects.project rlike '".$_REQUEST['keyword']."' or " .$prev ."projects.description rlike '".$_REQUEST['keyword']."')";
+	    // $query[]="(" .$prev ."projects.project rlike '".$_REQUEST['keyword']."' or " .$prev ."projects.description rlike '".$_REQUEST['keyword']."' or " .$prev ."categories.cat_name rlike '".$_REQUEST['keyword']."' or " .$prev ."categories.cat_desc rlike '".$_REQUEST['keyword']."')";
+	    $query[]="(" .$prev ."projects.project rlike '".$_REQUEST['keyword']."' or " .$prev ."projects.description rlike '".$_REQUEST['keyword']."' or " .$prev ."categories.cat_name rlike '".$_REQUEST['keyword']."' or " .$prev ."categories.cat_desc rlike '".$_REQUEST['keyword']."')";
 	}
 if($budget_min!="")
 	{
@@ -363,26 +365,26 @@ if($budget_max!="")
 	if(!empty($query))
 	{
 		$MyQuery = implode(" and ", $query);	
-	    $MyQuery = "where  " . $prev . "projects.id= ".$prev ."projects_cats.id and ".$MyQuery;	
+	    $MyQuery = "where  " . $prev . "projects.id= ".$prev ."projects_cats.id and ".$prev ."projects_cats.cat_id= ".$prev ."categories.cat_id and ".$MyQuery;	
 	}
 	else
 	{
-	 $MyQuery = "where  " . $prev . "projects.id= ".$prev ."projects_cats.id and " .$prev ."projects.status='open'";	
+	 $MyQuery = "where  " . $prev . "projects.id= ".$prev ."projects_cats.id and ".$prev ."projects_cats.cat_id= ".$prev ."categories.cat_id and " .$prev ."projects.status='open'";	
 	}
 	
-	 $query1="SELECT * FROM " . $prev . "projects,".$prev ."projects_cats  ".$MyQuery."    group by " . $prev . "projects.id ORDER BY " . $prev . "projects.date2 desc ";
+	 $query1="SELECT * FROM " . $prev . "projects,".$prev ."projects_cats,".$prev ."categories  ".$MyQuery."    group by " . $prev . "projects.id ORDER BY " . $prev . "projects.date2 desc ";
 	
 	$result1=mysql_query($query1);
 	$total_pages = @mysql_num_rows($result1);
 	
 	if($_GET['page'])
 	{
-		  $query="SELECT * FROM " . $prev . "projects,".$prev ."projects_cats  ".$MyQuery."    group by " . $prev . "projects.id ORDER BY " . $prev . "projects.date2 desc limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."";
+		  $query="SELECT * FROM " . $prev . "projects,".$prev ."projects_cats,".$prev ."categories  ".$MyQuery."    group by " . $prev . "projects.id ORDER BY " . $prev . "projects.date2 desc limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."";
 		
 	}
 	else
 	{	
-	 $query="SELECT * FROM " . $prev . "projects,".$prev ."projects_cats  ".$MyQuery."    group by " . $prev . "projects.id ORDER BY " . $prev . "projects.date2 desc limit 0,".$no_of_records."";
+	 $query="SELECT * FROM " . $prev . "projects,".$prev ."projects_cats,".$prev ."categories  ".$MyQuery."    group by " . $prev . "projects.id ORDER BY " . $prev . "projects.date2 desc limit 0,".$no_of_records."";
 	
 	}
 	$result=mysql_query($query);
@@ -427,7 +429,8 @@ if($budget_max!="")
 		
 	//////////////////////////////////////////// select bids //////////////////////////////////////////////////	
 
-			$rr=mysql_query("select " . $prev . "categories.* from " . $prev . "categories," . $prev . "projects_cats where " . $prev . "categories.cat_id=" . $prev . "projects_cats.cat_id and " . $prev . "projects_cats.id=" . $row[id]." and " . $prev . "categories.parent_id='".$row[main_cat_id]."' limit 3");
+			// $rr=mysql_query("select " . $prev . "categories.* from " . $prev . "categories," . $prev . "projects_cats where " . $prev . "categories.cat_id=" . $prev . "projects_cats.cat_id and " . $prev . "projects_cats.id=" . $row[id]." and " . $prev . "categories.parent_id='".$row[main_cat_id]."' limit 3");
+			$rr=mysql_query("select " . $prev . "categories.* from " . $prev . "categories," . $prev . "projects_cats where " . $prev . "categories.cat_id=" . $prev . "projects_cats.cat_id and " . $prev . "projects_cats.id=" . $row[id]." limit 3");
 
 			$txt="";
 

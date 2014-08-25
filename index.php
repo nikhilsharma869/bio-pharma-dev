@@ -251,16 +251,16 @@ include 'includes/logo-stripe.php';
 <div class="overlap_wrapper">
 	<div class="big_search">
     	<div class="big_search_inner">
-        	<input type="text" placeholder="Search Categories" class="input_txtbox" name="">
-            
+        	<form action="<?=$vpath?>sear_all_jobs.html"  method="POST" name="myform" id="myform">
+            <input type="text" placeholder="Search Categories" class="input_txtbox" name="keyword">            
             <div class="drop_style">All Categories</div>
-            <select class="input_drop" name="">
-           		 <option>Subject Matter Experts (Professionals)</option>
-                  <option>Projects</option>
-                   <option>Skills</option>
+            <select class="input_drop" name="" onChange="this.form.action=this.options[this.selectedIndex].value;">
+           		 <option value="browse-freelancers.php" ><?=$lang['FIND_TALENT']?></option>
+                  <option value="sear_all_jobs.php" selected="selected" ><?=$lang['PROJECT_NAME']?></option>
+                   <!-- <option>Skills</option> -->
             </select>
-            <input type="button" class="big_srch" name="">
-            
+            <input type="submit" class="big_srch" name="">
+            </form>
         </div>
        
     </div>

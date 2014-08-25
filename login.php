@@ -243,9 +243,9 @@ function openLinkedinLogin() {
 	<input type="checkbox" name="remember" id="remember" value="1" <?php if (($_COOKIE['cookname']) && $_COOKIE['password']) { echo 'checked'; } ?> >&nbsp;Remember me next time
 </div>
 <div class="register-form">
-    <div style="width:35%; float:left;">
+    <!-- <div style="width:35%; float:left;">
     	<input type="submit" value="&nbsp;&nbsp;&nbsp;Log in&nbsp;&nbsp;&nbsp;" name="sub" class="creatbnt"><br clear="all">
-	</div>
+	</div> -->
     <div style="width:50%; float:left;">
 	    <input type="button" value="Log in with Linkedin" name="login_linkedin" onclick="openLinkedinLogin();" class="login_linkedin_btn"><br clear="all">
 	</div>
