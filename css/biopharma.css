@@ -260,7 +260,7 @@
     opacity: 0;
     padding: 19px 20px;
     position: absolute;
-    width: 22%;
+    /*width: 22%;*/
 }
 .big_srch {
     background: url("../images/big_btn.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -269,6 +269,7 @@
     float: right;
     height: 81px;
     width: 134px;
+    text-indent: -99999px;
 }
 .overlap_wrapper ul {
     float: left;
