@@ -1,6 +1,14 @@
 <?php
 include "configs/path.php";
 include "function.php";
+if (isset($_SESSION['user_id'])) {
+    $row_user = mysql_fetch_array(mysql_query("select * from " . $prev . "user where user_id = '" . $_SESSION['user_id'] . "'"));
+    if (!empty($row_user[logo])) {
+        $temp_logo = $row_user[logo];
+    } else {
+        $temp_logo = "images/face_icon.gif";
+    }
+}
 ?>
 <?php
 //include("country.php");
@@ -241,6 +249,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                         if(isset($_SESSION['user_id'])){
                                             ?>
                                         <div class="topBlockRight">
+                                            <span style="float: left;"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=32&height=32" alt="" /></span>
                                             <a class="login" href="<?php echo $vpath;?>logout.html">Sign out</a>
                                         </div>
                                         <?php } else { ?>

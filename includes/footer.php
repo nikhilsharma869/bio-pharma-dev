@@ -65,4 +65,11 @@
  	height = height+3;
 	jQuery('#footerHouse img').height(height+"px");
  }
+
+ jQuery(document).ready(function(){
+    jQuery('.big_search_inner .input_drop').change(function() {
+        var txt = jQuery(this).find('option:selected').text();
+        jQuery('.big_search_inner .drop_style').text(txt);
+    })
+ })
 </script>

@@ -252,7 +252,7 @@ include 'includes/logo-stripe.php';
 	<div class="big_search">
     	<div class="big_search_inner">
         	<form action="<?=$vpath?>sear_all_jobs.html"  method="POST" name="myform" id="myform">
-            <input type="text" placeholder="Search Categories" class="input_txtbox" name="keyword">            
+            <input type="text" placeholder="Search by Name or Keyword" class="input_txtbox" name="keyword">            
             <div class="drop_style">All Categories</div>
             <select class="input_drop" name="" onChange="this.form.action=this.options[this.selectedIndex].value;">
            		 <option value="browse-freelancers.php" ><?=$lang['FIND_TALENT']?></option>
