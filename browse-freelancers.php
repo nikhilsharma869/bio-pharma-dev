@@ -311,32 +311,32 @@ jQuery.noConflict();
 <div class="profile_left">
 <div id="open-by-default-example" class="accordian" data-collapse>
  <?php
-  $f=0;
-   $rt=mysql_query("select cat_id,cat_name from " . $prev . "categories  where parent_id=0 and status='Y' order by cat_name");
-   while($p_f=@mysql_fetch_array($rt)){
-   echo ' <h3 class="open">'.languagechagevalue($p_f['cat_id'],'cat_name','categories',$p_f['cat_name']).'</h3>
-   <ul class="live-pro-list clearfix" >';
-   $r=mysql_query("select cat_id,cat_name from " . $prev . "categories  where parent_id='".$p_f['cat_id']."' and status='Y' order by cat_name");
-	while($d=mysql_fetch_array($r))
-	{
-	$f++;
+ //  $f=0;
+ //   $rt=mysql_query("select cat_id,cat_name from " . $prev . "categories  where parent_id=0 and status='Y' order by cat_name");
+ //   while($p_f=@mysql_fetch_array($rt)){
+ //   echo ' <h3 class="open">'.languagechagevalue($p_f['cat_id'],'cat_name','categories',$p_f['cat_name']).'</h3>
+ //   <ul class="live-pro-list clearfix" >';
+ //   $r=mysql_query("select cat_id,cat_name from " . $prev . "categories  where parent_id='".$p_f['cat_id']."' and status='Y' order by cat_name");
+	// while($d=mysql_fetch_array($r))
+	// {
+	// $f++;
 	
-	$catnm=$d['cat_name'];
-		if($_SESSION[lang_id])
-		{
-			$row_content_lang=mysql_fetch_array(mysql_query("select content from ".$prev."language_content where content_field_id='".$d['cat_id']."' and table_name='categories' and field_name='cat_name' and lang_id='".$_SESSION[lang_id]."'"));					
-			$d['cat_name']=$row_content_lang['content'];
-		 }
+	// $catnm=$d['cat_name'];
+	// 	if($_SESSION[lang_id])
+	// 	{
+	// 		$row_content_lang=mysql_fetch_array(mysql_query("select content from ".$prev."language_content where content_field_id='".$d['cat_id']."' and table_name='categories' and field_name='cat_name' and lang_id='".$_SESSION[lang_id]."'"));					
+	// 		$d['cat_name']=$row_content_lang['content'];
+	// 	 }
 
 		?>
 							
-						<li ><a href='<?=$vpath?>browse-freelancers/1/<?=$d['cat_id']?>/<?=$p_f['cat_id']?>/' <? if($_GET['skills']==$d['cat_id']){?> class="active" <? }?> ><?php echo $d['cat_name'];?>&nbsp;</a></li>
+						<!-- <li ><a href='<?=$vpath?>browse-freelancers/1/<?=$d['cat_id']?>/<?=$p_f['cat_id']?>/' <? if($_GET['skills']==$d['cat_id']){?> class="active" <? }?> ><?php echo $d['cat_name'];?>&nbsp;</a></li> -->
 					<?php
 					
 		
-		}
-		echo '</ul>';
-	}
+	// 	}
+	// 	echo '</ul>';
+	// }
 	?>   
 
 <!--<h3 class='open'><?=$lang['WORK_REQUIRE']?></h3>
