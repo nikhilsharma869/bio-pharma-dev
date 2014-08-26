@@ -237,10 +237,17 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                                 <li><a href="javascript:void(0);">Industrial Training</a></li>    
                                             </ul>                   
                                         </div>
-                                
+                                        <?php
+                                        if(isset($_SESSION['user_id'])){
+                                            ?>
+                                        <div class="topBlockRight">
+                                            <a class="login" href="<?php echo $vpath;?>logout.html">Sign out</a>
+                                        </div>
+                                        <?php } else { ?>
                                         <div class="topBlockRight">
                                             <a class="login" href="<?php echo $vpath;?>login.html">Sign in</a>
                                         </div>
+                                        <?php } ?>
                                     </div>
                                     
                                     <div class="header-main">
