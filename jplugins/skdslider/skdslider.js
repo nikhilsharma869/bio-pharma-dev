@@ -65,13 +65,19 @@
 		   slides.each(function(){$(this).css({'float': 'left', 'display': 'block','position': 'relative'});});
 		   
 		   var totalWidth=element.outerWidth()*slides.size();
+		   var height = element.find('ul.slides li img').outerHeight();
+		   // var height = Math.round(element.outerHeight() / 2);
 		   element.find('ul.slides').css({'position': 'absolute', 'left': '0','width':totalWidth});
-		   slides.css({'width':element.outerWidth(),'height':element.outerHeight()});
+		   // slides.css({'width':element.outerWidth(),'height':element.outerHeight()});
+		   slides.css({'width':element.outerWidth(),'height':height});
 		   
 		   $( window ).resize(function() {
 			  var totalWidth=element.outerWidth()*slides.size();
+			  var height = element.find('ul.slides li img').outerHeight();
+			  // var height = Math.round(element.outerHeight() / 2);
 		      element.find('ul.slides').css({'position': 'absolute', 'left': '0','width':totalWidth});
-		      slides.css({'width':element.outerWidth(),'height':element.outerHeight()});
+		      // slides.css({'width':element.outerWidth(),'height':element.outerHeight()});
+		      slides.css({'width':element.outerWidth(),'height':height});
 		   });
 		}
 		

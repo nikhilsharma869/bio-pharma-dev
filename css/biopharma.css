@@ -429,8 +429,16 @@
 
 /* Banner anh strip logo */
 .banner-slider .skdslider {
-    height: 320px;
+    /*height: 320px;*/
     /*height: auto;*/
+}
+
+.banner-slider .skdslider ul.slides li img {
+    /*height: auto;*/
+}
+
+.banner-slider .skdslider:after {
+    padding-top: 25%;
 }
 
 .banner-strip {
