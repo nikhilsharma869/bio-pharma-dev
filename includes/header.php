@@ -62,8 +62,8 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                 <meta name="document-distribution" content="Global" />
                 <meta name="document-state" content="Dynamic" />
                 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-                    <script language="javascript" src="<?= $vpath; ?>js/jquery.js" ></script>
-                    <script language="javascript" src="<?= $vpath; ?>js/jquery-1.6.2.js" ></script>
+                    <script language="javascript" src="<?= $vpath; ?>js/jquery-1.11.1.min.js" ></script>
+                    <script language="javascript" src="<?= $vpath; ?>js/jquery-migrate-1.2.1.min.js" ></script>
                     <script language="javascript" src="<?= $vpath; ?>js/functions.js" ></script>
                     <script type="text/javascript">
                         function funonchangecategory(val)
@@ -80,7 +80,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                     <script src="<?= $vpath; ?>js/jquery.ui.widget.js"></script>
                     <script src="<?= $vpath; ?>js/jquery.ui.accordion.js"></script>
                     <script>
-                        $(function() {
+                        (function($) {
                             $("#accordion").accordion();
                         });
                     </script>
@@ -114,7 +114,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                             ?>
                             <script type="text/javascript" src="<?= $vpath ?>js/Selectyze.jquery.js"></script>
                             <script type="text/javascript">
-                        $(document).ready(function() {
+                        jQuery(document).ready(function($) {
                             $('.selectyze1').Selectyze({
                                 theme: 'skype'
                             });
@@ -249,7 +249,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                         if(isset($_SESSION['user_id'])){
                                             ?>
                                         <div class="topBlockRight">
-                                            <span style="float: left;"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=32&height=32" alt="" /></span>
+                                            <span style="float: left;"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=29&height=29" alt="" /></span>
                                             <a class="login" href="<?php echo $vpath;?>logout.html">Sign out</a>
                                         </div>
                                         <?php } else { ?>

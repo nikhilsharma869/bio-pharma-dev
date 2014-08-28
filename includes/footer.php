@@ -67,9 +67,33 @@
  }
 
  jQuery(document).ready(function(){
-    jQuery('.big_search_inner .input_drop').change(function() {
+    jQuery('.search-area .input_drop').change(function() {
         var txt = jQuery(this).find('option:selected').text();
-        jQuery('.big_search_inner .drop_style').text(txt);
-    })
+        jQuery('.search-area .drop_pseudo').text(txt);
+    });
+
+    setTimeout( getBoxHeight, 500);
+
+    function getBoxHeight() {
+        var catlist = jQuery('.categories-section .cat-list').find('.cat');
+        var catArr = new Array();
+        catlist.each(function(index,value){
+            jQuery(value).removeAttr('style');
+            catArr[index] = jQuery(value).innerHeight();
+        })
+        catArr.sort();
+        changeBoxHeight(catlist, catArr[0]);
+    }
+    function changeBoxHeight(catlist, height) {
+        catlist.each(function(index,value){
+            jQuery(value).height(height);
+        });
+    }
+
+    jQuery( window ).resize(function() {
+
+        getBoxHeight();
+    });
+
  })
 </script>
