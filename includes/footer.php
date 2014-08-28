@@ -93,7 +93,9 @@
         }
     });
 
-
+    jQuery('.mobile-menu').click(function(){
+        jQuery('.topBlockLeft ul').slideToggle('slow');
+    })
 
  })
 

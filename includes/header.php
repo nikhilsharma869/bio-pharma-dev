@@ -239,6 +239,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                               
                                         </div>
                                         <div class="topBlockLeft">
+                                            <span class="mobile-menu"></span>
                                             <ul>
                                                 <li><a href="<?php echo $vpath;?>about-us/">About Us</a></li>
                                                 <li><a href="javascript:void(0);">Management Consulting</a></li>    

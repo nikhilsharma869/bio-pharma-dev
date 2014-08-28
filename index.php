@@ -40,7 +40,7 @@ include 'includes/logo-stripe.php';
                     <p>Project Management</p>
                 </div>
                 <div class="cat-overlay">
-                    <a href="">Find FreeLancer</a>
+                    <a href="">Find Subject Matter Expert</a>
                 </div>
             </div>
             <div class="cat">
@@ -49,7 +49,7 @@ include 'includes/logo-stripe.php';
                     <p>Validation</p>
                 </div>
                 <div class="cat-overlay">
-                    <a href="">Find FreeLancer</a>
+                    <a href="">Find Subject Matter Expert</a>
                 </div>
             </div>
             <div class="cat">
@@ -58,7 +58,7 @@ include 'includes/logo-stripe.php';
                     <p>Calibration</p>
                 </div>
                 <div class="cat-overlay">
-                    <a href="">Find FreeLancer</a>
+                    <a href="">Find Subject Matter Expert</a>
                 </div>
             </div>
             <div class="cat">
@@ -67,7 +67,7 @@ include 'includes/logo-stripe.php';
                     <p>Regulatory Submissions</p>
                 </div>
                 <div class="cat-overlay">
-                    <a href="">Find FreeLancer</a>
+                    <a href="">Find Subject Matter Expert</a>
                 </div>
             </div>
             <div class="cat">
@@ -76,7 +76,7 @@ include 'includes/logo-stripe.php';
                     <p>Quality Assurance</p>
                 </div>
                 <div class="cat-overlay">
-                    <a href="">Find FreeLancer</a>
+                    <a href="">Find Subject Matter Expert</a>
                 </div>
             </div>
             <div class="cat">
@@ -85,7 +85,7 @@ include 'includes/logo-stripe.php';
                     <p>Process Improvement</p>
                 </div>
                 <div class="cat-overlay">
-                    <a href="">Find FreeLancer</a>
+                    <a href="">Find Subject Matter Expert</a>
                 </div>
             </div>
             <div class="cat">
@@ -94,7 +94,7 @@ include 'includes/logo-stripe.php';
                     <p>Commissioning</p>
                 </div>
                 <div class="cat-overlay">
-                    <a href="">Find FreeLancer</a>
+                    <a href="">Find Subject Matter Expert</a>
                 </div>
             </div>
             <div class="cat">
@@ -103,7 +103,7 @@ include 'includes/logo-stripe.php';
                     <p>Analytical Testing</p>
                 </div>
                 <div class="cat-overlay">
-                    <a href="">Find FreeLancer</a>
+                    <a href="">Find Subject Matter Expert</a>
                 </div>
             </div>
         </div>
