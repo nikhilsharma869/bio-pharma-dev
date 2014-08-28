@@ -74,22 +74,6 @@
 
     // setTimeout( getBoxHeight, 500);
 
-    function getBoxHeight() {
-        var catlist = jQuery('.categories-section .cat-list').find('.cat');
-        var catArr = new Array();
-        catlist.each(function(index,value){
-            jQuery(value).removeAttr('style');
-            catArr[index] = jQuery(value).innerHeight();
-        })
-        catArr.sort();
-        changeBoxHeight(catlist, catArr[7]);
-    }
-    function changeBoxHeight(catlist, height) {
-        catlist.each(function(index,value){
-            jQuery(value).height(height);
-        });
-    }
-
     jQuery( window ).resize(function() {
 
         getBoxHeight();
@@ -109,5 +93,23 @@
         }
     });
 
+
+
  })
+
+ function getBoxHeight() {
+        var catlist = jQuery('.categories-section .cat-list').find('.cat');
+        var catArr = new Array();
+        catlist.each(function(index,value){
+            jQuery(value).removeAttr('style');
+            catArr[index] = jQuery(value).innerHeight();
+        })
+        catArr.sort();
+        changeBoxHeight(catlist, catArr[7]);
+    }
+    function changeBoxHeight(catlist, height) {
+        catlist.each(function(index,value){
+            jQuery(value).height(height);
+        });
+    }
 </script>
