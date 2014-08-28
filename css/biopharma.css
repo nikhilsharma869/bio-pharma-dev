@@ -149,7 +149,7 @@
 
 .topBlockLeft{
 	background-color:#2272ba;
-	width:82%;
+	width:69%;
 	float:left;
 	text-align:right;
 	height:29px;
@@ -164,7 +164,7 @@
 
 .topBlockRight{
 	background-color:#f1f0f0;
-	width:18%;
+	width:31%;
 	float:right;
 	height:29px;
 }
