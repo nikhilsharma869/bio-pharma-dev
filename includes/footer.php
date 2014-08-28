@@ -82,7 +82,7 @@
             catArr[index] = jQuery(value).innerHeight();
         })
         catArr.sort();
-        changeBoxHeight(catlist, catArr[0]);
+        changeBoxHeight(catlist, catArr[7]);
     }
     function changeBoxHeight(catlist, height) {
         catlist.each(function(index,value){
@@ -93,6 +93,20 @@
     jQuery( window ).resize(function() {
 
         getBoxHeight();
+    });
+
+    jQuery('.cat').mouseenter(function(){
+        var overlay = jQuery(this).find('.cat-overlay');
+        if(overlay.is(':hidden')) {
+            overlay.show();
+        }
+    });
+
+    jQuery('.cat').mouseleave(function(){
+        var overlay = jQuery(this).find('.cat-overlay');
+        if(overlay.is(':visible')) {
+            overlay.hide();
+        }
     });
 
  })

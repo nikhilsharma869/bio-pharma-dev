@@ -63,7 +63,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_4.png" style="width: 44%; padding-top: 22px; padding-bottom: 14px;">
+                    <img src="images/homepage/logo_cat_4.png" style="width: 44%; padding-top: 9%; padding-bottom: 5%;">
                     <p>Regulatory Submissions</p>
                 </div>
                 <div class="cat-overlay">
@@ -72,7 +72,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_5.png" style="padding-top: 10px; padding-bottom: 3px;">
+                    <img src="images/homepage/logo_cat_5.png" style="padding-top: 5%;">
                     <p>Quality Assurance</p>
                 </div>
                 <div class="cat-overlay">
@@ -81,7 +81,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_6.png" style="width: 41%; padding-top: 17px;">
+                    <img src="images/homepage/logo_cat_6.png" style="width: 41%; padding-top: 7%;">
                     <p>Process Improvement</p>
                 </div>
                 <div class="cat-overlay">
@@ -99,7 +99,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_8.png" style="padding-top: 12px; padding-bottom: 3px;">
+                    <img src="images/homepage/logo_cat_8.png" style="padding-top: 6%;">
                     <p>Analytical Testing</p>
                 </div>
                 <div class="cat-overlay">
@@ -110,46 +110,48 @@ include 'includes/logo-stripe.php';
     </div>
 
     <div class="talents-section clear-fix">
-        <div class="talents-title">
-            <h1>Talent knows no boundaries.</h1>
-            <p>Skills, integrity, and amazing results make Subject Matter Expert universally awesome.</p>
-        </div>
-        <ul class="talents">
-            <?php
-
-            $uqrry = mysql_query("SELECT `user_id`, `username`, `fname`, `lname`, `city`, `country`, `logo` FROM `" . $prev . "user` WHERE `logo`!='' AND `status`='Y' ORDER BY RAND() LIMIT 4");
-
-            while ($urow = mysql_fetch_assoc($uqrry)) {
-
-                ?>
-
-                <li class="talent">
-
-                    <a href="<?= $vpath . 'publicprofile/' . $urow['username'] ?>/"><img src="<?= $vpath . 'viewimage.php?img=' . $urow['logo'] ?>&width=110&height=110" height="110" width="110" /></a>
-
-                    <p class="talent-fname"><?= ucfirst($urow['fname']) ?></p>
-                    <p class="talent-lname"><?= ucfirst($urow['lname']) ?></p>
-
-                    <p class="talent-country"><?php
-
-                        if ($urow['city'] != '') {
-
-                            echo ucfirst(strtolower($urow['city'])) . ', ';
-
-                        }
-
-                        echo ucfirst($country_array[$urow['country']]);
-
-                        ?></p>
-
-                </li>    
-
+        <div class="twrapper">
+            <div class="talents-title">
+                <h1>Talent knows no boundaries.</h1>
+                <p>Skills, integrity, and amazing results make Subject Matter Expert universally awesome.</p>
+            </div>
+            <ul class="talents">
                 <?php
 
-            }
+                $uqrry = mysql_query("SELECT `user_id`, `username`, `fname`, `lname`, `city`, `country`, `logo` FROM `" . $prev . "user` WHERE `logo`!='' AND `status`='Y' ORDER BY RAND() LIMIT 4");
 
-            ?>            
-        </ul>
+                while ($urow = mysql_fetch_assoc($uqrry)) {
+
+                    ?>
+
+                    <li class="talent">
+
+                        <a href="<?= $vpath . 'publicprofile/' . $urow['username'] ?>/"><img src="<?= $vpath . 'viewimage.php?img=' . $urow['logo'] ?>&width=110&height=110" height="110" width="110" /></a>
+
+                        <p class="talent-fname"><?= ucfirst($urow['fname']) ?></p>
+                        <p class="talent-lname"><?= ucfirst($urow['lname']) ?></p>
+
+                        <p class="talent-country"><?php
+
+                            if ($urow['city'] != '') {
+
+                                echo ucfirst(strtolower($urow['city'])) . ', ';
+
+                            }
+
+                            echo ucfirst($country_array[$urow['country']]);
+
+                            ?></p>
+
+                    </li>    
+
+                    <?php
+
+                }
+
+                ?>            
+            </ul>
+        </div>
     </div>
 
     <div class="howitworks-section clear-fix">
