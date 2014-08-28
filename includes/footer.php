@@ -72,7 +72,7 @@
         jQuery('.search-area .drop_pseudo').text(txt);
     });
 
-    setTimeout( getBoxHeight, 500);
+    // setTimeout( getBoxHeight, 500);
 
     function getBoxHeight() {
         var catlist = jQuery('.categories-section .cat-list').find('.cat');

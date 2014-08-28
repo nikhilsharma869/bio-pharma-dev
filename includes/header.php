@@ -219,7 +219,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                 return $pagename;
                             }
                             ?>
-                            <body>
+                            <body onload="getBoxHeight()">
                                 <?php
                                 if ($current_page == 'home') {
                                     echo('<div id="main">');

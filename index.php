@@ -36,7 +36,7 @@ include 'includes/logo-stripe.php';
         <div class="cat-list">
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_1.png">
+                    <img src="images/homepage/logo_cat_1.png" style="width: 35.1%;">
                     <p>Project Management</p>
                 </div>
                 <div class="cat-overlay">
@@ -45,7 +45,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_2.png" style="width: 35%;">
+                    <img src="images/homepage/logo_cat_2.png" style="width: 35.6%;">
                     <p>Validation</p>
                 </div>
                 <div class="cat-overlay">
@@ -54,7 +54,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_3.png" style="width: 46%;">
+                    <img src="images/homepage/logo_cat_3.png" style="width: 46.6%;">
                     <p>Calibration</p>
                 </div>
                 <div class="cat-overlay">
@@ -63,7 +63,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_4.png" style="width: 44%; padding-top: 9%; padding-bottom: 5%;">
+                    <img src="images/homepage/logo_cat_4.png" style="width: 44.4%; padding-top: 9.4%; padding-bottom: 5%;">
                     <p>Regulatory Submissions</p>
                 </div>
                 <div class="cat-overlay">
@@ -72,7 +72,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_5.png" style="padding-top: 5%;">
+                    <img src="images/homepage/logo_cat_5.png" style="padding-top: 5.3%;">
                     <p>Quality Assurance</p>
                 </div>
                 <div class="cat-overlay">
@@ -90,7 +90,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_7.png" style="width: 37%;">
+                    <img src="images/homepage/logo_cat_7.png" style="width: 37.4%;">
                     <p>Commissioning</p>
                 </div>
                 <div class="cat-overlay">
@@ -99,7 +99,7 @@ include 'includes/logo-stripe.php';
             </div>
             <div class="cat">
                 <div class="cat-show">
-                    <img src="images/homepage/logo_cat_8.png" style="padding-top: 6%;">
+                    <img src="images/homepage/logo_cat_8.png" style="padding-top: 5.6%;">
                     <p>Analytical Testing</p>
                 </div>
                 <div class="cat-overlay">
