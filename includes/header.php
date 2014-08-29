@@ -54,6 +54,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
             <!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
                 <meta name="document-class" content="Published" />
                 <meta name="document-classification" content="Website Buy Sale, Domain Buy Sale, Browse Jobs,Post Jobs" />
                 <meta name="document-rights" content="Copyrighted Work" />
