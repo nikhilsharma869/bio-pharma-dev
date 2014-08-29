@@ -540,7 +540,7 @@
     font-weight: bold;
     margin: 12px 0;
     padding: 5px 15px;
-    width: 58%;
+    width: 55%;
     font-family: 'CenturyGothicBold', serif;
 }
 
@@ -1071,9 +1071,9 @@
     }
 
     .search-area .drop_pseudo, .search-area select.input_drop {
-        right: 23%;
+        right: 22%;
         font-size: 11px;
-        width: 25%;
+        width: 27%;
         margin-top: 4%;
     }
 
@@ -1121,24 +1121,18 @@
     }
 }
 
+@media (max-width: 1112px) {
 
-
-@media (max-width: 568px) {
     .strip-wrapper {
-        height: 60px !important;
+        height: 60px;
     }
+
     .strip-wrapper .strip-socials ul li a img {
-        height: 55px !important;
+        height: 55px;
     }
 
     .strip-wrapper .strip-logos ul li a img {
-        height: 45px !important;
-    }
-}
-
-@media (min-width: 320px) and (max-width: 568px) {
-    .strip-wrapper {
-        height: 40px;
+        height: 45px;
     }
 
     .strip-wrapper > div > h3 {
@@ -1167,11 +1161,7 @@
 
     .strip-wrapper .strip-logos ul li:last-child > a {
         margin-right: 5px;
-    }
-
-    .strip-wrapper .strip-logos ul li a img {
-        height: 25px;
-    }
+    }    
 
     .strip-wrapper .strip-socials {
         width: 100%;
@@ -1186,9 +1176,74 @@
         float: none;
         margin: 0 auto;
         display: table;
+    }    
+
+     #footer_main .copyright {
+        text-align: center;
+    }
+
+    #footer_main .copyright ul {
+        float: none;
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 568px) { 
+    .strip-wrapper {
+        height: 60px;
+    }
+
+    .strip-wrapper .strip-socials ul li a img {
+        height: 55px;
+    }
+
+    .strip-wrapper .strip-logos ul li a img {
+        height: 45px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    #footer_block .siteInfo {
+        float: none;
+        width: 90% !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .strip-wrapper {
+        height: 40px;
+    }
+
+    .strip-wrapper .strip-logos ul li a img {
+        height: 25px;
     }
 
     .strip-wrapper .strip-socials ul li a img {
         height: 35px;
+    }
+
+    .buttons-post li a {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1112px) and (max-width: 1227px) {
+    .strip-wrapper > div > h3 {
+        font-size: 28px;
+        padding-top: 15px;
+    }
+
+    .strip-wrapper .strip-logos ul li a img {
+        height: 48px;
+    }
+
+    .strip-wrapper .strip-socials ul li a img {
+        height: 48px;
     }
 }
