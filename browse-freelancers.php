@@ -1,5 +1,5 @@
 <?php 
-$current_page="View Freelancers / Contractors";
+$current_page="View Subject Matter Experts / Contractors";
 include "includes/header.php";
 include("country.php");
 if($_REQUEST['page']==""){	$pg = 1;}else{	$pg = $_REQUEST['page'];}
@@ -909,11 +909,7 @@ $sql="select * from  ".$prev."user left join ".$prev."user_profile on ".$prev."u
 $r=mysql_query($sql) or die(mysql_error());
 
 
-	echo'<div class="browse-members_right">
-
-
-
-     <p style="border-bottom:1px dotted #CCCCCC;">'. $total ." ".$lang['FREELANCE_FOUNDS'].'</p>
+	echo'<div class="browse-members_right"><p style="border-bottom:1px dotted #CCCCCC;">'. $total .' Subject Matter Experts Found</p>
 
 
 

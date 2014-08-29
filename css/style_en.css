@@ -6332,7 +6332,8 @@ border-radius: 6px 6px 6px 6px;*/
     margin: 10px;
     min-height: 370px;
     padding: 0;
-    width:92%;
+    /*width:92%;*/
+    width:1000px;
     margin:0 auto;
 }
 .page_headding {
@@ -8492,14 +8493,15 @@ ul.menu1 li:hover ul.sub-menu {
 }
 /*css for top nav 21.3.14*/
 .main_div {
-    /*width:1000px;*/
-	width:92%;
+    width:1000px;
+	/*width:92%;*/
     margin:0 auto;
     background:#FFF;
     /*	border: 1px solid #dedfe0;*/
 }
 .main_div2 {
-    width:92%;
+    width:1000px;
+    /*width:92%;*/
     margin:0 auto;
 }
 .main_div3 {
