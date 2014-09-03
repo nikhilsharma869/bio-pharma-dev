@@ -873,46 +873,6 @@
 /* RESPONSIVE */
 
 @media (min-width: 320px) and (max-width: 480px) {
-    /*Mobile Menu*/
-    .topBlockLeft {
-        height: auto;
-        padding-top: 29px; 
-    }
-    .topBlockLeft .mobile-menu {
-        content: "";
-        background: url('../images/nav-icon.png') no-repeat;
-        width: 30px;
-        height: 30px;
-        display: inline-block;
-        position: absolute;
-        left: 15px;
-        top: 5px;
-        cursor: pointer;
-    }
-    .topBlockLeft ul {
-        margin-top: 0;
-        background: #2f3036;
-        z-index: 99999;
-        position: relative;
-        display: none;
-        padding-left: 0;
-    }
-
-    .topBlockLeft li {
-        display: block;
-        text-align: left;
-        border-bottom: 1px solid #fff;
-        margin-right: 0;
-    }
-
-    .topBlockLeft li a {
-        display: block;
-        padding: 10px 15px;
-    }
-
-    .topBlockLeft li:hover a {
-        background: #2272ba;
-    }
 
 
     .categories-section > .cat-list > .cat {
@@ -1085,6 +1045,48 @@
 }
 
 @media (max-width: 568px) {
+    
+     /*Mobile Menu*/
+    .topBlockLeft {
+        height: auto;
+        padding-top: 29px; 
+    }
+    .topBlockLeft .mobile-menu {
+        content: "";
+        background: url('../images/nav-icon.png') no-repeat;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        left: 15px;
+        top: 5px;
+        cursor: pointer;
+    }
+    .topBlockLeft ul {
+        margin-top: 0;
+        background: #2f3036;
+        z-index: 99999;
+        position: relative;
+        display: none;
+        padding-left: 0;
+    }
+
+    .topBlockLeft li {
+        display: block;
+        text-align: left;
+        border-bottom: 1px solid #fff;
+        margin-right: 0;
+    }
+
+    .topBlockLeft li a {
+        display: block;
+        padding: 10px 15px;
+    }
+
+    .topBlockLeft li:hover a {
+        background: #2272ba;
+    }
+    
     .search-area {
         width: 95%;
     }    
@@ -1189,7 +1191,13 @@
 }
 
 @media (max-width: 768px) {
-    
+    .header-main {
+        margin-bottom: 15px;
+    }
+
+    #loginPage .inner-middle {
+        width: 92%;
+    }
 }
 
 @media (max-width: 568px) { 

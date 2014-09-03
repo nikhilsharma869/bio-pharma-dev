@@ -228,10 +228,29 @@ function openLinkedinLogin() {
   <input type="hidden" value="<?=$_GET[referer2]?>" name="referer2">
 
 <div class="height20"></div>
-<div class="register-form" style="font-size:17.3px;">Log in and get to work</div>
-<div class="height20"></div><div class="height20"></div>
+<!-- <div class="register-form" style="font-size:17.3px;">Log in and get to work</div> -->
+<div class="register-form" style="font-size:17.3px;"><input type="button" value="Log in with Linkedin" name="login_linkedin" onclick="openLinkedinLogin();" class="login_linkedin_btn"></div>
 
-<div class="register-form">
+<div class="height20"></div>
+
+<div class="register-form infor-site">
+	<div style="width:42%; float:left;">
+		<h2>Log in, post a job free and begin contracting SMEs right away</h3>
+		<p>No Startup fees.  No Commitment.</p>
+		<p>High quality SMEs with certified skills.</p>
+		<p>Cost effective "On Demand" Resources.</p>
+		<p>Convenient Billing and Payment.</p>
+	</div>
+	<div style="width:46%; float:right;">
+		<h2>Login to gain access to thousands of contracting opportunites all around US.</h3>
+		<p>No fees, No commitment.</p>
+		<p>Create your SME brand and obtain industry leading certifications.</p>
+		<p>Hundreds of exciting projects every day.</p>
+		<p>Guranteed payment for your hourly work.</p>
+	</div>
+</div>
+<div class="height20"></div>
+<!-- <div class="register-form">
 <input type="text" id="username" name="username" class="reg_input" <?php if ($_COOKIE['cookname']) { ?> value="<?=$_COOKIE['cookname']?>" <?php } ?> placeholder="Email"></div>
 <div class="height10"></div>
 
@@ -241,27 +260,28 @@ function openLinkedinLogin() {
 	    
 <div class="register-form">
 	<input type="checkbox" name="remember" id="remember" value="1" <?php if (($_COOKIE['cookname']) && $_COOKIE['password']) { echo 'checked'; } ?> >&nbsp;Remember me next time
-</div>
-<div class="register-form">
+</div> -->
+<!-- <div class="register-form"> -->
     <!-- <div style="width:35%; float:left;">
     	<input type="submit" value="&nbsp;&nbsp;&nbsp;Log in&nbsp;&nbsp;&nbsp;" name="sub" class="creatbnt"><br clear="all">
 	</div> -->
-    <div style="width:50%; float:left;">
+    <!-- <div style="width:50%; float:left;">
 	    <input type="button" value="Log in with Linkedin" name="login_linkedin" onclick="openLinkedinLogin();" class="login_linkedin_btn"><br clear="all">
 	</div>
-</div>
+</div> -->
 
-<div class="register-form" id="forgetPass">
-    <a lang="en" class="link" onclick="return hs.htmlExpand(this, { objectType: 'iframe'} )" href="forget_password.php">Forgot Your Password?</a>
-</div>
 
-<div class="height20"></div>
+<!-- <div class="height20"></div>
 <div class="register-form" id="forgetPass">
     <a lang="en" class="link" href="#">Join Bio Pharma</a>
 </div>
 
+<div class="height20"></div><div class="height10"></div> -->
+
+<div class="register-form" id="forgetPass">
+    <a lang="en" class="link" onclick="return hs.htmlExpand(this, { objectType: 'iframe'} )" href="forget_password.php">Forgot Your Password?</a>
+</div>
 <div class="height20"></div>
-<div class="height20"></div><div class="height10"></div>
 <div class="register-form" id="forgetPass">
     <a lang="en" class="link" href="#">Terms</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
     <a lang="en" class="link" href="#">FAQ</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

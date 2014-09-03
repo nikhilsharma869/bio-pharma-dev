@@ -1855,9 +1855,9 @@ a{color:#FFF;}
 }
 
 #loginPage{
-	background:url(../images/login-bg.jpg) repeat-x;
+	background:url(../images/loginpanel_bg.jpg) repeat-x;
 	width:100%;
-	height:514px;	
+	height:522px;	
 }
 .login_box {
     width:980px;
@@ -6367,18 +6367,18 @@ border-radius: 6px 6px 6px 6px;*/
     color: #22B14C;
 }
 .signin-form_box{
-	width:80%;
+	width:90%;
 	margin:auto;	
 }
 .register_panel {
-    background: none repeat scroll 0 0 #273425;
+    background: none repeat scroll 0 0 rgba( 94, 94, 94, 0.8);
     /*	border-radius: 7px 7px 7px 7px;
     box-shadow: 0 0 8px #D8D8D8 inset;*/
 	border:1px solid #FFF;
 	min-height:386px;
     margin:55px auto;
-    width: 504px;
-	opacity:0.8;
+    width: 688px;
+	/*opacity:0.8;*/
 }
 
 .register-form p {
@@ -9325,19 +9325,97 @@ ul.menu1 li:hover ul.sub-menu {
 
 /*---12.08.14---*/
 .login_linkedin_btn {
-    background: url(../images/linkedin.png) no-repeat top left #2272ba;
+    background: url(../images/linkedin_icon.png) no-repeat top left #2272ba;
     background-size: auto 100%;
     border: medium none;
     color: #fff;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 6px 15px 7px 40px;
+    font-size: 24px;
+    /*font-weight: bold;*/
+    padding: 10px 0 5px 45px;
     text-align: center;
-    width:210px;
+    width: 275px;
+    margin: auto;
+    display: block;
+    border: 1px solid #b8b8b8;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 5px 6px 0px #484848;
+    -moz-box-shadow: 0px 5px 6px 0px #484848;
+    box-shadow: 0px 5px 6px 0px #484848;
 }
 
-.login_linkedin_btn:hover{
+/*.login_linkedin_btn:hover{
     background: url(../images/linkedin.png) no-repeat left #000;
     background-size: auto 100%;
+}
+*/
+
+.register_panel .infor-site p {
+    color: #fff !important;
+    font-size: 14px;
+}
+
+.register_panel .infor-site h2 {
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.register_panel .infor-site div:nth-child(1) {
+    /*padding-right: 4%;*/
+}
+
+.register_panel .infor-site div:nth-child(2) {
+    border-left: 2px solid #464646;
+    padding-left: 6%;
+}
+
+.register_panel .infor-site p {
+    background: url(../images/bullet_login_page.png) no-repeat left transparent;
+    padding: 0 0 0 15px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    #loginPage .inner-middle {
+        width: 92%;
+    }
+}
+
+@media (max-width: 568px) { 
+
+    .register_panel .infor-site > div {
+        width: 95% !important;       
+    }
+
+    .register_panel {
+        width: 92%;
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
+
+    .register_panel .infor-site div:nth-child(2) {
+        border: none;
+        padding-left: 0;
+        float: left !important;
+    }
+
+    #loginPage {
+        background-size: auto 100%;
+        height: 650px;
+    }
+}
+
+@media (max-width: 320px) {
+
+    #loginPage {
+        height: 750px;
+    }
+
+    .login_linkedin_btn {
+        font-size: 19px;
+        width: 225px;
+    }
+
 }
