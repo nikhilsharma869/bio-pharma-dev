@@ -9377,10 +9377,8 @@ ul.menu1 li:hover ul.sub-menu {
     margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-    #loginPage .inner-middle {
-        width: 92%;
-    }
+#loginPage .inner-middle {
+    width: 92%;
 }
 
 @media (max-width: 568px) { 
