@@ -277,6 +277,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                             </div>
                                         </nav>
                                     </div>
+                                    <div class="header-strip"></div>
                                     
                                     <!--<div class="topnav">
                                         <div class="main_div">

@@ -2,14 +2,13 @@
 <link href="jplugins/slippry/slippry.css" rel="stylesheet" type="text/css" />
 <script src="jplugins/slippry/slippry.min.js"></script>
 <script type="text/javascript">
-    jQuery(window).load(function($){
+    jQuery(document).ready(function($){
         // jQuery('.slides').skdslider({delay:5000, animationSpeed: 2000,showNav:false,showNextPrev:true,showPlayButton:false,autoSlide:true,animationType:'sliding'});        
         jQuery('.slides').slippry({pager: false});
     });
 </script>
-
-<div class="banner-strip"></div>
-<div class="banner-strip"></div>
+<!-- <div class="banner-strip"></div>
+<div class="banner-strip"></div> -->
 <div class="banner-slider">
     <ul class="slides">
         <?php
