@@ -87,7 +87,7 @@
 	border-right: 2px solid #818285;
     display: inline-block;
     list-style: none outside none;
-    margin: 2% 0;
+    margin: 25px 0 15px;
     padding: 0 2%;
 }
 .nav-menu li:last-child {
@@ -1221,6 +1221,11 @@
     #loginPage .inner-middle {
         width: 92%;
     }
+
+    .nav-menu li{
+        margin-bottom: 0;
+    }
+
 }
 
 @media (max-width: 568px) { 
