@@ -4,16 +4,16 @@
             <div class="footer_main">
             	<div id="footer_block">
                     <div class="siteInfo" style="width:30%;">
-                    	<img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/icon-home.jpg">
+                    	<img src="/images/icon-home.jpg">
                         10480 Little Patuxent, Parkway<br>
                         Columbia, MD 21044
                     </div>
                     <div class="siteInfo" style="width:25%;">
-                    	<img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/icon-phone.jpg">
+                    	<img src="/images/icon-phone.jpg">
                         410 980 2823
                     </div>
                     <div class="siteInfo" style="width:25%;">
-                    	<img src="http://bio-pharma.com/wp-content/themes/bio-pharma/images/icon-mail.jpg">
+                    	<img src="/images/icon-mail.jpg">
                         <a href="mailto:support@bio-pharma.com">support@bio-pharma.com</a>
                     </div>
                 </div>
