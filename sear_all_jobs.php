@@ -67,7 +67,7 @@ jQuery.noConflict();
 
 		
 <!--accordian-end-->
-<div style="width:100%; float:left; background:#FFF;">
+<div style="width:100%; float:left; background:#ebebeb;padding-bottom: 60px;">
 <div class="main_div2">
 <div class="inner-middle"> 
 
@@ -75,24 +75,37 @@ jQuery.noConflict();
   <div class="page_headding"><div class="dash_headding">
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="javascript:void(0)" class="selected"><?=$lang['FIND_JOBB']?></a></p></div>
 
-<form action="<?=$vpath?>sear_all_jobs.html"  method="POST" name="myform" id="myform">
+<!-- <form action="<?=$vpath?>sear_all_jobs.html"  method="POST" name="myform" id="myform">
 <div class="serach_pannel" style="float:none; margin:0px auto; width:430px; height:33px; border:1px solid #CCCCCC;">
 <select name="select2" id="tech1" class="selectyze3" onChange="this.form.action=this.options[this.selectedIndex].value;">
   <option value="browse-freelancers.php" ><?=$lang['FIND_TALENT']?></option>
-   <option value="sear_all_jobs.php" selected="selected" ><?=$lang['PROJECT_NAME']?></option>
+   <option value="sear_all_jobs.php" selected="selected" ><?=$lang['PROJECT_NAME']?></option> -->
 <!-- <option value="sear_all_jobs.php" ><?=$lang['SKILLS']?></option> -->
-</select>
+<!-- </select>
  <input name="keyword" id="keyword" type="text" size="20px" class="search_input" onblur="if(this.value=='')this.value='<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>';" onfocus="if(this.value=='<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>')this.value='';" style="width:250px;" value="<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>">
            <input name="submit2" type="submit" value="" class="search_bnt1">
         </div>
-		</form>
+		</form> -->
+	<div class="search-area find-sme clear-fix">
+        <form action="<?=$vpath?>sear_all_jobs.html" method="POST" name="home-search" >
+            <input type="text" placeholder="Search Categories" class="input_txtbox" name="keyword">
+            <div class="drop_pseudo"><?=$lang['PROJECT_NAME']?></div>       
+            <select name="select2" class="input_drop" name="" onChange="this.form.action=this.options[this.selectedIndex].value;">
+                <option value="browse-freelancers.php" <?php if(isset($_POST['select2']) && $_POST['select2'] == 'browse-freelancers.php') echo 'selected="selected"';?>><?=$lang['FIND_TALENT']?></option>
+	   <option value="sear_all_jobs.php" <?php if(isset($_POST['select2']) && $_POST['select2'] == 'sear_all_jobs.php') echo 'selected="selected"';?>><?=$lang['PROJECT_NAME']?></option>
+            </select>
+            <input type="submit" class="btn-home-search" name="">
+        </form>
+    </div>
 </div>
 <div class="clear"></div>
+
           
    <!--Inbox Left Start-->
 <div class="profile_left" style=" min-height: 2375px; ">
 
-<div id="open-by-default-example" class="accordian" data-collapse>
+<!-- <div id="open-by-default-example" class="accordian" data-collapse> -->
+<div id="open-by-default-example">
 
    <?php
  //  $f=0;
@@ -194,7 +207,7 @@ jQuery.noConflict();
 		$fe="0/";
 		}
 			?>
-			
+<div class="cat-listp">
 <h3 class='open'><?=$lang['PROJECT_TYPE']?> </h3>
 <ul class="live-pro-list clearfix">
 						
@@ -204,6 +217,8 @@ jQuery.noConflict();
 					
 				
 			</ul>
+			</div>	
+			<div class="cat-listp">		
 		<h3 class='open'><?=$lang['BUDGETT']?> </h3>
 		<ul class="live-pro-list clearfix"><li>
 		<form action="" method="post">
@@ -221,7 +236,8 @@ jQuery.noConflict();
 		 </form>
 		</li>
 		</ul>
-		
+	</div>
+	<div class="cat-listp">	
 <h3 class='open'><?=$lang['POSTED_WITHIN']?></h3>
 <ul class="live-pro-list clearfix">
 					
@@ -231,7 +247,8 @@ jQuery.noConflict();
 <li><a href='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."7/".$fe?>' <? if($_REQUEST[posted_time]=="7"){?> class="active" <? }?>><?=$lang['POSTED7']?></a></li>		
 				
 			</ul>
-			
+			</div>
+			<div class="cat-listp">
 	<h3 class='open'><?=$lang['COUNTRY']?></h3>
 <ul class="live-pro-list clearfix"  id="description">
 						
@@ -250,6 +267,7 @@ endfor;
 					
 				
 			</ul>	
+		</div>
 	</div>
 
 
@@ -266,6 +284,39 @@ endfor;
     
    <!--Inbox right Start-->
    <div class="profile_right" style="margin-top:15px;">
+   	<div class="heading-select heading-job">
+	<!-- <div class="cpseudo"></div> -->
+	<div>
+		<div class="watch-job">
+			<input name="check_watchsme" id="check_watch-sme" type="checkbox" value="" />
+        	<label for="check_watch-sme" class="css-label">Watch SME</label>
+		</div>
+		<div class="profile-types">
+			<ul class="live-pro-list clearfix" >
+				<li>
+					<form name="profiletypeform" id="profiletypeform" action="" method="post">
+			 			<div class="select-box">
+			        		<select name="profile_type_user" class="selectyze2" onchange="get_profile_type(this.value)">
+					          <option value="All"><?=$lang['EVERYONE']?></option>
+					          <option value="I" <? if($_REQUEST[profile_type_user]=='I'){?> selected=selected<? }?>><?=$lang['INDIVIDUAL']?></option> 
+							  <option value="C" <? if($_REQUEST[profile_type_user]=='C'){?> selected=selected<? }?>><?=$lang['COMPANIES']?></option>
+							  
+					        </select>
+					    </div>			
+				 
+					    <input name="profile_type_user1" type="hidden" id="profile_type_user1" value="<?php echo $_REQUEST['profile_type_user1'];?>" />
+
+				        <input name="limit" type="hidden" id="limit" value="<?php echo $_REQUEST['limit'];?>" />
+
+				        <input name="cate_id" type="hidden" id="cate_id" value="<?php echo $_REQUEST['cate_id'];?>"/>
+				         
+				        <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
+					</form>
+				</li>
+			</ul>
+		</div>		
+	</div>
+</div>   
    <?php
 $no_of_records=10;
 if($_REQUEST['keyword']!="" || $_REQUEST['keyword']=='Search Job')

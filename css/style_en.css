@@ -9483,6 +9483,14 @@ input[type="checkbox"]:checked + label.css-label {
     background-image:url('../images/lite-green-check.png');
 }
 
+.cat-listp .DivSelectyze {
+    width: 89%;
+}
+
+.cat-listp .select-box .selectyzeValue {
+    width: 89%;
+}
+
 .resutblock {
     /*padding-left: 40px;*/
     padding-top: 20px;
@@ -9527,7 +9535,11 @@ input[type="checkbox"]:checked + label.css-label {
 }
 
 .resultimgblock {
-    width: auto;
+    width: 19%;
+}
+
+.resultimgblock img {
+    width: 98%;
 }
 
 .resulttxt {
@@ -9625,34 +9637,36 @@ input[type="checkbox"]:checked + label.css-label {
 }
 
 .heading-select {
-    padding-left: 20%;
     height: 35px;
     clear: both;
-    width: 77%;
-    margin-left: 15px;
-    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.heading-select .watch-sme {
+.heading-select.heading-job {
+    padding-left: 0;
+    width: 100%;
+}
+
+.heading-select .watch-sme, .heading-select .watch-job {
     background: #fff;
-    padding: 7px 20px 7px 30px;
+    padding: 7px 20px 7px 38px;
     float: left;
     border: 1px solid #959595;
 }
 
-.heading-select .watch-sme input[type="checkbox"] + label.css-label {
+.heading-select .watch-sme input[type="checkbox"] + label.css-label, .heading-select .watch-job input[type="checkbox"] + label.css-label {
     padding-left: 25px;
 }
 
 .heading-select .profile-types {
     float: right;
     position: relative;
-    margin-right: -3px;
 }
 
 .heading-select .profile-types .select-box .selectyzeValue {
     font-size: 16px;
-    padding: 5px 20px 5px 0;
+    padding: 6px 20px 5px 0;
     text-align: center;
     width: 110px;
 }
@@ -9671,3 +9685,102 @@ input[type="checkbox"]:checked + label.css-label {
 }
 
 /* Responsive Find SME */
+
+@media (max-width: 768px) { 
+    .main_div2 {
+        width: 98%;
+    }
+
+    .inner-middle {
+        width: 95%;
+    }
+
+    .page_headding {
+        padding-left: 20%;
+    }
+
+    .page_headding .dash_headding {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .dash_headding p {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) { 
+    .page_headding {
+        padding-left: 0;
+    }
+
+    .profile_left {
+        width: 100%;
+    }
+
+    .profile_right {
+        width: 99%;
+        margin-left: 0;
+    }
+
+    .cat-listp {
+        width: 30%;
+        float: left;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        height: 130px;
+    }
+
+    .cat-listp:nth-child(3), .cat-listp:nth-child(6) {
+        margin-right: 0;
+    }
+
+    .heading-select .profile-types {
+        margin-right: -3px;
+    }
+
+    .resulttxt {
+        width: 60%;
+    }
+}
+
+@media (max-width: 320px) {
+    .cat-listp {
+        width: 99%;
+        height: auto;
+    }
+
+    .search-area.find-sme {
+        width: 275px;
+    }
+
+    .search-area.find-sme .input_txtbox {
+        width: 39%;
+    }
+
+    .search-area.find-sme .drop_pseudo, .search-area.find-sme select.input_drop {
+        font-size: 10px;
+    }
+    .search-area.find-sme .input_txtbox {
+        font-size: 11px;
+        margin-top: 8px;
+    }
+
+    .heading-select .watch-sme, .heading-select .watch-job {
+        padding: 7px 11px 7px 14px;
+    }
+
+    .resultimgblock {
+        width: 69%;
+    }
+
+    .resulttxt {
+        margin-top: 15px;
+        width: 83%;
+        padding-left: 40px;
+        padding-right: 10px;
+    }
+}

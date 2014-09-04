@@ -308,10 +308,10 @@ jQuery.noConflict();
 	<div class="search-area find-sme clear-fix">
         <form action="<?=$vpath?>sear_all_jobs.html" method="POST" name="home-search" >
             <input type="text" placeholder="Search Categories" class="input_txtbox" name="keyword">
-            <div class="drop_pseudo">All Categories</div>       
-            <select class="input_drop" name="" onChange="this.form.action=this.options[this.selectedIndex].value;">
-                <option value="browse-freelancers.php" ><?=$lang['FIND_TALENT']?></option>
-                <option value="sear_all_jobs.php" selected="selected" ><?=$lang['PROJECT_NAME']?></option>
+            <div class="drop_pseudo"><?=$lang['FIND_TALENT']?></div>       
+            <select name="select2" class="input_drop" name="" onChange="this.form.action=this.options[this.selectedIndex].value;">
+                <option value="browse-freelancers.php" <?php if(isset($_POST['select2']) && $_POST['select2'] == 'browse-freelancers.php') echo 'selected="selected"';?>><?=$lang['FIND_TALENT']?></option>
+	   <option value="sear_all_jobs.php" <?php if(isset($_POST['select2']) && $_POST['select2'] == 'sear_all_jobs.php') echo 'selected="selected"';?>><?=$lang['PROJECT_NAME']?></option>
             </select>
             <input type="submit" class="btn-home-search" name="">
         </form>
@@ -319,39 +319,7 @@ jQuery.noConflict();
 
 </div>
 <div class="clear"></div>
-<div class="heading-select">
-	<!-- <div class="cpseudo"></div> -->
-	<div>
-		<div class="watch-sme">
-			<input name="check_watchsme" id="check_watch-sme" type="checkbox" value="" />
-        	<label for="check_watch-sme" class="css-label">Watch SME</label>
-		</div>
-		<div class="profile-types">
-			<ul class="live-pro-list clearfix" >
-				<li>
-					<form name="profiletypeform" id="profiletypeform" action="" method="post">
-			 			<div class="select-box">
-			        		<select name="profile_type_user" class="selectyze2" onchange="get_profile_type(this.value)">
-					          <option value="All"><?=$lang['EVERYONE']?></option>
-					          <option value="I" <? if($_REQUEST[profile_type_user]=='I'){?> selected=selected<? }?>><?=$lang['INDIVIDUAL']?></option> 
-							  <option value="C" <? if($_REQUEST[profile_type_user]=='C'){?> selected=selected<? }?>><?=$lang['COMPANIES']?></option>
-							  
-					        </select>
-					    </div>			
-				 
-					    <input name="profile_type_user1" type="hidden" id="profile_type_user1" value="<?php echo $_REQUEST['profile_type_user1'];?>" />
 
-				        <input name="limit" type="hidden" id="limit" value="<?php echo $_REQUEST['limit'];?>" />
-
-				        <input name="cate_id" type="hidden" id="cate_id" value="<?php echo $_REQUEST['cate_id'];?>"/>
-				         
-				        <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
-					</form>
-				</li>
-			</ul>
-		</div>		
-	</div>
-</div>          
    <!--Inbox Left Start-->
 <div class="profile_left">
 <!-- <div id="open-by-default-example" class="accordian" data-collapse> -->
@@ -501,7 +469,8 @@ $su=@explode("-",$_REQUEST[start]);
 		<!-- <h3  class="open"><?=$lang['COUNTRY']?></h3> -->
 		<div class="cat-listp">
 		<h3><?=$lang['COUNTRY']?></h3>
-		<ul class="live-pro-list clearfix" style="padding-left: 20px; padding-top:10px" >
+		<ul class="live-pro-list clearfix">
+			<li>
 	<form name="countryform" id="countryform" action="" method="post">
  
  <div class="select-box"> 
@@ -529,6 +498,7 @@ $su=@explode("-",$_REQUEST[start]);
         <input name="start" type="hidden" id="start" value="<?php echo $_REQUEST['start'];?>"/>  
         <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
 	</form>
+</li>
 </ul>
 </div>
  </div>
@@ -542,6 +512,39 @@ $su=@explode("-",$_REQUEST[start]);
   <!--Inbox right Start-->
   
   <div class="profile_right">
+  	<div class="heading-select">
+	<!-- <div class="cpseudo"></div> -->
+	<div>
+		<div class="watch-sme">
+			<input name="check_watchsme" id="check_watch-sme" type="checkbox" value="" />
+        	<label for="check_watch-sme" class="css-label">Watch SME</label>
+		</div>
+		<div class="profile-types">
+			<ul class="live-pro-list clearfix" >
+				<li>
+					<form name="profiletypeform" id="profiletypeform" action="" method="post">
+			 			<div class="select-box">
+			        		<select name="profile_type_user" class="selectyze2" onchange="get_profile_type(this.value)">
+					          <option value="All"><?=$lang['EVERYONE']?></option>
+					          <option value="I" <? if($_REQUEST[profile_type_user]=='I'){?> selected=selected<? }?>><?=$lang['INDIVIDUAL']?></option> 
+							  <option value="C" <? if($_REQUEST[profile_type_user]=='C'){?> selected=selected<? }?>><?=$lang['COMPANIES']?></option>
+							  
+					        </select>
+					    </div>			
+				 
+					    <input name="profile_type_user1" type="hidden" id="profile_type_user1" value="<?php echo $_REQUEST['profile_type_user1'];?>" />
+
+				        <input name="limit" type="hidden" id="limit" value="<?php echo $_REQUEST['limit'];?>" />
+
+				        <input name="cate_id" type="hidden" id="cate_id" value="<?php echo $_REQUEST['cate_id'];?>"/>
+				         
+				        <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
+					</form>
+				</li>
+			</ul>
+		</div>		
+	</div>
+</div>          
   
     <div class="latest_worbox" id="member_right_box" >
       <?
