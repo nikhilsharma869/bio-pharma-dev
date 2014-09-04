@@ -319,7 +319,39 @@ jQuery.noConflict();
 
 </div>
 <div class="clear"></div>
-          
+<div class="heading-select">
+	<!-- <div class="cpseudo"></div> -->
+	<div>
+		<div class="watch-sme">
+			<input name="check_watchsme" id="check_watch-sme" type="checkbox" value="" />
+        	<label for="check_watch-sme" class="css-label">Watch SME</label>
+		</div>
+		<div class="profile-types">
+			<ul class="live-pro-list clearfix" >
+				<li>
+					<form name="profiletypeform" id="profiletypeform" action="" method="post">
+			 			<div class="select-box">
+			        		<select name="profile_type_user" class="selectyze2" onchange="get_profile_type(this.value)">
+					          <option value="All"><?=$lang['EVERYONE']?></option>
+					          <option value="I" <? if($_REQUEST[profile_type_user]=='I'){?> selected=selected<? }?>><?=$lang['INDIVIDUAL']?></option> 
+							  <option value="C" <? if($_REQUEST[profile_type_user]=='C'){?> selected=selected<? }?>><?=$lang['COMPANIES']?></option>
+							  
+					        </select>
+					    </div>			
+				 
+					    <input name="profile_type_user1" type="hidden" id="profile_type_user1" value="<?php echo $_REQUEST['profile_type_user1'];?>" />
+
+				        <input name="limit" type="hidden" id="limit" value="<?php echo $_REQUEST['limit'];?>" />
+
+				        <input name="cate_id" type="hidden" id="cate_id" value="<?php echo $_REQUEST['cate_id'];?>"/>
+				         
+				        <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
+					</form>
+				</li>
+			</ul>
+		</div>		
+	</div>
+</div>          
    <!--Inbox Left Start-->
 <div class="profile_left">
 <!-- <div id="open-by-default-example" class="accordian" data-collapse> -->
@@ -378,7 +410,7 @@ jQuery.noConflict();
 <? }?>
 	</ul>-->
 	<!-- <h3  class="open"><?=$lang['PROFILE_TYPE']?></h3> -->
-	<div class="cat-listp">
+	<!-- <div class="cat-listp">
 	<h3><?=$lang['PROFILE_TYPE']?></h3>
 	<ul class="live-pro-list clearfix" ><li>
 	<form name="profiletypeform" id="profiletypeform" action="" method="post">
@@ -401,7 +433,7 @@ jQuery.noConflict();
         <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
 	</form>
 	</li></ul>
-	</div>
+	</div> -->
 	
 <?
 $su=@explode("-",$_REQUEST[start]);
@@ -469,7 +501,7 @@ $su=@explode("-",$_REQUEST[start]);
 		<!-- <h3  class="open"><?=$lang['COUNTRY']?></h3> -->
 		<div class="cat-listp">
 		<h3><?=$lang['COUNTRY']?></h3>
-		<ul class="live-pro-list clearfix" style="padding-left: 20px;" >
+		<ul class="live-pro-list clearfix" style="padding-left: 20px; padding-top:10px" >
 	<form name="countryform" id="countryform" action="" method="post">
  
  <div class="select-box"> 

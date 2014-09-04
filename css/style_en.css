@@ -7015,7 +7015,7 @@ border-radius:7px;*/
     margin: 0px 0px 0px 15px;
     padding: 0px 0px 0px 0px;
     width: 745px;
-    margin-top:16px;
+    margin-top:15px;
 }
 .profile_righttext {
     float: left;
@@ -9484,13 +9484,14 @@ input[type="checkbox"]:checked + label.css-label {
 }
 
 .resutblock {
-    padding-left: 40px;
+    /*padding-left: 40px;*/
     padding-top: 20px;
     color: #413b39;
 }
 
 .resultinfor {
     color: #a5a5a5;
+    margin-left: 40px;
 }
 
 .resultinfor a {
@@ -9522,6 +9523,7 @@ input[type="checkbox"]:checked + label.css-label {
     text-align: center;
     margin-right: 30px;
     padding-top: 5px;
+    margin-left: 40px;
 }
 
 .resultimgblock {
@@ -9553,6 +9555,7 @@ input[type="checkbox"]:checked + label.css-label {
 
 .resultbottom {
     position: relative;
+    margin-left: 40px;
 }
 
 .resultbottom img {
@@ -9609,17 +9612,62 @@ input[type="checkbox"]:checked + label.css-label {
     padding-left: 10px;
 }
 
-/* Responsive Find SME */
-
 .profile_left {
     width: 20%;
 }
 
 .profile_right {
-    width: 75%;
+    width: 77%;
 }
 
 .profile_right .latest_worbox, .profile_right .resutblock {
-    width: 98%;
+    width: 100%;
 }
 
+.heading-select {
+    padding-left: 20%;
+    height: 35px;
+    clear: both;
+    width: 77%;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.heading-select .watch-sme {
+    background: #fff;
+    padding: 7px 20px 7px 30px;
+    float: left;
+    border: 1px solid #959595;
+}
+
+.heading-select .watch-sme input[type="checkbox"] + label.css-label {
+    padding-left: 25px;
+}
+
+.heading-select .profile-types {
+    float: right;
+    position: relative;
+    margin-right: -3px;
+}
+
+.heading-select .profile-types .select-box .selectyzeValue {
+    font-size: 16px;
+    padding: 5px 20px 5px 0;
+    text-align: center;
+    width: 110px;
+}
+
+.heading-select .profile-types .live-pro-list {
+    background: #fff;
+    margin: 0;
+}
+
+.heading-select .profile-types .live-pro-list li {
+    padding: 0;
+}
+
+.heading-select .profile-types  .mac .UlSelectize {
+    left: -2px;
+}
+
+/* Responsive Find SME */
