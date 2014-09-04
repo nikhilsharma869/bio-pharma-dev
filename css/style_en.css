@@ -9684,6 +9684,10 @@ input[type="checkbox"]:checked + label.css-label {
     left: -2px;
 }
 
+.heading-select .profile-types {
+        margin-right: -3px;
+    }
+
 /* Responsive Find SME */
 
 @media (max-width: 768px) { 
@@ -9711,6 +9715,7 @@ input[type="checkbox"]:checked + label.css-label {
         text-align: center;
     }
 }
+
 
 @media (max-width: 600px) { 
     .page_headding {
