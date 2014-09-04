@@ -1177,7 +1177,7 @@ $data_cat_name="";
 					<span>Smart Software Solutions, Inc.</span><br />
 					<span>Pierre, SD, United States</span>
 				</p>
-				<a href="#" class="resultbottom-contact">Contact</a>
+				<a  href="<?=$vpath;?>publicprofile/<?=$d[username]?>/" class="resultbottom-contact">Contact</a>
 			</div>
          
         </div>
