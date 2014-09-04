@@ -577,6 +577,30 @@
     margin-top: 20px;
 }
 
+.search-area.find-sme {
+    width: 430px;
+    height: 40px;
+    background: #fff;
+}
+
+.search-area.find-sme .input_txtbox {
+    font-size: 13px;
+    margin: 7px 0;
+    width: 53%;
+}
+
+.search-area.find-sme .btn-home-search {
+    height: 40px;
+    width: 64px;
+}
+
+.search-area.find-sme .drop_pseudo, .search-area.find-sme select.input_drop {
+    font-size: 11px;
+    width: 20%;
+    margin-top: 13px;
+    right: 75px;
+}
+
 /* Button post */
 .buttons-post {
     display: block;

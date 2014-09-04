@@ -287,29 +287,43 @@ jQuery.noConflict();
 // Code that uses other library's $ can follow here.
 </script>
 
-<div style="width:100%; float:left; background:#FFF;">
+<div style="width:100%; float:left; background:#ebebeb;padding-bottom: 60px;">
 <div class="main_div2">
 <div class="inner-middle"> 
 
 
-  <div class="page_headding"><div class="dash_headding">
-<p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="javascript:void(0)" class="selected"><?=$lang['FIND_TALENT']?></a></p></div>
-<form action="<?=$vpath?>find-talents/"  method="POST" name="myform" id="myform">
-<div class="serach_pannel" style="float:none; margin:0px auto; width:430px; height:33px; border:1px solid #CCCCCC;">
-<select name="select2" id="tech1" class="selectyze3" onChange="this.form.action=this.options[this.selectedIndex].value;">
-  <option value="browse-freelancers.php" <?php if(isset($_POST['select2']) && $_POST['select2'] == 'browse-freelancers.php') echo 'selected="selected"';?>><?=$lang['FIND_TALENT']?></option>
-   <option value="sear_all_jobs.php" <?php if(isset($_POST['select2']) && $_POST['select2'] == 'sear_all_jobs.php') echo 'selected="selected"';?>><?=$lang['PROJECT_NAME']?></option>
-</select>
- <input name="keyword" id="keyword" type="text" size="20px" class="search_input" onblur="if(this.value=='')this.value='<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>';" onfocus="if(this.value=='<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>')this.value='';" style="width:250px;" value="<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>">
-           <input name="submit2" type="submit" value="" class="search_bnt1">
-        </div>
-		</form>
+  <div class="page_headding">
+  	<div class="dash_headding">
+	<p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="javascript:void(0)" class="selected"><?=$lang['FIND_TALENT']?></a></p></div>
+	<!-- <form action="<?=$vpath?>find-talents/"  method="POST" name="myform" id="myform">
+	<div class="serach_pannel" style="float:none; margin:0px auto; width:430px; height:33px; border:1px solid #CCCCCC;">
+	<select name="select2" id="tech1" class="selectyze3" onChange="this.form.action=this.options[this.selectedIndex].value;">
+	  <option value="browse-freelancers.php" <?php if(isset($_POST['select2']) && $_POST['select2'] == 'browse-freelancers.php') echo 'selected="selected"';?>><?=$lang['FIND_TALENT']?></option>
+	   <option value="sear_all_jobs.php" <?php if(isset($_POST['select2']) && $_POST['select2'] == 'sear_all_jobs.php') echo 'selected="selected"';?>><?=$lang['PROJECT_NAME']?></option>
+	</select>
+	 <input name="keyword" id="keyword" type="text" size="20px" class="search_input" onblur="if(this.value=='')this.value='<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>';" onfocus="if(this.value=='<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>')this.value='';" style="width:250px;" value="<? if($_REQUEST['keyword']!=""){ echo $_REQUEST['keyword'];}else{?><?=$lang['CONTRATER3']?><? }?>">
+	           <input name="submit2" type="submit" value="" class="search_bnt1">
+	        </div>
+			</form> -->
+	<div class="search-area find-sme clear-fix">
+        <form action="<?=$vpath?>sear_all_jobs.html" method="POST" name="home-search" >
+            <input type="text" placeholder="Search Categories" class="input_txtbox" name="keyword">
+            <div class="drop_pseudo">All Categories</div>       
+            <select class="input_drop" name="" onChange="this.form.action=this.options[this.selectedIndex].value;">
+                <option value="browse-freelancers.php" ><?=$lang['FIND_TALENT']?></option>
+                <option value="sear_all_jobs.php" selected="selected" ><?=$lang['PROJECT_NAME']?></option>
+            </select>
+            <input type="submit" class="btn-home-search" name="">
+        </form>
+    </div>
+
 </div>
 <div class="clear"></div>
           
    <!--Inbox Left Start-->
 <div class="profile_left">
-<div id="open-by-default-example" class="accordian" data-collapse>
+<!-- <div id="open-by-default-example" class="accordian" data-collapse> -->
+<div id="open-by-default-example">
  <?php
  //  $f=0;
  //   $rt=mysql_query("select cat_id,cat_name from " . $prev . "categories  where parent_id=0 and status='Y' order by cat_name");
@@ -363,7 +377,9 @@ jQuery.noConflict();
 <li><a href='<?=$vpath?>browse-freelancers/1/<?=$d['cat_id']?>/'<? if($row_cate['parent_id']==$d['cat_id']){?> class="selected is open" <? }?> ><?php echo $catname;?></a></li>
 <? }?>
 	</ul>-->
-	<h3  class="open"><?=$lang['PROFILE_TYPE']?></h3>
+	<!-- <h3  class="open"><?=$lang['PROFILE_TYPE']?></h3> -->
+	<div class="cat-listp">
+	<h3><?=$lang['PROFILE_TYPE']?></h3>
 	<ul class="live-pro-list clearfix" ><li>
 	<form name="profiletypeform" id="profiletypeform" action="" method="post">
  <div class="select-box">
@@ -385,17 +401,32 @@ jQuery.noConflict();
         <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
 	</form>
 	</li></ul>
-	
+	</div>
 	
 <?
 $su=@explode("-",$_REQUEST[start]);
 ?>
-	<h3  class="open"><?=$lang['RATTING_H']?></h3>
+	<!-- <h3  class="open"><?=$lang['RATTING_H']?></h3> -->
+	<div class="cat-listp">
+		<h3><?=$lang['RATTING_H']?></h3>
 		<form name="startform" id="startform" action="" method="post">
 <ul class="live-pro-list clearfix" >
-        <li><input name="srat[]" type="checkbox" value="5" onclick="getstart()" <? if(in_array("5",$su)){?> checked=checked<? }?>>&nbsp;&nbsp;<img src="images/5star.png" alt="" ></li>
-        <li><input name="srat[]" type="checkbox" value="4" onclick="getstart()" <? if(in_array("4",$su)){?> checked=checked<? }?>>&nbsp;&nbsp;<img src="images/4star.png" alt=""></li>
-        <li><input name="srat[]" type="checkbox" value="3" onclick="getstart()" <? if(in_array("3",$su)){?> checked=checked<? }?>>&nbsp;&nbsp;<img src="images/3star.png" alt="" ></li>
+        <li>
+        	<input name="srat[]" id="check_rate5" type="checkbox" value="5" onclick="getstart()" <? if(in_array("5",$su)){?> checked=checked<? }?>>
+        	<label for="check_rate5" class="css-label"></label>
+        	<img src="images/5star.png" alt="" >
+        </li>
+        <li>
+        	<input name="srat[]" id="check_rate4" type="checkbox" value="4" onclick="getstart()" <? if(in_array("4",$su)){?> checked=checked<? }?>>
+        	<label for="check_rate4" class="css-label"></label>
+        	<img src="images/4star.png" alt="">
+        </li>
+        <li>
+        	<input name="srat[]" id="check_rate3" type="checkbox" value="3" onclick="getstart()" <? if(in_array("3",$su)){?> checked=checked<? }?>>
+        	<label for="check_rate3" class="css-label"></label>
+        	<img src="images/3star.png" alt="" >
+
+        </li>
         <!--<li><input name="" type="checkbox" value="">&nbsp;&nbsp;<img src="images/2star.png" alt=""></li>
         <li><input name="" type="checkbox" value="">&nbsp;&nbsp;<img src="images/1star.png" alt=""></li>-->
         </ul>
@@ -407,8 +438,10 @@ $su=@explode("-",$_REQUEST[start]);
         
         <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>      
 	</form>
-		
-	<h3  class="open"><?=$lang['H_RATE']?></h3>
+</div>
+	<!-- <h3  class="open"><?=$lang['H_RATE']?></h3> -->
+	<div class="cat-listp">
+	<h3><?=$lang['H_RATE']?></h3>
 	<ul class="live-pro-list clearfix" ><li>
 	<form name="rateform" id="rateform" action="" method="post">
  <div class="select-box">
@@ -432,7 +465,11 @@ $su=@explode("-",$_REQUEST[start]);
         <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
 	</form>
 	</li></ul>
-		<h3  class="open"><?=$lang['COUNTRY']?></h3><ul class="live-pro-list clearfix" >
+</div>
+		<!-- <h3  class="open"><?=$lang['COUNTRY']?></h3> -->
+		<div class="cat-listp">
+		<h3><?=$lang['COUNTRY']?></h3>
+		<ul class="live-pro-list clearfix" style="padding-left: 20px;" >
 	<form name="countryform" id="countryform" action="" method="post">
  
  <div class="select-box"> 
@@ -460,6 +497,8 @@ $su=@explode("-",$_REQUEST[start]);
         <input name="start" type="hidden" id="start" value="<?php echo $_REQUEST['start'];?>"/>  
         <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
 	</form>
+</ul>
+</div>
  </div>
 
 
@@ -909,11 +948,11 @@ $sql="select * from  ".$prev."user left join ".$prev."user_profile on ".$prev."u
 $r=mysql_query($sql) or die(mysql_error());
 
 
-	echo'<div class="browse-members_right"><p style="border-bottom:1px dotted #CCCCCC;">'. $total .' Subject Matter Experts Found</p>
+	// echo'<div class="browse-members_right"><p style="border-bottom:1px dotted #CCCCCC;">'. $total .' Subject Matter Experts Found</p>
 
 
 
-   </div>';
+ //   </div>';
 
 
 
@@ -990,24 +1029,37 @@ while($d=@mysql_fetch_array($r))
 
 ?>
       <div class="resutblock">
-        <div class="resultimgblock"><a href="<?=$vpath;?>publicprofile/<?=$d[username]?>/" > <img src="<?=$vpath?>viewimage.php?img=<?php echo $temp_logo;?>&amp;width=100&amp;height=100" /></a>
+      	<div class="resultinfor">
+      		<a href="<?=$vpath;?>publicprofile/<?=$d[username]?>/" class="resultinfor-name" ><?=ucwords(txt_value_output($name));?></a>
+            <p>
+	            <span class="resultinfor-rate">&#36;<?=$d['rate']?> / hr</span> | 
+	            <span class="resultinfor-rating"><?=getrating($d[user_id])?></span>
+	            <span class="resultinfor-pjcompleted">(<?=getprojectcomplted($d[user_id])?>)</span>
+        	</p>
+      	</div>
+      	<div class="resultcheckbox">
+      		<input id="check_user1" type="checkbox" />	
+        	<label for="check_user1" class="css-label"></label>        
+      	</div>
+      	<div class="resultimgblock">
+        	<a href="<?=$vpath;?>publicprofile/<?=$d[username]?>/" > <img src="<?=$vpath?>viewimage.php?img=<?php echo $temp_logo;?>&amp;width=165&amp;height=165" /></a>
 		<div><!--<img src="images/starone.png" alt=""> <img src="images/cup.png" alt="">--></div>
 		</div>
         <div class="resulttxt">
-         <a href="<?=$vpath;?>publicprofile/<?=$d[username]?>/" style="text-decoration: none;" > <h2> 
+         <!-- <a href="<?=$vpath;?>publicprofile/<?=$d[username]?>/" style="text-decoration: none;" > <h2> 
             <?=ucwords(txt_value_output($name));?><?=getrating($d[user_id])?>
             </h2></a>
 			<h3><?=ucfirst($d['slogan'])?></h3>
-			<h4><?=$lang['COMPLETE_PROJECTS']?> <b><?=getprojectcomplted($d[user_id])?></b> | <?=$lang['HOURLY_RATE']?> <b><?=$d['rate']?></b></h4>
+			<h4><?=$lang['COMPLETE_PROJECTS']?> <b><?=getprojectcomplted($d[user_id])?></b> | <?=$lang['HOURLY_RATE']?> <b><?=$d['rate']?></b></h4> -->
         
           
 			 <p>
             <? echo substr($d[profile],0,200);?>
           </p>
-		<div  style="padding-bottom:5px;">
+		<div  style="padding-bottom:5px;margin-left: -10px;">
          
-            <?=$lang['TOP_SKILLS']?>
-            :	
+           <!--  <?=$lang['TOP_SKILLS']?> -->
+            <!-- :	 -->
        <?
        
 $skill_q = "select skills from " . $prev . "user_profile where user_id=" . $d[user_id];
@@ -1017,7 +1069,7 @@ $skill_q = "select skills from " . $prev . "user_profile where user_id=" . $d[us
                         $data_skills = explode(',', $data_skills);
 
                         foreach ($data_skills as $skill) {
-                            $data_skill_name.= "<a href='browse-freelancers.php?keyword=".$skill."' class='skilslinks'>". $skill . '</a>  ';
+                            $data_skill_name.= "<a href='browse-freelancers.php?keyword=".$skill."' class='skils_links'>". $skill . '</a>  ';
                         }
                        
                         $skill_name = $data_skill_name;
@@ -1074,7 +1126,7 @@ if($u>4){$s="style='display:none'";
  }else{
  $s="";
  }
-	$data_cat_name.=  "<a class='skilslinks' href='javascript:void(0);'>".$data_skill['name'].'</a>';
+	$data_cat_name.=  "<a class='skils_links' href='javascript:void(0);'>".$data_skill['name'].'</a>';
 }
 
 
@@ -1084,7 +1136,16 @@ $data_cat_name="";
 
 ?>
             </div> -->
-			<div><p><img src="<?=$vpath?>cuntry_flag/<?=strtolower($d[country]);?>.png" title="<?=$country_array[$d[country]];?>" width="16" height="11" > &nbsp;&nbsp;<?=$country_array[$d[country]];?> | <?=$lang['LAST_LOGIN']?>:<b><?php print date('M d, Y', strtotime($d[ldate]));?></b> | <?=$lang['REGISTER_SINCE']?>:<b><?php print date('M, Y', strtotime($d[reg_date]));?></b></p></div>
+			<!-- <div><p><img src="<?=$vpath?>cuntry_flag/<?=strtolower($d[country]);?>.png" title="<?=$country_array[$d[country]];?>" width="16" height="11" > &nbsp;&nbsp;<?=$country_array[$d[country]];?> | <?=$lang['LAST_LOGIN']?>:<b><?php print date('M d, Y', strtotime($d[ldate]));?></b> | <?=$lang['REGISTER_SINCE']?>:<b><?php print date('M, Y', strtotime($d[reg_date]));?></b></p></div> -->
+			</div>
+
+			<div class="resultbottom clear-fix">
+				<img src="/images/smartsoftware_logo.jpg">
+				<p class="resultbottom-infor">
+					<span>Smart Software Solutions, Inc.</span><br />
+					<span>Pierre, SD, United States</span>
+				</p>
+				<a href="#" class="resultbottom-contact">Contact</a>
 			</div>
          
         </div>
