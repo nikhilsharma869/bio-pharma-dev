@@ -9669,6 +9669,12 @@ input[type="radio"]:checked + label.css-label {
     width: 20%;
 }
 
+.profile_left #countryform .mac .UlSelectize, .profile_left #rateform .mac .UlSelectize {
+    top: 22px;
+    width: 95%;
+    left: -2px;
+}
+
 .profile_right {
     width: 77%;
 }
