@@ -9750,9 +9750,43 @@ input[type="checkbox"]:checked + label.css-label {
     .resulttxt {
         width: 60%;
     }
+
+    .cat-listp h3 {
+        font-size: 16px;
+    }
+
+    input[type="checkbox"] + label.css-label {
+        font-size: 13px;
+    }
+
+    .heading-select .profile-types .select-box .selectyzeValue {
+        font-size: 14px;
+        padding-bottom: 7px;
+    }
+
+    .resultinfor a {
+        font-size: 16px;
+    }
+
+    .resulttxt p {
+        font-size: 14px;
+    }
+    .resulttxt div {
+        font-size: 13px;
+    }
+
+    .resultbottom-infor span {
+        font-size: 14px;
+    }
+
+    .resultbottom a.resultbottom-contact {
+        font-size: 14px;
+        margin-right: 1em;
+        padding: 8px 30px;
+    }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 321px) {
     .cat-listp {
         width: 99%;
         height: auto;
