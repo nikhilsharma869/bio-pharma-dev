@@ -371,11 +371,9 @@ $project_cats = project_category($_REQUEST[id]);
                 $apply_project_skl = @mysql_num_rows($res_skill);
                 if ($_SESSION['user_id'] == $d['user_id']) {
                     echo "<div style='color:red;padding-top:30px'>You can't bid of your own project.</div>";
-                } 
-                // else if ($apply_project_skl == '0') {
-                    // include("includes/bid_panel1.php");
-                // }
-                 else {
+                } else if ($apply_project_skl == '0') {
+                    include("includes/bid_panel1.php");
+                } else {
                     include("includes/bid_panel.php");
                 }
             } else {
