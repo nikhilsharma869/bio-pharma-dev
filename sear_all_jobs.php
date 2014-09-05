@@ -120,7 +120,8 @@ jQuery.noConflict();
 </div>
 <div class="clear"></div>
 
-          
+          <form name="postedwithin" id="postedwithin" action="" method="post">
+          </form>
    <!--Inbox Left Start-->
 <div class="profile_left" >
 
@@ -352,9 +353,9 @@ endfor;
 		<div class="profile-types">
 			<ul class="live-pro-list clearfix" >
 				<li>
-					<form name="postedwithin" id="postedwithin" action="" method="post">
+					<!-- <form name="postedwithin" id="postedwithin" action="" method="post"> -->
 			 			<div class="select-box">
-			        		<select name="postedwithin" class="selectyze2" onchange="get_posted_within(this.value)">
+			        		<select name="postedwithin_sl" class="selectyze2" onchange="get_posted_within(this.value)">
 							  	<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."All/".$fe?>' <? if($_REQUEST[posted_time]=="All"){?> selected=selected <? }?>>All</option>						
 								<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."1/".$fe?>' <? if($_REQUEST[posted_time]=="1"){?> selected=selected <? }?>>In 24 hours</option>		
 								<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."3/".$fe?>' <? if($_REQUEST[posted_time]=="3"){?> selected=selected <? }?>>In 3 days</option>								
@@ -362,7 +363,7 @@ endfor;
 							  
 					        </select>
 					    </div>
-					</form>
+					<!-- </form> -->
 				</li>
 			</ul>
 		</div>		
