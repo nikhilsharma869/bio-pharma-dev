@@ -52,6 +52,26 @@ $budget_max=$_REQUEST['budget_max'];
 		});
 	});
 	$("#findwork").addClass('select');*/
+function get_posted_within(val){
+ $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+	document.postedwithin.action = val;
+	document.postedwithin.submit();	
+}
+
+function get_country(val)
+{
+ $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+	document.countryform.action = val;
+	document.countryform.submit();	
+}
+
+function getprojecttypess(val)
+{
+ $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+	document.projecttypess.action = val;
+	document.projecttypess.submit();	
+	// alert(document.projecttypess.action);
+}
 </script>
 <!--accordian-start-->
 
@@ -102,7 +122,7 @@ jQuery.noConflict();
 
           
    <!--Inbox Left Start-->
-<div class="profile_left" style=" min-height: 2375px; ">
+<div class="profile_left" >
 
 <!-- <div id="open-by-default-example" class="accordian" data-collapse> -->
 <div id="open-by-default-example">
@@ -207,26 +227,43 @@ jQuery.noConflict();
 		$fe="0/";
 		}
 			?>
-<div class="cat-listp">
+<div class="cat-listp ca-job">
 <h3 class='open'><?=$lang['PROJECT_TYPE']?> </h3>
+<form name="projecttypess" id="projecttypess" action="" method="post">
 <ul class="live-pro-list clearfix">
+
+
 						
-<li><a href='<?=$vpath?>jobs/1/<?=$cat."All/".$min.$max.$sr.$fe?>' <? if($_REQUEST[project_type]=="All"){?> class="active" <? }?>><?=$lang['RIG1']?></a></li>							
-<li><a href='<?=$vpath?>jobs/1/<?=$cat."H/".$min.$max.$sr.$fe?>' <? if($_REQUEST[project_type]=="H"){?> class="active" <? }?>><?=$lang['HOURLY']?></a></li>			
-<li><a href='<?=$vpath?>jobs/1/<?=$cat."F/".$min.$max.$sr.$fe?>' <? if($_REQUEST[project_type]=="F"){?> class="active" <? }?>><?=$lang['FIXED']?></a></li>							
+<li>
+	<!-- <a href='<?=$vpath?>jobs/1/<?=$cat."All/".$min.$max.$sr.$fe?>' <? if($_REQUEST[project_type]=="All"){?> class="active" <? }?>><?=$lang['RIG1']?></a> -->
+	<input name="check_hour" id="check_hourall" type="radio" value="" onclick="getprojecttypess('/jobs/1/<?=$cat."All/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="All"){?> checked=checked <? }?>>
+    <label for="check_hourall" class="css-label"><?=$lang['RIG1']?></label>
+</li>							
+<li>
+	<!-- <a href='<?=$vpath?>jobs/1/<?=$cat."H/".$min.$max.$sr.$fe?>' <? if($_REQUEST[project_type]=="H"){?> class="active" <? }?>><?=$lang['HOURLY']?></a> -->
+	<input name="check_hour" id="check_hourh" type="radio" value="" onclick="getprojecttypess('<?=$vpath?>jobs/1/<?=$cat."H/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="H"){?> checked=checked <? }?>>
+    <label for="check_hourh" class="css-label"><?=$lang['HOURLY']?></label>
+</li>			
+<li>
+	<!-- <a href='<?=$vpath?>jobs/1/<?=$cat."F/".$min.$max.$sr.$fe?>' <? if($_REQUEST[project_type]=="F"){?> class="active" <? }?>><?=$lang['FIXED']?></a> -->
+	<input name="check_hour" id="check_hourf" type="radio" value='' onclick="getprojecttypess('<?=$vpath?>jobs/1/<?=$cat."F/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="F"){?> checked=checked <? }?>>
+    <label for="check_hourf" class="css-label"><?=$lang['FIXED']?></label>
+</li>							
 					
 				
 			</ul>
+		</form>
 			</div>	
-			<div class="cat-listp">		
+			<div class="cat-listp ca-job">		
 		<h3 class='open'><?=$lang['BUDGETT']?> </h3>
 		<ul class="live-pro-list clearfix"><li>
 		<form action="" method="post">
 		
-		<div class="doller clearfix" aria-hidden="false" style="display: block;">
-         <label> <?=$lang[DOLLAR]?> </label>
+		<div class="doller budgetss clearfix" aria-hidden="false" style="display: block;">
+         <!-- <label> <?=$lang[DOLLAR]?> </label> -->
          <input class="mini-inp" type="text" name="budget_min" value="<?=$_REQUEST[budget_min]?>">
-         <label> to <?=$lang[DOLLAR]?> </label>
+         <!-- <label> to <?=$lang[DOLLAR]?> </label> -->
+         <label>-</label>
          <input class="mini-inp" type="text" name="budget_max" value="<?=$_REQUEST[budget_max]?>">
 		 <input  type="hidden" name="cat_id" value="<?=$_REQUEST[cat_id]?>">	
 						 <input  type="hidden" name="posted_time" value="<?=$_REQUEST[posted_time]?>">	
@@ -237,7 +274,7 @@ jQuery.noConflict();
 		</li>
 		</ul>
 	</div>
-	<div class="cat-listp">	
+	<!-- <div class="cat-listp">	
 <h3 class='open'><?=$lang['POSTED_WITHIN']?></h3>
 <ul class="live-pro-list clearfix">
 					
@@ -247,25 +284,46 @@ jQuery.noConflict();
 <li><a href='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."7/".$fe?>' <? if($_REQUEST[posted_time]=="7"){?> class="active" <? }?>><?=$lang['POSTED7']?></a></li>		
 				
 			</ul>
-			</div>
-			<div class="cat-listp">
+			</div> -->
+			<div class="cat-listp ca-job">
 	<h3 class='open'><?=$lang['COUNTRY']?></h3>
-<ul class="live-pro-list clearfix"  id="description">
-						
-<li><a href='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max.$sr."0/"?>' <? if($_REQUEST[country]==0){?> class="active" <? }?>><?=$lang['RIG1']?></a></li>		
+<ul class="live-pro-list clearfix"  id="">
+	<li>
+		<form name="countryform" id="countryform" action="" method="post">
+ 
+ <div class="select-box"> 
+        <select name="country" class="selectyze2" onchange="get_country(this.value)">
+           	<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max.$sr."0/"?>'><?=$lang['RIG1']?></option>		
+          	 <?php
 
+							$arr=array_keys($country_array);
 
-  <?php
+							for($i=0;$i<count($arr);$i++):
+?>
+							  <option value="<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max.$sr.$arr[$i]?>/" <? if($_REQUEST[country]==$arr[$i]){?> selected=selected <? }?>><?=$country_array[$arr[$i]]?></option>
+<?
+							endfor; 
+
+					?>
+
+          <!-- 	<?php
 $arr=array_keys($country_array);
 for($i=0;$i<count($arr);$i++):
 ?>
-<li><a href='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max.$sr.$arr[$i]?>/' <? if($_REQUEST[country]==$arr[$i]){?> class="active" <? }?>><?=$country_array[$arr[$i]]?></a></li>	
+<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max.$sr.$arr[$i]?>/' <? if($_REQUEST[country]==$arr[$i]){?> selected=selected <? }?>><?=$country_array[$arr[$i]]?></option>		
 <?
 endfor; 
-?>					
+?>		 -->
+        </select>
+        </div>
+						
+<!-- <li><a href='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max.$sr."0/"?>' <? if($_REQUEST[country]==0){?> class="active" <? }?>><?=$lang['RIG1']?></a></li>		 -->
+
+
+  			
 											
 					
-				
+				</li>
 			</ul>	
 		</div>
 	</div>
@@ -289,28 +347,21 @@ endfor;
 	<div>
 		<div class="watch-job">
 			<input name="check_watchsme" id="check_watch-sme" type="checkbox" value="" />
-        	<label for="check_watch-sme" class="css-label">Watch SME</label>
+        	<label for="check_watch-sme" class="css-label">Watch Job</label>
 		</div>
 		<div class="profile-types">
 			<ul class="live-pro-list clearfix" >
 				<li>
-					<form name="profiletypeform" id="profiletypeform" action="" method="post">
+					<form name="postedwithin" id="postedwithin" action="" method="post">
 			 			<div class="select-box">
-			        		<select name="profile_type_user" class="selectyze2" onchange="get_profile_type(this.value)">
-					          <option value="All"><?=$lang['EVERYONE']?></option>
-					          <option value="I" <? if($_REQUEST[profile_type_user]=='I'){?> selected=selected<? }?>><?=$lang['INDIVIDUAL']?></option> 
-							  <option value="C" <? if($_REQUEST[profile_type_user]=='C'){?> selected=selected<? }?>><?=$lang['COMPANIES']?></option>
+			        		<select name="postedwithin" class="selectyze2" onchange="get_posted_within(this.value)">
+							  	<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."All/".$fe?>' <? if($_REQUEST[posted_time]=="All"){?> selected=selected <? }?>>All</option>						
+								<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."1/".$fe?>' <? if($_REQUEST[posted_time]=="1"){?> selected=selected <? }?>>In 24 hours</option>		
+								<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."3/".$fe?>' <? if($_REQUEST[posted_time]=="3"){?> selected=selected <? }?>>In 3 days</option>								
+								<option value='<?=$vpath?>jobs/1/<?=$cat.$project_type.$min.$max."7/".$fe?>' <? if($_REQUEST[posted_time]=="7"){?> selected=selected <? }?>>In 7 days</option>		
 							  
 					        </select>
-					    </div>			
-				 
-					    <input name="profile_type_user1" type="hidden" id="profile_type_user1" value="<?php echo $_REQUEST['profile_type_user1'];?>" />
-
-				        <input name="limit" type="hidden" id="limit" value="<?php echo $_REQUEST['limit'];?>" />
-
-				        <input name="cate_id" type="hidden" id="cate_id" value="<?php echo $_REQUEST['cate_id'];?>"/>
-				         
-				        <input name="skills" type="hidden" id="skills" value="<?php echo $_REQUEST['skills'];?>"/>
+					    </div>
 					</form>
 				</li>
 			</ul>
@@ -448,12 +499,12 @@ if($budget_max!="")
 			if($no_of_records>$total_pages)
 			$end_pg=$total_pages;			else if($end_pg>$total_pages)			$end_pg=$total_pages;
 	?>
-   <div class="subdcribe-bar">
+   <!-- <div class="subdcribe-bar"> -->
    
-     <ul class="subdcribe-bar-left"><li><?=$lang['j_ob']?>  (<?php echo  $start_pg .' - '. $end_pg .' of '.$total_pages; ?>)</li></ul>
+     <!-- <ul class="subdcribe-bar-left"><li><?=$lang['j_ob']?>  (<?php echo  $start_pg .' - '. $end_pg .' of '.$total_pages; ?>)</li></ul>
      
-  <div class="subdcribe-bar-right"></div>
-   <div class="latest_worbox">
+  <div class="subdcribe-bar-right"></div> -->
+   <div class="latest_worbox" id="member_right_box">
    <?php
    if($total_pages > 0)
 	{
@@ -572,7 +623,10 @@ $maincat.=$cv[cat_name];
      	<div style="position:absolute;margin-left: 652px;margin-top: 15px;"><?=getfeatureiconmain($row[id])?>
    </div>
    <div class="search-job-content clearfix">
-    <a href="<?=$vpath?>project/<?php print $row[id];?>/<?=strtolower(str_replace("&",'+',str_replace(" ","-",$row['project'])))?>.html" > <h1> <?php echo ucwords($row['project']);?> 	<br> <?=getfeatureicon($row[id],'1')?></h1></a>
+   	<div class="resultinfor">
+    <a href="<?=$vpath?>project/<?php print $row[id];?>/<?=strtolower(str_replace("&",'+',str_replace(" ","-",$row['project'])))?>.html" > <?php echo ucwords($row['project']);?> 	
+    	<!-- <br> <?=getfeatureicon($row[id],'1')?> -->
+    </a>
 
 	<ul class="search-job-content-minili">
     <li><? if($row['project_type']=="F"){?><?=$lang['FXD_PRC']?>: <b><?=$lang[$budget_array1[$row[budget_id]]]?> </b> <? }else{?><?=$lang['HOURLY']?>: <b><?=$curn.$row['budgetmin']." to ".$curn.$row['budgetmax']?> </b><?} ?></li>
@@ -580,16 +634,40 @@ $maincat.=$cv[cat_name];
 	<li>  <?=$lang['ENDS']?>: <b><?=$datleft; ?></b>   </li>
 	<a  href="<?=$vpath?>project/<?php print $row[id];?>/<?=strtolower(str_replace("&",'+',str_replace(" ","-",$row['project'])))?>.html" ><li class="bor-right"> <b><?php echo $num_bids;?></b> <?=$lang['PROPOSALS']?></li>  </a>
 	</ul>
-	
-    <p><?php if(strlen($row['description'])>250){echo substr($row['description'],0,250).'...';} else {echo $row['description'];} ?></p>
-  <p class="mar-top"><!--Category: <span><?=$maincat?></span>--><?=$lang['SKILLS']?><span>: <?=$jobtype;?></span></p>
-  <p >
+	</div>
+	<div class="resultcheckbox">
+  		<input id="check_user1" type="checkbox" />	
+    	<label for="check_user1" class="css-label"></label>        
+  	</div>
+  	<div class="job-des">
+    <p class=""><?php if(strlen($row['description'])>250){echo substr($row['description'],0,250).'...';} else {echo $row['description'];} ?></p>
+  <p class="mar-top"><!--Category: <span><?=$maincat?></span>--> <?=$jobtype;?></span></p>
+</div>
+
+<div class="client-inforss">
+	<?php
+		$clients_info = mysql_fetch_array(mysql_query("select * from ".$prev."user where user_id=".$row[user_id]));
+		if(!empty($clients_info[logo])) {
+	   		$temp_logo=$clients_info[logo];
+	   	} else {
+			$temp_logo="images/face_icon.gif";
+		} ?>
+		<a href="<?=$vpath;?>publicprofile/<?=$clients_info[username]?>/" > <img src="<?=$vpath?>viewimage.php?img=<?php echo $temp_logo;?>&amp;width=60&amp;height=60" /></a>
+		<p class="client-name"><?php echo $clients_info[fname].' '.$clients_info[lname]; ?></p>
+		<p>
+			<span>United States</span>
+			<span>$0 Spent</span>
+			<span>No Feedback</span>
+		</p>
+</div>
+
+<!--   <p >
   <?php 
   	$buyer_info = mysql_fetch_array(mysql_query("select user_id,username,country from ".$prev."user where user_id=".$row[user_id]));	
   ?>
    <?=$lang['ACTIVATE_BY']?>: <a href="<?=$vpath?>publicprofile/<?=$buyer_info[username]?>/" style=" color: #205691;text-decoration: none;
 "><?=ucwords($buyer_info[username]);?></a>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="<?=$vpath?>cuntry_flag/<?=strtolower($buyer_info[country]);?>.png" title="France" width="16" height="11" > &nbsp;&nbsp;<?=$country_array[$buyer_info[country]];?>
-  <? if(getprojecttype($row['id'])=="F"){?><img src="<?=$vpath?>images/fixed.png" alt="<?=$lang['FIXED']?>" title="<?=$lang['FIXED']?>" /><? }else{?><img src="<?=$vpath?>images/hourly.png" alt="<?=$lang['HOURLY']?>" title="<?=$lang['HOURLY']?>" /><? }?></p>
+  <? if(getprojecttype($row['id'])=="F"){?><img src="<?=$vpath?>images/fixed.png" alt="<?=$lang['FIXED']?>" title="<?=$lang['FIXED']?>" /><? }else{?><img src="<?=$vpath?>images/hourly.png" alt="<?=$lang['HOURLY']?>" title="<?=$lang['HOURLY']?>" /><? }?></p> -->
    </div>     
  
    <?php
@@ -645,7 +723,7 @@ echo "<div align=right>" .new_pagingnew(5,$vpath.'Jobs/','/'.$param,$no_of_recor
  ?>
  
    </div>
-   </div>
+   <!-- </div> -->
    <!--Inbox  right End-->
    </div>
    </div></div>

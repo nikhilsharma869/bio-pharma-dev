@@ -7514,29 +7514,30 @@ img {
     margin:0;
     padding:0;
     margin-top:10px;
+    overflow: hidden;
 }
 .search-job-content-minili li {
-    color:#666;
+    color:#a5a5a5;
     float:left;
     margin-right:10px;
     padding-right:10px;
-    border-right:1px solid #1a4e86;
+    border-right:1px solid #a5a5a5;
     font-size:13px;
     font-weight:normal;
     list-style:none;
     display:block;
 }
-.search-job-content p {
+.search-job-content > p {
     font:normal 12px Arial, Helvetica, sans-serif !important;
     color:#4d4d4d;
     line-height:20px;
-    clear:both;
+    /*clear:both;*/
     float:left;
 }
-.search-job-content p span {
+/*.search-job-content p span {
     color:#205691;
     margin-right: 48px;
-}
+}*/
 .search-job-content p img {
     vertical-align:middle;
 }
@@ -7768,7 +7769,7 @@ pre#event-log {
     color: #413b39;
 }
 p.mar-top a {
-    background: #F0F0F0;
+    /*background: #F0F0F0;*/
     color: #333;
     line-height: 1.5;
     padding: 4px 5px;
@@ -7777,10 +7778,10 @@ p.mar-top a {
     font-family:Arial, Helvetica, sans-serif;
     font-size:12px;
 }
-p.mar-top a:hover {
+/*p.mar-top a:hover {
     background:#00468C;
     color:#FFF;
-}
+}*/
 .search-job-content a {
     text-decoration: none;
 }
@@ -9471,9 +9472,7 @@ input[type="checkbox"] + label.css-label {
     cursor:pointer;
 }
 
-.cat-listp input[type="checkbox"] + label+ img {
-    margin-top: -2px;
-}
+
 
 input[type="checkbox"]:checked + label.css-label {
     background-position: 0 -15px;
@@ -9481,6 +9480,37 @@ input[type="checkbox"]:checked + label.css-label {
 
 .css-label{
     background-image:url('../images/lite-green-check.png');
+}
+
+.cat-listp input[type="checkbox"] + label+ img {
+    margin-top: -2px;
+}
+
+input[type="radio"] {
+    position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0;
+    border:0;
+}
+
+input[type="radio"] + label.css-label {
+    padding-left:25px;
+    height:15px; 
+    display:inline-block;
+    line-height:15px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:15px;
+    vertical-align:top;
+    cursor:pointer;
+}
+
+input[type="radio"]:checked + label.css-label {
+    background-position: 0 -15px;
 }
 
 .cat-listp .DivSelectyze {
@@ -9508,6 +9538,7 @@ input[type="checkbox"]:checked + label.css-label {
     text-decoration: none;
     font-size: 19px;
     font-weight: bold;
+    width: 97%;
 }
 
 .resultinfor p {
@@ -9765,7 +9796,7 @@ input[type="checkbox"]:checked + label.css-label {
     }
 
     .resultinfor a {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .resulttxt p {
@@ -9786,7 +9817,7 @@ input[type="checkbox"]:checked + label.css-label {
     }
 }
 
-@media (max-width: 321px) {
+@media (max-width: 384px) {
     .cat-listp {
         width: 99%;
         height: auto;
@@ -9821,5 +9852,193 @@ input[type="checkbox"]:checked + label.css-label {
         width: 83%;
         padding-left: 40px;
         padding-right: 10px;
+    }
+}
+
+/* 4-9-2014 Update Find Job */
+
+.search-job-content {
+    background: #fff;
+    border: 1px solid #959595;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.search-job-content .resultinfor {
+    margin-bottom: 15px;
+}
+
+.search-job-content div.job-des {
+    width: 87%;
+    padding-top: 2px;
+    overflow: hidden;
+}
+
+.search-job-content div.job-des p {
+    font: normal 15px Arial, Helvetica, sans-serif !important;
+    margin-top: 0;
+}
+
+.search-job-content div.job-des p a {
+    display: inline-block;
+    font-size: 12px;
+    padding: 0px 10px;
+    text-decoration: none;
+    line-height: 15px;
+    margin-bottom: 5px;
+    color: #a5a5a5;
+    border-right: 1px solid #a5a5a5;
+}
+
+.search-job-content div.job-des p a:last-child {
+    border-right: none;
+}
+
+.search-job-content div.job-des p.mar-top {
+    margin-left: -10px;
+    margin-bottom: 0;
+}
+
+.client-inforss {
+    color: #a5a5a5;
+    margin-left: 40px;
+}
+
+.client-inforss a {
+    float: left;
+    margin-right: 10px;
+}
+
+.client-inforss p.client-name {
+    display: block;
+    color: #2272ba;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    width: 97%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+}
+
+.client-inforss p {
+    margin-top: 5px;
+    padding-top: 0;
+}
+
+.client-inforss p > span {
+    border-right: 1px solid #a5a5a5;
+    padding: 0 15px;
+}
+
+.client-inforss p > span:first-child {
+    padding-left: 0;
+}
+
+.client-inforss p > span:last-child {
+    padding-right: 0;
+    border-right: none;
+}
+
+.doller.budgetss .mini-inp {
+    width: 37%;
+    margin-right: 0;
+}
+
+.doller.budgetss label {
+    height: 24px;
+    text-align: center;
+    font-size: 19px;
+}
+
+.doller.budgetss .ok-btn {
+    background: #2272ba;
+    border: none;
+    color: #fff;
+    width: 39%;
+    margin-top: 10px;
+    clear: both;
+    float: left;
+}
+
+
+/* Responsive on Find Job */
+
+@media (max-width: 768px) {
+    .doller.budgetss .mini-inp, .doller.budgetss label {
+        width: 82%;
+    }
+
+    .doller.budgetss .ok-btn {
+        width: 85%;
+    }
+}
+
+@media (max-width: 600px) {
+    .cat-listp.ca-job {
+        height: 148px;
+    }
+
+    .search-job-content div.job-des {
+        width: 81%;
+    }
+
+    .search-job-content div.job-des p {
+        font: normal 13px Arial, Helvetica, sans-serif !important;
+    }
+
+    .client-inforss p.client-name {
+        font-size: 16px;
+    }
+
+    .client-inforss p > span {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .cat-listp h3, .cat-listp ul li {
+        padding-left: 16px;
+    }
+
+}
+
+@media (max-width: 384px) {
+    .cat-listp.ca-job {
+        height: auto;
+    }
+
+    .doller.budgetss .mini-inp, .doller.budgetss label {
+        width: 99%;
+    }
+
+    .doller.budgetss .ok-btn {
+        width: 100%;
+    }
+
+    .cat-listp .select-box .selectyzeValue {
+        width: 107%;
+    }
+
+    .search-job-content div.job-des  {
+        width: 73%;
+    }
+
+
+    .client-inforss p > span {
+        display: block;
+        border: none;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+
+    .client-inforss a {
+        height: 110px;
+    }
+
+    .pagination {
+        width: 96%;
     }
 }
