@@ -7520,13 +7520,23 @@ img {
     color:#a5a5a5;
     float:left;
     margin-right:10px;
-    padding-right:10px;
+    padding-right:25px;
+    padding-left: 20px;
     border-right:1px solid #a5a5a5;
-    font-size:13px;
+    font-size:17px;
     font-weight:normal;
     list-style:none;
     display:block;
 }
+
+.search-job-content-minili li:first-child {
+    padding-left: 0;
+}
+
+.search-job-content-minili li:last-child {
+    padding-right: 0;
+}
+
 .search-job-content > p {
     font:normal 12px Arial, Helvetica, sans-serif !important;
     color:#4d4d4d;
@@ -9973,6 +9983,10 @@ input[type="radio"]:checked + label.css-label {
     .doller.budgetss .ok-btn {
         width: 85%;
     }
+
+    .search-job-content-minili li {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -9994,6 +10008,14 @@ input[type="radio"]:checked + label.css-label {
 
     .client-inforss p > span {
         font-size: 13px;
+    }
+
+    .search-job-content-minili li {
+        font-size: 13px;
+        width: 96%;
+        padding: 0;
+        margin-bottom: 10px;
+        border: none;
     }
 
 }
