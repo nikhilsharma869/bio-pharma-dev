@@ -64,30 +64,38 @@ $budget_max=$_REQUEST['budget_max'];
 	});
 	$("#findwork").addClass('select');*/
 function get_posted_within(val){
- $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+ // $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	document.postedwithin.action = val;
 	document.postedwithin.submit();	
 }
 
 function get_country(val)
 {
- $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+ // $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	document.countryform.action = val;
-	document.countryform.submit();	
+	document.countryform.submit();		
 }
 
 function getprojecttypess(val)
 {
- $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+ // $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	document.projecttypess.action = val;
-	document.projecttypess.submit();	
+	document.projecttypess.submit();
 	// alert(document.projecttypess.action);
 }
 
 function getProjectsByBudget(val) {
-	console.log(val);
+	var range = val.split(";");
+	$('#budget_min').val(range[0]);
+	$('#budget_max').val(range[1]);
+	document.budgets_select.submit();
+	// console.log(range);
 }
 $(document).ready(function(){
+	var budget_min = $('#budget_min').val();
+	// console.log(budget_min);
+	var budget_max = $('#budget_max').val();
+	// console.log(budget_max);
 	var budget_range_config = {
 		from: 0,
 		to: 10000,
@@ -102,6 +110,7 @@ $(document).ready(function(){
 	};
 
 	$('#budget_range').slider(budget_range_config);
+	$('#budget_range').slider("value", budget_min, budget_max)
 });
 </script>
 <!--accordian-start-->
@@ -310,8 +319,13 @@ jQuery.noConflict();
 		<h3 class='open'><?=$lang['BUDGETT']?> </h3>
 		<ul class="live-pro-list clearfix">
 			<li>
-				<form action="" method="post">
+				<form id="budgets_select" name="budgets_select" action="" method="post">
 					<input id="budget_range" type="slider" name="budget" value="0;10000" style="display: none;">
+					<input type="hidden" name="budget_min" id="budget_min" value="<?=$_REQUEST[budget_min]?>">
+					<input type="hidden" name="budget_max" id="budget_max" value="<?=$_REQUEST[budget_max]?>">
+					<input type="hidden" name="cat_id" value="<?=$_REQUEST[cat_id]?>">	
+					<input type="hidden" name="posted_time" value="<?=$_REQUEST[posted_time]?>">	
+					<input type="hidden" name="country" value="<?=$_REQUEST[country]?>">
 				</form>
 			</li>
 		</ul>

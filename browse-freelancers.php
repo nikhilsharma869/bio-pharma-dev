@@ -230,7 +230,7 @@ if(isset($_REQUEST['countryinput']) )
 function funonchange(val){
 	document.getElementById("skillsinput").value = val;
 
-	$("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+	// $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	if(document.getElementById("skillsinput").value != ""){
 		document.skillform.submit();	
 	}
@@ -238,7 +238,7 @@ function funonchange(val){
 
 function funonchangecategory(val){
 	document.getElementById("categoryinput").value = val;
-	$("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+	// $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	if(document.getElementById("categoryinput").value != ""){
 		document.categoryform.submit();	
 	}
@@ -246,23 +246,23 @@ function funonchangecategory(val){
 }
 function getstart()
 {
- $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+ // $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	document.startform.submit();	
 }
 
 function get_rate(val)
 {
- $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+ // $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	document.rateform.submit();	
 }
 function get_country(val)
 {
- $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+ // $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	document.countryform.submit();	
 }
 
 function get_profile_type(val){
- $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
+ // $("#member_right_box").empty().html('<div style="clear:both;padding-top:10px" align="center"><img src="<?=$vpath?>images/pic-loader.gif"/></div>');
 	document.profiletypeform.submit();	
 }
 function showcat(id){
