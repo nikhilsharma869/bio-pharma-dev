@@ -195,8 +195,11 @@ function chktype()
 }
 
 
-function openLinkedinLogin() {
-	window.open('/includes/linkedin.php', 'linkedin_login', 'resizable=no,width=780,height=640');
+function openLinkedinLoginW() {
+	window.open('/includes/linkedin.php?user_login_type=w', 'linkedin_login', 'resizable=no,width=780,height=640');
+}
+function openLinkedinLoginE() {
+	window.open('/includes/linkedin.php?user_login_type=e', 'linkedin_login', 'resizable=no,width=780,height=640');
 }
 
 </script>
@@ -229,7 +232,15 @@ function openLinkedinLogin() {
 
 <div class="height20"></div>
 <!-- <div class="register-form" style="font-size:17.3px;">Log in and get to work</div> -->
-<div class="register-form" style="font-size:17.3px;"><input type="button" value="Log in with Linkedin" name="login_linkedin" onclick="openLinkedinLogin();" class="login_linkedin_btn"></div>
+<div class="register-form" style="font-size:17.3px;">
+	<div style="width:50%; float:left;">
+		<input type="button" value="Login with SME" name="login_linkedin" onclick="openLinkedinLoginW();" class="login_linkedin_btn">
+	</div>
+	<div style="width:50%; float:right;">
+		<input type="button" value="Login with Client" name="login_linkedin" onclick="openLinkedinLoginE();" class="login_linkedin_btn">
+	</div>
+	
+</div>
 
 <div class="height20"></div>
 

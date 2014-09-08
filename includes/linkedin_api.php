@@ -13,6 +13,9 @@ function getAuthorizationCode() {
      
     // Needed to identify request when it returns to us
     $_SESSION['state'] = $params['state'];
+    if(isset($_GET['user_login_type'])) {
+        $_SESSION['user_login_type'] = $_GET['user_login_type'];
+    }
  
     // Redirect user to authenticate
     header("Location: $url");

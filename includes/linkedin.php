@@ -9,7 +9,6 @@ define('SCOPE',        'r_fullprofile r_emailaddress rw_nus'                    
 // You'll probably use a database
 // session_name('linkedin');
 
-
 require_once("../configs/config.php");
 require_once("../configs/path.php");
 require_once("linkedin_api.php");
@@ -39,9 +38,27 @@ if (isset($_GET['error'])) {
     }
 }
  
+function insertSkillLinkedin($skills, $user_id, $prev) {
+    for($i=0;$i<count($skills);$i++){
+        $skill_linkedin = mysql_real_escape_string($skills[$i]->skill->name);
+        $skill_linkedin = ucwords($skill_linkedin);
+        $rss=mysql_query("select * from  ".$prev."skill_linkedin where  skill_name='".$skill_linkedin."' and user_id='".$user_id."'");
+        $nss=@mysql_num_rows($rss);
+        if (!$nss) {
+            $url_skill = strtolower(trim($skill_linkedin));
+            $url_skill = preg_replace('/[^a-z0-9-]/', '-', $url_skill);
+            $url_skill = preg_replace('/-+/', "-", $url_skill);
+            $query_insert_skill_linkedin = "Insert into ".$prev."skill_linkedin (skill_name,url_skill,user_id,created_time) values ('" . $skill_linkedin . "','".$url_skill."','".$user_id."','".date('Y-m-d H:i:s')."')";
+            $risl=mysql_query($query_insert_skill_linkedin);
+        }        
+    }
+}
+
+$user_login_type = $_SESSION['user_login_type'];
 // Congratulations! You have a valid token. Now fetch your profile 
 $fields = 'id,email-address,firstName,lastName,headline,location:(name),industry,summary,specialties,positions,public-profile-url,proposal-comments,associations,interests,publications,patents,languages,skills,certifications,educations,courses,volunteer,three-current-positions,three-past-positions,num-recommenders,recommendations-received,following,job-bookmarks,suggestions,date-of-birth,picture-urls::(original),honors-awards';
 $user = fetch('GET', '/v1/people/~:('.$fields.')');
+
 // echo "<pre>";
 // var_dump($user);
 // exit();
@@ -85,7 +102,7 @@ $n=@mysql_num_rows($r);
   
 if($n>0){        
 
-    $query_update_user = "update ".$prev."user set ip='" . $_SERVER['REMOTE_ADDR'] . "', ldate='".$datetime."', profile='".mysql_real_escape_string($user->summary)."', work_experience='".mysql_real_escape_string($positions)."' where user_id=".@mysql_result($r,0,"user_id");
+    $query_update_user = "update ".$prev."user set user_type='" . strtoupper($user_login_type) . "', ip='" . $_SERVER['REMOTE_ADDR'] . "', ldate='".$datetime."', profile='".mysql_real_escape_string($user->summary)."', work_experience='".mysql_real_escape_string($positions)."' where user_id=".@mysql_result($r,0,"user_id");
     $ru=mysql_query($query_update_user);
 
     // $query_update_profile = "update ".$prev."user_profile set summary='" . $user->summary . "', experience='" . $positions . "', publications='" . $publications . "', languages='" . $languages . "', skills='" . $skills . "' where user_id=".@mysql_result($r,0,"user_id");
@@ -105,14 +122,18 @@ if($n>0){
     $rup=mysql_query($query_update_profile);
     // var_dump($rup); exit();
 
+    insertSkillLinkedin($user->skills->values,  @mysql_result($r,0,"user_id"), $prev);
+
 } else {
 
-    $query_insert_user = "Insert into ".$prev."user (email,username,password,fname,lname,status,reg_date,ldate,profile,ip,work_experience) values ('".$user->emailAddress."','".$user->emailAddress."','".md5($user->emailAddress)."','".$user->firstName."','".$user->lastName."','Y','".$datetime."','".$datetime."','".mysql_real_escape_string($user->summary)."','".$_SERVER['REMOTE_ADDR']."','".mysql_real_escape_string($positions)."')";
+    $query_insert_user = "Insert into ".$prev."user (user_type,email,username,password,fname,lname,status,reg_date,ldate,profile,ip,work_experience) values ('" . strtoupper($user_login_type) . "','".$user->emailAddress."','".$user->emailAddress."','".md5($user->emailAddress)."','".$user->firstName."','".$user->lastName."','Y','".$datetime."','".$datetime."','".mysql_real_escape_string($user->summary)."','".$_SERVER['REMOTE_ADDR']."','".mysql_real_escape_string($positions)."')";
     $ri = mysql_query($query_insert_user);
+
+    $user_insert_id = mysql_insert_id();
     
     // $query_insert_profile = "Insert into ".$prev."user_profile (user_id,summary,experience,publications,languages,skills,educations) values ('".mysql_insert_id()."','".$user->summary."','".$positions."','".$publications."','".$languages."','".$skills."')";
-    $query_insert_profile = sprintf("Insert into ".$prev."user_profile (user_id,summary,experience,publications,languages,skills,educations,dateofbirth,interests,recommendations,certifications) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
-        mysql_insert_id(),
+    $query_insert_profile = sprintf("Insert into ".$prev."user_profile (user_id,summary,experience,publications,languages,skills,educations,dateofbirth,interests,recommendations,certifications) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+        $user_insert_id,
         mysql_real_escape_string($user->summary),
         mysql_real_escape_string(json_encode($user->positions)),
         mysql_real_escape_string($publications),
@@ -125,11 +146,14 @@ if($n>0){
         mysql_real_escape_string(json_encode($user->certifications))
     );
     
-    $rp = mysql_query($query_insert_profile); 
+    $rp = mysql_query($query_insert_profile);
+    // var_dump($query_insert_profile); exit();
+
+    insertSkillLinkedin($user->skills->values,  $user_insert_id, $prev);
 
 
 }
-
+  
     $rs=mysql_query("select * from  ". $prev . "user where  (email=\"".txt_value($user->emailAddress). "\")");
 
     if(isset($user->pictureUrls->values[0]) && !empty($user->pictureUrls->values[0])) {
