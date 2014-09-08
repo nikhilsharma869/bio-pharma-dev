@@ -10070,3 +10070,43 @@ input[type="radio"]:checked + label.css-label {
         width: 96%;
     }
 }
+
+/* Budget Range */
+
+.budget_range .jslider {
+    width: 87%;
+    margin-left: 2px;
+}
+
+.budget_range .jslider .jslider-scale ins {
+    left: -10px;
+}
+
+.budget_range .jslider .jslider-scale span:first-child ins {
+    left: -3px;
+}
+
+.budget_range .jslider .jslider-pointer {
+    top: -7px;
+    z-index: 9 !important;
+}
+
+.budget_range .jslider .jslider-value {
+    margin-left: -12px;
+    top: -22px;
+}
+
+.budget_range .live-pro-list {
+    margin-top: 10px;
+}
+
+.budget_range .jslider .jslider-scale span:nth-child(odd) {
+    margin-top: -19px;
+    height: 10px;
+    border-color: #c8c8c8;
+}
+
+.budget_range .jslider .jslider-scale span:nth-child(even) {
+    margin-top: -14px;
+    border-color: #c8c8c8;
+}

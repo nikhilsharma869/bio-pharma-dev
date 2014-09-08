@@ -40,8 +40,19 @@ $budget_min=$_REQUEST['budget_min'];
 $budget_max=$_REQUEST['budget_max'];
 ?>
 <link type="text/css" rel="stylesheet" href="css/searchPage_15042012.css">
-<script language="JavaScript" src="js/search_framework.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?= $vpath; ?>/jplugins/jslider/css/jslider.css" type="text/css">
+<link rel="stylesheet" href="<?= $vpath; ?>/jplugins/jslider/css/jslider.blue.css" type="text/css">
+<link rel="stylesheet" href="<?= $vpath; ?>/jplugins/jslider/css/jslider.plastic.css" type="text/css">
+<link rel="stylesheet" href="<?= $vpath; ?>/jplugins/jslider/css/jslider.round.css" type="text/css">
+<link rel="stylesheet" href="<?= $vpath; ?>/jplugins/jslider/css/jslider.round.plastic.css" type="text/css">
 
+<script language="JavaScript" src="js/search_framework.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?= $vpath; ?>/jplugins/jslider/js/jshashtable-2.1_src.js"></script>
+<script type="text/javascript" src="<?= $vpath; ?>/jplugins/jslider/js/jquery.numberformatter-1.2.3.js"></script>
+<script type="text/javascript" src="<?= $vpath; ?>/jplugins/jslider/js/tmpl.js"></script>
+<script type="text/javascript" src="<?= $vpath; ?>/jplugins/jslider/js/jquery.dependClass-0.1.js"></script>
+<script type="text/javascript" src="<?= $vpath; ?>/jplugins/jslider/js/draggable-0.1.js"></script>
+<script type="text/javascript" src="<?= $vpath; ?>/jplugins/jslider/js/jquery.slider.js"></script>
 
 
 <script>
@@ -72,6 +83,26 @@ function getprojecttypess(val)
 	document.projecttypess.submit();	
 	// alert(document.projecttypess.action);
 }
+
+function getProjectsByBudget(val) {
+	console.log(val);
+}
+$(document).ready(function(){
+	var budget_range_config = {
+		from: 0,
+		to: 10000,
+		scale: ['|', '|', '|', '|', '|', '|', '|', '|', '|', '|', '|'],
+		limits: false,
+		step: 100,
+		before_n: '$&nbsp;',
+		skin: "plastic",
+		callback: function( value ){
+	    	getProjectsByBudget(value);
+	  	}
+	};
+
+	$('#budget_range').slider(budget_range_config);
+});
 </script>
 <!--accordian-start-->
 
@@ -255,16 +286,16 @@ jQuery.noConflict();
 			</ul>
 		</form>
 			</div>	
-			<div class="cat-listp ca-job">		
+			<!-- <div class="cat-listp ca-job">		
 		<h3 class='open'><?=$lang['BUDGETT']?> </h3>
 		<ul class="live-pro-list clearfix"><li>
 		<form action="" method="post">
 		
-		<div class="doller budgetss clearfix" aria-hidden="false" style="display: block;">
+		<div class="doller budgetss clearfix" aria-hidden="false" style="display: block;"> -->
          <!-- <label> <?=$lang[DOLLAR]?> </label> -->
-         <input class="mini-inp" type="text" name="budget_min" value="<?=$_REQUEST[budget_min]?>">
+         <!-- <input class="mini-inp" type="text" name="budget_min" value="<?=$_REQUEST[budget_min]?>"> -->
          <!-- <label> to <?=$lang[DOLLAR]?> </label> -->
-         <label>-</label>
+         <!-- <label>-</label>
          <input class="mini-inp" type="text" name="budget_max" value="<?=$_REQUEST[budget_max]?>">
 		 <input  type="hidden" name="cat_id" value="<?=$_REQUEST[cat_id]?>">	
 						 <input  type="hidden" name="posted_time" value="<?=$_REQUEST[posted_time]?>">	
@@ -273,6 +304,16 @@ jQuery.noConflict();
          </div>
 		 </form>
 		</li>
+		</ul>
+	</div> -->
+	<div class="cat-listp ca-job budget_range">		
+		<h3 class='open'><?=$lang['BUDGETT']?> </h3>
+		<ul class="live-pro-list clearfix">
+			<li>
+				<form action="" method="post">
+					<input id="budget_range" type="slider" name="budget" value="0;10000" style="display: none;">
+				</form>
+			</li>
 		</ul>
 	</div>
 	<!-- <div class="cat-listp">	
