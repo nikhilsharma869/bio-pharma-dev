@@ -232,11 +232,11 @@ function openLinkedinLoginE() {
 
 <div class="height20"></div>
 <!-- <div class="register-form" style="font-size:17.3px;">Log in and get to work</div> -->
-<div class="register-form" style="font-size:17.3px;">
-	<div style="width:50%; float:left;">
+<div class="register-form login_linkedin_buttons" style="font-size:17.3px;">
+	<div style="width:45%; float:left;">
 		<input type="button" value="Login with SME" name="login_linkedin" onclick="openLinkedinLoginW();" class="login_linkedin_btn">
 	</div>
-	<div style="width:50%; float:right;">
+	<div style="width:46%; float:right;">
 		<input type="button" value="Login with Client" name="login_linkedin" onclick="openLinkedinLoginE();" class="login_linkedin_btn">
 	</div>
 	

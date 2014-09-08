@@ -9422,14 +9422,20 @@ ul.menu1 li:hover ul.sub-menu {
 
     #loginPage {
         background-size: auto 100%;
-        height: 650px;
+        height: 690px;
+    }
+
+    .login_linkedin_buttons > div {
+        float: none !important;
+        width: 99% !important;
+        margin-bottom: 10px;
     }
 }
 
 @media (max-width: 320px) {
 
     #loginPage {
-        height: 750px;
+        height: 790px;
     }
 
     .login_linkedin_btn {
