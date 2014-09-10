@@ -902,6 +902,7 @@ $lang = array(
 'DESCRIBING_SHORT' => "Describe in short",
 'NOT_MORE_THAN' => "(Not more than 200 chars)",
 'PICTURES_EXAMPLES' => "Pictures / Examples",
+'PORTFOLIO_ATTACHMENT' => "Portfolio Attachment",
 'UPLOAD_PORTFOLIO' => "Uploded Portfolio",
 'UPDATED_ON' => "Updated on",
 'ENTER_JOB_DETAILS' => "Please enter job details.",

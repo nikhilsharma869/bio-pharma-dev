@@ -29,6 +29,14 @@ if ($_REQUEST['SBMT']):
                 $r = mysql_query("update " . $prev . "portfolio set image=\"" . $file . "\" where id=\"" . $_REQUEST['EDIT'] . "\"");
             }
 
+            if ($_FILES['portfolio_attachment']['name']) {
+                list($image_ex, $ext) = explode('.', $_FILES['portfolio_attachment']['name']);
+                $rand = rand(1111111, 9999999);
+                $file = "portfolio_attachment/" . $rand . time() . "_" .$image_ex. "." . $ext;
+                copy($_FILES['portfolio_attachment']['tmp_name'], $file);
+                $r = mysql_query("update " . $prev . "portfolio set attachment=\"" . $file . "\" where id=\"" . $_REQUEST['EDIT'] . "\"");
+            }
+
             if ($_FILES['thumb1']['name']):
                 list($image_ex, $ext) = explode('.', $_FILES['thumb1']['name']);
                 $rand = rand(1111111, 9999999);
@@ -112,6 +120,18 @@ if ($_REQUEST['SBMT']):
                     move_uploaded_file($_FILES['thumb']['tmp_name'], $file);
 
                     $r = mysql_query("update " . $prev . "portfolio set image=\"" . $file . "\" where id=\"" . $id . "\"");
+
+                endif;
+
+                if ($_FILES['portfolio_attachment']['name']):
+                    list($image_ex, $ext) = explode('.', $_FILES['portfolio_attachment']['name']);
+                    $rand = rand(1111111, 9999999);
+
+                    $file = "portfolio_attachment/" . $rand . time() . "_" .$image_ex. "." . $ext;
+
+                    move_uploaded_file($_FILES['portfolio_attachment']['tmp_name'], $file);
+
+                    $r = mysql_query("update " . $prev . "portfolio set attachment=\"" . $file . "\" where id=\"" . $id . "\"");
 
                 endif;
 
@@ -249,7 +269,15 @@ function ValidateAndSubmit()
        }
 
       
-
+if(document.getElementById('portfolio_attachment').value!='') {
+    var filename = document.getElementById('portfolio_attachment').value;
+    var ext = filename.split('.');
+    var allow_exts = ["xls", "xlsx", "doc", "docx", "pdf"];
+    if(allow_exts.indexOf(ext[1]) == -1) {
+        alert("Attachment allows only word, excel and pdf file!");
+        return false;
+    }
+}
    
 
 }
@@ -356,6 +384,12 @@ function ValidateAndSubmit()
                                                 <tr class='link'>
                                                     <td ><?= $lang['PICTURES_EXAMPLES'] ?> : </td>
                                                     <td><input type="file" name="thumb"  size="30" class="from_input_box" />
+                                                    </td>
+                                                </tr>
+
+                                                <tr class='link'>
+                                                    <td ><?= $lang['PORTFOLIO_ATTACHMENT'] ?> : </td>
+                                                    <td><input type="file" id="portfolio_attachment" name="portfolio_attachment"  size="30" class="from_input_box" />
                                                     </td>
                                                 </tr>
 

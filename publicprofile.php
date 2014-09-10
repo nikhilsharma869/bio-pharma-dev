@@ -83,6 +83,11 @@ if (!empty($row_user[logo])) {
                                         <h2><?= substr($f[project_title], 0, 20); ?></h2>
                                         <p style="font-size:12px;"><?= substr(nl2br($f[description]), 0, 200); ?></p>
                                         <a href="http://<?= str_replace("http://", "", str_replace("https://", "", $f[link])) ?>" target="_blank"><?= $f[link] ?></a>
+                                        <?php if($f[attachment]): 
+                                            $attachment_link = $vpath.$f[attachment];
+                                        ?>
+                                            <a class="portfolio_attm" href="http://<?= str_replace("http://", "", str_replace("https://", "", $attachment_link)) ?>" target="_blank">Attachment</a>
+                                        <?php endif; ?>
                                     </div>
                                 </li>
                                 <?php

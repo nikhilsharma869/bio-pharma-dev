@@ -2108,3 +2108,8 @@ a.endorse-item-name-text {
     width: 612px; 
     height:250px; 
 }
+
+.slidetxt a.portfolio_attm {
+    display: block;
+    margin-top: 15px;
+}
