@@ -47,19 +47,74 @@ if (!empty($row_user[logo])) {
         </div>
         <div class="clear-fix"></div>
         <div class="user-profile-sidebar">
-            <a class="up-contact" href="javascript:;">Contact</a>
+            <?php if(!empty($_SESSION['user_id'])) { ?>
+                <?php if($_SESSION['user_type'] == 'E') { ?>
+                <a class="up-contact" href="javascript:;" onclick="getinvite()">Invite</a>
+                <?php } else { ?>
+                <a class="up-contact" href="javascript:;">Contact</a>
+                <?php } ?>
+            <?php } ?>
+            
             <ul id="up-tabs" class="nav nav-tabs" role="tablist">
               <li class="active"><a class="up-icon-overview" href="#up-overview">Overview</a></li>
+              <?php if(!empty($_SESSION['user_id'])) { ?>
               <li><a class="up-icon-portfolio" href="#up-portfolio">Portfolio</a></li>
               <li><a class="up-icon-feedback" href="#up-feedback">Feedback</a></li>
+              <?php } ?>
               <li><a class="up-icon-skills" href="#up-overview">Skills</a></li>
             </ul>
+            <?php if(!empty($_SESSION['user_id'])) { ?>
+            <div class="boxright" id="invidebox">
+                <h2><?= $lang['INVT_PROV'] ?></h2>
+                <div id="addinvite" align="center"></div>
+
+                <?php
+                $proj_sql_num = @mysql_num_rows(mysql_query("select id from " . $prev . "projects where user_id='" . $_SESSION[user_id] . "' and status='open'"));
+                if ($proj_sql_num > 0) {
+                    ?>
+                    <div class="invitebox_section">
+                        <span><?= $lang['SELECT_PROJECT'] ?>:</span>
+                    </div>
+                    <div class="invitebox_section">
+                        <select name="proj" class="from_input_box" style="width:200px" id="project_id_val">
+                            <?php
+                            $proj_sql = @mysql_query("select * from " . $prev . "projects where user_id='" . $_SESSION[user_id] . "' and status='open'");
+                            while ($proj_fetch = @mysql_fetch_array($proj_sql)) {
+                                ?>
+                                <option value="<?= $proj_fetch['id'] ?>"><?= $proj_fetch['project'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="invitebox_section">
+                        <input type="hidden" id="txtemail" name="txtemail" size="52"  value="<? print $row_user[email]; ?>">
+                        <input type="hidden" id="f_name" name="f_name" size="52"  value="<? print $row_user[fname]; ?>">
+                        <input type="hidden" id="l_name" name="l_name" size="52"  value="<? print $row_user[lname]; ?>">
+                        <input type='button' border="0" class="submit_bott" value="<?= $lang['SEND'] ?>"  name="send_submit" onclick="invideuser();">
+                    </div>
+                    <div style="padding-left:10px;margin: 10px 0px;">
+                        <div id="addinvite_post" align="center">
+                            <a href="javascript:void(0)" onclick="postprojectinvite()">
+                                <input type="button" name="Button" value="Post a New Project"  class="submit_bott"/>
+                            </a>
+                        </div>            
+                    </div>
+                <?php } else { ?>
+                    <p style="margin-left: 20px;">You don't have any project to invite</p>
+                <?php } ?>
+            </div>
+            <?php } ?>
         </div>
         <div class="user-profile-data-area">
             <h2>Profile</h2>
             <div id="up-content" class="tab-content">
+                <?php if(!empty($_SESSION['user_id'])) { ?>
                 <div class="up-content-section tab-pane" id="up-portfolio">
-                    <h3>Portfolios</h3>                    
+                    <div class="upps">
+                        <h3>Portfolios</h3> 
+                        <?php if($_SESSION['user_id'] == $row_user['user_id']) { ?>
+                            <div class="upload_bott"><a href="<?= $vpath ?>upload-portfolio.html">+&nbsp;<?= $lang['UPLOAD_NEW'] ?></a></div>                   
+                        <?php } ?>
+                    </div>
                     <ul id="slider">
 
                         <?php
@@ -88,6 +143,9 @@ if (!empty($row_user[logo])) {
                                         ?>
                                             <a class="portfolio_attm" href="http://<?= str_replace("http://", "", str_replace("https://", "", $attachment_link)) ?>" target="_blank">Attachment</a>
                                         <?php endif; ?>
+                                        <?php if($_SESSION['user_id'] == $row_user['user_id']) { ?>
+                                            <a class="portfolio_edit_btn" href="<?= $vpath ?>edit-portfolio/1/<?= $f['id'] ?>/"><span>Edit</span></a>
+                                        <?php } ?>
                                     </div>
                                 </li>
                                 <?php
@@ -100,6 +158,7 @@ if (!empty($row_user[logo])) {
                     <h3>Feedback</h3>
                     <?php include("includes/puplic_review.php"); ?>
                 </div>
+                <?php } ?>
                 <div class="tab-pane active" id="up-overview">
                     <div class="up-content-section up-summary">
                         <h3>Summary</h3>
@@ -302,6 +361,28 @@ if (!empty($row_user[logo])) {
             hashTags: false
         });
     });
+
+    function getinvite() {
+        $("#invidebox").slideDown('slow');
+    }
+
+    function postprojectinvite() {
+        var txtemail = $("#txtemail").val();
+        var info = "txtemail=" + txtemail + "&inviteuser=inviteuser";
+        $.ajax({
+            type: "POST",
+            url: "<?= $vpath ?>addtoinvite_post.php",
+            data: info,
+            beforeSend: function() {
+                $('#addinvite_post').html('<img src="<?= $vpath ?>images/login_loader2.GIF" height=22 width=22  />');
+            },
+            success: function(dd) {
+
+                $("#addinvite_post").html(dd);
+
+            }
+        });
+    }
 </script>
 
 <?php include 'includes/footer.php'; ?>

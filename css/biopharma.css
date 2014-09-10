@@ -2113,3 +2113,32 @@ a.endorse-item-name-text {
     display: block;
     margin-top: 15px;
 }
+
+.user-profile-sidebar #invidebox {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #959595;
+    float: none;
+    overflow: hidden;
+    border-radius: 0;
+    display: none;
+    margin: 10px 0;
+}
+
+#up-portfolio h3 {
+    float: left;
+    display: inline;
+}
+
+#up-portfolio .upps {
+    display: block;
+    overflow: hidden;
+}
+
+#up-portfolio .portfolio_edit_btn {
+    background: url(../images/edit_icon.jpg) left no-repeat; 
+    padding-left: 21px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 15px;
+}
