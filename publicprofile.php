@@ -26,14 +26,22 @@ if (!empty($row_user[logo])) {
                 <p class="up-slogan"><?= ucfirst($row_user[slogan]) ?></p>
                 <div class="the-gru-of">
                     <h4>The guru of</h4>
-                    <span>com</span>
-                    <span>drupal</span>
-                    <span>joomla</span>
-                    <span>http</span>
-                    <span>mysql</span>
-                    <span>opencart</span>
-                    <span>php</span>
-                    <span>wordpress</span>
+                    <?php 
+                        $skill_q = "select skills from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+
+                        $res_skill = mysql_query($skill_q);
+                        $data_skills = @mysql_result($res_skill,0,"skills");
+                        $data_skills = explode(',', $data_skills);
+                        $count = 1;
+                        foreach ($data_skills as $skill) {
+                            if($count > 5 ) break;
+                            $data_skill_name.= "<span><a href='javascript:;'>". $skill . '</a></span>';
+                            $count++;
+                        }
+                       
+                        $skill_name = $data_skill_name;
+                        echo $skill_name;
+                    ?>
                 </div>
             </div>            
         </div>
@@ -51,10 +59,41 @@ if (!empty($row_user[logo])) {
             <h2>Profile</h2>
             <div id="up-content" class="tab-content">
                 <div class="up-content-section tab-pane" id="up-portfolio">
-                    <h3>Portfolios</h3>
+                    <h3>Portfolios</h3>                    
+                    <ul id="slider">
+
+                        <?php
+                        $rr = mysql_query("select *  from " . $prev . "portfolio where user_id=" . $row_user['user_id'] . " and `status`='Y' order by id desc limit 20");
+                        $pro = mysql_num_rows($rr);
+                        if ($pro == "") {
+                            echo '<div style="width:736px;padding:5px;float:left;"  align="center">';
+                            echo $lang['PORTF_NOT_UPD'];
+                            echo '</div>';
+                        } else {
+                            $j = 0;
+                            while ($f = mysql_fetch_array($rr)) {
+                                $j++;
+                                $date_up = explode('-', $f[add_date]);
+                                $date = $date_up[2] . '-' . $date_up[1] . '-' . $date_up[0];
+                                ?>  
+
+                                <li>
+                                    <div class="prosl1"><img src="<?= $vpath ?>viewimage.php?img=<?= $f[image]; ?>&width=287&height=240" alt="" style="width: 295px;height: 242px;" /></div>
+                                    <div class="slidetxt">
+                                        <h2><?= substr($f[project_title], 0, 20); ?></h2>
+                                        <p style="font-size:12px;"><?= substr(nl2br($f[description]), 0, 200); ?></p>
+                                        <a href="http://<?= str_replace("http://", "", str_replace("https://", "", $f[link])) ?>" target="_blank"><?= $f[link] ?></a>
+                                    </div>
+                                </li>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </ul>
                 </div>
                 <div class="up-content-section tab-pane" id="up-feedback">
                     <h3>Feedback</h3>
+                    <?php include("includes/puplic_review.php"); ?>
                 </div>
                 <div class="tab-pane active" id="up-overview">
                     <div class="up-content-section up-summary">
@@ -253,6 +292,11 @@ if (!empty($row_user[logo])) {
             },'slow');
         }
     })
+    $(function() {
+        $('#slider').anythingSlider({
+            hashTags: false
+        });
+    });
 </script>
 
 <?php include 'includes/footer.php'; ?>

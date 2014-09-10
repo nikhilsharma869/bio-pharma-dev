@@ -97,9 +97,11 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
 
                         minWidth = 450;
                     </script>
-                    <link href="<?=$vpath;?>admin_new/css/bootstrap/bootstrap.css" rel="stylesheet" />
-                    <link href="<?=$vpath;?>admin_new/css/bootstrap/bootstrap-theme.css" rel="stylesheet" />
+                    <!-- <link href="<?=$vpath;?>admin_new/css/bootstrap/bootstrap.css" rel="stylesheet" /> -->
+                    <!-- <link href="<?=$vpath;?>admin_new/css/bootstrap/bootstrap-theme.css" rel="stylesheet" /> -->
 
+                    <link rel="stylesheet" href="<?=$vpath;?>css/anythingslider.css">
+                    <script src="<?=$vpath;?>js/jquery.anythingslider.js"></script>
                             <!--<link href="<?= $vpath; ?>css/style.css" rel="stylesheet" type="text/css" />-->
                     <link href="<?=$vpath;?>css/biopharma.css" rel="stylesheet" type="text/css" />
                     <!--<link rel="stylesheet" href="<?= $vpath; ?>css/landing_narrow_banner.css" type="text/css">
