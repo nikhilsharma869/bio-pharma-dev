@@ -265,4 +265,145 @@ function new_paging($adjacents, $targetpage, $param, $limit=10, $page=0, $total_
 		return $pagination;
 	}
 
+function smoothdate ($year, $month, $day)
+{
+    return sprintf ('%04d', $year) . sprintf ('%02d', $month) . sprintf ('%02d', $day);
+}
+ 
+function date_difference ($first, $second)
+{
+    $month_lengths = array (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+ 
+    $retval = FALSE;
+ 
+    if (    checkdate($first['month'], $first['day'], $first['year']) &&
+            checkdate($second['month'], $second['day'], $second['year'])
+        )
+    {
+        $start = smoothdate ($first['year'], $first['month'], $first['day']);
+        $target = smoothdate ($second['year'], $second['month'], $second['day']);
+ 
+        if ($start <= $target)
+        {
+            $add_year = 0;
+            while (smoothdate ($first['year']+ 1, $first['month'], $first['day']) <= $target)
+            {
+                $add_year++;
+                $first['year']++;
+            }
+ 
+            $add_month = 0;
+            while (smoothdate ($first['year'], $first['month'] + 1, $first['day']) <= $target)
+            {
+                $add_month++;
+                $first['month']++;
+ 
+                if ($first['month'] > 12)
+                {
+                    $first['year']++;
+                    $first['month'] = 1;
+                }
+            }
+ 
+            $add_day = 0;
+            while (smoothdate ($first['year'], $first['month'], $first['day'] + 1) <= $target)
+            {
+                if (($first['year'] % 100 == 0) && ($first['year'] % 400 == 0))
+                {
+                    $month_lengths[1] = 29;
+                }
+                else
+                {
+                    if ($first['year'] % 4 == 0)
+                    {
+                        $month_lengths[1] = 29;
+                    }
+                }
+ 
+                $add_day++;
+                $first['day']++;
+                if ($first['day'] > $month_lengths[$first['month'] - 1])
+                {
+                    $first['month']++;
+                    $first['day'] = 1;
+ 
+                    if ($first['month'] > 12)
+                    {
+                        $first['month'] = 1;
+                    }
+                }
+ 
+            }
+ 
+            $retval = array ('years' => $add_year, 'months' => $add_month, 'days' => $add_day);
+        }
+    }
+ 
+    return $retval;
+}
+
+function get_list_skill_linkedin() {
+	global $prev;
+    $csquery = "SELECT skill_name, COUNT(*) AS cnumber
+    FROM (SELECT DISTINCT * FROM " . $prev . "skill_linkedin) AS skills_linked
+    GROUP BY skill_name";
+    $count_skills = mysql_query($csquery);
+    
+    $top_skill_skill = array();
+    $one_know_skill = array();
+
+    while($skills = mysql_fetch_array($count_skills)) {   
+        if($skills['cnumber'] > 1) {
+            array_push($top_skill_skill, array('skill_name' => $skills['skill_name'], 'skill_count' => $skills['cnumber']));
+        } else {
+            array_push($one_know_skill, array('skill_name' => $skills['skill_name']));
+        }
+    }
+
+    usort($top_skill_skill, function($a, $b) {
+        return $b['skill_count'] - $a['skill_count'];
+    });
+
+    // var_dump($top_skill_skill);
+
+    $skills_linkedin['top_skill_skill'] = $top_skill_skill;
+    $skills_linkedin['one_know_skill'] = $one_know_skill;
+
+    // var_dump($skills_linkedin);
+
+    return $skills_linkedin;
+}
+
+
+function check_user_skill($skill_name, $user_id) {
+	global $prev;
+    $query = mysql_query("SELECT * FROM " . $prev . "skill_linkedin WHERE skill_name='".$skill_name."' AND user_id='".$user_id."'");
+    $result = mysql_num_rows($query);
+
+    if ($result>0) {
+    	return true;
+    } else {
+    	return false;
+    }
+}
+
+function get_list_user_by_skl($skill_name, $except_user_id){
+	global $prev;
+
+	$query = mysql_query("SELECT user_id FROM " . $prev . "skill_linkedin WHERE skill_name='".$skill_name."' AND NOT user_id='".$except_user_id."'");
+	
+	$users = array();
+	while($user = mysql_fetch_array($query)) { 
+		$row_user = mysql_fetch_array(mysql_query("select * from " . $prev . "user where user_id = '" . $user['user_id'] . "' LIMIT 6"));
+		
+		if (empty($row_user[logo])) {
+		    $row_user[logo] = "images/face_icon.gif";
+		}
+
+		array_push($users, $row_user);
+	}
+	return $users;
+	
+}
+
 ?>
