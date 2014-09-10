@@ -48,7 +48,7 @@ if (!empty($row_user[logo])) {
         <div class="clear-fix"></div>
         <div class="user-profile-sidebar">
             <?php if(!empty($_SESSION['user_id'])) { ?>
-                <?php if($_SESSION['user_type'] == 'E') { ?>
+                <?php if($_SESSION['user_type'] == 'E' && $_SESSION['user_id'] != $row_user['user_id']) { ?>
                 <a class="up-contact" href="javascript:;" onclick="getinvite()">Invite</a>
                 <?php } else { ?>
                 <a class="up-contact" href="javascript:;">Contact</a>

@@ -256,7 +256,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                         if(isset($_SESSION['user_id'])){
                                             ?>
                                         <div class="topBlockRight">
-                                            <span style="float: left;"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=29&height=29" alt="" /></span>
+                                            <span class="top_header_ava"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=200&height=200" alt="" /></span>
                                             <a class="login" href="<?php echo $vpath;?>logout.html">Sign out</a>
                                         </div>
                                         <?php } else { ?>
@@ -275,9 +275,24 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                             <a href="#content" class="screen-reader-text skip-link">Skip to content</a>-->
                                             <div class="menu-main-nav-container">
                                                 <ul class="nav-menu" id="menu-main-nav">
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="<?php echo $vpath;?>Jobs/">Find Project</a></li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>find-talents/">Find SME</a></li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>howitworks.html">How it Works</a></li>
+                                                    <?php if(!empty($_SESSION['user_id'])) { ?> 
+                                                        <?php if($_SESSION['user_type'] == 'W') { ?>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>publicprofile/<?=$_SESSION['username']?>//">Profile</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="<?php echo $vpath;?>Jobs/">Find Work</a></li>                                                            
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>my-jobs.html">My Jobs</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>reporst.html">Reports</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>messages.html">Messages</a></li>
+                                                        <?php } else { ?>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="<?php echo $vpath;?>find-talents/">Recruit</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>my-team/">Manage My Team</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>reports.html">Reports</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>messages.html">Messages</a></li>
+                                                        <?php } ?>
+                                                    <?php } else { ?>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="<?php echo $vpath;?>Jobs/">Find Project</a></li>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>find-talents/">Find SME</a></li>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>howitworks.html">How it Works</a></li>
+                                                    <?php } ?>
                                                 </ul>
                                             </div>
                                         </nav>
