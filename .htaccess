@@ -316,9 +316,9 @@ RewriteRule ^([a-zA-Z0-9_-]+).html?$    $1.php  [QSA,L,NC]
 
 ErrorDocument 404 404.php
 
-AuthType Basic
-AuthName "Authentication Required"
-AuthUserFile "/etc/htpasswd/.htpasswd"
-Require valid-user
+##AuthType Basic
+##AuthName "Authentication Required"
+##AuthUserFile "/etc/htpasswd/.htpasswd"
+##Require valid-user
 
 </IfModule>

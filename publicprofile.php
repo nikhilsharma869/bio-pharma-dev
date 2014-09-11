@@ -15,7 +15,11 @@ if (!empty($row_user[logo])) {
 <div class="user-profile-area">
     <div class="user-profile-banner">
         <!-- <img src="<?= $vpath ?>/images/profile_banner.jpg"> -->
-        <img src="<?= $vpath ?>viewimage.php?img=<?php echo $row_user['banner']; ?>&width=1260&height=320">
+        <?php if(empty($row_user['banner'])) { ?>
+            <img src="http://placehold.it/1260x320"> 
+        <?php } else { ?>
+            <img src="<?= $vpath ?>viewimage.php?img=<?php echo $row_user['banner']; ?>&width=1260&height=320">
+        <?php } ?>
         <?php if(!empty($_SESSION['user_id']) && $_SESSION['user_id'] == $row_user['user_id']) { ?>
         <div class="up-banner-manage">
             <a href="#" class="up-banner-edit" data-toggle="modal" data-target="#md-edit-banner"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</a>            
