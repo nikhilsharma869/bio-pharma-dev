@@ -9348,7 +9348,6 @@ ul.menu1 li:hover ul.sub-menu {
 .login_linkedin_btn {
     background: url(../images/linkedin_icon.png) no-repeat top left #2272ba !important;
     background-size: auto 100%;
-    border: medium none !important;
     color: #fff !important;
     cursor: pointer !important;
     font-size: 24px !important;
@@ -9358,7 +9357,7 @@ ul.menu1 li:hover ul.sub-menu {
     width: 275px;
     margin: auto;
     display: block;
-    border: 1px solid #b8b8b8;
+    border: 1px solid #b8b8b8 !important;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
