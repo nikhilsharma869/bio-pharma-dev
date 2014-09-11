@@ -9346,12 +9346,12 @@ ul.menu1 li:hover ul.sub-menu {
 
 /*---12.08.14---*/
 .login_linkedin_btn {
-    background: url(../images/linkedin_icon.png) no-repeat top left #2272ba;
+    background: url(../images/linkedin_icon.png) no-repeat top left #2272ba !important;
     background-size: auto 100%;
-    border: medium none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 24px;
+    border: medium none !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    font-size: 24px !important;
     /*font-weight: bold;*/
     padding: 10px 0 5px 45px;
     text-align: center;
@@ -9365,6 +9365,8 @@ ul.menu1 li:hover ul.sub-menu {
     -webkit-box-shadow: 0px 5px 6px 0px #484848;
     -moz-box-shadow: 0px 5px 6px 0px #484848;
     box-shadow: 0px 5px 6px 0px #484848;
+    text-transform: none !important;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
 /*.login_linkedin_btn:hover{
