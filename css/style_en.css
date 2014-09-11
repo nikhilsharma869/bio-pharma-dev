@@ -4038,17 +4038,19 @@ a{color:#FFF;}
 }
 /***********************2-7-12********************/	       /***********************4-7-12********************/	
 
-.submit_bott {
+input[type="button"].submit_bott {
     margin:12px 0px 12px 0px;
     border:0px;
     background:url(../images/catbtn.jpg) repeat-x scroll 0 0 rgba(0, 0, 0, 0);
     color: #FFFFFF;
-    font-size:14px;
-    float:left;
-    padding:8px 19px;
+    font-size:12px;
+    /*float:left;*/
+    padding:8px 8px;
     cursor:pointer;
+    display: block;
+    margin:  10px auto;
 }
-.submit_bott:hover {
+input[type="button"].submit_bott:hover {
     position: relative;
     background:url(../images/btn_hover.jpg) 0 0 repeat-x;
 }
@@ -5552,12 +5554,14 @@ textarea {
     box-shadow: 0 0 5px #ebeaea;
     color: #999999;
     font-size: 13px;
-    float:left;
+    /*float:left;*/
     margin:3px 0px;
     padding:9px 9px;
     text-align: left;
-    width: 330px;
+    width: 87% !important;
     outline: none;
+    display: block;
+    margin: 5px auto;
 }
 .from_input_box:hover {
     outline: medium none;
@@ -8249,7 +8253,7 @@ h2.new {
     font:14px/25px Verdana, Geneva, sans-serif;
     color:#1b4471;
 }
-/*.submit_bott {
+/*input[type="button"].submit_bott {
         height:43px; padding:10px; background:#1B4471; font:16px/43px Arial, Helvetica, sans-serif;color:#FFF;text-transform:uppercase; text-align:center; border:1px solid #3c7cc3; cursor:pointer;}
 */
 
@@ -8358,7 +8362,7 @@ h2.new {
     float:left;
     padding:10px 30px 10px 0px;
 }
-.submit_bottnew {
+input[type="button"].submit_bottnew {
     margin: 12px 0px 12px 0px;
     border: 0px;
     background: none repeat scroll 0 0 #2878a6;
@@ -8368,11 +8372,11 @@ h2.new {
     font-size: 16px;
     font-weight: bold;
     float: left;
-    padding: 8px 19px;
+    padding: 8px 8px;
     cursor: pointer;
     text-decoration:none;
 }
-.submit_bottnew:hover {
+input[type="button"].submit_bottnew:hover {
     box-shadow: 0 1px 0 #1b618a;
     position: relative;
     top: 2px;

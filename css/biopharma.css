@@ -1325,6 +1325,11 @@
     z-index: 9;
 }
 
+.user-profile-banner {
+    height: 320px;
+    overflow: hidden;
+}
+
 
 .user-profile-container {
     width: 82%;

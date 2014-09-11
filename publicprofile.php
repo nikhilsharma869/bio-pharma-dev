@@ -18,7 +18,8 @@ if (!empty($row_user[logo])) {
         <?php if(empty($row_user['banner'])) { ?>
             <img src="http://placehold.it/1260x320"> 
         <?php } else { ?>
-            <img src="<?= $vpath ?>viewimage.php?img=<?php echo $row_user['banner']; ?>&width=1260&height=320">
+            <!-- <img src="<?= $vpath ?>viewimage.php?img=<?php echo $row_user['banner']; ?>&width=1260&height=320"> -->
+            <img src="<?= $vpath.$row_user['banner'] ?>">
         <?php } ?>
         <?php if(!empty($_SESSION['user_id']) && $_SESSION['user_id'] == $row_user['user_id']) { ?>
         <div class="up-banner-manage">
@@ -95,22 +96,22 @@ if (!empty($row_user[logo])) {
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="invitebox_section">
-                        <input type="hidden" id="txtemail" name="txtemail" size="52"  value="<? print $row_user[email]; ?>">
+                    <div class="invitebox_section">                        
                         <input type="hidden" id="f_name" name="f_name" size="52"  value="<? print $row_user[fname]; ?>">
                         <input type="hidden" id="l_name" name="l_name" size="52"  value="<? print $row_user[lname]; ?>">
                         <input type='button' border="0" class="submit_bott" value="<?= $lang['SEND'] ?>"  name="send_submit" onclick="invideuser();">
                     </div>
-                    <div style="padding-left:10px;margin: 10px 0px;">
+                   
+                <?php } else { ?>                    
+                     <div style="margin: 10px auto;">
                         <div id="addinvite_post" align="center">
                             <a href="javascript:void(0)" onclick="postprojectinvite()">
                                 <input type="button" name="Button" value="Post a New Project"  class="submit_bott"/>
                             </a>
                         </div>            
                     </div>
-                <?php } else { ?>
-                    <p style="margin-left: 20px;">You don't have any project to invite</p>
                 <?php } ?>
+                    <input type="hidden" id="txtemail" name="txtemail" size="52"  value="<? print $row_user[email]; ?>">
             </div>
             <?php } ?>
         </div>
@@ -430,6 +431,26 @@ if (!empty($row_user[logo])) {
 
     function getinvite() {
         $("#invidebox").slideDown('slow');
+    }
+
+    function invideuser() {
+        var txtemail = $("#txtemail").val();
+        var f_name = $("#f_name").val();
+        var l_name = $("#l_name").val();
+        var project_id_val = $("#project_id_val").val();
+        var info = "project_id_val=" + project_id_val + "&txtemail=" + txtemail + "&f_name=" + f_name + "&l_name" + l_name;
+        $.ajax({
+            type: "POST",
+            url: "<?= $vpath ?>addtoinvite.php",
+            data: info,
+            beforeSend: function() {
+                $('#addinvite').html('<img src="<?= $vpath ?>images/login_loader2.GIF" height=22 width=22  />');
+            },
+            success: function(dd) {
+
+                $("#addinvite").html(dd);
+            }
+        });
     }
 
     function postprojectinvite() {
