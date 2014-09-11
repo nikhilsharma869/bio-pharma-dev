@@ -44,6 +44,14 @@ if ($_REQUEST['SBMT']):
                     $r = mysql_query("update " . $prev . "portfolio set image=\"" . $file . "\" where id=\"" . $_REQUEST['EDIT'] . "\"");
                 }
 
+                if ($_FILES['portfolio_attachment']['name']) {
+                    list($image_ex, $ext) = explode('.', $_FILES['portfolio_attachment']['name']);
+                    $rand = rand(1111111, 9999999);
+                    $file = "portfolio_attachment/" . $rand . time() . "_" .$image_ex. "." . $ext;
+                    copy($_FILES['portfolio_attachment']['tmp_name'], $file);
+                    $r = mysql_query("update " . $prev . "portfolio set attachment=\"" . $file . "\" where id=\"" . $_REQUEST['EDIT'] . "\"");
+                }
+
                 if ($_FILES['thumb1']['name']):
                     list($image_ex, $ext) = explode('.', $_FILES['thumb1']['name']);
                     $rand = rand(1111111, 9999999);
@@ -238,6 +246,12 @@ $date = $date_up[2] . '-' . $date_up[1] . '-' . $date_up[0];
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td align="left"><?= $lang['PORTFOLIO_ATTACHMENT'] ?> <br />
+                                            <input type="file" id="portfolio_attachment" name="portfolio_attachment"  size="30" class="from_input_box" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
                                         <td height="12"></td>
                                     </tr>
                                     <tr >
@@ -283,4 +297,18 @@ $date = $date_up[2] . '-' . $date_up[1] . '-' . $date_up[0];
 
 </div> 
 
+<script type="text/javascript">
+    $('#exp_form').submit(function(e){
+        
+        if(document.getElementById('portfolio_attachment').value!='') {
+            var filename = document.getElementById('portfolio_attachment').value;
+            var ext = filename.split('.');
+            var allow_exts = ["xls", "xlsx", "doc", "docx", "pdf"];
+            if(allow_exts.indexOf(ext[1]) == -1) {
+                alert("Attachment allows only word, excel and pdf file!");
+                return false;
+            }
+        }
+    });
+</script>
 <?php include 'includes/footer.php'; ?>

@@ -2165,3 +2165,35 @@ a.endorse-item-name-text {
         width: 90px;
     }
 }
+
+.up-banner-manage {
+    right: 20px;
+    position: absolute;
+    bottom: 20px;
+    z-index: 99;
+    color: #1fa67a;
+    width: 7%;
+}
+.up-banner-manage a {
+    padding: 6px 9px;
+    margin: 5px;
+    border: 0px;
+    background: none repeat scroll 0 0 #5bb25b;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 3px 0 0 #429142;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    float: left;
+    width: 75%;
+}
+
+.up-banner-manage a:hover, .up-banner-manage a:focus {
+    box-shadow: 0 1px 0 #429142;
+    position: relative;
+    top: 2px;
+}
+
+#md-edit-banner .modal-dialog {
+    top: 40%;
+}

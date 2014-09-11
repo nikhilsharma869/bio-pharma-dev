@@ -14,7 +14,13 @@ if (!empty($row_user[logo])) {
 
 <div class="user-profile-area">
     <div class="user-profile-banner">
-        <img src="<?= $vpath ?>/images/profile_banner.jpg">
+        <!-- <img src="<?= $vpath ?>/images/profile_banner.jpg"> -->
+        <img src="<?= $vpath ?>viewimage.php?img=<?php echo $row_user['banner']; ?>&width=1260&height=320">
+        <?php if(!empty($_SESSION['user_id']) && $_SESSION['user_id'] == $row_user['user_id']) { ?>
+        <div class="up-banner-manage">
+            <a href="#" class="up-banner-edit" data-toggle="modal" data-target="#md-edit-banner"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</a>            
+        </div>
+        <?php } ?>
     </div>
     <div class="user-profile-container">
         <div class="user-profile-header">
@@ -346,6 +352,35 @@ if (!empty($row_user[logo])) {
         </div>
     </div>
 </div>
+
+<!-- Upload Banner Modal -->
+<div class="modal fade" id="md-edit-banner" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Banner Manager</h4>
+      </div>
+      <div class="modal-body">        
+        <form role="form" name="upb-upload" id="upb-upload" method="post" enctype="multipart/form-data" action="<?=$vpath;?>bannerupload.php"> 
+            <div class="alert alert-success hide" role="alert"></div>
+            <div class="alert alert-warning hide" role="alert"></div>
+            <div class="form-group">
+                <label for="upb-upload-file">Upload Banner (1260x320)</label>
+                <input type="file" name="upb_upload_file" id="upb-upload-file">            
+            </div>
+            <input type="hidden" name="upb_upload_userid" value="<?=$row_user['user_id']?>"> 
+        </form>        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary upb-btn-submit">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script type="text/javascript">
     $('#up-tabs a').click(function (e) {
         e.preventDefault()
@@ -360,6 +395,33 @@ if (!empty($row_user[logo])) {
         $('#slider').anythingSlider({
             hashTags: false
         });
+
+        $('.upb-btn-submit').click(function(){
+            $('#upb-upload').ajaxSubmit({
+                success:function(data) {
+                    
+                    if(data.trim() == 'success') {
+                        $('#upb-upload .alert-success').html('Upload successfully.');
+                        $('#upb-upload .alert-success').removeClass('hide');
+                        location.reload();
+                    }
+                    if (data.trim() == 'empty_img') {
+                        $('#upb-upload .alert-warning').html('Please select image to upload!');
+                        $('#upb-upload .alert-warning').removeClass('hide');
+                    } 
+                    if(data.trim() == 'error') {
+                        $('#upb-upload .alert-warning').html('Could not upload!');
+                        $('#upb-upload .alert-warning').removeClass('hide');
+                    }
+
+                    setTimeout(function(){
+                        $('#upb-upload .alert').addClass('hide');
+                    }, 4000);
+                }
+             });
+        })
+
+         
     });
 
     function getinvite() {
@@ -383,6 +445,21 @@ if (!empty($row_user[logo])) {
             }
         });
     }
+
+    function centerModal() {
+        $(this).css('display', 'block');
+        var $dialog = $(this).find(".modal-dialog");
+        var offset = ($(window).height() - $dialog.height()) / 2;
+        // Center modal vertically in window
+        $dialog.css("margin-top", offset);
+    }
+
+    $('.modal').on('show.bs.modal', centerModal);
+    $(window).on("resize", function () {
+        $('.modal:visible').each(centerModal);
+    });
+
+
 </script>
 
 <?php include 'includes/footer.php'; ?>

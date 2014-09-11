@@ -269,15 +269,15 @@ function ValidateAndSubmit()
        }
 
       
-if(document.getElementById('portfolio_attachment').value!='') {
-    var filename = document.getElementById('portfolio_attachment').value;
-    var ext = filename.split('.');
-    var allow_exts = ["xls", "xlsx", "doc", "docx", "pdf"];
-    if(allow_exts.indexOf(ext[1]) == -1) {
-        alert("Attachment allows only word, excel and pdf file!");
-        return false;
+    if(document.getElementById('portfolio_attachment').value!='') {
+        var filename = document.getElementById('portfolio_attachment').value;
+        var ext = filename.split('.');
+        var allow_exts = ["xls", "xlsx", "doc", "docx", "pdf"];
+        if(allow_exts.indexOf(ext[1]) == -1) {
+            alert("Attachment allows only word, excel and pdf file!");
+            return false;
+        }
     }
-}
    
 
 }
