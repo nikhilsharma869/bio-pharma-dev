@@ -1358,7 +1358,7 @@
 
 .user-profile-header .up-infors {
     display: inline-block;
-    width: 80%;
+    width: 78%;
     margin-left: 10px;
 }
 
@@ -1688,6 +1688,7 @@
     margin: 5px auto;
     float: none;
     background: #ebebeb;
+    height: 36px;
 }
 
 #up-tabs.nav-tabs > li > a {
@@ -1723,6 +1724,7 @@
     color: #fff;
     margin-right: 0;
     border-radius: 0;
+    height: 22px;
 }
 
 #up-content {
@@ -2177,7 +2179,7 @@ a.endorse-item-name-text {
     bottom: 20px;
     z-index: 99;
     color: #1fa67a;
-    width: 7%;
+    width: 9%;
 }
 .up-banner-manage a {
     padding: 6px 9px;
@@ -2201,4 +2203,104 @@ a.endorse-item-name-text {
 
 #md-edit-banner .modal-dialog {
     top: 40%;
+}
+
+
+/*Update 11-9-2014 Responsive on profile */
+
+@media (max-width: 768px) { 
+    .user-profile-header .up-infors {
+        width: 72%;
+    }
+
+    .user-profile-sidebar {
+        width: 98%;
+    }
+
+    #up-tabs.nav-tabs > li {
+        width: 47%;
+        float: left;
+        margin-left: 12px;
+    }
+
+    .user-profile-data-area {
+        width: 98%;
+        float: left;
+        margin-top: 20px; 
+    }
+
+    .user-profile-banner {
+        height: auto;
+    }
+}
+
+@media (max-width: 568px) {
+    .up-banner-manage {
+        width: 12%;
+    }
+
+    .the-gru-of {
+        display: none;
+    }
+
+    .user-profile-header .up-avatar {
+        height: 90px;
+        width: 90px;
+    }
+
+    .user-profile-container {
+        top: -84px;
+    }
+}
+
+@media (max-width: 480px) {
+    #up-tabs.nav-tabs > li {
+        width: 45%;
+    }
+    .up-banner-manage {
+        width: 14%;
+    }
+
+    .user-profile-banner {
+        display: none;
+    }
+
+    .user-profile-container {
+        top: 20px;
+    }
+}
+
+/**/
+
+div.spage-container {
+    width: 100%;
+    float: left;
+    background: #ebebeb;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+div.spage-container #up-tabs.nav-tabs > li > a {
+    padding-left: 20px;
+}
+
+div.spage-container .profile_left, div.spage-container .profile_right, div.spage-container #up-tabs {
+    margin-top: 0;
+}
+
+.form-post-a-job, .content-right {
+    background: #fff;
+    border: 1px solid #959595;
+    padding: 30px 15px 15px;
+    position: relative;
+}
+
+.form-post-a-job *, .form-post-a-job *:after, .form-post-a-job *:before  {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-post-a-job .form-horizontal .control-label {
+    text-align: left;
 }

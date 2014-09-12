@@ -18,8 +18,8 @@ if (!empty($row_user[logo])) {
         <?php if(empty($row_user['banner'])) { ?>
             <img src="http://placehold.it/1260x320"> 
         <?php } else { ?>
-            <!-- <img src="<?= $vpath ?>viewimage.php?img=<?php echo $row_user['banner']; ?>&width=1260&height=320"> -->
-            <img src="<?= $vpath.$row_user['banner'] ?>">
+            <img src="<?= $vpath ?>viewimage.php?img=<?php echo $row_user['banner']; ?>&width=1260&height=320">
+            <!-- <img src="<?= $vpath.$row_user['banner'] ?>"> -->
         <?php } ?>
         <?php if(!empty($_SESSION['user_id']) && $_SESSION['user_id'] == $row_user['user_id']) { ?>
         <div class="up-banner-manage">
