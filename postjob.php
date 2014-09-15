@@ -198,8 +198,6 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 			}
 
 			mail($row_user['email'], $subject, $mailbody, $headers);
-
-
 			/** Send Email **/	
 		}
 
