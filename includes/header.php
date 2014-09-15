@@ -80,6 +80,10 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                     <script src="<?= $vpath; ?>js/jquery.ui.core.js"></script>
                     <script src="<?= $vpath; ?>js/jquery.ui.widget.js"></script>
                     <script src="<?= $vpath; ?>js/jquery.ui.accordion.js"></script>
+					
+					<!-- jquery-tokeninput -->
+					
+					<!-- jquery-tokeninput -->
                     <script>
                         (function($) {
                             $("#accordion").accordion();
@@ -286,6 +290,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>report.html">Reports</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>message.html">Messages</a></li>
                                                         <?php } else { ?>
+															<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>publicprofile/<?=$_SESSION['username']?>/">Profile</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="<?php echo $vpath;?>find-talents/">Recruit</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>my-team/">Manage My Team</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>report.html">Reports</a></li>

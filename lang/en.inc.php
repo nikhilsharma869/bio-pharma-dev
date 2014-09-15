@@ -1293,6 +1293,23 @@ $lang = array(
 'FIXED'=>'Fixed',
 'MY_EARNINGS_HOURLY' => "My Earnings per hour",
 'GIVE_BONUS'=>'Give Bonus',
+
+//POST JOB
+'SEL_CAT_TITLE' => "Choose a Category",
+'SELECT_PARENT_CAT' => "Choose a Group",
+'SELECT_CHILD_CAT' => "Choose a Category",
+'FR_LB_JOB_TITLE' => "Give your job a title",
+'FR_LB_JOB_DESCRIPTION' => "Describe the work to be done",
+'FR_LB_JOB_SKILLS' => "What skills are needed?",
+'FR_LB_JOB_PAYMENT_TYPE' => "How would you like to pay?",
+'FR_LB_JOB_PAYMENT_FIXED' => "Payment by the fixed price.",
+'FR_LB_JOB_PAYMENT_HOURLY' => "Hourly pay by the hours. Verify with the Work Diary",
+'FR_LB_JOB_ALLOW_MANUAL_TIME' => "Allow Manual Time",
+'FR_LB_JOB_ATTACHMENT' => "Attachment",
+'FR_LB_JOB_BUTTON' => "POST JOB",
+//POST JOB
+
+
 );
 
 ?>

@@ -22,10 +22,10 @@ include 'includes/logo-stripe.php';
     <div class="buttons-post clear-fix">
         <ul>
             <li>
-                <a href="" class="post-my-project">Post my Project</a>
+                <a href="/postjob.html" class="post-my-project">Post my Project</a>
             </li>
             <li>
-                <a href="" class="sme-join-now">Are you an SME? Join Now</a>
+                <a href="/login.html" class="sme-join-now">Are you an SME? Join Now</a>
             </li>
         </ul>
     </div>

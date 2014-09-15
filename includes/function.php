@@ -407,5 +407,67 @@ function get_list_user_by_skl($skill_name, $except_user_id){
 }
 
 
+function paging_new($sql,$st,$page){
+		//Phan trang 
+		$pp=$st;  //so ban ghi tren 1 trang
+		$p_now = $page;
+		$result=mysql_query($sql) or die(mysql_error());
+			$total=mysql_num_rows($result);  //lay tong so dong
+			$numofpages=ceil($total/$pp);
+			
+			if ($p_now<=0) {
+				$page = 1;
+			} else {
+				if($p_now <= ceil($numofpages))
+					$page = $p_now;
+				else
+					$page = 1;
+			}
+				$limitvalue = $page * $pp - ($pp);
+		$parr=array();
+		$parr[0]=$page;
+		$parr[1]=$limitvalue;
+		$parr[2]=$numofpages;
+		$parr[3]=$total; // THIEN ADD: lay total cua paging
+		
+	return $parr; 
+}
 
+function get_list_skill_by_job_id($job_id){
+	global $prev;
+	$query = "SELECT * FROM " . $prev . "projects_cats 
+									LEFT JOIN 
+										" . $prev . "skill_linkedin ON " . $prev . "skill_linkedin.id=" . $prev . "projects_cats.cat_id
+								WHERE " . $prev . "projects_cats.id='".$job_id."'";
+	$result = mysql_query($query);
+	
+	$list_skill = array();
+	while($rows = mysql_fetch_array($result)) { 
+		$list_skill[] = array(	
+								'skill_id'   => $rows['id'],
+								'url_skill'   => $rows['url_skill'],
+								'skill_name' => $rows['skill_name']
+							);
+	}
+	return $list_skill;
+	
+}
+
+
+function get_skill_by_id($skill_id){
+	global $prev;
+	$query = "SELECT * FROM " . $prev . "skill_linkedin 	WHERE " . $prev . "skill_linkedin.id='".$skill_id."'";
+	$result = mysql_query($query);
+	
+	
+	while($rows = mysql_fetch_array($result)) { 
+		$list_skill = array(	
+								'skill_id'   => $rows['id'],
+								'url_skill'   => $rows['url_skill'],
+								'skill_name' => $rows['skill_name']
+							);
+	}
+	return $list_skill;
+	
+}
 ?>

@@ -29,11 +29,11 @@ RewriteRule ^message_board/([a-zA-Z0-9_-]+)/$ message.board.php?id=$1 [L]
 
 RewriteRule ^message_board/([a-zA-Z0-9_-]+)$ message.board.php?id=$1 [L]
 
-RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ sear_all_jobs.php?page=$1&cat_id=$2&sub_cat_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9&keyword=$10 [L]
-RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ sear_all_jobs.php?page=$1&cat_id=$2&sub_cat_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9&keyword=$10 [L]
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ sear_all_jobs.php?page=$1&cat_id=$2&skill_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9&keyword=$10 [L]
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ sear_all_jobs.php?page=$1&cat_id=$2&skill_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9&keyword=$10 [L]
 
-RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/$ sear_all_jobs.php?page=$1&cat_id=$2&sub_cat_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9 [L]
-RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)$ sear_all_jobs.php?page=$1&cat_id=$2&sub_cat_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9 [L]
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/$ sear_all_jobs.php?page=$1&cat_id=$2&skill_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9 [L]
+RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)$ sear_all_jobs.php?page=$1&cat_id=$2&skill_id=$3&project_type=$5&budget_min=$6&budget_max=$7&posted_time=$8&country=$9 [L]
 
 RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/$ sear_all_jobs.php?page=$1&cat_id=$2&projectStatus=$4&budget_min=$5&budget_max=$6&keyword=$7 [L]
 RewriteRule ^jobs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(.*)$ sear_all_jobs.php?page=$1&cat_id=$2&projectStatus=$4&budget_min=$5&budget_max=$6&keyword=$7 [L]
