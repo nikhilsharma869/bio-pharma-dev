@@ -574,7 +574,12 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 				}else{
 					$(id_css).show();	
 				}
+				
 			});
+
+			var parent = $('select[name=child_category_id]').parent();
+			parent.find('.DivSelectyze').remove();
+			$('select[name=child_category_id]').Selectyze({theme : 'mac'});
 		
 		});
 		
