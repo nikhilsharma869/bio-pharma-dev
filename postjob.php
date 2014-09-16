@@ -97,13 +97,12 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 	$no_err = "";
 	
 	//Change to Skill LINKED IN
-	$array_skill = explode(",", $_POST['skill_ids']);
+	$array_skill = $_POST['skills'];
 	if (count($array_skill) > 0) {
 		foreach ($array_skill as $id => $val) {
 			$no_err = "no err";
 			$err_msg = "";
 			$flag++;
-			
 			$a = mysql_query("insert into " . $prev . "projects_cats set id=" . $ttoy . ",cat_id=" . $val);
 
 		}
@@ -326,7 +325,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 						<div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_SKILLS'] ?></label>
                             <div class="col-sm-9">
-                                <select data-placeholder="<?= $lang['FR_LB_JOB_SKILLS'] ?>" name="skills" id="skills" multiple class="from_input_box">
+                                <select data-placeholder="<?= $lang['FR_LB_JOB_SKILLS'] ?>" name="skills[]" id="skills" multiple class="from_input_box">
 								<!-- <input type="text" id="skills" name="blah2" class="form-control"/> -->
 								<?php
                                     $skills_r = mysql_query("select * from " . $prev . "skill_linkedin group by skill_name");

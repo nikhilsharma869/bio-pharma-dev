@@ -423,7 +423,7 @@ function paging_new($sql,$st,$page){
 				else
 					$page = 1;
 			}
-				$limitvalue = $page * $pp - ($pp);
+			$limitvalue = $page * $pp - ($pp);
 		$parr=array();
 		$parr[0]=$page;
 		$parr[1]=$limitvalue;

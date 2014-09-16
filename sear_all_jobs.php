@@ -381,13 +381,8 @@ jQuery.noConflict();
 		if(!empty($query))
 		{
 			$MyQuery = implode(" and ", $query);
-			// $MyQuery = "where  " . $prev . "projects.id= ".$prev ."projects_cats.id and ".$prev ."projects_cats.cat_id= ".$prev ."skill_linkedin.id and ".$MyQuery;	
 		}
-		else
-		{
-		 // $MyQuery = "where  " . $prev . "projects.id= ".$prev ."projects_cats.id and ".$prev ."projects_cats.cat_id= ".$prev ."skill_linkedin.id and " .$prev ."projects.status='open'";	
-		}
-	
+		
 	
 	 $query1=" SELECT *,".$prev ."projects.id as job_id FROM " . $prev . "projects 
 					
@@ -397,21 +392,23 @@ jQuery.noConflict();
 				
 				LEFT JOIN ".$prev ."skill_linkedin ON " . $prev . "projects_cats.cat_id = ".$prev ."skill_linkedin.id 
 				
-				WHERE $MyQuery GROUP BY ". $prev . "projects.id 
+				WHERE $MyQuery  GROUP BY ". $prev . "projects.id  ORDER BY " . $prev . "projects.date2 desc
 				";
 	
 	if($_REQUEST['page']){
 		$page=$_REQUEST['page'];
+	}else{
+		$page=0;
 	}
 	
 	$parr=array();
 	$parr=paging_new($query1,$no_of_records,$page);
 	
 	$limitvalue  = $parr[1];
-	$total_pages = $parr[2];
+	$total_pages = $parr[2]+1;
 	$total_item  = $parr[3];
 	
-	$query1.=" LIMIT $limitvalue, $no_of_records";
+	$query1 .= " LIMIT $limitvalue, $no_of_records";
 	
 	$result=mysql_query($query1);
 	
@@ -421,7 +418,7 @@ jQuery.noConflict();
    
    <div class="latest_worbox" id="member_right_box">
    <?php
-   if($total_pages > 0)
+   if($total_item > 0)
 	{
 	while($row=@mysql_fetch_array($result))
 	{
@@ -580,7 +577,7 @@ jQuery.noConflict();
 	?>	
 	
 	<?php	
-		if($total_pages > $no_of_records)
+		if($total_item > $no_of_records)
 		{
 
 			if($_REQUEST['skill_id']){
@@ -590,13 +587,8 @@ jQuery.noConflict();
 				}else{
 					$param .= "0/";
 				}
-				
-				// $skill = get_skill_by_id($_REQUEST['skill_id']);
 				$url_skill = $skill['url_skill'];
 				$param .= $_REQUEST['skill_id']."/".replacename($url_skill)."/";
-			
-				// $cat .= $_REQUEST['skill_id']."/".replacename($url_skill)."/";
-			
 			}else{
 				$cat="0/0/All/";
 			}
@@ -625,8 +617,8 @@ jQuery.noConflict();
 				$param.=$_GET['featured_jobs']."/";
 			}
 			  
-
-			echo "<div align=right>" .new_pagingnew(0,$vpath.'Jobs/','/'.$param,$no_of_records,$page,$total_pages,$table_id='',$tbl_name='') . "</div>";
+	
+			echo "<div align=right>" .new_pagingnew(5,$vpath.'Jobs/','/'.$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='') . "</div>";
 		}
 	 ?>
  
