@@ -47,21 +47,23 @@ if ($checkd['status'] == "open") {
             if (canHeDo($_SESSION['user_id'], 'bid')) {
                 $res = mysql_query("insert into " . $prev . "buyer_bids set
 
-		project_id = " . $_POST['projectid_hid'] . ",
+										project_id = " . $_POST['projectid_hid'] . ",
 
-		bidder_id = " . $_SESSION['user_id'] . ",
+										bidder_id = " . $_SESSION['user_id'] . ",
 
-		bid_amount = " . $_POST['bidamount1'] . ",
+										bid_amount = " . $_POST['bidamount1'] . ",
 
-		odesk_fee = " . floatval($_POST['site_fee_hid']) . ",
+										odesk_fee = " . floatval($_POST['site_fee_hid']) . ",
 
-		emp_charge = " . floatval($_POST['bidamount']) . ",
+										emp_charge = " . floatval($_POST['bidamount']) . ",
 
-		add_date = now(),
-		project_type_bid='" . $checkd['project_type'] . "',
-		duration = '" . $_POST['delivery'] . "',
+										add_date = now(),
+										
+										project_type_bid='" . $checkd['project_type'] . "',
+										
+										duration = '" . $_POST['delivery'] . "',
 
-		cover_letter = '" . $_POST['details'] . "'");
+										cover_letter = '" . $_POST['details'] . "'");
 
                 if ($res) {
 
@@ -87,53 +89,53 @@ if ($checkd['status'] == "open") {
 
                     $res3 = mysql_query("insert into " . $prev . "messages set
 
-			receiver='" . $rw['user_id'] . "',
+											receiver='" . $rw['user_id'] . "',
 
-			sender_id='" . $_SESSION['user_id'] . "',
+											sender_id='" . $_SESSION['user_id'] . "',
 
-			sender='" . $send['email'] . "',
+											sender='" . $send['email'] . "',
 
-			subject='Project Bid - $rw[project]',
+											subject='Project Bid - $rw[project]',
 
-			message=\"" . $msg_detail . "\",
+											message=\"" . $msg_detail . "\",
 
-			user_type='reciver',
+											user_type='reciver',
 
-			sent_time=now(),
+											sent_time=now(),
 
-			status='Y',
+											status='Y',
 
-			message_type='A',
+											message_type='A',
 
-			read_status='N',
+											read_status='N',
 
-			view_user='U'");
+											view_user='U'");
 
                     if ($res3) {
 
                         $res4 = mysql_query("insert into " . $prev . "messages set
 
-				receiver='" . $rw['user_id'] . "',
+														receiver='" . $rw['user_id'] . "',
 
-				sender_id='" . $_SESSION['user_id'] . "',
+														sender_id='" . $_SESSION['user_id'] . "',
 
-				sender='" . $send['email'] . "',
+														sender='" . $send['email'] . "',
 
-				subject=\"" . $lang['PROJ_BID'] . $rw[project] . "\",
+														subject=\"" . $lang['PROJ_BID'] . $rw[project] . "\",
 
-				message=\"" . $msg_detail . "\",
+														message=\"" . $msg_detail . "\",
 
-				user_type='sender',
+														user_type='sender',
 
-				sent_time=now(),
+														sent_time=now(),
 
-				status='Y',
+														status='Y',
 
-				message_type='A',
+														message_type='A',
 
-				read_status='N',
+														read_status='N',
 
-				view_user='U'");
+														view_user='U'");
 
 
                         $prurl = $vpath . "project/" . $rw[id] . "/" . str_replace("/", "", str_replace(" ", "-", $rw[project])) . ".html";

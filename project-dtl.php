@@ -365,14 +365,8 @@ $project_cats = project_category($_REQUEST[id]);
             <?php
             if ($d['status'] == "open" && $_SESSION[user_id] != '') {
 
-                $skill_q = "select c.parent_id,c.cat_id,c.cat_name from " . $prev . "categories c inner join " . $prev . "user_cats u on c.cat_id=u.cat_id where user_id=" . $_SESSION[user_id];
-
-                $res_skill = mysql_query($skill_q);
-                $apply_project_skl = @mysql_num_rows($res_skill);
                 if ($_SESSION['user_id'] == $d['user_id']) {
                     echo "<div style='color:red;padding-top:30px'>You can't bid of your own project.</div>";
-                } else if ($apply_project_skl == '0') {
-                    include("includes/bid_panel1.php");
                 } else {
                     include("includes/bid_panel.php");
                 }
@@ -532,16 +526,25 @@ $project_cats = project_category($_REQUEST[id]);
 
     <table width="100%" align="left";>
         <tr>
-            <td><?php if ($_SESSION['user_id'] != $d['user_id'] && $update_bid_user == 0) { ?><a href="javascript:void(0)" class="ask" onclick="ask()"><img src="images/ques.jpg" width="30" height="30" alt="" style=" float:left;" />&nbsp;<?= $lang['ASK_A_QUESTION'] ?></a><? } ?></td>
-            <td><?php if ($_SESSION['user_id'] != $d['user_id'] && $d['status'] == "open") { ?><a  class="submit_bottnew" href="javascript:void(0)" onclick="bid()"><?
-                        if ($update_bid_user > 0) {
-                            echo $lang['Revise_Bid'];
-                        } else {
-                            ?><?= $lang['Place_Bid'] ?><? } ?></a><? } elseif (($_SESSION['user_id'] == $d['user_id'] || $_SESSION['user_id'] == $d['chosen_id']) && $d['status'] == "process" && $d[project_type] == 'H') {
+            
+<td><?php if ($_SESSION['user_id'] != $d['user_id'] && $update_bid_user == 0) { ?><a href="javascript:void(0)" class="ask" onclick="ask()"><img src="images/ques.jpg" width="30" height="30" alt="" style=" float:left;" />&nbsp;<?= $lang['ASK_A_QUESTION'] ?></a><? } ?></td>
+			
+            <td style="color:red">		<?php  if ($_SESSION['user_id'] != $d['user_id'] && $d['status'] == "open") { ?>
+			
+							<a  class="submit_bottnew" href="javascript:void(0)" onclick="bid()"><?
+							if ($update_bid_user > 0) {
+								echo $lang['Revise_Bid'];
+							} else {
+						?>
+							
+								<?= $lang['Place_Bid'] ?><? } ?></a>
+							
+						<? } elseif (($_SESSION['user_id'] == $d['user_id'] || $_SESSION['user_id'] == $d['chosen_id']) && $d['status'] == "process" && $d[project_type] == 'H') {
                         ?>
-                        <a  class="submit_bottnew" href="<?= $vpath ?>snap/<?= $d['id'] ?>">View Progress</a>
+									<a  class="submit_bottnew" href="<?= $vpath ?>snap/<?= $d['id'] ?>">View Progress</a>
                         <?php
-                    } ?></td>
+							} 
+						?></td>
             <td></td>
         </tr>
     </table>
