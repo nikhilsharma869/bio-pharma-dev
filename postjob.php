@@ -555,7 +555,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 			var category_id = parseInt($(this).val());	
 			var i = 0;
 			
-			
+			var option_child_selected_arr = [];
 			$('select[name=child_category_id] option').each(function () {
 			
 				var id_opt = $(this).attr("id");
@@ -566,8 +566,9 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 				if(category_id != 0){
 				
 					if(type_id==category_id){
-					$(id_css).show();
-					$(id_css).attr('selected', 'selected');
+						$(id_css).show();
+						$(id_css).attr('selected', 'selected');
+						option_child_selected_arr.push($(id_css).val());
 					}else{
 						$(id_css).hide();	
 					}
@@ -576,11 +577,22 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 				}
 				
 			});
-
+			// console.log(option_child_selected_arr);
 			var parent = $('select[name=child_category_id]').parent();
 			parent.find('.DivSelectyze').remove();
 			$('select[name=child_category_id]').Selectyze({theme : 'mac'});
-		
+
+			var selectize_list = parent.find('.UlSelectize li');
+
+			if(option_child_selected_arr.length > 0) {
+				selectize_list.find('a').hide();
+
+				for (i = 0; i < option_child_selected_arr.length; i++) { 
+					selectize_list.find('a[rel='+option_child_selected_arr[i]+']').show();
+				}
+			} else {
+				selectize_list.find('a').show();
+			}	
 		});
 		
 		var project = $('select[name=project_type]').val();
