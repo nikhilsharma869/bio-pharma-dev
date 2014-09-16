@@ -269,7 +269,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
                             <label for="" class="col-sm-3 control-label"><?= $lang['SEL_CAT_TITLE'] ?></label>
                             <div class="col-sm-4">
                                 	<div class="select-box">
-										<select name="category_id"   name="category_id" id="category_id" size="1" class="from_input_box">
+										<select name="category_id"   name="category_id" id="category_id" size="1" class="from_input_box selectyze2">
 												<option value=""><?= $lang['SELECT_PARENT_CAT'] ?></option>
 												<?php
 												$r = mysql_query("select cat_name,cat_id from " . $prev . "categories  where parent_id=0 and status='Y' order by cat_name");
@@ -287,9 +287,9 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 										</select>
 									</div>
                             </div>
-							<div class="col-sm-3">
+							<div class="col-sm-4">
                                 	<div class="select-box">
-										<select name="child_category_id" id="child_category_id" size="1" class="from_input_box">
+										<select name="child_category_id" id="child_category_id" size="1" class="from_input_box selectyze2">
 												<option value=""><?= $lang['SELECT_CHILD_CAT'] ?></option>
 												<?php
 												$r = mysql_query("select cat_name,cat_id,parent_id from " . $prev . "categories  where parent_id !=0 and status='Y' order by cat_name");
@@ -340,11 +340,12 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 						<div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_PAYMENT_TYPE'] ?></label>
 							<div class="col-sm-6">
-								<select name="project_type" id="project_type" size="1" class="from_input_box">
-									<option value="F"><?= $lang['FR_LB_JOB_PAYMENT_FIXED'] ?></option>
-									<option value="H"><?= $lang['FR_LB_JOB_PAYMENT_HOURLY'] ?></option>
-								</select>
-							
+								<div class="select-box">
+                                    <select name="project_type" id="project_type" size="1" class="from_input_box selectyze2">
+    									<option value="F"><?= $lang['FR_LB_JOB_PAYMENT_FIXED'] ?></option>
+    									<option value="H"><?= $lang['FR_LB_JOB_PAYMENT_HOURLY'] ?></option>
+    								</select>
+						        </div>
 							</div>
 					     </div>  
 						
@@ -352,7 +353,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
                             <label for="" class="col-sm-3 control-label"><?= $lang['BUDGET'] ?></label>
 							<div class="col-sm-6">
 								<div class="select-box">
-									<select name="budget_id" size="1" class="from_input_box ">
+									<select name="budget_id" size="1" class="from_input_box selectyze2">
 											<option selected value="">--- <?= $lang['BUDGET_SL1'] ?> ---</option>
 											<option value="1" <?
 											if ($d[budget_id] == 1) {
@@ -403,6 +404,27 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 								</div>	
 							</div>
 						</div>
+
+                        <div class="form-group desired-exp-level">
+                            <label for="" class="col-sm-3 control-label"><?= $lang['D_EXP_LV'] ?></label>
+                            <div class="col-sm-9">
+                                <label class="radio-inline">
+                                    <input type="radio" name="d_exp_level" id="d_exp_level1" value="d_exp_level1" checked>
+                                    <h4><?= $lang['D_EXP_LV_1_T'] ?><span>&#36;</span></h4>
+                                    <p><?= $lang['D_EXP_LV_1_D'] ?></p>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="d_exp_level" id="d_exp_level2" value="d_exp_level2">
+                                    <h4><?= $lang['D_EXP_LV_2_T'] ?><span>&#36;&#36;</span></h4>
+                                    <p><?= $lang['D_EXP_LV_2_D'] ?></p>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="d_exp_level" id="d_exp_level3" value="d_exp_level3">
+                                    <h4><?= $lang['D_EXP_LV_3_T'] ?><span>&#36;&#36;&#36;</span></h4>
+                                    <p><?= $lang['D_EXP_LV_3_D'] ?></p>
+                                </label>
+                            </div>
+                        </div>
 						
 						<div class="form-group hourly">
                             <label for="" class="col-sm-3 control-label"><?= $lang['AVS_HOURLY_RATE'] ?></label>
@@ -452,8 +474,15 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 					    <div class="screen-quest">
                             <h2>Screening Questions</h2>
                             <p>Add a few questions you'd like you candidates to answer when applying to your job.</p>
-                            <input type="text" class="form-control" name="question_1" id="question_1">
-                            <button type="button" class="btn btn-link"><i class="fa fa-plus"></i>&nbsp;Add Another Question</button>
+                            <div class="screen-question-list">
+                                <div class="col-sm-8 screen-question-input clear-fix">
+                                    <input type="text" class="form-control" name="question_1" id="question_1">
+                                    <p class="sq-limit-text">200 characters left</p>                                
+                                </div>
+                            </div>
+                            <p class="clear-fix">
+                                <button type="button" class="btn btn-link btn-add-more-sq"><i class="fa fa-plus"></i>&nbsp;Add Another Question</button>
+                            </p>
                         </div>
 						
 						
@@ -507,6 +536,19 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 
 	$(document).ready(function() {
         $("#skills").chosen();
+
+        var d_exp_level_checked = $('input[name="d_exp_level"]:checked');
+        d_exp_level_checked.parent().addClass('dexplv-checked');
+        $('input[name="d_exp_level"]').change(function(){
+            $('input[name="d_exp_level"]').parent().removeClass('dexplv-checked');
+            $(this).parent().addClass('dexplv-checked');
+        })
+
+        $('.btn-add-more-sq').click(function(){
+            var clone = $('.screen-question-input:first-child').clone();
+            clone.appendTo('.screen-question-list');
+        })
+
 
 		$('select[name=category_id]').change(  function(){
 			  

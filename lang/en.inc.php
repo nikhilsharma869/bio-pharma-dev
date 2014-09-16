@@ -1307,6 +1307,13 @@ $lang = array(
 'FR_LB_JOB_ALLOW_MANUAL_TIME' => "Allow Manual Time",
 'FR_LB_JOB_ATTACHMENT' => "Attachment",
 'FR_LB_JOB_BUTTON' => "POST JOB",
+'D_EXP_LV' => "Desired Experience Level",
+'D_EXP_LV_1_T' => "Entry level",
+'D_EXP_LV_1_D' => "I am looking for freelancers with the lowest rates",
+'D_EXP_LV_2_T' => "Intermediate",
+'D_EXP_LV_2_D' => "I am looking for a mix of experience and value",
+'D_EXP_LV_3_T' => "Expert",
+'D_EXP_LV_3_D' => "I am willing to pay higher rates for the most experienced freelancers",
 //POST JOB
 
 

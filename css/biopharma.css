@@ -2304,3 +2304,72 @@ div.spage-container .profile_left, div.spage-container .profile_right, div.spage
 .form-post-a-job .form-horizontal .control-label {
     text-align: left;
 }
+
+.form-post-a-job .select-box .selectyzeValue {
+    margin: 0;
+}
+
+.form-post-a-job .mac .UlSelectize {
+    top: 26px;
+    left: 0;
+}
+
+.form-post-a-job .DivSelectyze, .form-post-a-job .select-box .selectyzeValue, .form-post-a-job .mac .UlSelectize {
+    width: 100%;
+}
+
+.form-post-a-job .form-control {
+    border-radius: 0;
+}
+
+.form-post-a-job .screen-question-input {
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.form-post-a-job .screen-question-input .sq-limit-text {
+    text-align: right;
+}
+
+.form-post-a-job .desired-exp-level .radio-inline {
+    border: 1px solid #959595;
+    padding: 0;
+    float: left;
+    position: relative;
+    width: 32%;
+    height: 160px;
+}
+
+.form-post-a-job .desired-exp-level .radio-inline.dexplv-checked {
+    border: 1px solid #5cb85c;
+}
+
+.form-post-a-job .desired-exp-level .radio-inline h4 {
+    background: #ebebeb;
+    margin: 0;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.form-post-a-job .desired-exp-level .radio-inline.dexplv-checked h4 {
+    background: #5cb85c;
+}
+
+.form-post-a-job .desired-exp-level .radio-inline h4 span {
+    float: right;
+}
+
+.form-post-a-job .desired-exp-level .radio-inline p {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.form-post-a-job .btn-add-more-sq {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-post-a-job .btn-add-more-sq i {
+    font-size: 11px;
+}
