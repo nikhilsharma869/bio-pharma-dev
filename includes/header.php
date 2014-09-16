@@ -105,6 +105,8 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                     <!-- <link href="<?=$vpath;?>admin_new/css/bootstrap/bootstrap-theme.css" rel="stylesheet" /> -->
                     <link href="<?=$vpath;?>css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
+                    <link rel="stylesheet" href="<?=$vpath;?>jplugins/chosen/chosen.min.css">
+                    <script type="text/javascript" src="<?=$vpath;?>jplugins/chosen/chosen.jquery.js"></script>
 
                     <link rel="stylesheet" href="<?=$vpath;?>css/anythingslider.css">
                     <script src="<?=$vpath;?>js/jquery.anythingslider.js"></script>

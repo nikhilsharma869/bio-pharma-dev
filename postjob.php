@@ -326,10 +326,15 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 						<div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_SKILLS'] ?></label>
                             <div class="col-sm-9">
-                              
-								<input type="text" id="skills" name="blah2" class="form-control"/>
-								
-							  
+                                <select data-placeholder="<?= $lang['FR_LB_JOB_SKILLS'] ?>" name="skills" id="skills" multiple class="from_input_box">
+								<!-- <input type="text" id="skills" name="blah2" class="form-control"/> -->
+								<?php
+                                    $skills_r = mysql_query("select * from " . $prev . "skill_linkedin group by skill_name");
+                                    while ($skills_d = mysql_fetch_array($skills_r)) {                                        
+                                    ?>
+                                        <option value="<?= $skills_d['id'] ?>"><?= $skills_d['skill_name'] ?></option>
+                                <?php } ?>
+							    </select> 
                             </div>
                         </div>  
 						<div class="form-group">
@@ -501,6 +506,8 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 <script type="text/javascript">
 
 	$(document).ready(function() {
+        $("#skills").chosen();
+
 		$('select[name=category_id]').change(  function(){
 			  
 			var category_id = parseInt($(this).val());	
