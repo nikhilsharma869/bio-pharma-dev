@@ -1,8 +1,8 @@
 <?php
 session_start();
 // Change these
-define('API_KEY',      '75l1h2cajk93eu'                                          );
-define('API_SECRET',   'eQQLZ3C3Lm5qDbEl'                                       );
+define('API_KEY',      '7555z2anaf9a1a'                                          );
+define('API_SECRET',   'Erpm4NOsIGts5XiS'                                       );
 define('REDIRECT_URI', 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME']);
 define('SCOPE',        'r_fullprofile r_emailaddress rw_nus'                        );
  
@@ -155,6 +155,16 @@ if($n>0){
 }
   
     $rs=mysql_query("select * from  ". $prev . "user where  (email=\"".txt_value($user->emailAddress). "\")");
+
+    //Check membership to insert
+    $rmc=mysql_query("select * from  ".$prev."usermembership where  user_id='".@mysql_result($rs,0,"user_id")."'");
+    $nmc=@mysql_num_rows($rmc);
+    if($nmc == 0 ){
+        $plan_free = mysql_fetch_array(mysql_query("select * from " . $prev . "membership_plan where id = '1'"));
+        $sub_date = date('Y-m-d');
+        $exp_date = date('Y-m-d', strtotime('now +'.$plan_free['date'].' days'));
+        mysql_query("Insert into ".$prev."usermembership (user_id,plane_id,skill,bids,portfolio,day,sub_date,exp_date) values ('" . @mysql_result($rs,0,"user_id") . "','1','".$plan_free['skills'] ."','".$plan_free['bids']."','".$plan_free['portfolio']."','".$plan_free['date']."','".$sub_date."','".$exp_date."')");
+    }
 
     if(isset($user->pictureUrls->values[0]) && !empty($user->pictureUrls->values[0])) {
         $url = $user->pictureUrls->values[0];
