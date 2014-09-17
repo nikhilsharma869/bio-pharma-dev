@@ -113,7 +113,7 @@ $lang = array(
 'ALERT1' => "Select file and click Delete",
 'ALERT2' => "Project name should not be blank.",
 'ALERT3' => "Description should not be blank.",
-'ALERT4' => "Categories should not be blank.",
+'ALERT4' => "Skills should not be blank.",
 'ALERT5' => "Bidding days should not be blank.",
 'ALERT6' => "Bidding days can't be more than 45 days.",
 'ALERT7' => "Budget should not be blank.",
@@ -1306,7 +1306,8 @@ $lang = array(
 'FR_LB_JOB_PAYMENT_HOURLY' => "Hourly pay by the hours. Verify with the Work Diary",
 'FR_LB_JOB_ALLOW_MANUAL_TIME' => "Allow Manual Time",
 'FR_LB_JOB_ATTACHMENT' => "Attachment",
-'FR_LB_JOB_BUTTON' => "POST JOB",
+'FR_LB_JOB_BUTTON_ADD' => "POST JOB",
+'FR_LB_JOB_BUTTON_EDIT' => "EDIT JOB",
 'D_EXP_LV' => "Desired Experience Level",
 'D_EXP_LV_1_T' => "Entry level",
 'D_EXP_LV_1_D' => "I am looking for freelancers with the lowest rates",
@@ -1314,6 +1315,8 @@ $lang = array(
 'D_EXP_LV_2_D' => "I am looking for a mix of experience and value",
 'D_EXP_LV_3_T' => "Expert",
 'D_EXP_LV_3_D' => "I am willing to pay higher rates for the most experienced freelancers",
+'FR_LB_JOB_MANUAL_TIME_YES' => "YES",
+'FR_LB_JOB_MANUAL_TIME_NO' => "NO",
 //POST JOB
 
 

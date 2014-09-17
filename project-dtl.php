@@ -151,7 +151,7 @@ $update_bid_user = @mysql_num_rows(mysql_query("select id from " . $prev . "buye
 					} else {
 						?>
 							<div style='color:red;padding-top:30px;float: left;width: 100%;'>
-								<a href="<?= $vpath ?>login/<?= base64_encode("project/" . $_REQUEST[id]) ?>" class="submit_bottnew"><?= $lang['LOGIN_LANG'] ?></a>
+								<a class="btn" href="<?= $vpath ?>login/<?= base64_encode("project/" . $_REQUEST[id]) ?>" class="submit_bottnew"><?= $lang['LOGIN_LANG'] ?></a>
 							</div>
 						<?
 					}

@@ -7183,18 +7183,18 @@ border-radius:7px;*/
     text-align: center;
     text-decoration: none;
     width: auto;
-    width:40px;
+    width:50px;
 }
 .edit_bott a:hover {
     background:url(../images/edit.png) 6% 50% no-repeat #ff9f00;
     /*border-radius: 6px 6px 6px 6px;*/
     color: #FFFFFF;
-    float: right;
+    float: left;
     font-size: 14px;
     padding:4px 18px;
     text-align: center;
     text-decoration: none;
-    width: auto; width:40px;
+    width:50px;
 }
 .notifications {
     margin:9px 0px 0px 0px;
@@ -8246,7 +8246,7 @@ textarea {
 /*--------------------7/1/2014-----------------*/
 
 .box-attachments {
-    width:300px;
+    width:280px;
     padding:10px;/* background:#8399b1;*/
     float:left;
     margin:0px 0 0 0;
@@ -8335,13 +8335,16 @@ h2.new {
     position:absolute;
     z-index:1px;
     float:right;
-    margin: -70px 0px 0px 610px;
+	margin: -83px 0 0 784px;
 }
 .rbn2 {
     position:absolute;
     z-index:1px;
     margin-top:-10px;
     margin-left:-125px;
+}
+.rbn3 {
+   position:absolute;margin-left: 805px;margin-top: -2px;
 }
 .td_bd {
     border-right:1px solid #c1c0bc;
@@ -8373,7 +8376,7 @@ h2.new {
 .news_heading {
     font-family: Arial, Helvetica, sans-serif;
     color:#265384;
-    font-size:16px;
+    font-size:12px;
     border-right:1px solid #b9c9db;
     float:left;
     padding:10px 30px 10px 0px;

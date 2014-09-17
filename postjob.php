@@ -7,17 +7,33 @@ $restest = mysql_query("select * from " . $prev . "user where user_id='" . $_SES
 $rowtest = mysql_fetch_array($restest);
 $_REQUEST['firstname'] = $rowtest['fname'];
 $_REQUEST['lastname'] = $rowtest['lname'];
-
+$job_id_edit==0;
 //Check Edit 
  if (isset($_REQUEST['edit'])) {
 	$job_id_edit = $_REQUEST['edit'] ;
 	
 	$row_edit = mysql_fetch_array(mysql_query("select * from " . $prev . "projects where id = '" . $job_id_edit. "'"));
+
+	$list_skills = get_list_skill_by_job_id($row_edit[id]);
 	
+	$ENABLE_EDIT = 'DISABLED';
+	$STYLE = 'style="display:none"';
+	
+}
+
+function check_Selected_Skills($current_skill,$list_skills){
+	if(count($list_skills)>0){
+		foreach($list_skills as $skill){
+			if($current_skill==$skill['skill_id']) return true;
+		}
+	}else{
+		return false;
+	}	
+
 }
 //Check Edit 
 
- if ($_POST[submit] == $lang['FR_LB_JOB_BUTTON']) {
+ if ($_POST[submit] == $lang['FR_LB_JOB_BUTTON_ADD'] && $_REQUEST['id_edit']==0) {
 
 	echo '<div class="post_left">';
 
@@ -180,7 +196,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 		
 		//Fixed category don't use it
 		
-		$sql_inser_project = mysql_query("insert into " . $prev . "projects set chosen_id='',status='open',id='" . $ttoy . "',date2='" . $ttoy . "',project='" . mysql_real_escape_string($_REQUEST[project]) . "',special='" . $special . "',categories='" . $categories . "',expires='" . $expires . "',budget_id='" . $_REQUEST[budget_id] . "',budgetmin='" . $budgetmin . "',budgetmax='" . $budgetmax . "',creation='" . date("Y-m-d") . "',ctime='" . date("h:i") . "',user_id='" . $_SESSION[user_id] . "',project_type='" . $_POST['project_type'] . "',description='" . mysql_real_escape_string($_REQUEST[description]) . "',attachment='" . $rud . "',opsys='" . $_REQUEST[opsys] . "',datasys='" . $_REQUEST[datasys] . "',zip='" . $_REQUEST[zip] . "',main_cat_id='" . $main_cat_id . "'");
+		$sql_inser_project = mysql_query("insert into " . $prev . "projects set chosen_id='',status='open',id='" . $ttoy . "',date2='" . $ttoy . "',project='" . mysql_real_escape_string($_REQUEST[project]) . "',special='" . $special . "',categories='" . $categories . "',expires='" . $expires . "',budget_id='" . $_REQUEST[budget_id] . "',budgetmin='" . $budgetmin . "',budgetmax='" . $budgetmax . "',creation='" . date("Y-m-d") . "',ctime='" . date("h:i") . "',user_id='" . $_SESSION[user_id] . "',project_type='" . $_POST['project_type'] . "',description='" . mysql_real_escape_string($_REQUEST[description]) . "',attachment='" . $rud . "',opsys='" . $_REQUEST[opsys] . "',datasys='" . $_REQUEST[datasys] . "',zip='" . $_REQUEST[zip] ."', enabled_manual_time='" . $_REQUEST[enabled_manual_time] . "',main_cat_id='" . $main_cat_id . "'");
 
 		if ($sql_inser_project) {
 
@@ -225,7 +241,77 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 
 		/////////////////////////////////////////////////////////////////////////////// end view messages and tr ////////////////////////////////////////////////////////////////
 		echo '</div>';
-	}
+}else if ($_POST[submit] == $lang['FR_LB_JOB_BUTTON_EDIT'] && $_REQUEST['id_edit']!=0) {
+
+
+		if (count($_REQUEST[attachfile])):
+			$attach = "";
+			for ($i = 0; $i < count($_REQUEST[attachfile]); $i++):
+				$attach.= $_REQUEST[attachfile][$i] . ",";
+			endfor;
+
+			$rud = substr($attach, 0, -1);
+
+		endif;
+
+		if ($_REQUEST[featured] && $_REQUEST[featured] == "featured"):
+
+			$tyress = mysql_query("SELECT * FROM " . $prev . "transactions WHERE user_id='" . $_SESSION[user_id] . "' ORDER BY date2 DESC LIMIT 0,1");
+
+			$bal = mysql_result($tyress, 0, "balance");
+
+			if ($bal >= $setting[featuredcost]):
+
+				$dadj2 = $bal - $setting[featuredcost];
+
+				$today = getdate();
+
+				$month = $today['mon'];
+
+				$day = $today['mday'];
+
+				$year = $today['year'];
+
+				$hours = $today['hours'];
+
+				$minutes = $today['minutes'];
+
+				mysql_query("INSERT INTO " . $prev . "transactions (amount, details, user_id, balance, date, date2) VALUES ('-$setting[featuredcost]', 'Featured Project Fee', '" . $_SESSION[user_id] . "', '$dadj2', '" . genDate(time()) . "', '" . time() . "')");
+
+			endif;
+
+		endif;
+
+		$mymess = $setting[emailheader] . '
+
+				----------
+
+				' . $lang['This_is_to_confirm_that_your_new_project'] . ' (' . $_REQUEST[project] . ') ' . $lang['has_been_added_to'] . ' ' . $setting[companyname] . '
+
+				
+
+				' . $lang['postmail3'] . ' ' . $vpath . 'login.html
+
+				----------
+
+				' . $setting[emailfooter];
+
+
+
+		mail($setting[admin_mail], $lang['NEW'] . $setting[companyname] . $lang['PROJECT_NAME'] . ": " . $_REQUEST[project], $mymess, "From:$setting[retemailaddress]");
+
+
+
+
+		mysql_query("insert into " . $prev . "projects_additional set project_id=\"" . $_REQUEST[id_edit] . "\",user_id=\"" . $_SESSION[user_id] . "\",date='" . time() . "',info=\"" . $_REQUEST[info] . "\",attached_file=\"" . $rud . "\"");
+
+
+		$msg3 = $lang['ADDITIONAL_INFO'] . '<b>' . $_REQUEST[project] . '</b>' . $lang['VIEW_BY_ALL'] . '<br><br> <a href="' . $vpath . 'project/' . $_REQUEST[id_edit] . '/" class=link><b>' . $lang['CLICK_HERE'] . '</b></a> ' . $lang['VIEW_UR_PROJ'];
+		
+		
+  
+}
+	
 
 
 ?>
@@ -296,7 +382,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 														$d['cat_name'] = $row_content_lang['content'];
 													}
 												?>
-												<option value="<?= $d['cat_id'] ?>"><?= $d['cat_name'] ?></option>
+												<option value="<?= $d['cat_id'] ?>" <?php if($d['cat_id']==$categories) echo "SELECTED";?>><?= $d['cat_name'] ?></option>
 											<?php }
 											?>
 										</select>
@@ -316,7 +402,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 														$d['cat_name'] = $row_content_lang['content'];
 													}
 												?>
-												<option type_id='<?=$d['parent_id']?>' id="child_type_<?=$d['cat_id']?>" value="<?= $d['cat_id'] ?>"><?= $d['cat_name'] ?></option>
+												<option <?php if($d['cat_id']==$main_cat_id) echo "SELECTED";?> type_id='<?=$d['parent_id']?>' id="child_type_<?=$d['cat_id']?>" value="<?= $d['cat_id'] ?>"><?= $d['cat_name'] ?></option>
 											<?php }
 											?>
 										</select>
@@ -327,36 +413,55 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 						<div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_TITLE'] ?></label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="project" id="project" value="<?= $row_edit['project'] ?>">
+                              <input  type="text" class="form-control" name="project" id="project" value="<?= $row_edit['project'] ?>" <?=$ENABLE_EDIT?>>
                             </div>
                         </div>  
 						
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_DESCRIPTION'] ?></label>
                             <div class="col-sm-9">
-                              <textarea class="form-control" rows="10" name="description"><?= $row_edit['description'] ?></textarea>
+                              <textarea class="form-control" rows="10" name="description" <?=$STYLE?>><?= $row_edit['description'] ?></textarea>
+							 
+								<!--- INFO EDIT -->
+								<?php if($job_id_edit != 0){ ?>
+										<?php echo nl2br($row_edit['description'] ); ?><br  /><br  />
+                                            <?php
+                                            $otherdet = mysql_query("select info from " . $prev . "projects_additional where project_id='" . $job_id_edit . "'");
+                                            $ui = 0;
+                                            $uia = 0;
+                                            while ($infp = @mysql_fetch_assoc($otherdet)) {
+                                                if ($infp[info] != '') {
+                                                    $ui++;
+                                                    echo "<b>".$lang['ADDITION'] . $ui . " :</b> <br  />" . nl2br($infp[info]) . "<br  /><br  />";
+                                                }
+                                            }
+										?>
+										 <div class="edit_bott"><a href="javascript:void(0)" onclick="edittext()" >Edit</a></div>
+										 <textarea class="form-control" rows="5" name="info" id="descriptclass" style="display:none;"></textarea>
+								<?php } ?>
+							  
                             </div>
                         </div> 
 						
-						<div class="form-group">
+						<div class="form-group"  <?=$STYLE?>>
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_SKILLS'] ?></label>
                             <div class="col-sm-9">
-                                <select data-placeholder="<?= $lang['FR_LB_JOB_SKILLS'] ?>" name="skills[]" id="skills" multiple class="from_input_box">
+                                <select data-placeholder="<?= $lang['FR_LB_JOB_SKILLS'] ?>" name="skills[]" id="skills" value='' multiple class="from_input_box" <?=$ENABLE_EDIT?>>
 								<!-- <input type="text" id="skills" name="blah2" class="form-control"/> -->
 								<?php
                                     $skills_r = mysql_query("select * from " . $prev . "skill_linkedin group by skill_name");
                                     while ($skills_d = mysql_fetch_array($skills_r)) {                                        
                                     ?>
-                                        <option value="<?= $skills_d['id'] ?>"><?= $skills_d['skill_name'] ?></option>
+                                        <option value="<?= $skills_d['id'] ?>" <?php if(check_Selected_Skills($skills_d['id'],$list_skills)== true) echo "SELECTED";?>><?= $skills_d['skill_name'] ?></option>
                                 <?php } ?>
 							    </select> 
                             </div>
                         </div>  
-						<div class="form-group">
+						<div class="form-group" <?=$STYLE?>>
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_PAYMENT_TYPE'] ?></label>
 							<div class="col-sm-6">
-								<div class="select-box">
-                                    <select name="project_type" id="project_type" size="1" class="from_input_box selectyze2">
+								<div class="select-box" >
+                                    <select name="project_type" id="project_type" size="1" class="from_input_box selectyze2" >
     									<option value="F" <?php if($row_edit['project_type']=='F') echo 'SELECTED';?>><?= $lang['FR_LB_JOB_PAYMENT_FIXED'] ?></option>
     									<option value="H" <?php if($row_edit['project_type']=='H') echo 'SELECTED';?>><?= $lang['FR_LB_JOB_PAYMENT_HOURLY'] ?></option>
     								</select>
@@ -364,11 +469,11 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 							</div>
 					     </div>  
 						
-						<div class="form-group fixed">
+						<div class="form-group fixed" <?=$STYLE?>>
                             <label for="" class="col-sm-3 control-label"><?= $lang['BUDGET'] ?></label>
 							<div class="col-sm-6">
 								<div class="select-box">
-									<select name="budget_id" size="1" class="from_input_box selectyze2">
+									<select name="budget_id" size="1" class="from_input_box selectyze2" <?=$ENABLE_EDIT?>>
 											<option selected value="">--- <?= $lang['BUDGET_SL1'] ?> ---</option>
 											<option value="1" <?
 											if ($row_edit[budget_id] == 1) {
@@ -419,7 +524,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 								</div>	
 							</div>
 						</div>
-
+						<!--
                         <div class="form-group desired-exp-level">
                             <label for="" class="col-sm-3 control-label"><?= $lang['D_EXP_LV'] ?></label>
                             <div class="col-sm-9">
@@ -440,17 +545,23 @@ $_REQUEST['lastname'] = $rowtest['lname'];
                                 </label>
                             </div>
                         </div>
-						
-						<div class="form-group hourly">
+						-->
+						<div class="form-group hourly" <?=$STYLE?>>
                             <label for="" class="col-sm-3 control-label"><?= $lang['AVS_HOURLY_RATE'] ?></label>
 							<div class="col-sm-6">
 								<div class="doller clearfix "  style="display: block;">
 									<label style="width:auto;padding-top: 8px;"> <?= $lang['MIN'] ?> <?= $curn ?> </label>
-									<input class="mini-inp form-control" type="text" name="budget_min" value="<?=$row_edit['budgetmin']?>">
+									<input class="mini-inp form-control" type="text" name="budget_min" value="<?=$row_edit['budgetmin']?>" <?=$ENABLE_EDIT?>>
 									<label style="width:auto;padding-top: 8px;">  <?= $lang['MAX'] ?> <?= $curn ?> </label>
-									<input class="mini-inp form-control" type="text" name="budget_max" value="<?=$row_edit['budgetmax']?>">
+									<input class="mini-inp form-control" type="text" name="budget_max" value="<?=$row_edit['budgetmax']?>" <?=$ENABLE_EDIT?>>
 									<label style="width:auto;padding-top: 8px;">  <?= $lang['FR_LB_JOB_ALLOW_MANUAL_TIME'] ?> </label>
-									<input  name="check_watchsme" id="check_watch-sme" type="checkbox" name="enabled_manual_time">
+									
+									<div class="select-box" style="width:100px;float:left;padding-left:25px">
+									<select name="enabled_manual_time" id="enabled_manual_time" size="1" class="from_input_box selectyze2" style="width:100px">
+    									<option value="Y" <?php if($row_edit['enabled_manual_time']=='Y') echo 'SELECTED';?>><?= $lang['FR_LB_JOB_MANUAL_TIME_YES'] ?></option>
+    									<option value="N" <?php if($row_edit['enabled_manual_time']=='N') echo 'SELECTED';?>><?= $lang['FR_LB_JOB_MANUAL_TIME_NO'] ?></option>
+    								</select>
+									</div>
 								</div>
 							</div>
 					     </div>  
@@ -458,7 +569,61 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 						
 						<div class="form-group hourly_price">
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_ATTACHMENT'] ?></label>
+						
 							<div class="col-sm-6">
+									<!--- ATTACMENT EDIT -->
+									<?php if($job_id_edit != 0){ ?>
+									 <div class="attach">
+
+										<?php
+										$no_of_att = @explode(",", $row_edit['attachment']);
+										$x = 1;
+										if (count($no_of_att) > 0) {
+											?>
+											<div class='news_heading'><?= $lang['Attach'] ?>  :</div>
+											<div class="box-attachments">
+												<?php
+												foreach ($no_of_att as $atno) {
+													list($nm1, $nm) = explode("-", $atno, 2);
+													?>
+													<a href="<?= $vpath . $atno ?>"  target="_blank"><?= ucfirst($nm) ?></a> <br />
+													<?php
+													$x++;
+												}
+												?>
+											</div>
+										<?php }?>	
+									</div>
+									<div class="clear"></div>
+									<?php
+									 $otherdet1 = mysql_query("select attached_file from " . $prev . "projects_additional where project_id='" . $job_id_edit . "'");
+
+                                        while ($infp1 = @mysql_fetch_assoc($otherdet1)) {
+
+                                            if ($infp1[attached_file] != '') {
+                                                $uia++;
+                                                echo "<div class='attach'><div class='news_heading'>" . $lang['Addition_attach'] . $uia . " :</div>";
+                                                ?>
+                                                <div class="box-attachments">
+                                                    <?php
+                                                    $no_of_att1 = explode(",", $infp1['attached_file']);
+                                                    $x = 1;
+                                                    foreach ($no_of_att1 as $atno1) {
+                                                        list($nm11, $nm1) = explode("-", $atno1, 2);
+                                                        ?>
+                                                        <a href="<?= $vpath . $atno1 ?>"  target="_blank"><?= ucfirst($nm1) ?></a> <br />
+                                                        <?php
+                                                        $x++;
+                                                    }
+                                                    ?>
+                                                </div></div >
+                                            <?php
+                                        }
+										}
+										?>
+								<?php } ?>
+								<div class="clear"></div>
+							
 								<select  name='attachfile[]' id="attachfile" size=5 style='width:300px' multiple class="text_box"> </select></td>
 								<td width="180" style="padding-left:10px;"><input type='button' name='Upload' class="submit_bott" value='<?= $lang['UPLOAD'] ?>' style='width:100px;margin-bottom:10px;'   onClick="javascript:window.open('<?= $vpath ?>pop.upload.php', '_new', 'width=400,height=300,addressbar=no,scrollbars=no');">
 
@@ -484,8 +649,8 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 							</div>
 						</div>
 						
-					
-					    <div class="screen-quest">
+						
+					    <div class="screen-quest" <?=$STYLE?>>
                             <h2>Screening Questions</h2>
                             <p>Add a few questions you'd like you candidates to answer when applying to your job.</p>
                             <div class="screen-question-list">
@@ -534,8 +699,14 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 						
 						
                         <div>
+							<input type="hidden" value="<?=$job_id_edit?>" name="id_edit"/>
 							<? if (!$msg3) { ?>
-							<input  type="submit" name="submit" value='<?= $lang['FR_LB_JOB_BUTTON'] ?>'  class="btn btn-primary"/>
+								<?php if($job_id_edit != 0){ ?>
+									<input  type="submit" name="submit" value='<?= $lang['FR_LB_JOB_BUTTON_EDIT'] ?>'  class="btn btn-primary"/>
+								
+								<?php }else{ ?>
+									<input  type="submit" name="submit" value='<?= $lang['FR_LB_JOB_BUTTON_ADD'] ?>'  class="btn btn-primary"/>
+								<?php } ?>
 							<?php } ?>
                          </div>
                     </form>
@@ -608,7 +779,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 				selectize_list.find('a').show();
 			}	
 		});
-		
+		<?php if($job_id_edit == 0){ ?>
 		var project = $('select[name=project_type]').val();
 		if (project == 'F') {
 			$(".hourly").hide();
@@ -618,7 +789,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 			$(".hourly").show();
 
 		}
-
+		<?php } ?>
 		$('select[name=project_type]').change(function () {
 				
 				var project = $(this).val();
@@ -688,7 +859,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
             txt += "<?= $lang['ALERT3'] ?>.\n";
         }
      
-        if (document.postjob.category_id.value == '')
+        if (document.postjob.skills.value == '')
         {
             txt += "<?= $lang['ALERT4'] ?>.\n";
         }
@@ -747,6 +918,19 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 
         return true
 
+    }
+	 function getfeature() {
+
+        if ($('#featured').is(':checked')) {
+            $('.sfeature').removeAttr("disabled");
+        } else {
+            $('.sfeature').prop("disabled", true);
+        }
+    }
+	function edittext() {
+
+        $("#descriptclass").slideDown('slow');
+       
     }
 	
 </script>	

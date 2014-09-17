@@ -512,7 +512,7 @@ jQuery.noConflict();
 						}
 
 	?>   
-			<div style="position:absolute;margin-left: 652px;margin-top: 15px;"><?=getfeatureiconmain($row[job_id])?>
+			<div class="rbn3"><?=getfeatureiconmain($row[job_id])?>
 			</div>
 		   <div class="search-job-content clearfix">
 				<div class="resultinfor">

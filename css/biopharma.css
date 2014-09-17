@@ -2277,7 +2277,7 @@ div.spage-container {
     float: left;
     background: #ebebeb;
     padding-bottom: 60px;
-    padding-top: 60px;
+    padding-top: 20px;
 }
 
 div.spage-container #up-tabs.nav-tabs > li > a {
