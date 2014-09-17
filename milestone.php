@@ -47,6 +47,7 @@ $rwbal2 = mysql_fetch_array(mysql_query("select sum(balance) as baldeb from " . 
 
 $balsum = $rwbal['balsum1'] - $rwbal2['baldeb'];
 
+
 $sum = 0;
 $res4pend = mysql_query("select * from " . $prev . "escrow where bidder_id='" . $_SESSION['user_id'] . "' and status='P'");
 while ($row4pend = mysql_fetch_array($res4pend)) {

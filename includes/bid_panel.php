@@ -87,7 +87,7 @@
                     <h1><?= $lang['DAYS_REQUIRED'] ?></h1>
                     <input type="text" id="delivery" name="delivery" maxlength="3" size="6" value="<?= $update_bid['duration'] ?>" />
                 </div>
-                <div class="submit_bott" style="text-decoration:none; margin:6px 7px;" onclick="bid_valid()"><?php echo $bid_place; ?></div>
+                <div class="submit_bott btn" style="text-decoration:none; margin:6px 7px;" onclick="bid_valid()"><?php echo $bid_place; ?></div>
 
             </div>
         </div>

@@ -6,6 +6,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background:#FFF;
 }
+
+
 a{
     text-decoration:none;
 }
@@ -1072,13 +1074,13 @@ a{color:#FFF;}
     text-decoration:none;
 }
 .browse_contract_right_box {
-    width:305px;
+    width:335px;
     float: left;
     margin:0px;
     padding:0px;
 }
 .browse_contract_right {
-    width:315px;
+    width:340px;
     float: left;
     margin:0px;
     margin-bottom:8px;
@@ -1088,12 +1090,12 @@ a{color:#FFF;}
     border:1px solid #d4d4d4;
 }
 .browse_right_text {
-    width:313px;
+    width:338px;
     height:37px;
     float:left;
     margin:1px 1px 1px 1px;
     padding:0px 0px 0px 0px;
-    background:#1b4471;
+    background: #2272ba;
     border-radius:6px 6px 0px 0px;
 }
 .browse_right_text h1 {
@@ -3057,7 +3059,7 @@ a{color:#FFF;}
 .cost_form_box {
     margin:4px 0px 4px 0px;
     padding:0px 0px 0px 0px;
-    width:300px;
+    width:315px;
     float: left;
 }
 .cost_form_box input {
@@ -3835,7 +3837,7 @@ a{color:#FFF;}
 .cost_form_box input {
     margin:0px 0px 0px 6px;
     padding:6px 3px 6px 3px;
-    width:280px;
+    width:305px;
     float: left;
     border:#CCCCCC 1px solid;
     border-radius:4px 4px 4px 4px;
@@ -3843,7 +3845,7 @@ a{color:#FFF;}
 .cost_form_box textarea {
     margin:0px 0px 0px 6px;
     padding:6px 3px 6px 3px;
-    width:280px;
+    width:305px;
     height:100px;
     float: left;
     border:#CCCCCC 1px solid;
@@ -8323,12 +8325,11 @@ h2.new {
 }
 .rht_area {
     float:left;
-    width:175px;
+    width:345px;
 }
 .lft_area {
-    width:400px;
+    width:560px;
     float:left;
-    margin-right:10px;
 }
 .rbn1 {
     position:absolute;
@@ -8358,7 +8359,7 @@ h2.new {
     color:#7F7F7F;
 }
 .awd_area {
-    width:580px;
+    width:725px;
     float:left;
     margin-top:10px;
     background-color: #F5F5F5;
@@ -8367,6 +8368,7 @@ h2.new {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
     min-height: 20px;
     padding: 5px;
+	margin-bottom:10px;
 }
 .news_heading {
     font-family: Arial, Helvetica, sans-serif;
