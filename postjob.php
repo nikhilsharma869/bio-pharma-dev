@@ -8,6 +8,15 @@ $rowtest = mysql_fetch_array($restest);
 $_REQUEST['firstname'] = $rowtest['fname'];
 $_REQUEST['lastname'] = $rowtest['lname'];
 
+//Check Edit 
+ if (isset($_REQUEST['edit'])) {
+	$job_id_edit = $_REQUEST['edit'] ;
+	
+	$row_edit = mysql_fetch_array(mysql_query("select * from " . $prev . "projects where id = '" . $job_id_edit. "'"));
+	
+}
+//Check Edit 
+
  if ($_POST[submit] == $lang['FR_LB_JOB_BUTTON']) {
 
 	echo '<div class="post_left">';
@@ -318,14 +327,14 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 						<div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_TITLE'] ?></label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="project" id="project" value="<?= $d['project'] ?>">
+                              <input type="text" class="form-control" name="project" id="project" value="<?= $row_edit['project'] ?>">
                             </div>
                         </div>  
 						
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?= $lang['FR_LB_JOB_DESCRIPTION'] ?></label>
                             <div class="col-sm-9">
-                              <textarea class="form-control" rows="10" name="description"><?= $d['description'] ?></textarea>
+                              <textarea class="form-control" rows="10" name="description"><?= $row_edit['description'] ?></textarea>
                             </div>
                         </div> 
 						
@@ -348,8 +357,8 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 							<div class="col-sm-6">
 								<div class="select-box">
                                     <select name="project_type" id="project_type" size="1" class="from_input_box selectyze2">
-    									<option value="F"><?= $lang['FR_LB_JOB_PAYMENT_FIXED'] ?></option>
-    									<option value="H"><?= $lang['FR_LB_JOB_PAYMENT_HOURLY'] ?></option>
+    									<option value="F" <?php if($row_edit['project_type']=='F') echo 'SELECTED';?>><?= $lang['FR_LB_JOB_PAYMENT_FIXED'] ?></option>
+    									<option value="H" <?php if($row_edit['project_type']=='H') echo 'SELECTED';?>><?= $lang['FR_LB_JOB_PAYMENT_HOURLY'] ?></option>
     								</select>
 						        </div>
 							</div>
@@ -362,47 +371,47 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 									<select name="budget_id" size="1" class="from_input_box selectyze2">
 											<option selected value="">--- <?= $lang['BUDGET_SL1'] ?> ---</option>
 											<option value="1" <?
-											if ($d[budget_id] == 1) {
+											if ($row_edit[budget_id] == 1) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL2'] ?></option>
 											<option value="2" <?
-											if ($d[budget_id] == 2) {
+											if ($row_edit[budget_id] == 2) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL3'] ?></option>
 											<option value="3" <?
-											if ($d[budget_id] == 3) {
+											if ($row_edit[budget_id] == 3) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL4'] ?></option>
 											<option value="4" <?
-											if ($d[budget_id] == 4) {
+											if ($row_edit[budget_id] == 4) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL5'] ?></option>
 											<option value="5" <?
-											if ($d[budget_id] == 5) {
+											if ($row_edit[budget_id] == 5) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL6'] ?></option>
 											<option value="6" <?
-											if ($d[budget_id] == 6) {
+											if ($row_edit[budget_id] == 6) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL7'] ?></option>
 											<option value="7" <?
-											if ($d[budget_id] == 7) {
+											if ($row_edit[budget_id] == 7) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL8'] ?></option>
 											<option value="8" <?
-											if ($d[budget_id] == 8) {
+											if ($row_edit[budget_id] == 8) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL9'] ?></option>
 											<option value="9" <?
-											if ($d[budget_id] == 9) {
+											if ($row_edit[budget_id] == 9) {
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL10'] ?></option>
@@ -415,17 +424,17 @@ $_REQUEST['lastname'] = $rowtest['lname'];
                             <label for="" class="col-sm-3 control-label"><?= $lang['D_EXP_LV'] ?></label>
                             <div class="col-sm-9">
                                 <label class="radio-inline">
-                                    <input type="radio" name="d_exp_level" class="css-input" id="d_exp_level1" value="d_exp_level1" checked>
+                                    <input type="radio" name="d_exp_level" id="d_exp_level1" value="d_exp_level1" checked>
                                     <h4><?= $lang['D_EXP_LV_1_T'] ?><span>&#36;</span></h4>
                                     <p><?= $lang['D_EXP_LV_1_D'] ?></p>
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="d_exp_level" class="css-input" id="d_exp_level2" value="d_exp_level2">
+                                    <input type="radio" name="d_exp_level" id="d_exp_level2" value="d_exp_level2">
                                     <h4><?= $lang['D_EXP_LV_2_T'] ?><span>&#36;&#36;</span></h4>
                                     <p><?= $lang['D_EXP_LV_2_D'] ?></p>
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="d_exp_level" class="css-input" id="d_exp_level3" value="d_exp_level3">
+                                    <input type="radio" name="d_exp_level" id="d_exp_level3" value="d_exp_level3">
                                     <h4><?= $lang['D_EXP_LV_3_T'] ?><span>&#36;&#36;&#36;</span></h4>
                                     <p><?= $lang['D_EXP_LV_3_D'] ?></p>
                                 </label>
@@ -437,10 +446,9 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 							<div class="col-sm-6">
 								<div class="doller clearfix "  style="display: block;">
 									<label style="width:auto;padding-top: 8px;"> <?= $lang['MIN'] ?> <?= $curn ?> </label>
-									<input class="mini-inp form-control" type="text" name="budget_min" value="0">
+									<input class="mini-inp form-control" type="text" name="budget_min" value="<?=$row_edit['budgetmin']?>">
 									<label style="width:auto;padding-top: 8px;">  <?= $lang['MAX'] ?> <?= $curn ?> </label>
-									<input class="mini-inp form-control" type="text" name="budget_max" value="0">
-									
+									<input class="mini-inp form-control" type="text" name="budget_max" value="<?=$row_edit['budgetmax']?>">
 									<label style="width:auto;padding-top: 8px;">  <?= $lang['FR_LB_JOB_ALLOW_MANUAL_TIME'] ?> </label>
 									<input  name="check_watchsme" id="check_watch-sme" type="checkbox" name="enabled_manual_time">
 								</div>
