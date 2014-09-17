@@ -9486,7 +9486,7 @@ ul.menu1 li:hover ul.sub-menu {
     margin-bottom: 0;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"].css-input {
     position: absolute; 
     overflow: hidden; 
     clip: rect(0 0 0 0); 
@@ -9523,7 +9523,7 @@ input[type="checkbox"]:checked + label.css-label {
     margin-top: -2px;
 }
 
-input[type="radio"] {
+input[type="radio"].css-input {
     position: absolute; 
     overflow: hidden; 
     clip: rect(0 0 0 0); 

@@ -415,17 +415,17 @@ $_REQUEST['lastname'] = $rowtest['lname'];
                             <label for="" class="col-sm-3 control-label"><?= $lang['D_EXP_LV'] ?></label>
                             <div class="col-sm-9">
                                 <label class="radio-inline">
-                                    <input type="radio" name="d_exp_level" id="d_exp_level1" value="d_exp_level1" checked>
+                                    <input type="radio" name="d_exp_level" class="css-input" id="d_exp_level1" value="d_exp_level1" checked>
                                     <h4><?= $lang['D_EXP_LV_1_T'] ?><span>&#36;</span></h4>
                                     <p><?= $lang['D_EXP_LV_1_D'] ?></p>
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="d_exp_level" id="d_exp_level2" value="d_exp_level2">
+                                    <input type="radio" name="d_exp_level" class="css-input" id="d_exp_level2" value="d_exp_level2">
                                     <h4><?= $lang['D_EXP_LV_2_T'] ?><span>&#36;&#36;</span></h4>
                                     <p><?= $lang['D_EXP_LV_2_D'] ?></p>
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="d_exp_level" id="d_exp_level3" value="d_exp_level3">
+                                    <input type="radio" name="d_exp_level" class="css-input" id="d_exp_level3" value="d_exp_level3">
                                     <h4><?= $lang['D_EXP_LV_3_T'] ?><span>&#36;&#36;&#36;</span></h4>
                                     <p><?= $lang['D_EXP_LV_3_D'] ?></p>
                                 </label>

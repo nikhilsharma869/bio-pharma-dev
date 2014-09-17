@@ -412,17 +412,17 @@ $su=@explode("-",$_REQUEST[start]);
 		<form name="startform" id="startform" action="" method="post">
 <ul class="live-pro-list clearfix" >
         <li>
-        	<input name="srat[]" id="check_rate5" type="checkbox" value="5" onclick="getstart()" <? if(in_array("5",$su)){?> checked=checked<? }?>>
+        	<input name="srat[]" id="check_rate5" type="checkbox" class="css-input" value="5" onclick="getstart()" <? if(in_array("5",$su)){?> checked=checked<? }?>>
         	<label for="check_rate5" class="css-label"></label>
         	<img src="images/5star.png" alt="" >
         </li>
         <li>
-        	<input name="srat[]" id="check_rate4" type="checkbox" value="4" onclick="getstart()" <? if(in_array("4",$su)){?> checked=checked<? }?>>
+        	<input name="srat[]" id="check_rate4" type="checkbox" class="css-input" value="4" onclick="getstart()" <? if(in_array("4",$su)){?> checked=checked<? }?>>
         	<label for="check_rate4" class="css-label"></label>
         	<img src="images/4star.png" alt="">
         </li>
         <li>
-        	<input name="srat[]" id="check_rate3" type="checkbox" value="3" onclick="getstart()" <? if(in_array("3",$su)){?> checked=checked<? }?>>
+        	<input name="srat[]" id="check_rate3" type="checkbox" class="css-input" value="3" onclick="getstart()" <? if(in_array("3",$su)){?> checked=checked<? }?>>
         	<label for="check_rate3" class="css-label"></label>
         	<img src="images/3star.png" alt="" >
 
@@ -516,7 +516,7 @@ $su=@explode("-",$_REQUEST[start]);
 	<!-- <div class="cpseudo"></div> -->
 	<div>
 		<div class="watch-sme">
-			<input name="check_watchsme" id="check_watch-sme" type="checkbox" value="" />
+			<input name="check_watchsme" id="check_watch-sme" class="css-input" type="checkbox" value="" />
         	<label for="check_watch-sme" class="css-label">Watch SME</label>
 		</div>
 		<div class="profile-types">

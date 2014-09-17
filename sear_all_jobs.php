@@ -205,15 +205,15 @@ jQuery.noConflict();
 				<ul class="live-pro-list clearfix">
 							
 					<li>
-						<input name="check_hour" id="check_hourall" type="radio" value="" onclick="getprojecttypess('/jobs/1/<?=$cat."All/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="All"){?> checked=checked <? }?>>
+						<input name="check_hour" id="check_hourall" type="radio" class="css-input" value="" onclick="getprojecttypess('/jobs/1/<?=$cat."All/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="All"){?> checked=checked <? }?>>
 						<label for="check_hourall" class="css-label"><?=$lang['RIG1']?></label>
 					</li>							
 					<li>
-						<input name="check_hour" id="check_hourh" type="radio" value="" onclick="getprojecttypess('<?=$vpath?>jobs/1/<?=$cat."H/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="H"){?> checked=checked <? }?>>
+						<input name="check_hour" id="check_hourh" type="radio" class="css-input" value="" onclick="getprojecttypess('<?=$vpath?>jobs/1/<?=$cat."H/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="H"){?> checked=checked <? }?>>
 						<label for="check_hourh" class="css-label"><?=$lang['HOURLY']?></label>
 					</li>			
 					<li>
-						<input name="check_hour" id="check_hourf" type="radio" value='' onclick="getprojecttypess('<?=$vpath?>jobs/1/<?=$cat."F/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="F"){?> checked=checked <? }?>>
+						<input name="check_hour" id="check_hourf" type="radio" class="css-input" value='' onclick="getprojecttypess('<?=$vpath?>jobs/1/<?=$cat."F/".$min.$max.$sr.$fe?>')" <? if($_REQUEST[project_type]=="F"){?> checked=checked <? }?>>
 						<label for="check_hourf" class="css-label"><?=$lang['FIXED']?></label>
 					</li>							
 
@@ -276,7 +276,7 @@ jQuery.noConflict();
 		<div class="heading-select heading-job">
 			<div>
 				<div class="watch-job">
-					<input name="check_watchsme" id="check_watch-sme" type="checkbox" value="" />
+					<input name="check_watchsme" class="css-input" id="check_watch-sme" type="checkbox" value="" />
 					<label for="check_watch-sme" class="css-label">Watch Job</label>
 				</div>
 				<div class="profile-types">
@@ -533,7 +533,7 @@ jQuery.noConflict();
 				</div>
 			
 				<div class="resultcheckbox">
-					<input id="check_user1" type="checkbox" />	
+					<input id="check_user1" type="checkbox" class="css-input" />	
 					<label for="check_user1" class="css-label"></label>        
 				</div>
 			
