@@ -164,7 +164,14 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 		}
 		$amnt .=$ptype;
 		
-		$sql_inser_project = mysql_query("insert into " . $prev . "projects set chosen_id='',status='open',id='" . $ttoy . "',date2='" . $ttoy . "',project='" . mysql_real_escape_string($_REQUEST[project]) . "',special='" . $special . "',categories='" . $_POST['child_category_id'] . "',expires='" . $expires . "',budget_id='" . $_REQUEST[budget_id] . "',budgetmin='" . $budgetmin . "',budgetmax='" . $budgetmax . "',creation='" . date("Y-m-d") . "',ctime='" . date("h:i") . "',user_id='" . $_SESSION[user_id] . "',project_type='" . $_POST['project_type'] . "',description='" . mysql_real_escape_string($_REQUEST[description]) . "',attachment='" . $rud . "',opsys='" . $_REQUEST[opsys] . "',datasys='" . $_REQUEST[datasys] . "',zip='" . $_REQUEST[zip] . "',main_cat_id='" . $_POST['category_id'] . "'");
+		//Fixed category don't use it
+		
+		$main_cat_id = 126;
+		$categories = 242;
+		
+		//Fixed category don't use it
+		
+		$sql_inser_project = mysql_query("insert into " . $prev . "projects set chosen_id='',status='open',id='" . $ttoy . "',date2='" . $ttoy . "',project='" . mysql_real_escape_string($_REQUEST[project]) . "',special='" . $special . "',categories='" . $categories . "',expires='" . $expires . "',budget_id='" . $_REQUEST[budget_id] . "',budgetmin='" . $budgetmin . "',budgetmax='" . $budgetmax . "',creation='" . date("Y-m-d") . "',ctime='" . date("h:i") . "',user_id='" . $_SESSION[user_id] . "',project_type='" . $_POST['project_type'] . "',description='" . mysql_real_escape_string($_REQUEST[description]) . "',attachment='" . $rud . "',opsys='" . $_REQUEST[opsys] . "',datasys='" . $_REQUEST[datasys] . "',zip='" . $_REQUEST[zip] . "',main_cat_id='" . $main_cat_id . "'");
 
 		if ($sql_inser_project) {
 
@@ -264,7 +271,7 @@ $_REQUEST['lastname'] = $rowtest['lname'];
 				
                 <div class="form-post-a-job">
                     <form class="form-horizontal" role="form" id="postproject" name="postjob" method="post" action="<?= $vpath ?>postjob.html" enctype="multipart/form-data" onSubmit="javascript:return RegValidate(this);">
-                        <div class="form-group">
+                        <div class="form-group" style="display:none">
                             <label for="" class="col-sm-3 control-label"><?= $lang['SEL_CAT_TITLE'] ?></label>
                             <div class="col-sm-4">
                                 	<div class="select-box">
