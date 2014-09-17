@@ -92,18 +92,17 @@ if($result1['status']=="open"){
 }
 function user_details($buyer_id){
 		global $prev;		
-		$buyer_info = @mysql_fetch_array(mysql_query("select user_id,username,country,profile,logo,ldate from ".$prev."user where user_id=".$buyer_id));
+		$buyer_info = @mysql_fetch_array(mysql_query("select user_id,username,fname,lname,country,profile,logo,ldate from ".$prev."user where user_id=".$buyer_id));
 		if(empty($buyer_info['logo']))
 	  	 $buyer_info['logo'] = "images/face_icon.gif";
 	
-		$skill_q = mysql_query("select cat_name from ".$prev."categories c inner join ".$prev."user_cats u on c.cat_id=u.cat_id where u.user_id=".$buyer_id);
-		while($data_skill=@mysql_fetch_array($skill_q))
-		  $data_cat_name.= $data_skill['cat_name'].',';
-
-		 $cat_name = substr($data_cat_name,0,-1);
-		 
-		$buyer_info['skills'] = $cat_name;
-
+		$skill_q = mysql_query("select skills from ".$prev."user_profile where user_id=".$buyer_id);
+		while($data_skill=@mysql_fetch_array($skill_q)){
+		  $data_skills = $data_skill['skills'];
+		 } 
+		
+		$buyer_info['skills'] = $data_skills;
+		
 		return $buyer_info;
 }
 

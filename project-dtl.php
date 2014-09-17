@@ -112,7 +112,7 @@ $update_bid_user = @mysql_num_rows(mysql_query("select id from " . $prev . "buye
 							</tr>
 							<tr>
 								<td width="52%" height="24"><p style="padding:0; margin:0; color:#1b4471;"><?= $lang['CLIENT_NAME'] ?> :</p></td>
-								<td width="48%"><p style="padding:0; margin:0;"><?= $buyer['username']; ?></p></td>
+								<td width="48%"><p style="padding:0; margin:0;"><b><?= $buyer['fname']; ?> <?= $buyer['lname']; ?></b></p></td>
 							</tr>
 							<tr>
 								<td width="52%"><p style="padding:0; margin:0; color:#1b4471;"><?= $lang['REVIEW_STARS'] ?> :</p></td>

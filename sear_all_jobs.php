@@ -384,7 +384,7 @@ jQuery.noConflict();
 		}
 		
 	
-	 $query1=" SELECT *,".$prev ."projects.id as job_id FROM " . $prev . "projects 
+	 $query1=" SELECT *,".$prev ."projects.id as job_id,".$prev ."projects.user_id as client_id FROM " . $prev . "projects 
 					
 				LEFT JOIN ".$prev ."categories ON " . $prev . "projects.categories = ".$prev ."categories.cat_id 
 				
@@ -545,7 +545,8 @@ jQuery.noConflict();
 
 				<div class="client-inforss">
 					<?php
-						$clients_info = mysql_fetch_array(mysql_query("select * from ".$prev."user where user_id=".$row[user_id]));
+					
+						$clients_info = mysql_fetch_array(mysql_query("select * from ".$prev."user where user_id=".$row[client_id]));
 						if(!empty($clients_info[logo])) {
 							$temp_logo=$clients_info[logo];
 						} else {
@@ -556,7 +557,7 @@ jQuery.noConflict();
 						<p>
 							<span><img src="<?=$vpath?>cuntry_flag/<?=strtolower($clients_info['country']);?>.png" title="<?=$country_array[$clients_info[country]];?>" width="16" height="11" > <?=$country_array[$clients_info[country]];?></span>
 							<span>$0 Spent</span>
-							<span><?= getrating($row[user_id]) ?></span>
+							<span><?= getrating($row[client_id]) ?></span>
 						</p>
 				</div>
 		   </div>     
