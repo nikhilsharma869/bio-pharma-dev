@@ -2468,12 +2468,17 @@ div.spage-container .profile_left, div.spage-container .profile_right, div.spage
     line-height: 20px;
 }
 .child_menu .active {
-    list-style: disc outside none;
+    list-style: none outside none;
 }
 .child_menu .active a {
    color:#2272ba;
 }
-
+.child_menu > li {
+    list-style: none outside none;
+    padding: 2px;
+}
 .child_menu li a {
-   color:#666666;
+    color: #666;
+    font-weight: 600;
+    list-style: none outside none;
 }
