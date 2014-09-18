@@ -7,8 +7,8 @@
 		<li <?php if($cur_child_menu =='active_job' ) echo "class='active'"?>>
 			<a href="<?= $vpath ?>active_jobs.html"  >Active Jobs</a>
 		</li>	
-		<li>
-			<a href="http://bio-pharma.com/myprofile.html" >Frozen Projects</a>
+		<li <?php if($cur_child_menu =='frozen_project' ) echo "class='active'"?>>
+			<a href="<?= $vpath ?>frozen_project.html"  >Frozen Projects</a>
 		</li>	
 		<li>
 			<a href="http://bio-pharma.com/myprofile.html" >Working Projects</a>

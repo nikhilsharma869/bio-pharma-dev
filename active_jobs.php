@@ -27,12 +27,12 @@ $type=$row_user['user_type'];
             <!-- Content right -->
             <div class="profile_right">
 			
-					<div class="heading_right">My Open Jobs</div>
+					<div class="heading_right"><?=$lang['ACTIVE_JOB']?></div>
 					<!-- content data list -->
                 
 					<?php
 
-					$no_of_records=2;
+					$no_of_records=10;
 
 					if(!$_REQUEST[page]){$_REQUEST[page]=1;}
 					$res21=mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and (status='open') ORDER BY id,date2 DESC");
@@ -84,7 +84,7 @@ $type=$row_user['user_type'];
 							<?php
 							if(totalbid($kikrow[id])):
 
-							echo'<a href="'.$vpath.'my-jobs/pick/' . $kikrow[id] . '/" class=link_class><u>'.$lang['SELECT_PROVIDER'].'</u></a>';
+							echo'<img src="images/register_icon.png"><a href="'.$vpath.'my-jobs/pick/' . $kikrow[id] . '/" class=link_class><u>'.$lang['SELECT_PROVIDER'].'</u></a> | ';
 
 
 							endif;

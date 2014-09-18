@@ -2440,6 +2440,7 @@ div.spage-container .profile_left, div.spage-container .profile_right, div.spage
 .joblist_button_group {
     float: right;
     padding-right: 45px;
+	text-align:right;
 }
 .heading_right{
 	color: #2272ba;
