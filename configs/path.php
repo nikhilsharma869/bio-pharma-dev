@@ -55,7 +55,7 @@ $curn = $paypal_settings[silver_member_currency];
 $curncode = array( "EUR", "USD" );
 mysql_query("update " . $prev . "projects set status='expired' where expires <=" . time() . " and status='open'");
 $budget_array = array( "", "Less than " . $curn . "250", "Between " . $curn . "250 and " . $curn . "500", "Between " . $curn . "500 and " . $curn . "1,000", "Between " . $curn . "1,000 and " . $curn . "2,500", "Between " . $curn . "2,500 and " . $curn . "5,000", "Between " . $curn . "5,000 and " . $curn . "10,000", "Between " . $curn . "10,000 and " . $curn . "25,000", "Over " . $curn . "25,000", "Not Sure/Confidential" );
-$budget_array1 = array( "", "BUDGET_SL2", "BUDGET_SL3", "BUDGET_SL4", "BUDGET_SL5", "BUDGET_SL6", "BUDGET_SL7", "BUDGET_SL8", "BUDGET_SL9", "BUDGET_SL10" );
+$budget_array1 = array( "", "BUDGET_SL2", "BUDGET_SL3", "BUDGET_SL4", "BUDGET_SL5", "BUDGET_SL6", "BUDGET_SL7", "BUDGET_SL8", "BUDGET_SL9", "BUDGET_SL10" , "BUDGET_SL11" );
 $budget_array2 = array( "", "Less than " . $curn . "250", "" . $curn . "250 - " . $curn . "500", "" . $curn . "500 - " . $curn . "1,000", "" . $curn . "1,000 - " . $curn . "2,500", "" . $curn . "2,500 - " . $curn . "5,000", "" . $curn . "5,000 - " . $curn . "10,000", "" . $curn . "10,000 - " . $curn . "25,000", "Over " . $curn . "25,000", "Not Sure/Confidential" );
 $rs = mysql_query("SELECT * FROM " . $prev . "setup LIMIT 1");
 $setting = @mysql_fetch_array($rs);

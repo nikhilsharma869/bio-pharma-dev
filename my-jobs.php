@@ -105,7 +105,7 @@ $type=$row_user['user_type'];
 							}else if($kikrow[status]=="cancelled"){
 							
 								
-							}else if($kikrow[status]=="expired"){
+							}else if($kikrow[status]=="expire"){
 							
 								
 							}else{

@@ -180,6 +180,10 @@ function check_Selected_Skills($current_skill,$list_skills){
 			if ($_REQUEST['budget_id'] == "9") {
 				$budgetmin = "not sure";
 			}
+			if ($_REQUEST['budget_id'] == "10") {
+				$budgetmin =  $_POST['budget_salary'];
+				$budgetmax =  $_POST['budget_salary'];
+			}
 		} else {
 			$ptype = " / hr";
 			$_REQUEST[budget_id] = 0;
@@ -523,10 +527,35 @@ function check_Selected_Skills($current_skill,$list_skills){
 												echo "selected";
 											}
 											?>><?= $lang['BUDGET_SL10'] ?></option>
+											
+											<option value="10" <?
+											if ($row_edit[budget_id] == 10) {
+												echo "selected";
+											}
+											?>><?= $lang['BUDGET_SL11'] ?></option>
 									</select>
 								</div>	
 							</div>
 						</div>
+						
+						<div class="form-group salary" <?=$STYLE?> style="display:none;">
+                            <label for="" class="col-sm-3 control-label"><?= $lang['AVS_SALARY'] ?></label>
+							<div class="col-sm-6">
+								<div class="doller clearfix "  style="display: block;">
+									<label style="width:auto;padding-top: 8px;"><?= $curn ?> </label>
+									<input class="mini-inp form-control" type="text" name="budget_salary" style="width:80px" value="<?=$row_edit['budgetmin']?>" <?=$ENABLE_EDIT?>>
+									<!--<label style="width:auto;padding-top: 8px;">  <?= $lang['FR_LB_JOB_ALLOW_MANUAL_TIME'] ?> </label>
+									<div class="select-box" style="width:100px;float:left;padding-left:25px">
+									<select name="enabled_manual_time" id="enabled_manual_time" size="1" class="from_input_box selectyze2" style="width:100px">
+    									<option value="Y" <?php if($row_edit['enabled_manual_time']=='Y') echo 'SELECTED';?>><?= $lang['FR_LB_JOB_MANUAL_TIME_YES'] ?></option>
+    									<option value="N" <?php if($row_edit['enabled_manual_time']=='N') echo 'SELECTED';?>><?= $lang['FR_LB_JOB_MANUAL_TIME_NO'] ?></option>
+    								</select>
+									</div>-->
+								</div>
+							</div>
+					     </div>  
+						
+						
 						<!--
                         <div class="form-group desired-exp-level">
                             <label for="" class="col-sm-3 control-label"><?= $lang['D_EXP_LV'] ?></label>
@@ -736,7 +765,17 @@ function check_Selected_Skills($current_skill,$list_skills){
             var clone = $('.screen-question-input:first-child').clone();
             clone.appendTo('.screen-question-list');
         })
-
+		
+		
+		$('select[name=budget_id]').change(  function(){
+			var budget_id = parseInt($(this).val());	
+			if(budget_id==10){
+				$('.salary').show();
+			}else{
+				$('.salary').hide();
+			}
+		
+		});
 
 		$('select[name=category_id]').change(  function(){
 			  
@@ -787,10 +826,15 @@ function check_Selected_Skills($current_skill,$list_skills){
 		if (project == 'F') {
 			$(".hourly").hide();
 			$(".fixed").show();
+			if($('select[name=budget_id]').val()==10){
+				$('.salary').show();
+			}else{
+				$('.salary').hide();
+			}
 		} else {
 			$(".fixed").hide();
 			$(".hourly").show();
-
+			$('.salary').hide();
 		}
 		<?php } ?>
 		$('select[name=project_type]').change(function () {
@@ -799,12 +843,16 @@ function check_Selected_Skills($current_skill,$list_skills){
 				if (project == 'F') {
 					$(".hourly").hide();
 					$(".fixed").show();
+					if($('select[name=budget_id]').val()==10){
+						$('.salary').show();
+					}else{
+						$('.salary').hide();
+					}
 				} else {
 					$(".fixed").hide();
 					$(".hourly").show();
-
+					$('.salary').hide();
 				}
-
 		});
 			
 	});
