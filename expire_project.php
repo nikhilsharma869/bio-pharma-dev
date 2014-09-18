@@ -1,16 +1,12 @@
 <?php
-$current_page = "<p>Running Jobs</p>";
+$current_page = "<p>Frozen Jobs</p>";
+$cur_par_menu = "job_posting";
+$cur_child_menu = "expire_project";
 
 include "includes/header.php";
-
 CheckLogin();
 
 ?>
-<!-----------Header End-----------------------------> 
-<div class="inner-middle"> 
-<div class="dash_headding">
-<p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['EXPIRED_PROJ']?></a></p></div>
-<div class="clear"></div>
 
 <?php
 
@@ -19,144 +15,103 @@ $row_user = mysql_fetch_array(mysql_query("select * from ".$prev."user where use
 $type=$row_user['user_type'];
 ?>
 
+<div class="spage-container">
+    <div class="main_div2">
+        <div class="inner-middle"> 
+            <!-- Sidebar left -->
+            <div class="profile_left">
+                <!-- tabs left -->
+				 <?php require("includes/left_menu_job_client.php");?>
+                <!-- tabs left -->
+           </div>
+            <!-- Content right -->
+            <div class="profile_right">
+			
+					<div class="heading_right"><?=$lang['FROZEN_PROJECTS']?></div>
+					<!-- content data list -->
+                
+					<?php
 
-<!-- content-->
+					$no_of_records=10;
 
-
-<!--Profile-->
-
-<?php include 'includes/leftpanel1.php';?> 
-
-    <!-- left side-->
-
-    <!--middle -->
-
-<div class="profile_right">
-   <div id="wrapper_3">
-           <? echo getprojecttab(4);?>
-			 <div class="browse_tab-content"> 
-            	<div class="browse_job_middle">
-            <table width="750" border="0" align="center" cellpadding="0" cellspacing="0" >
-                  <tr>
-                    <td>  
-
-<!----------------------------------------------------------------------------------------------------------->
-
-
-
-					<table width="750" border="0" align="left" cellpadding="0" cellspacing="0">
-                      <tr class="tbl_bg_4">
-                        <td width="290" align="left" class="space"><?=$lang['PROJECT_NAMEE']?></td>
-                        <td width="54" align="center"><?=$lang['BIDS']?></td>
+					if(!$_REQUEST[page]){$_REQUEST[page]=1;}
 					
-                        <td width="170" align="center"><?=$lang['ACTION']?></td>
-						<td width="185" align="center"><?=$lang['POST_DATE']?></td>
-                       </tr>
+					$res21=mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and status IN ('expire') ORDER BY id,date2 DESC");
+					$total =@mysql_num_rows($res21);
 
-<?php
-$no_of_records=10;
-
-if(!$_REQUEST[page]){$_REQUEST[page]=1;}
-$res21=mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and status IN ('expire') ORDER BY id,date2 DESC");
-$total =@mysql_num_rows($res21);
-
-$tinyres = mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and status IN ('expire') ORDER BY id,date2 DESC limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."");
-
-$i=0;
-
-while($kikrow=mysql_fetch_array($tinyres))
-
-{
-
-?>
-<tr class="tbl_bg2" >
-<?php 
-
-	if(!($i%2)){$bg="#ffffff";}else{$bg="whitesmoke";}
-
-	echo '<td align="left" class="space" style="border-right:none;"><a class="font_bold2" href="'.$vpath.'project/' . $kikrow[id] . '">' . ucwords($kikrow[project]) . '</a></td>';
-	?>
-	
-
-    <td align="center"><?php echo totalbid($kikrow[id]);?></td>
-	<?php 
-
-	echo ' <td align="center">
-'.$lang['NO_ACTION'].'
-	</td>';
-
-	
-	?>
-
-	
-
-	
-
-	<td align=center><?php echo date('M d, Y',$kikrow[date2]); ?></td>
-
-	
-
-</tr>
-
-<?php 
-
-	$i++;	
-
-} 
-
-if($total<1)
-{?>
-
-<tr class="tbl_bg2" >
-
-	 <td colspan="6" align="center"><strong><?=$lang['NO_RUNNING_PRO']?></strong></td>
-
-	</tr>
-	<? }?>
-
-<tr><td colspan="6">
-<?
-if($total>$no_of_records)
-{          echo"<div align=right>". new_pagingnew(0,$vpath.'frozen_project/','/',$no_of_records,$_REQUEST['page'],$total,$table_id='',$tbl_name='') . "</div>";
-}
-?>
+					$tinyres = mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and status IN ('expire') ORDER BY id,date2 DESC limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."");
 
 
+					$i=0;
 
-</td></tr>
+					while($kikrow=mysql_fetch_array($tinyres))
 
-</tbody>
+					{
+						$datleft = get_DatLeft_Of_Project($kikrow[id]);
 
-</table>
+					?>
+					
+					<div class="rbn3"><?=getfeatureiconmain($kikrow[id])?>
+					</div>
+				   <div class="search-job-content clearfix">
+						<div class="resultinfor">
+							<a href="<?=$vpath?>project/<?php print $kikrow[id];?>/<?=strtolower(str_replace("&",'+',str_replace(" ","-",$kikrow['project'])))?>.html" > <?php echo ucwords($kikrow['project']);?></a>
 
+							<ul class="search-job-content-minili">
+								
+								<li><? if($kikrow['project_type']=="F"){?><?=$lang['FXD_PRC']?>: <b><?=$lang[$budget_array1[$kikrow[budget_id]]]?> </b> <? }else{?><?=$lang['HOURLY']?>: <b><?=$curn.$kikrow['budgetmin']." to ".$curn.$kikrow['budgetmax']?> </b><?} ?></li>
+								
+								<li><?=$lang['POSTED']?>: <b><?php print date('M d, Y',strtotime($kikrow[creation]));?></b>  </li>
+								
+								<li><?=$lang['ENDS']?>: <b><?=$datleft; ?></b>   </li>
+								
+								<a  href="<?=$vpath?>project/<?php print $kikrow[id];?>/<?=strtolower(str_replace("&",'+',str_replace(" ","-",$kikrow['project'])))?>.html" >
+									<li class="bor-right"> <b><?php echo totalbid($kikrow[id]);?></b> <?=$lang['PROPOSALS']?></li>  
+								</a>
+							</ul>
+						</div>
+					
+						<div class="resultcheckbox">
+							<input id="check_user1" type="checkbox" class="css-input" />	
+							<label for="check_user1" class="css-label"></label>        
+						</div>
+					
+						<div class="job-des">
+								<p class=""><?php if(strlen($kikrow['description'])>250){echo substr($kikrow['description'],0,250).'...';} else {echo $kikrow['description'];} ?></p>
+						
+								<ul class='skills-section compact-view'  style="padding-left:0px;margin-top:5px;margin-bottom:5px;"><?=$job_skills;?></ul>
+						</div>
+						<?php 
+							$class_stype = set_Color_for_Status($kikrow[status]);
+						?>
+						<div class="joblist_status <?=$class_stype?>">
+							 <?=Ucwords($kikrow[status])?>
+						</div>
+						<div class="joblist_button_group">
+							
+						</div>
+				
+					</div>
+						
+		
+					<?php $i++;} if($total<1){?>
 
+						<div align="center" style="color:#999999; font-size:14px; height:200px; margin:200px;"><?=$lang['NO_RUNNING_PRO']?></div>
 
-<!----------------------------------------------------------------------------------------------------------->
+					<? }?>
 
-										
+				
+					<?
+					if($total>$no_of_records){
+						echo"<div align=right>". new_pagingnew(0,$vpath.'expire_project/','/',$no_of_records,$_REQUEST['page'],$total,$table_id='',$tbl_name='') . "</div>";  
+					}
+					?>
 
-										
+						
+                </div>
+            </div>
 
-<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->			
-
-                </td>
-
-            </tr>
-
-<!------------------------------------------------Middle Body End---------------------------------------------------------->
-
-            </table>
-
-        </div>
-	
-
-<!------------------------------------------------MIDDLE DIV END------------------------------------------------------------->
-
- </div>
-
-</div>
+    </div>  
 </div>
 
-<div style="clear:both; height:10px;"></div>
-
-<?php include 'includes/footer.php';?>
+<?php include 'includes/footer.php'; ?>

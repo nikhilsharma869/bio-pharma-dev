@@ -22,13 +22,13 @@ $alljobs = $openjobs+$frozenjobs+$completedjobs+$cancelledjobs+$processjobs+$exp
 		<li <?php if($cur_child_menu =='frozen_project' ) echo "class='active'"?>>
 			<a href="<?= $vpath ?>frozen_project.html"  >Frozen Projects (<?=$frozenjobs?>)</a>
 		</li>	
-		<li>
+		<li <?php if($cur_child_menu =='running_jobs' ) echo "class='active'"?>>
 			<a href="<?= $vpath ?>running_jobs.html" >Working Projects (<?=$processjobs?>)</a>
 		</li>
-		<li>
+		<li <?php if($cur_child_menu =='expire_project' ) echo "class='active'"?>>
 			<a href="<?= $vpath ?>expire_project.html" >Expire Projects (<?=$expiredjobs?>)</a>
 		</li>	
-		<li>
+		<li <?php if($cur_child_menu =='complete_project' ) echo "class='active'"?>>
 			<a href="<?= $vpath ?>closed_jobs.html" >Completed Projects (<?=$completedjobs?>)</a>
 		</li>
 		<li>

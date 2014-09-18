@@ -526,4 +526,23 @@ function set_Color_for_Status($status){
 	return $class_stype;
 }
 
+
+function showrating($avg_rate)
+{
+    global $dbh;
+    global $prev;
+    global $conn;
+    
+    $a .= " ";
+    for( $i = 0; $i < $avg_rate; $i++ ) 
+    {
+        $a .= "<img src='" . $vpath . "images/1star.png' />";
+    }
+    for( $j = 5; $avg_rate < $j; $j-- ) 
+    {
+        $a .= "<img src='" . $vpath . "images/star_3.png' />";
+    }
+    return $a;
+}
+
 ?>

@@ -384,6 +384,7 @@ $lang = array(
 'BILLED' => "Billed",
 'FEED_BACK_GIVEN_TO_YOU' => "Feedback Given to You",
 'FEED_BACK_GIVEN_BY_YOU' => "Feedback Given by You",
+'FEED_BACK' => "Feed back",
 'EMAIL_ADDRESS' => "Email Address",
 'USER_NAME' => "User Name",
 'RE_PASSWORD' => "Re-Password",
