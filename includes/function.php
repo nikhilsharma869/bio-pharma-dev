@@ -504,4 +504,26 @@ function get_DatLeft_Of_Project($project_id){
 	
 	return $datleft ;
 }
+
+function set_Color_for_Status($status){
+	if($status=="open"){
+		$class_stype = "color_open";
+	}
+	else if($status=="frozen"){
+		$class_stype = "color_frozen";
+	}else if($status=="cancelled"){
+		$class_stype = "color_closed";
+	}else if($status=="expired"){
+		$class_stype = "color_expired";
+	}else if($status=="complete"){
+		$class_stype = "color_complete";
+	}else if($status=="color_closed"){
+		$class_stype = "color_closed";
+	}else{
+		$class_stype = "color_process";
+	}
+	
+	return $class_stype;
+}
+
 ?>

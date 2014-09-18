@@ -80,7 +80,12 @@ $type=$row_user['user_type'];
 						
 								<ul class='skills-section compact-view'  style="padding-left:0px;margin-top:5px;margin-bottom:5px;"><?=$job_skills;?></ul>
 						</div>
-						
+						<?php 
+							$class_stype = set_Color_for_Status($kikrow[status]);
+						?>
+						<div class="joblist_status <?=$class_stype?>">
+							 <?=Ucwords($kikrow[status])?>
+						</div>
 						<div class="joblist_button_group">
 							<?php
 							echo' <img src="images/register_icon.png"><a href="'.$vpath.'my-jobs/pick/' . $kikrow[id] . '/" class=link_class><u>'.$lang['PICK_PROVIDER'].'</u></a> 

@@ -79,7 +79,12 @@ $type=$row_user['user_type'];
 						
 								<ul class='skills-section compact-view'  style="padding-left:0px;margin-top:5px;margin-bottom:5px;"><?=$job_skills;?></ul>
 						</div>
-						
+						<?php 
+							$class_stype = set_Color_for_Status($kikrow[status]);
+						?>
+						<div class="joblist_status <?=$class_stype?>">
+							 <?=Ucwords($kikrow[status])?>
+						</div>
 						<div class="joblist_button_group">
 							<?php
 							if(totalbid($kikrow[id])):

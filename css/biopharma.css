@@ -2442,6 +2442,18 @@ div.spage-container .profile_left, div.spage-container .profile_right, div.spage
     padding-right: 45px;
 	text-align:right;
 }
+.joblist_button_group a{
+	color:#2272ba;
+}
+.joblist_status {
+	background: none repeat scroll 0 0 red;
+    border-radius: 0 10px 10px 0;
+    color: #fff;
+    float: left;
+    font-weight: bold;
+    padding: 5px;
+    text-align: left;
+}
 .heading_right{
 	color: #2272ba;
     display: block;
