@@ -469,4 +469,39 @@ function get_skill_by_id($skill_id){
 	return $list_skill;
 	
 }
+
+function get_DatLeft_Of_Project($project_id){
+	global $prev,$lang;
+	$query="SELECT ".$prev."projects.*  FROM ".$prev."projects  where  " . $prev . "projects.status='open' and ".$prev."projects.id='".$project_id."' ORDER BY " . $prev . "projects.date2 desc ";
+	
+	$result1=mysql_query($query);
+	$secondsPerDay = ((24 * 60) * 60);
+	$timeStamp =@mysql_result($result1,0,"date2");
+	$timeStamp2 = time();
+	$daysUntilExpiry =@mysql_result($result1,0,"expires");
+	$expiry = $timeStamp + ($daysUntilExpiry * $secondsPerDay);			
+
+	$datleft = '';
+
+
+	if ((($daysUntilExpiry - $timeStamp2)/$secondsPerDay)<1 && (( $daysUntilExpiry - $timeStamp2 ) / $secondsPerDay)>=0)
+	{
+		$datleft = " &nbsp;".$lang['LESS_DAY']."&nbsp;";
+	}
+	elseif ((( $daysUntilExpiry - $timeStamp2 ) / $secondsPerDay) >= 1)
+	{
+	  $datleft = " &nbsp;" . round(( $daysUntilExpiry - $timeStamp2 ) / $secondsPerDay)."&nbsp;" .$lang['day'];
+	   if(round(( $daysUntilExpiry - $timeStamp2 ) / $secondsPerDay)!=1)
+	   {
+		 $datleft .= "s";
+	   }
+	   $datleft .= "&nbsp;".$lang['LFT']."&nbsp;";
+	}
+	else
+	{
+	   $datleft = "<font color=red>&nbsp;".$lang['EXPIRED']."&nbsp;</font>";
+	}
+	
+	return $datleft ;
+}
 ?>

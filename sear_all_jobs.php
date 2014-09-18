@@ -297,7 +297,7 @@ jQuery.noConflict();
 			</div>
 		</div>   
    <?php
-		$no_of_records=2;
+		$no_of_records=10;
 		
 		
 		$query=array();
@@ -480,36 +480,7 @@ jQuery.noConflict();
 							$fjobs="&nbsp;";
 						}
 	
-					$query="SELECT ".$prev."projects.*,".$prev ."projects_cats.cat_id FROM ".$prev."projects,".$prev ."projects_cats where  " . $prev . "projects.status='open' and ".$prev."projects.id='".$row['job_id']."'  group by " . $prev . "projects.id ORDER BY " . $prev . "projects.date2 desc ";
-
-
-					$result1=mysql_query($query);
-					$secondsPerDay = ((24 * 60) * 60);
-					$timeStamp =@mysql_result($result1,0,"date2");
-					$timeStamp2 = time();
-					$daysUntilExpiry =@mysql_result($result1,0,"expires");
-					$expiry = $timeStamp + ($daysUntilExpiry * $secondsPerDay);			
-
-						$datleft = '';
-				
-
-						if ((($daysUntilExpiry - $timeStamp2)/$secondsPerDay)<1 && (( $daysUntilExpiry - $timeStamp2 ) / $secondsPerDay)>=0)
-						{
-							$datleft = " &nbsp;".$lang['LESS_DAY']."&nbsp;";
-						}
-						elseif ((( $daysUntilExpiry - $timeStamp2 ) / $secondsPerDay) >= 1)
-						{
-						  $datleft = " &nbsp;" . round(( $daysUntilExpiry - $timeStamp2 ) / $secondsPerDay)."&nbsp;" .$lang['day'];
-						   if(round(( $daysUntilExpiry - $timeStamp2 ) / $secondsPerDay)!=1)
-						   {
-							 $datleft .= "s";
-						   }
-						   $datleft .= "&nbsp;".$lang['LFT']."&nbsp;";
-						}
-						else
-						{
-						   $datleft = "<font color=red>&nbsp;".$lang['EXPIRED']."&nbsp;</font>";
-						}
+					$datleft = get_DatLeft_Of_Project($row[job_id]);
 
 	?>   
 			<div class="rbn3"><?=getfeatureiconmain($row[job_id])?>

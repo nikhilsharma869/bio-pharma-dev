@@ -66,7 +66,7 @@ if (!empty($row_user[logo])) {
                 <?php } ?>
             <?php } ?>
             
-            <ul id="up-tabs" class="nav nav-tabs" role="tablist">
+            <ul id="up-tabs" class="nav nav-tabs" role="tablist" style="margin-top: 30px;">
               <li class="active"><a class="up-icon-overview" href="#up-overview">Overview</a></li>
               <?php if(!empty($_SESSION['user_id'])) { ?>
               <li><a class="up-icon-portfolio" href="#up-portfolio">Portfolio</a></li>

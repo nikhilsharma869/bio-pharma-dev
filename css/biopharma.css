@@ -1678,7 +1678,7 @@
 #up-tabs {
     background: #fff;
     border: 1px solid #959595;
-    margin-top: 30px;
+    margin-top: 0px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -2435,4 +2435,32 @@ div.spage-container .profile_left, div.spage-container .profile_right, div.spage
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+.joblist_button_group {
+    float: right;
+    padding-right: 45px;
+}
+.heading_right{
+	color: #2272ba;
+    display: block;
+    font-size: 19px;
+    font-weight: bold;
+    text-decoration: none;
+	padding-bottom: 10px;
+    width: 97%;
+}	
+.child_menu {
+    font-size: 13px;
+    line-height: 20px;
+}
+.child_menu .active {
+    list-style: disc outside none;
+}
+.child_menu .active a {
+   color:#2272ba;
+}
+
+.child_menu li a {
+   color:#666666;
 }

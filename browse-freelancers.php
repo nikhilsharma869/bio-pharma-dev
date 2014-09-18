@@ -1,5 +1,7 @@
 <?php 
 $current_page="View Subject Matter Experts / Contractors";
+$cur_par_menu = "find_freelancer";
+$cur_child_menu = "";
 include "includes/header.php";
 include("country.php");
 if($_REQUEST['page']==""){	$pg = 1;}else{	$pg = $_REQUEST['page'];}
@@ -322,6 +324,13 @@ jQuery.noConflict();
 
    <!--Inbox Left Start-->
 <div class="profile_left">
+<!-- Menu Left-->
+<!-- Only Client can see this menu-->
+<?php if($_SESSION['user_type']=='E'){?>
+ <?php require("includes/left_menu_job_client.php");?>
+<?php  } ?> 
+ <div class="clear"></div>
+<!-- Menu Left-->
 <!-- <div id="open-by-default-example" class="accordian" data-collapse> -->
 <div id="open-by-default-example">
  <?php

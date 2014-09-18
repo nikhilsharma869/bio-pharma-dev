@@ -1,5 +1,8 @@
 <?php
 $current_page = "Post your job";
+$cur_par_menu = "post_job";
+$cur_child_menu = "";
+
 include "includes/header.php";
 CheckLogin();
 $expdays = 14; /* * *****Project Expire days********* */

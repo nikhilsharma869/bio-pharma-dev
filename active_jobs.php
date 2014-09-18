@@ -1,5 +1,8 @@
-<?php 
+<?php
 $current_page = "<p>Active Jobs</p>";
+$cur_par_menu = "job_posting";
+$cur_child_menu = "active_job";
+
 include "includes/header.php";
 CheckLogin();
 
@@ -12,154 +15,107 @@ $row_user = mysql_fetch_array(mysql_query("select * from ".$prev."user where use
 $type=$row_user['user_type'];
 ?>
 
-<div style="width:100%; float:left; background:#FFF;">
-<div class="main_div2">
-<div class="inner-middle"> 
-<div class="dash_headding">
-<p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['OPEN_PROJECTS']?></a></p></div>
-<div class="clear"></div>
+<div class="spage-container">
+    <div class="main_div2">
+        <div class="inner-middle"> 
+            <!-- Sidebar left -->
+            <div class="profile_left">
+                <!-- tabs left -->
+				 <?php require("includes/left_menu_job_client.php");?>
+                <!-- tabs left -->
+           </div>
+            <!-- Content right -->
+            <div class="profile_right">
+			
+					<div class="heading_right">My Open Jobs</div>
+					<!-- content data list -->
+                
+					<?php
 
-<!--Profile-->
+					$no_of_records=2;
 
-<?php include 'includes/leftpanel1.php';?> 
+					if(!$_REQUEST[page]){$_REQUEST[page]=1;}
+					$res21=mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and (status='open') ORDER BY id,date2 DESC");
+					$total =@mysql_num_rows($res21);
 
-    <!-- left side-->
+					$tinyres = mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and (status='open' ) ORDER BY id,date2 DESC limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."");
 
+					$i=0;
 
-    <!--middle -->
+					while($kikrow=mysql_fetch_array($tinyres))
 
-<div class="profile_right">
-	<div id="wrapper_3">
-		<? echo getprojecttab(1);?>
-		<div class="browse_tab-content"> 
-        	<div class="browse_job_middle">
+					{
+						$datleft = get_DatLeft_Of_Project($kikrow[id]);
 
+					?>
+					
+					<div class="rbn3"><?=getfeatureiconmain($kikrow[id])?>
+					</div>
+				   <div class="search-job-content clearfix">
+						<div class="resultinfor">
+							<a href="<?=$vpath?>project/<?php print $kikrow[id];?>/<?=strtolower(str_replace("&",'+',str_replace(" ","-",$kikrow['project'])))?>.html" > <?php echo ucwords($kikrow['project']);?></a>
 
-
-<table width="750" border="0" align="center" cellpadding="0" cellspacing="0" >
-	<tr>
-		<td>
-
-<!------------------------------------------------Middle Body-------------------------------------------------------------->
-			<table width="750" border="0" align="left" cellpadding="0" cellspacing="0">
-                      <tr class="tbl_bg_4">
-                        <td width="290" align="left" class="space"><?=$lang['PROJECT_NAMEE']?></td>
-                        <td width="54" align="center"><?=$lang['BIDS']?></td>
+							<ul class="search-job-content-minili">
+								
+								<li><? if($kikrow['project_type']=="F"){?><?=$lang['FXD_PRC']?>: <b><?=$lang[$budget_array1[$kikrow[budget_id]]]?> </b> <? }else{?><?=$lang['HOURLY']?>: <b><?=$curn.$kikrow['budgetmin']." to ".$curn.$kikrow['budgetmax']?> </b><?} ?></li>
+								
+								<li><?=$lang['POSTED']?>: <b><?php print date('M d, Y',strtotime($kikrow[creation]));?></b>  </li>
+								
+								<li><?=$lang['ENDS']?>: <b><?=$datleft; ?></b>   </li>
+								
+								<a  href="<?=$vpath?>project/<?php print $kikrow[id];?>/<?=strtolower(str_replace("&",'+',str_replace(" ","-",$kikrow['project'])))?>.html" >
+									<li class="bor-right"> <b><?php echo totalbid($kikrow[id]);?></b> <?=$lang['PROPOSALS']?></li>  
+								</a>
+							</ul>
+						</div>
+					
+						<div class="resultcheckbox">
+							<input id="check_user1" type="checkbox" class="css-input" />	
+							<label for="check_user1" class="css-label"></label>        
+						</div>
+					
+						<div class="job-des">
+								<p class=""><?php if(strlen($kikrow['description'])>250){echo substr($kikrow['description'],0,250).'...';} else {echo $kikrow['description'];} ?></p>
 						
-                       
-                        <td width="170" align="center"><?=$lang['ACTION']?></td>
-						<td width="185" align="center"><?=$lang['POST_DATE']?></td>
-                      </tr>
+								<ul class='skills-section compact-view'  style="padding-left:0px;margin-top:5px;margin-bottom:5px;"><?=$job_skills;?></ul>
+						</div>
+						
+						<div class="joblist_button_group">
+							<?php
+							if(totalbid($kikrow[id])):
+
+							echo'<a href="'.$vpath.'my-jobs/pick/' . $kikrow[id] . '/" class=link_class><u>'.$lang['SELECT_PROVIDER'].'</u></a>';
 
 
+							endif;
 
-<?php
+							echo' <img src="images/extend.png"> <a href="'.$vpath.'extend_project/' . $kikrow[id] . '/" class=link_class><u>'.$lang['EXTEND'].'</u></a> |
+							<img src="images/edit_icon.png"> <a href="'.$vpath.'editjob/' . $kikrow[id] . '/" class=link_class><u>'.$lang['EDIT'].'</u></a> |
+							<img src="images/clo.png"> <a href="my-jobs/close/' . $kikrow[id] . '/" class=link_class><u>'.$lang['CLOSE'].'</u></a></td>';
+							?>
+						</div>
+				
+					</div>
+						
+		
+					<?php $i++;} if($total<1){?>
 
-$no_of_records=20;
+						<div align="center" style="color:#999999; font-size:14px; height:200px; margin:200px;"><?=$lang['NO_ACTIVE_JOBS_DISPLAY']?></div>
 
-if(!$_REQUEST[page]){$_REQUEST[page]=1;}
-$res21=mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and (status='open') ORDER BY id,date2 DESC");
-$total =@mysql_num_rows($res21);
+					<? }?>
 
-$tinyres = mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and (status='open' ) ORDER BY id,date2 DESC limit " . ($_REQUEST['page']-1)* $no_of_records. ",".$no_of_records."");
+				
+					<?
+					if($total>$no_of_records){
+						echo"<div align=right>". new_pagingnew(0,$vpath.'active_jobs/','/',$no_of_records,$_REQUEST['page'],$total,$table_id='',$tbl_name='') . "</div>";  
+					}
+					?>
 
-$i=0;
+						
+                </div>
+            </div>
 
-while($kikrow=mysql_fetch_array($tinyres))
-
-{
-
-?>
-<tr>
-<?php 
-
-	if(!($i%2)){$bg="#ffffff";}else{$bg="whitesmoke";}
-
-	echo '<tr class="tbl_bg2" > 
-	<td align="left" class="space" style="border-right:none;"><a class="font_bold2" href="'.$vpath.'project/' . $kikrow[id] . '">' . ucwords($kikrow[project]) . '</a></td>';
-
-	
-	?>
-	
-
-    <td align="center" style="border-right:#e9e9e9 0px dotted; "><?php echo totalbid($kikrow[id]);?></td>
-	
-	
-	
-	<?php 
-echo "<td>";
-	if(totalbid($kikrow[id])):
-
-	echo'<a href="'.$vpath.'my-jobs/pick/' . $kikrow[id] . '/" class=link_class><u>'.$lang['SELECT_PROVIDER'].'</u></a>';
-
-
-	endif;
-
-	echo' <img src="images/extend.png"> <a href="'.$vpath.'extend_project/' . $kikrow[id] . '/" class=link_class><u>'.$lang['EXTEND'].'</u></a> |
-	<img src="images/edit_icon.png"> <a href="'.$vpath.'editjob/' . $kikrow[id] . '/" class=link_class><u>'.$lang['EDIT'].'</u></a> |
-	<img src="images/clo.png"> <a href="my-jobs/close/' . $kikrow[id] . '/" class=link_class><u>'.$lang['CLOSE'].'</u></a></td>';
-
-	
-	?>
-
-	
-
-	</td>
-
-	<td align=center><?php echo date('M d, Y',$kikrow[date2]); ?></td>
-
-	
-
-</tr>
-
-<?php $i++;} if($total<1)
-{?>
-
-<tr class="tbl_bg2" >
-
-	 <td colspan="6" align="center"><strong><?=$lang['NO_ACTIVE_JOBS_DISPLAY']?></strong></td>
-
-	</tr>
-	<? }?>
-
-<tr><td colspan="6">
-<?
-if($total>$no_of_records)
-{       echo"<div align=right>". new_pagingnew(0,$vpath.'active_jobs/','/',$no_of_records,$_REQUEST['page'],$total,$table_id='',$tbl_name='') . "</div>";  
-}
-?>
-
-
-
-</td></tr>
-</tbody>
-
-</table>
-
-<!----------------------------------------------------------------------------------------------------------->
- </td>
-
-            </tr>
-
-<!------------------------------------------------Middle Body End---------------------------------------------------------->
-
-            </table>
-
-        </div>
-
-
-
-<!------------------------------------------------MIDDLE DIV END------------------------------------------------------------->
-
+    </div>  
 </div>
 
-</div>
-
-</div>
-
-</div>	
-	  
-</div></div>
-<div style="clear:both; height:10px;"></div>
-
-<?php include 'includes/footer.php';?>
+<?php include 'includes/footer.php'; ?>
