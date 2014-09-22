@@ -7,6 +7,8 @@ $expiredjobs = @mysql_num_rows(mysql_query("SELECT * FROM " . $prev . "projects 
 $processjobs = @mysql_num_rows(mysql_query("SELECT * FROM " . $prev . "projects WHERE user_id='" . $_SESSION[user_id] . "' and status='process'"));
 
 $alljobs = $openjobs+$frozenjobs+$completedjobs+$cancelledjobs+$processjobs+$expiredjobs;
+
+
 ?>
 <ul id="up-tabs" class="nav nav-tabs" role="tablist">
 	<li <?php if($cur_par_menu =='job_posting' ) echo "class='active'"?>>
@@ -32,7 +34,7 @@ $alljobs = $openjobs+$frozenjobs+$completedjobs+$cancelledjobs+$processjobs+$exp
 			<a href="<?= $vpath ?>closed_jobs.html" >Completed Projects (<?=$completedjobs?>)</a>
 		</li>
 		<li>
-			<a href="<?= $vpath ?>canceled_project.html" >Canceled Projects (<?=$cancelledjobs?>)</a>
+			<a href="<?= $vpath ?>cancelled_jobs.html" >Cancelled Projects (<?=$cancelledjobs?>)</a>
 		</li>	
 	</ul>	
 	<li <?php if($cur_par_menu =='post_job' ) echo "class='active'"?>><a href="<?= $vpath ?>postjob.html">Post a Job</a></li>

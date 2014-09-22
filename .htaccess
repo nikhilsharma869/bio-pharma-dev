@@ -241,6 +241,9 @@ RewriteRule ^expire_project/([a-zA-Z0-9_-]+)$ expire_project.php?page=$1 [L]
 #completed job
 RewriteRule ^closed_jobs/([a-zA-Z0-9_-]+)/$ closed_jobs.php?page=$1 [L]
 RewriteRule ^closed_jobs/([a-zA-Z0-9_-]+)$ closed_jobs.php?page=$1 [L]
+#canceled job
+RewriteRule ^cancelled_jobs/([a-zA-Z0-9_-]+)/$ cancelled_jobs.php?page=$1 [L]
+RewriteRule ^cancelled_jobs/([a-zA-Z0-9_-]+)$ cancelled_jobs.php?page=$1 [L]
 
 #lostbids
 RewriteRule ^lostbids/([a-zA-Z0-9_-]+)$ lostbids.php?page=$1 [L]
