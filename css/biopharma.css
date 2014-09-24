@@ -2555,7 +2555,7 @@ margin-bottom:20px;
     font-size: 20px;
 }
 #up-tabs li:hover a{background: #2272ba; color: #fff;}
-.contracts .contracts_left #up-tabs li img{
+.contracts_left #up-tabs li img{
     float: left;
     width: 23px;
     height: 23px;
@@ -2582,14 +2582,16 @@ margin-bottom:20px;
 .search form input[type='text']::-moz-placeholder { color:#000; } /* firefox 19+ */
 .search form input[type='text']::-ms-input-placeholder { color:#000; } /* ie */
 .search form input[type='text']::-moz-placeholder { color:#000; }
-.search form input[type='checkbox']{
-    background: #fff;
-    margin: 0 5px 0 30px;
+.sv-checkbox{
+    background: #fff;    
     width: 15px;
     height: 15px;
-    position: relative;
+    position: relative    
+}
+.search form input[type='checkbox']{
     top: 3px;
     z-index: 300;
+    margin: 0 5px 0 30px;
 }
 .search form input[type='checkbox']:before{
 width: 15px; height: 15px;
@@ -2669,3 +2671,26 @@ background: #fff;
 }
 .contracts .j-col3 a:hover{color: #fff;}
 .nav-bottom{margin-top:20px;}
+.checkbox_icon .fa-chevron-down{
+    position: relative;
+    margin-left: -23px;
+    z-index: 400;
+    font-size: 15px;
+    margin-right: 8px;
+}
+.sv-dropdown .sv-dropSelect{
+max-width: 250px;
+height: 20px;
+border: 1px solid #959595;
+background: #fff url(img/dropdown.png) no-repeat;
+background-position: 98% 5px;
+background-size: 20px 20px;
+padding: 5px 30px 5px 15px;
+cursor: pointer;
+}
+.sv-dropdown ul{
+    max-width: 250px;
+    padding: 5px 30px 5px 15px;
+    list-style: none;
+}
+.sv-dropdown ul li{cursor: pointer;}

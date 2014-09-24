@@ -21,7 +21,8 @@ include "includes/header.php";
                         <div class="search">
                             <form name="search-frm" action="" method="post">
                                 <input type='text' name="s" placeholder="Enter Name, Title or Team">
-                                <input type="checkbox" data-label-prepend="prefix"/>
+                                <span class="checkbox_icon"><input type="checkbox" class="sv-checkbox" value="" name="ended" />
+                                <i class="fa"></i></span>
                                 <label>Ended Contacts</label>
                             </form>
                         </div>
@@ -101,13 +102,15 @@ include "includes/header.php";
     $(function() {
         $('#job_tabs li a').click(function (e) {
             e.preventDefault()
-            $(this).tab('show');
-
+            $(this).tab('show');            
         });
-        $('input[type="checkbox"]').checkbox({
-            checkedClass: 'icon-check',
-            uncheckedClass: 'icon-check-empty'
+        $(".checkbox_icon input[type='checkbox']").click(function(){ //alert('true');
+            $(".checkbox_icon .fa").addClass("fa-chevron-down");
         });
+        $(".checkbox_icon .fa").click(function(){
+            $(this).removeClass("fa-chevron-down");
+             $(".checkbox_icon input[type='checkbox']").attr('checked', false); 
+        })
     });
 </script>
 <?php include 'includes/footer.php'; ?>
