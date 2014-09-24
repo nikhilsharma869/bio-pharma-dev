@@ -1082,7 +1082,7 @@ while($d=@mysql_fetch_array($r))
         	</p>
       	</div>
       	<div class="resultcheckbox">
-      		<input id="check_user1" type="checkbox" />	
+      		<input id="check_user1" type="checkbox" class="css-input" />	
         	<label for="check_user1" class="css-label"></label>        
       	</div>
       	<div class="resultimgblock">
