@@ -2482,4 +2482,59 @@ div.spage-container .profile_left, div.spage-container .profile_right, div.spage
     font-weight: 600;
     list-style: none outside none;
 }
+/*24-9*/
+.job_application .content-right{background: transparent; border:none;}
+.job_application .profile_left{padding-top:70px;}
+.job_application .tab-content{background: none; overflow: visible; margin-top:-10px;}
+#job_tabs ul{    
+    padding:0 20px;
+    list-style: none;
+    color: #000;       
+}
+#job_tabs ul li{margin-right:5px; display:inline-block;}
+#job_tabs ul li a{
+    background: #959595;
+    color: #fff;
+    text-decoration: none;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 15px;
+    display: block;
+    text-align: center;
 
+}
+#job_tabs  .tab-item{
+border:1px solid #959595;
+background: #fff;
+padding:20px;
+margin-bottom:20px;
+}
+.j-title4{
+    background: #c6c6c6;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 17px;
+    color: #000;
+}
+.j-row{
+    border-bottom: 1px solid #959595;
+    width: 97%;
+    font-size: 16px;
+    padding:10px 0;
+    margin:0 auto;
+}
+.text-bold{font-weight: 700;}
+#job_tabs .j-row p{display: inline-block; margin-bottom: 0; color: #000;}
+#job_tabs .j-col1{width: 15%;}
+#job_tabs .j-col2{width: 58%}
+#job_tabs .j-col3{width: 25%}
+.small-text{
+    font-size: 12px;
+    color: #a5a5a5;
+}
+#job_tabs .last{border-bottom: 0!important}
+#job_tabs li.active a{background: #2272ba!important;}
