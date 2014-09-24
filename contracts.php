@@ -5,7 +5,7 @@ include "includes/header.php";
         <div class="main_div2">
             <div class="inner-middle"> 
                 <!-- Sidebar left -->
-                <div class="profile_left">
+                <div class="profile_left contracts_left">
                     <!-- tabs left -->
                     <h3 class="title-page">Contracts</h3>
                     <ul id="up-tabs" class="nav nav-tabs" role="tablist">
@@ -21,7 +21,7 @@ include "includes/header.php";
                         <div class="search">
                             <form name="search-frm" action="" method="post">
                                 <input type='text' name="s" placeholder="Enter Name, Title or Team">
-                                <input type="checkbox" value="" name="ended" />
+                                <input type="checkbox" data-label-prepend="prefix"/>
                                 <label>Ended Contacts</label>
                             </form>
                         </div>
@@ -103,7 +103,11 @@ include "includes/header.php";
             e.preventDefault()
             $(this).tab('show');
 
-        })
+        });
+        $('input[type="checkbox"]').checkbox({
+            checkedClass: 'icon-check',
+            uncheckedClass: 'icon-check-empty'
+        });
     });
 </script>
 <?php include 'includes/footer.php'; ?>

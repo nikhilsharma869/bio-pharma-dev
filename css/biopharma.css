@@ -2484,6 +2484,7 @@ div.spage-container .profile_left, div.spage-container .profile_right, div.spage
     list-style: none outside none;
 }
 /*24-9*/
+.content-right p{font-size: 14px;}
 .job_application .content-right{background: transparent; border:none;}
 .job_application .profile_left{padding-top:70px;}
 .job_application .tab-content{background: none; overflow: visible; margin-top:-10px;}
@@ -2554,7 +2555,7 @@ margin-bottom:20px;
     font-size: 20px;
 }
 #up-tabs li:hover a{background: #2272ba; color: #fff;}
-.contracts #up-tabs li img{
+.contracts .contracts_left #up-tabs li img{
     float: left;
     width: 23px;
     height: 23px;
@@ -2638,6 +2639,7 @@ background: #fff;
     width: 40%;
     font-weight: 700;
     color: #2272ba;
+    font-size: 16px;
 }
 .contracts .j-col2{
     display: inline-block;
