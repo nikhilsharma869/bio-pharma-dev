@@ -2282,6 +2282,7 @@ div.spage-container {
 
 div.spage-container #up-tabs.nav-tabs > li > a {
     padding-left: 20px;
+    font-weight: normal;
 }
 
 div.spage-container .profile_left, div.spage-container .profile_right, div.spage-container #up-tabs {
@@ -2538,3 +2539,131 @@ margin-bottom:20px;
 }
 #job_tabs .last{border-bottom: 0!important}
 #job_tabs li.active a{background: #2272ba!important;}
+.search{
+    background: #c6c6c6;
+    padding:10px 20px;
+    border-radius: 10px;
+    margin-top:30px;
+}
+/*contracts*/
+.contracts .content-right{background: transparent; border:none;}
+.title-page{
+    color: #2272ba;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+#up-tabs li:hover a{background: #2272ba; color: #fff;}
+.contracts #up-tabs li img{
+    float: left;
+    width: 23px;
+    height: 23px;
+    margin: 6px 10px 0 10px;
+    position: relative;
+    z-index: 300;
+    
+}
+.contract_icon{
+    width: 20px!important;
+    height: 20px!important;
+    margin-top: 8px!important;
+}
+#up-tabs li a{font-weight: normal; margin-right:0!important; border-radius: 0!important}
+.search form input[type='text']{
+    background: #fff url(img/search_icon.png) no-repeat;
+    background-size: 20px 20px;
+    padding-left: 30px;
+    height: 25px;
+    border: 1px solid #959595;
+    background-position: 5px 3px;
+}
+.search form input[type='text']::-webkit-input-placeholder { color:#000; }
+.search form input[type='text']::-moz-placeholder { color:#000; } /* firefox 19+ */
+.search form input[type='text']::-ms-input-placeholder { color:#000; } /* ie */
+.search form input[type='text']::-moz-placeholder { color:#000; }
+.search form input[type='checkbox']{
+    background: #fff;
+    margin: 0 5px 0 30px;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 3px;
+    z-index: 300;
+}
+.search form input[type='checkbox']:before{
+width: 15px; height: 15px;
+background: #fff;
+content:"";
+position: absolute;top:0;
+left:0;
+}
+.search form label{font-weight: normal;}
+.page-nav{
+    float: left;
+    width: 100%;
+}
+.page-nav ul{
+    float: right;    
+    list-style: none;
+}
+.page-nav ul li{
+    float: left;
+    margin:5px;
+}
+.page-nav li a{
+    display: block;
+    background: #fff;
+    text-align: center;    
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+    border:1px solid #d7d7d7;
+    text-decoration: none;
+}
+.page-nav ul .nav-prev a, .page-nav ul .nav-next a{background: #c6c6c6; color: #fff;
+width: 100px!important;
+border-radius: 5px;
+}
+.page-nav .nav-top{margin:30px 0;}
+.contract-content{    
+border:1px solid #d7d7d7;
+clear: both;
+padding:10px;
+background: #fff;
+}
+.last-item{border-bottom:none;}
+.contracts .j-col1{
+    display: inline-block;
+    width: 40%;
+    font-weight: 700;
+    color: #2272ba;
+}
+.contracts .j-col2{
+    display: inline-block;
+    width: 28%;
+}
+.contracts .j-col3{
+    display: inline-block;
+    width: 30%;
+}
+.contract-title{
+    clear: both;
+    padding:0 10px;
+}
+.contracts .text-bold{color: #000!important; font-size: 15px;}
+.contracts .j-col3 span{
+    display: inline-block;
+    max-width: 95px;
+    float: left;
+    margin-right: 35px;
+}
+.contracts .j-col3 a{
+    background: #2272ba;
+    padding: 8px 15px;
+    position: relative;
+    top: 9px;
+    text-decoration: none;
+}
+.contracts .j-col3 a:hover{color: #fff;}
+.nav-bottom{margin-top:20px;}
