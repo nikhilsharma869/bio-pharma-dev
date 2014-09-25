@@ -2588,12 +2588,12 @@ margin-bottom:20px;
     height: 15px;
     position: relative    
 }
-.search form input[type='checkbox']{
+.sv-checkbox{
     top: 3px;
     z-index: 300;
     margin: 0 5px 0 30px;
 }
-.search form input[type='checkbox']:before{
+.sv-checkbox:before{
 width: 15px; height: 15px;
 background: #fff;
 content:"";
@@ -2678,8 +2678,8 @@ background: #fff;
     font-size: 15px;
     margin-right: 8px;
 }
+.dd-name .sv-dropSelect{width: 233px;}
 .sv-dropdown .sv-dropSelect{
-max-width: 250px;
 height: 20px;
 border: 1px solid #959595;
 background: #fff url(img/dropdown.png) no-repeat;
@@ -2694,3 +2694,173 @@ cursor: pointer;
     list-style: none;
 }
 .sv-dropdown ul li{cursor: pointer;}
+/*job_work_diary*/
+.job_work_diary .content-right{background: none; border:none;}
+.job_work_diary .profile_right{padding-top:30px;}
+.job_work_diary  .dd-name{width:265px;float: left; }
+.sv-dropdown ul{
+    background: #fff;
+    position: relative;
+    margin-top: -1px;
+    padding-right: 30px;
+    border-left: 1px solid #959595;
+    border-right: 1px solid #959595;
+    border-bottom: 1px solid #959595;
+    display: none;
+}
+.job_work_diary .left-content{
+    float: left;
+    max-width: 100px;
+    margin-right:20px;
+}
+.job_work_diary .left-content .item{
+background: #c6c6c6; text-align: center;
+margin-bottom: 5px;
+}
+.working-raj{background: #fff;
+padding:15px 2.5%;
+border:1px solid #959595;
+position: relative;
+float: left;
+width: 95%;
+}
+.job_work_diary .add-time{
+    float: right;
+    background: #2272ba;
+    padding: 6px 16px;
+}
+.job_work_diary .add-time:hover{text-decoration: none; color: #fff;}
+.time-zone{
+background: #c6c6c6;
+padding: 10px 2.5%;
+border-radius: 10px;
+margin-top: 30px;
+float: left;
+width: 95%;
+}
+.time-zone p{
+    float: left;
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-weight: 700;
+}
+.time-zone .dd-timezone{
+    float: left;
+    margin:0 50px 0 20px;
+}
+.time-zone .datetime{
+    float: left;
+
+}
+.time-zone .pref{
+float: right;
+color: #2272ba;
+font-weight: 700;
+margin-top: 5px;
+font-size: 17px;
+margin-right: 10px;
+}
+.total-time-logged{
+padding: 30px 0 40px 0;
+}
+.total-time-logged p{
+    float: left;    
+    margin-right:20px;    
+}
+.total-time-logged p:last-child{float: right; margin-right:0!important;}
+.auto-tracked,.manual-time{padding-left: 20px; position: relative;}
+.auto-tracked:before{
+    content:"";
+    width: 15px;
+    height: 15px;
+    background: #60ff00;
+    position: absolute;
+    top:3px;
+    left: 0;
+}
+.manual-time:before{
+    content:"";
+    width: 15px;
+    height: 15px;
+    background: #ffd200;
+    position: absolute;
+    top:3px;
+    left: 0;
+}
+.working-raj .left-content{
+position: absolute;
+width: 55px;
+left: -68px;
+}
+.working-raj .left-content .time{
+    background: #c6c6c6;  
+    margin-bottom: 5px;
+    min-height: 160px;
+}
+.working-raj .left-content .time span{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.working-raj .r-item{
+    width: 125px; margin-right:5.5px;
+    float: left;
+}
+.working-raj .r-item img{width: 100%; min-height: 100px;}
+.r-time h3{
+    background: #51d800;
+    color: #fff;
+    font-size: 18px;
+    text-align: left;
+    padding: 5px 10px;
+    margin-top:0;
+    clear:both;
+}
+ul.r-code{
+    list-style: none;
+    float: right;
+    padding:7px 0 0 0;
+}
+ul.r-code li{
+width: 2px;
+height: 13px;
+margin-right: 2px;
+background: #51d800;
+float: left;
+}
+.r-item-bottom{float: left;
+width: 100%;}
+.working-raj .right-content .sv-checkbox{
+    width: 10px; height: 10px;
+}
+.working-raj .right-content .sv-checkbox:before{
+width: 8px;
+height: 8px;
+border:1px solid #959595;
+}
+.r-item-bottom .checkbox_icon{
+    float: left;
+    margin-top:1px;
+}
+.job_work_diary .right-content .time-title{
+    margin-top: 3px;
+    float: left;
+}
+.job_work_diary .left-content .time-title{
+    float: left;
+    margin-top:4px; 
+    margin-top: 35px;
+    font-size: 20px;
+}
+.last-code{margin-right: 0!important;}
+.last{margin-right:0!important;}
+.working-raj .left-content .checkbox_icon .fa-chevron-down{margin-left: -20px;}
+.working-raj .right-content .checkbox_icon .fa-chevron-down{
+    left: 9px;
+    top: 1px;
+    font-size: 10px;
+}
+.ul-active{display: block!important;}
+.dd-timezone .sv-dropSelect{
+    width: 125px;
+}
