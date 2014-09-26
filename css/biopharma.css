@@ -528,6 +528,7 @@
 
 
 /* Search area */
+.search .checkbox_icon{margin-left:50px;}
 .search-area {
     border: 2px solid #7e7e7e;
     display: block;
@@ -2864,3 +2865,110 @@ border:1px solid #959595;
 .dd-timezone .sv-dropSelect{
     width: 125px;
 }
+/*reports*/
+.reports{
+    max-width: 1000px;
+    margin:0 auto;
+    min-height: 370px;
+}
+#tab-report{
+    float: left;
+    width: 100%;
+}
+#tab-report ul{
+list-style: none;
+float: left;
+width: 100%;
+padding-left:0;
+}
+#tab-report ul li{
+    float: left;
+    background: #aeaeae;
+    height: 100px;
+    width: 200px;
+    margin-right: 5px;
+}
+#tab-report ul li a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    height: 100%;
+}
+#tab-report ul li a span{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+#tab-report .last-tab{
+    width: 100px!important;
+    margin-right: 0!important;
+}
+#tab-report ul li a .text1{
+    margin-top: 15px;
+}
+#tab-report ul li a .text2{
+font-size: 25px;
+font-weight: 700;
+}
+#tab-report ul li.active{
+    background: #2272ba;
+}
+#tab-report .last-tab a{margin-top:10px;}
+.time-sheet{
+float: left;
+width: 99.6%;
+background: #ebebeb;
+border-bottom: 1px solid #959595;
+border-left: 1px solid #959595;
+border-right: 1px solid #959595;
+padding: 15px 0;
+margin-top: -10px;
+}
+.time-sheet p{margin:0 15px;font-size: 17px;}
+.sheet-line{padding:0 15px;}
+.reports .tab-content{
+    background: #fff;
+    border: 1px solid #959595;
+    float: left;
+    width: 99.5%;
+    margin-top: -75px;
+    color: #000;
+    padding-top:100px;
+}
+.report-wrap{
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+}
+
+#tab-report .tab-item{
+    float: left;
+    width: 100%;
+}
+#tab-report .j-row{float: left;padding: 0 2.5%;width: 95%;}
+#tab-report .j-row p{
+    float: left;
+    font-size: 14px;
+    margin-top:10px;
+}
+#tab-report{padding-top:30px;}
+#tab-report .j-row .j-col1{
+    width: 175px;
+    margin-right:10px;
+}
+#tab-report .j-row .j-col2, #tab-report .j-row .j-col3, #tab-report .j-row .j-col4, #tab-report .j-row .j-col5,
+#tab-report .j-row .j-col6,#tab-report .j-row .j-col7, #tab-report .j-row .j-col8, #tab-report .j-row .j-col9, #tab-report .j-row .j-col10, #tab-report .j-row .j-col11{
+    width: 73px;
+    text-align: center;    
+}
+.c-blue{color:#2272ba;}
+.no-value{
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    height: 1px;
+    background: #959595;
+    margin-top: 10px;
+}
+/*.reports #tab-report .text-bold{color: #000;}*/
