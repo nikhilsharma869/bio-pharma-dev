@@ -2971,6 +2971,7 @@ margin-top: -10px;
     height: 1px;
     background: #959595;
     margin-top: 10px;
+    margin-bottom:-5px;     
 }
 #tab-report .last-item .j-col9, #tab-report .last-item .j-col10, #tab-report .last-item .j-col11{
     top:0!important;
