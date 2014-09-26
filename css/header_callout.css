@@ -81,8 +81,13 @@ p.callout-info span {
     padding: 10px 2px 1px;
 }
 
+a.callout-notification:hover .popover.user-notification-callout,
 span.top_header_ava:hover .popover.user-info-callout {
     display: block !important;
+}
+
+a.callout-notification:hover {
+    text-decoration: none;
 }
 
 .popover.user-notification-callout{
@@ -91,10 +96,10 @@ span.top_header_ava:hover .popover.user-info-callout {
     margin: 6px 100px;
     z-index: 99999;
     border-radius: 15px;
-    /*display: block;*/
     max-width: 500px;
     left: -230px;
     top: 25px;
+    /*display: block;*/
 }
 
 .popover.user-notification-callout ul {
@@ -106,11 +111,20 @@ span.top_header_ava:hover .popover.user-info-callout {
 .popover.user-notification-callout ul li {
     position: relative;
     display: block;
-    padding-right: 10px;
+    padding: 10px 10px 10px 0px;
+    color: #818285;
+    border-bottom: 1px solid #ebebeb; 
+    cursor: default;
 }
 
 .popover.user-notification-callout ul li span {
     position: absolute;
-    top: 2px;
+    top: 12px;
     right: 0;
+    cursor: pointer;
+    background: #818285;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 8px;
+    padding: 3px 4px;
 }

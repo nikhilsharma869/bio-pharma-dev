@@ -284,8 +284,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                                 </div>
                                             </span>
                                             <!-- <a class="login" href="<?php echo $vpath;?>logout.html">Sign out</a> -->
-                                            <a href="javascript:;" class="callout-notification"><span class="icon-callout" style="padding: 2px 2px 5px 6px"><i class="fa fa-info"></i></span></a>
-                                            <a href="<? $vpath?>/dashboard.html"><span class="icon-callout" style="padding: 3px 5px 4px 4px; font-size: 13px;"><i class="fa fa-cog"></i></span></a>
+                                            <a href="javascript:;" class="callout-notification"><span class="icon-callout" style="padding: 2px 2px 5px 6px"><i class="fa fa-info"></i></span>
                                             <div class="popover bottom user-notification-callout">
                                               <div class="arrow"></div>                                           
                                               <div class="popover-content">
@@ -297,7 +296,9 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                                     <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
                                                 </ul>
                                               </div>
-                                            </div>
+                                            </div></a>
+                                            <a href="<? $vpath?>/dashboard.html"><span class="icon-callout" style="padding: 3px 5px 4px 4px; font-size: 13px;"><i class="fa fa-cog"></i></span></a>
+                                            
                                             
                                         </div>
                                         <?php } else { ?>
