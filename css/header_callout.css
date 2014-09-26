@@ -93,10 +93,24 @@ span.top_header_ava:hover .popover.user-info-callout {
     border-radius: 15px;
     /*display: block;*/
     max-width: 500px;
+    left: -230px;
+    top: 25px;
 }
 
 .popover.user-notification-callout ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.popover.user-notification-callout ul li {
+    position: relative;
+    display: block;
+    padding-right: 10px;
+}
+
+.popover.user-notification-callout ul li span {
+    position: absolute;
+    top: 2px;
+    right: 0;
 }
