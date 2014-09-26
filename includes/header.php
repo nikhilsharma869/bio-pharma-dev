@@ -87,7 +87,9 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                     <script>
                         (function($) {
                             $("#accordion").accordion();
+                           
                         });
+
                     </script>
                     <script type="text/javascript" src="<?= $vpath; ?>highslide/highslide-with-html.js"></script>
                     <!--<link rel="stylesheet" href="<?= $vpath ?>css/Selectyze.jquery.css" type="text/css" />-->
@@ -265,8 +267,38 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                         if(isset($_SESSION['user_id'])){
                                             ?>
                                         <div class="topBlockRight">
-                                            <span class="top_header_ava"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=200&height=200" alt="" /></span>
-                                            <a class="login" href="<?php echo $vpath;?>logout.html">Sign out</a>
+                                            <span class="top_header_ava">
+                                                <img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=200&height=200" alt="" />
+                                                <div class="popover bottom user-info-callout">
+                                                  <div class="arrow"></div>                                           
+                                                  <div class="popover-content">
+                                                    <p class="callout-info">
+                                                        <img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=30&height=30" alt="" />
+                                                        <span style="float: right"><?php echo $row_user['fname'].' '.$row_user['lname'] ;?></span>
+                                                    </p>
+                                                    <p class="callout-logout">
+                                                        <span style="float: left"><?php echo $row_user['fname'].' '.$row_user['lname'] ;?></span>
+                                                        <a class="callout-logout" href="<?php echo $vpath;?>logout.html" style="float: right">Sign out</a>
+                                                    </p>
+                                                  </div>
+                                                </div>
+                                            </span>
+                                            <!-- <a class="login" href="<?php echo $vpath;?>logout.html">Sign out</a> -->
+                                            <a href="javascript:;" class="callout-notification"><span class="icon-callout" style="padding: 2px 2px 5px 6px"><i class="fa fa-info"></i></span></a>
+                                            <a href="<? $vpath?>/dashboard.html"><span class="icon-callout" style="padding: 3px 5px 4px 4px; font-size: 13px;"><i class="fa fa-cog"></i></span></a>
+                                            <div class="popover bottom user-notification-callout">
+                                              <div class="arrow"></div>                                           
+                                              <div class="popover-content">
+                                                <ul>
+                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
+                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
+                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
+                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
+                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
+                                                </ul>
+                                              </div>
+                                            </div>
+                                            
                                         </div>
                                         <?php } else { ?>
                                         <div class="topBlockRight">

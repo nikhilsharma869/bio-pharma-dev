@@ -1,0 +1,102 @@
+/* Style Sheet for Header Callout */
+
+/* Style Sheet for Header Callout */
+
+/* CSS Important */
+
+.top_header_ava {
+    float: left !important;
+    margin-right: 10px !important;
+    max-width: 90px;
+}
+
+.topBlockRight {
+    position: relative;
+}
+
+/* CSS Work */
+
+.top_header_ava img {
+    -webkit-box-shadow: 4px 5px 4px -3px rgba(0,0,0,0.3);
+    -moz-box-shadow: 4px 5px 4px -3px rgba(0,0,0,0.3);
+    box-shadow: 4px 5px 4px -3px rgba(0,0,0,0.3);
+}
+
+span.icon-callout {
+    color: #AAA;
+    background-color: #f1f0f0 !important;
+    border: 2px solid #ddd !important;
+    border-radius: 15px !important;
+    margin-top: 2px;
+    display: inline-block;
+    height: 11px;
+    width: 10px;
+}
+
+.popover.user-info-callout{
+    position: relative;
+    width: 225px;
+    margin: 6px 100px;
+    z-index: 99999;
+    border-radius: 15px;
+    margin-left: -130px
+}
+
+.popover.user-info-callout img {
+    height: 30px;
+    width: 30px;
+    box-shadow: none;
+}
+
+.popover.bottom.user-info-callout .arrow, .popover.bottom.user-notification-callout .arrow {
+    left: 77%;
+}
+
+p.callout-logout {
+    background: #2272ba;
+    overflow: hidden;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+p.callout-logout a {
+    font-weight: bold;
+}
+
+p.callout-logout a:hover {
+    color: #fff;
+}
+
+p.callout-info {
+    padding: 0 10px;
+}
+
+p.callout-info span {
+    font-size: 15px;
+}
+
+.user-info-callout .popover-content {
+    padding: 10px 2px 1px;
+}
+
+span.top_header_ava:hover .popover.user-info-callout {
+    display: block !important;
+}
+
+.popover.user-notification-callout{
+    position: absolute;
+    width: 323px;
+    margin: 6px 100px;
+    z-index: 99999;
+    border-radius: 15px;
+    /*display: block;*/
+    max-width: 500px;
+}
+
+.popover.user-notification-callout ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
