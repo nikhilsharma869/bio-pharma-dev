@@ -2532,6 +2532,10 @@ margin-bottom:20px;
 }
 .text-bold{font-weight: 700;}
 #job_tabs .j-row p{display: inline-block; margin-bottom: 0; color: #000;}
+#job_tabs .j-row p a {
+text-decoration: none;
+color: #000;
+}
 #job_tabs .j-col1{width: 15%;}
 #job_tabs .j-col2{width: 58%}
 #job_tabs .j-col3{width: 25%}
@@ -3087,7 +3091,11 @@ margin-top: -10px;
 .sub-tabs{
     list-style: none;
     padding: 5px 0 6px 35px;
+    background: #fff;
 }
 .sub-tabs a{background: none!important; color: #000!important; display: block;  }
 .sub-tabs a:hover, .sub-tabs li.active a{text-decoration:none; color:#2a6496!important;}
 .managemyteam_message .managemyteam-content .j-row .j-col1{width: 85%;}
+.edit-remove{
+    display: block;
+}
