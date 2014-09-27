@@ -82,8 +82,8 @@ include "includes/header.php";
                                             ?>
                                                 <div class="j-row <?php echo $last_row; ?>">
                                                     <p class="j-col1"><?php echo $received_date; ?><br/><span class="small-text"><?php echo $time; ?></span></p>
-                                                    <p class="j-col2"><?php echo $list_inter[$i]['project']; ?> (<?php echo $list_inter[$i]['id']; ?>) </p>
-                                                    <p class="j-col3"><?php echo $list_inter[$i]['fname'].' '.$list_inter[$i]['lname']; ?></p>
+                                                    <p class="j-col2"><a href="<? $vpath?>/project/<?php echo $list_inter[$i]['id'];?>"><?php echo $list_inter[$i]['project']; ?> (<?php echo $list_inter[$i]['id']; ?>) </a></p>
+                                                    <p class="j-col3"><a href="<? $vpath?>/publicprofile/<?php echo $list_inter[$i]['username'];?>"><?php echo $list_inter[$i]['fname'].' '.$list_inter[$i]['lname']; ?> </a></p>
                                                 </div>
                                             <?php
                                                 
