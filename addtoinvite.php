@@ -1,6 +1,7 @@
 <?php
 
 include("configs/path.php");
+include("includes/function.php");
 $proj_id = $_POST['project_id_val'];
 $txtemail = $_POST['txtemail'];
 $sendflag = FALSE;
@@ -9,6 +10,8 @@ if ($_SESSION[user_id] != '' && $proj_id != "" && $txtemail != "") {
     $row_user = mysql_fetch_array(mysql_query("select user_id,username, email from " . $prev . "user where `email` = '" . $txtemail . "'"));
 
     $proj = @mysql_fetch_array(mysql_query("select * from " . $prev . "projects where id=" . $proj_id));
+
+    send_interview($proj_id, $row_user['user_id'], $_SESSION[user_id]);
 
     $prjct = '<a href="' . $vpath . 'project/' . $proj['id'] . '">' . $proj['project'] . '</a>';
 
@@ -46,8 +49,8 @@ if ($_SESSION[user_id] != '' && $proj_id != "" && $txtemail != "") {
     if ($setting['cc_mail'] != '') {
         $headers.="Cc: " . $setting['cc_mail'] . "\r\n";
     }
-    if (mail($row_user['email'], $subjectf, $mailbodyf, $headers)) {
-        mail($row_user1['email'], $subjecte, $mailbodye, $headers);
+    if (mail('vanchung.tk07@gmail.com', $subjectf, $mailbodyf, $headers)) {
+        mail('vanchung.tk07@gmail.com', $subjecte, $mailbodye, $headers);
         $_SESSION['succ'] = $lang['MAIL_SUC'];
         $sendflag = TRUE;
     } else {

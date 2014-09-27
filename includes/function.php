@@ -1,6 +1,8 @@
 <?php
  global $prev;
 
+include('api/project_api.php');
+
 function project_start_end_date($project_id){
 		global $prev,$lang;
 	$query = "SELECT ".$prev."projects.* FROM " . $prev . "projects where  " . $prev . "projects.id='".$project_id."'";
