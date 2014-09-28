@@ -81,7 +81,6 @@ p.callout-info span {
     padding: 10px 2px 1px;
 }
 
-a.callout-notification:hover .popover.user-notification-callout,
 span.top_header_ava:hover .popover.user-info-callout {
     display: block !important;
 }

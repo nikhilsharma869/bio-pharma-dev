@@ -1,4 +1,7 @@
 <?php
+//Get current page
+$cur_page = basename($_SERVER['SCRIPT_NAME'], '.php');
+
 include "configs/path.php";
 include "function.php";
 if (isset($_SESSION['user_id'])) {
@@ -8,6 +11,9 @@ if (isset($_SESSION['user_id'])) {
     } else {
         $temp_logo = "images/face_icon.gif";
     }
+
+    // Check permission
+    check_permission(strtolower($_SESSION['user_type']), $cur_page);
 }
 ?>
 <?php
@@ -87,8 +93,23 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                     <script>
                         (function($) {
                             $("#accordion").accordion();
-                           
                         });
+
+                        $(document).ready(function(){
+                            $('a.callout-notification').click(function(){
+                                if($('.popover.user-notification-callout').is(':hidden')) {
+                                    $('.popover.user-notification-callout').show();
+                                    $('.popover.user-notification-callout div.popover-content').html(
+                                        '<div class="loading-notif" style="text-align: center;">'
+                                        + '<img src="<? $vpath?>/images/ajax-loader2.gif">'
+                                        +'</div>');
+                                }
+                                else if($('.popover.user-notification-callout').is(':visible')) {
+                                    $('.popover.user-notification-callout').hide();
+                                }
+                                 
+                            })
+                        })
 
                     </script>
                     <script type="text/javascript" src="<?= $vpath; ?>highslide/highslide-with-html.js"></script>
@@ -115,6 +136,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                     <script type="text/javascript" src="<?=$vpath;?>js/jquery.form.min.js"></script>
                             <!--<link href="<?= $vpath; ?>css/style.css" rel="stylesheet" type="text/css" />-->
                     <link href="<?=$vpath;?>css/biopharma.css" rel="stylesheet" type="text/css" />
+                    <link href="<?=$vpath;?>css/biopharma_override.css" rel="stylesheet" type="text/css" />
                     <!--<link rel="stylesheet" href="<?= $vpath; ?>css/landing_narrow_banner.css" type="text/css">
                         <link rel="stylesheet" href="<?= $vpath; ?>css/demo_table.css" type="text/css">-->
                     <script src="<?=$vpath;?>admin_new/js/bootstrap/bootstrap.js"></script>  
@@ -287,14 +309,15 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                             <a href="javascript:;" class="callout-notification"><span class="icon-callout" style="padding: 2px 2px 5px 6px"><i class="fa fa-info"></i></span>
                                             <div class="popover bottom user-notification-callout">
                                               <div class="arrow"></div>                                           
-                                              <div class="popover-content">
-                                                <ul>
+                                              <div class="popover-content">                                             
+                                                
+                                                <!-- <ul>
                                                     <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
                                                     <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
                                                     <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
                                                     <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
                                                     <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
-                                                </ul>
+                                                </ul> -->
                                               </div>
                                             </div></a>
                                             <a href="<? $vpath?>/dashboard.html"><span class="icon-callout" style="padding: 3px 5px 4px 4px; font-size: 13px;"><i class="fa fa-cog"></i></span></a>

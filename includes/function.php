@@ -547,4 +547,20 @@ function showrating($avg_rate)
     return $a;
 }
 
+function check_permission($per, $page) {
+	$sme_noper = array();
+	$client_noper = array();
+
+	// check permission for client (e) or sme (w)
+	if($per == 'w') {
+		if(in_array($page, $sme_noper)) {
+			header('Location: /no_permission.php?section='.$page);
+		} 
+	} else {
+		if(in_array($page, $client_noper)) {
+			header('Location: /no_permission.php?section='.$page);
+		} 
+	}
+}
+ 
 ?>
