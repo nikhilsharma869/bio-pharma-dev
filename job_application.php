@@ -75,7 +75,7 @@ include "includes/header.php";
                                                 if($list_inter[$i]['date_diff'] == 0) {
                                                     $time = 'Today';
                                                 } elseif ($list_inter[$i]['date_diff'] == 1) {
-                                                    $time = '1 day ago';
+                                                    $time = 'Yesterday';
                                                 } else {
                                                     $time = $list_inter[$i]['date_diff'].' days ago';
                                                 }
@@ -95,23 +95,41 @@ include "includes/header.php";
                                         <h4 class="j-title4">Sent Job Applications</h4>
                                         <!-- Row Header -->
                                         <div class="j-row">
-                                            <p class="j-col1 text-bold">Received</p>
+                                            <p class="j-col1 text-bold">Sent</p>
                                             <p class="j-col2 text-bold">Job</p>
                                             <p class="j-col3 text-bold">Client</p>
                                         </div>
                                         <!-- End Row Header -->
                                         <!-- Row Content Loop -->
-                                        <div class="j-row">
-                                            <p class="j-col1">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>   
-                                        <div class="j-row last">
-                                            <p class="j-col1 text-bold">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>             
-                                        <!-- End Row Content Loop -->      
+                                        <?php
+                                            $list_sent_bid = get_sent_job($_SESSION[user_id]);
+                                            
+                                            for ($i=0; $i < count($list_sent_bid); $i++) :
+                                                if($i == count($list_sent_bid) - 1) {
+                                                    $last_row = 'last';
+                                                } else {
+                                                    $last_row = '';
+                                                }
+                                                $received_date = date('M d', strtotime($list_sent_bid[$i]['add_date']));
+                                                if($list_sent_bid[$i]['date_diff'] == 0) {
+                                                    $time = 'Today';
+                                                } elseif ($list_sent_bid[$i]['date_diff'] == 1) {
+                                                    $time = 'Yesterday';
+                                                } else {
+                                                    $time = $list_sent_bid[$i]['date_diff'].' days ago';
+                                                }
+                                            ?>
+                                                <div class="j-row <?php echo $last_row; ?>">
+                                                    <p class="j-col1"><?php echo $received_date; ?><br/><span class="small-text"><?php echo $time; ?></span></p>
+                                                    <p class="j-col2"><a href="<? $vpath?>/project/<?php echo $list_sent_bid[$i]['id'];?>"><?php echo $list_sent_bid[$i]['project']; ?> (<?php echo $list_sent_bid[$i]['id']; ?>) </a></p>
+                                                    <p class="j-col3"><a href="<? $vpath?>/publicprofile/<?php echo $list_sent_bid[$i]['username'];?>"><?php echo $list_sent_bid[$i]['fname'].' '.$list_sent_bid[$i]['lname']; ?> </a></p>
+                                                </div>
+                                            <?php
+                                                
+                                            endfor;
+                                            
+                                        ?>         
+                                        <!-- End Row Content Loop -->       
                                     </div>                     
                                 </div>
                                 <div id="tabs-2" class="tab-pane fade">

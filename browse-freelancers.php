@@ -308,7 +308,7 @@ jQuery.noConflict();
 	        </div>
 			</form> -->
 	<div class="search-area find-sme clear-fix">
-        <form action="<?=$vpath?>sear_all_jobs.html" method="POST" name="home-search" >
+        <form action="<?=$vpath?>browse-freelancers.php" method="POST" name="home-search" >
             <input type="text" placeholder="Search Categories" class="input_txtbox" name="keyword">
             <div class="drop_pseudo"><?=$lang['FIND_TALENT']?></div>       
             <select name="select2" class="input_drop" name="" onChange="this.form.action=this.options[this.selectedIndex].value;">
