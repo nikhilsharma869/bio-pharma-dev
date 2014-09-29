@@ -2554,7 +2554,9 @@ color: #000;
     margin-top:30px;
 }
 /*contracts*/
-.contracts .content-right, .managemyteam .content-right, .managemyteam_message .content-right{background: transparent; border:none;}
+.contracts .content-right, .managemyteam .content-right, 
+.managemyteam_message .content-right, .recruit_savedFreelancers .content-right,
+.manageMyTeam_contracts .content-right{background: transparent; border:none;}
 .title-page{
     color: #2272ba;
     font-weight: 700;
@@ -3181,3 +3183,130 @@ padding-left: 1.5%;
     color: #a5a5a5;
 }
 .fixed-price .line{padding:0 20px;}
+.recruit_saved_content{
+    float: left;
+    width: 100%;
+}
+.recruit_saved_content .item{
+    float: left;
+    width: 96%;
+    border:1px solid #959595;
+    margin-bottom: 15px;
+    padding:2%;
+    background: #fff;
+}
+.recruit_saved_content .item .left-item{
+    float: left;
+    width: 15%;
+}
+.recruit_saved_content .item .right-item{
+    float: left;
+    width: 85%;
+}
+.recruit_saved_content .item .title-h4{
+    color: #2272ba;
+    font-weight: 700;
+    margin-top: 0;
+}
+#recruit_saved_tabs{
+    float: left;
+    width: 100%;
+}
+#recruit_saved_tabs ul{
+    list-style: none;
+    padding-left: 0;
+}
+#recruit_saved_tabs ul li{
+    display: inline-block;
+    margin-right:5px;
+}
+#recruit_saved_tabs ul li a{
+    background: #ebebeb;
+    display: block;
+    padding:8px 20px;
+    color:#413b39;    
+}
+#recruit_saved_tabs ul li a:hover{text-decoration: none;}
+#recruit_saved_tabs .tab-content{
+background: none;
+border: none;
+color: #413b39;
+}
+#recruit_saved_tabs  ul li.active a{
+    background: #2272ba!important;
+    color: #fff;
+}
+.bt-contact{
+    background: #2272ba;
+    padding: 8px 15px;
+    position: relative;
+    top: 0;
+    text-decoration: none;
+    float: right;
+    width: 65px;
+    text-align: center;
+    color: #fff;
+}
+.bt-contact a:hover{color: #fff; text-decoration: none;}
+.recruit_savedFreelancers .profile_left{padding-top: 30px;}
+.manageActive_content{
+    border: 1px solid #959595;
+    background: #fff;
+    float: left;
+    width: 100%;
+    padding-bottom: 
+}
+.manageActive_content .box{
+    border:none;
+    float: left;
+    width: 33.3333%;    
+    text-align: center;
+    position: relative;
+}
+.manageActive_content .box p{margin:10px 0;}
+.manageActive_content .box .box-img{
+display: block; margin:0 auto;
+}
+.manageActive_content .box1 .box-img{
+max-width: 120px;
+margin-top: 30px
+}
+.manageActive_content .box2 .box-img{
+    max-width: 190px;
+}
+.manageActive_content .box3 .box-img{
+    max-width: 110px;
+    margin-top: 30px
+}
+.track-contractor{
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 30px 0;
+}
+.manageActive_content .small-text{
+    font-size: 12px;
+}
+.box-icon{
+    position: absolute;
+width: 30px;
+top: 30%;
+width: 30px;
+}
+.box-icon img{width: 100%;}
+.plug_icon{right:0;}
+.equal_icon{left: 0;}
+.add-active{
+    float: left;
+    width: 100%;
+    margin: 10px 0 30px 0;
+}
+.add-active a{
+    background: #2272ba;
+    padding: 8px 15px;
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+.add-active a:hover{text-decoration: none; color: #fff;}
