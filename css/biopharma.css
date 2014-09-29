@@ -3101,3 +3101,83 @@ margin-top: -10px;
 .edit-remove{
     display: block;
 }
+/*29-9*/
+.mt-rehire{
+    background: #2272ba;
+    padding: 8px 15px;
+    position: relative;
+    top: 9px;
+    text-decoration: none;
+    float: right;
+    width: 65px;
+    position: relative;
+    text-align: center;
+    text-decoration: none!important;
+    color: #fff!important;
+}
+.recruit_findFreelancers .content-right{
+    background: none;
+    border:none;
+}
+.recuit-content{
+    background: #fff;
+    border:1px solid #959595;
+    margin-top: 40px;
+    float: left;
+    clear: both;
+    padding:5px 5px 40px 5px;
+}
+.recuit-col{
+float: left;
+width: 31.3333%;
+padding-left: 1.5%;
+}
+.recuit-item .title-h3{
+    background: #ebebeb;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+}
+.recuit-item p{
+    padding:0 10px; 
+}
+.recruit_findFreelancers .profile_left{padding-top: 120px;}
+.open-jobs{
+    float: left;
+    width: 100%;
+    margin-top: 35px;
+    color: #2272ba;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: -25px;
+}
+.jobPosting-content{
+    float: left;
+    width: 100%;
+}
+.jobPosting-content .title-h3{
+    font-size: 16px;
+    font-weight: 700;
+    color: #2272ba;
+    margin-top: 0;
+}
+.jobPosting-content .item{
+    float: left;
+    width: 94%;
+    padding-bottom: 15px;
+    background: #fff;
+    border: 1px solid #959595;
+    padding: 3%;
+    margin-bottom: 15px;
+}
+.jobPosting-content .more{
+    display: block;
+    text-align: right;
+    float: none;
+    color: #2272ba;
+    font-size: 14px;
+}
+.fixed-price{
+    color: #a5a5a5;
+}
+.fixed-price .line{padding:0 20px;}
