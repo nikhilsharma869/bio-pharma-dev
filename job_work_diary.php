@@ -608,7 +608,8 @@ include "includes/header.php";
         //dropdown
 
         $(".sv-dropSelect").click(function(){
-            $(this).parents(".sv-dropdown").find("ul").toggleClass("ul-active");
+            $(this).parents(".sv-dropdown").find("ul").toggle("blind",
+                {direction:"up"},200);
         });
          $(".sv-dropdown ul li").click(function(){
             var vItem = $(this).text();

@@ -2688,6 +2688,7 @@ background: #fff;
     margin-right: 8px;
 }
 .dd-name .sv-dropSelect{width: 233px;}
+.sv-dropdown{position: relative;}
 .sv-dropdown .sv-dropSelect{
 height: 20px;
 border: 1px solid #959595;
@@ -2697,25 +2698,30 @@ background-size: 20px 20px;
 padding: 5px 30px 5px 15px;
 cursor: pointer;
 }
-.sv-dropdown ul{
-    max-width: 250px;
-    padding: 5px 30px 5px 15px;
-    list-style: none;
-}
 .sv-dropdown ul li{cursor: pointer;}
 /*job_work_diary*/
 .job_work_diary .content-right{background: none; border:none;}
 .job_work_diary .profile_right{padding-top:30px;}
 .job_work_diary  .dd-name{width:265px;float: left; }
+.dd-timezone ul{
+    width: 125px!important;
+}
 .sv-dropdown ul{
     background: #fff;
-    position: relative;
+    position: absolute;
     margin-top: -1px;
     padding-right: 30px;
     border-left: 1px solid #959595;
     border-right: 1px solid #959595;
     border-bottom: 1px solid #959595;
     display: none;
+     width: 233px;
+    padding: 5px 30px 5px 15px;
+    list-style: none; 
+    top:32px;
+    left: 0;
+    overflow-y: scroll;
+    z-index: 200;
 }
 .job_work_diary .left-content{
     float: left;
@@ -3310,3 +3316,4 @@ width: 30px;
     margin: 0 auto;
 }
 .add-active a:hover{text-decoration: none; color: #fff;}
+.
