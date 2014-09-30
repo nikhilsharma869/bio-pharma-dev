@@ -98,19 +98,4 @@ include "includes/header.php";
         </div>
     </div>  
 </div>
-<script>
-    $(function() {
-        $('#job_tabs li a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show');            
-        });
-        $(".checkbox_icon input[type='checkbox']").click(function(){ //alert('true');
-            $(".checkbox_icon .fa").addClass("fa-chevron-down");
-        });
-        $(".checkbox_icon .fa").click(function(){
-            $(this).removeClass("fa-chevron-down");
-             $(".checkbox_icon input[type='checkbox']").attr('checked', false); 
-        })
-    });
-</script>
 <?php include 'includes/footer.php'; ?>

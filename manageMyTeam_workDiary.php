@@ -2,17 +2,17 @@
 include "includes/header.php";
 ?>
 
-    <div class="spage-container job_work_diary">
+    <div class="spage-container job_work_diary" id="manageMyTeam_workDiary">
         <div class="main_div2">
             <div class="inner-middle"> 
                 <!-- Sidebar left -->
                 <div class="profile_left contracts_left">
                     <!-- tabs left -->
-                    <h3 class="title-page">Contracts</h3>
                     <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                        <li><img class="job_icon" src="css/img/job_icon.png" alt=""/><a href="<?= $vpath ?>postjob.html">My Jobs</a></li>
-                        <li class="active"><img class="active contract_icon" src="css/img/contract_icon.png" alt=""/><a href="<?= $vpath ?>postjob.html">Contracts</a></li>
-                        <li><img class="work_icon"src="css/img/work_icon.png" alt=""/><a href="<?= $vpath ?>postjob.html">Work Diary</a></li>
+                        <li><a href="http://bio-pharma.dev/postjob.html">My Freelancers</a></li>                        
+                        <li class="active"><a href="http://bio-pharma.dev/postjob.html">Work Diary</a></li>
+                        <li><a href="http://bio-pharma.dev/postjob.html">Contracts</a></li>
+                        <li><a href="http://bio-pharma.dev/postjob.html">Activities</a></li>                        
                     </ul>
                 </div>
                 <!-- Content right -->

@@ -86,7 +86,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                     <script src="<?= $vpath; ?>js/jquery.ui.core.js"></script>
                     <script src="<?= $vpath; ?>js/jquery.ui.widget.js"></script>
                     <script src="<?= $vpath; ?>js/jquery.ui.accordion.js"></script>
-					
+					<script src="<?= $vpath; ?>js/my_script.js"></script>
 					<!-- jquery-tokeninput -->
 					
 					<!-- jquery-tokeninput -->

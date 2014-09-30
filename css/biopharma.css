@@ -2549,9 +2549,11 @@ color: #000;
 #job_tabs li.active a{background: #2272ba!important;}
 .search{
     background: #c6c6c6;
-    padding:10px 20px;
+    padding:10px 2%;
     border-radius: 10px;
     margin-top:30px;
+    float: left;
+    width: 96%;
 }
 /*contracts*/
 .contracts .content-right, .managemyteam .content-right, 
@@ -2682,7 +2684,7 @@ background: #fff;
 .nav-bottom{margin-top:20px;}
 .checkbox_icon .fa-chevron-down{
     position: relative;
-    margin-left: -23px;
+    margin-left: -19px;
     z-index: 400;
     font-size: 15px;
     margin-right: 8px;
@@ -3034,7 +3036,7 @@ margin-top: -10px;
     float: left;
     width: 100%;    
 }
-.managemyteam-content .j-row{
+.managemyteam-content .j-row, .row-content .j-row{
     border:1px solid #959595;
     padding:1.5%;
     background: #fff;
@@ -3316,4 +3318,152 @@ width: 30px;
     margin: 0 auto;
 }
 .add-active a:hover{text-decoration: none; color: #fff;}
-.
+/*30-9*/
+#ds-team{margin-top:0;}
+#ds-team .lb-team{
+	float: left;
+	margin: 5px 15px 0 5px;
+}
+#ds-team .sv-dropSelect{float: left; width: 130px; margin-right:10px;}
+#ds-team form{
+	float: left;
+
+}
+#ds-team form input[type='text']{
+	padding: 2.5px 20px 2.5px 35px;
+}
+#ds-team .checkbox_icon{margin-left:20px;}
+#ds-team{border-radius: 0;}
+.row-content .j-row{float: left;}
+.row-title p{font-size: 14px;}
+.row-title .j-col1{color: #333; float: left; width: 40%;}
+.row-title .j-col2{float: left; width:21%;}
+.row-title .j-col3{float: left; width: 38%; }
+
+.row-content .j-col1{
+	float: left;
+	width: 40%;
+	font-weight: 700;
+	color: #2272ba;
+	font-size: 16px;	
+}
+.row-content .j-col2 {
+float: left;
+width: 22%;
+}
+.row-content .j-col3 {
+float: left;
+width: 38%;
+}
+.row-content .small-text{color: #000; font-weight: normal;}
+.work-diary{
+	background: #2272ba;
+	padding: 8px 20px;
+	text-decoration: none;
+	float: right;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	float: right;
+	margin-top: -18px;
+}
+.work-diary:hover{color: #fff; text-decoration: none;}
+#ds-team ul{
+	width: 130px;
+	left: 56px;
+}
+#manageMyTeam_workDiary .content-right{padding: 0px 15px 15px;}
+#manageMyTeam_workDiary .profile_left{padding-top:30px;}
+#reports_activity_summary_after .right-content{padding: 0 15px 15px;}
+#reports_activity_summary_after .time-zone{margin-top:0; border: 1px solid #959595;border-radius: 0}
+.from-time .t-from{margin: 8px 10px 0 0;}
+#reports_activity_summary_after .datetime{
+    background: #fff;
+    border: 1px solid #959595;
+    padding:5px;
+}
+#reports_activity_summary_after  #form-time, 
+#reports_activity_summary_after  #to-time{border:none;}
+.to-time .t-to{margin: 8px 10px 0 10px;}
+.clander-img{width: 35px;}
+.bt-go{
+    background: #2272ba;
+    font-weight: normal;
+    margin: 5px 0 0 10px;
+    padding: 3px 10px;
+    border: none;
+    text-transform: none;
+}
+.team-period{
+    float: left;
+    width: 96%;
+    padding: 2%;
+}
+.team-period p{float: left; width: 100%;}
+.team-period p span{
+    float: left;
+}
+.team-period p span:first-child{width: 100px; margin-right:5px;}
+.freelancer-active{float: left; width: 100%;}
+.freelancer-active .row-content{
+    float: left;
+    width: 96%; background: #fff;
+    padding:2%;
+}
+.freelancer-active .row-content .left-box{
+    float: left;
+    width: 20%;
+}
+.freelancer-active .row-content .right-box{
+    width: 80%;
+    float: left;
+}
+.freelancer-active .row-content .right-box .j-col1{width: 70%;
+color: #333333;
+font-weight: normal;
+font-size: 14px;
+}
+.freelancer-active .row-content .right-box .j-col2, 
+.freelancer-active .row-content .right-box .j-col3{width: 15%;text-align: right;}
+.freelancer-active .right-box .j-row{ 
+    border:0;
+   border-bottom: 1px solid #959595;
+   width: 96%;
+   padding:0 2%;
+}
+#report-total{
+    border: 1px solid #959595;
+    background: #ebebeb;
+    margin-top:-10px;
+}
+.bdbottom-0{border-bottom: 0!important;}
+#report-total p{margin-bottom: 0; line-height: 30px; height: inherit;}
+.freelancer-active .row-title .j-col1{width: 23%}
+.freelancer-active .row-title .j-col2{width: 50%;}
+.freelancer-active .row-title .j-col3{width: 12%;}
+.freelancer-active .row-title .j-col4{
+float: left;
+width: 12%;
+padding-right: 3%;
+text-align: right;
+}
+.total-active{
+    float: left;
+    width: 96%;
+    background: #aaaaaa;
+    padding: 0 2%;
+    margin-top: 15px;
+}
+.total-active .j-col1{
+    float: left;
+    width: 20%;    
+}
+.total-active .j-col1{width: 73%;}
+.total-active .j-col2{float: left;width: 12%; text-align:right;}
+.total-active .j-col3{float: left; width: 15%; text-align: right;}
+.total-active p{margin-bottom: 0; padding:10px 0;}
+.report-note{
+    float: left;
+    width: 100%;
+    margin: 40px 0 -40px 0;
+}
