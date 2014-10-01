@@ -15,7 +15,7 @@ $(function() {
      $(".sv-dropdown ul li").click(function(){
         var vItem = $(this).text();
         $(this).parents(".sv-dropdown").find(".sv-dropSelect").text(vItem);
-        $(this).parents("ul").toggleClass("ul-active");
+        $(this).parents("ul").hide(100);
     });
      //datepicker
      $( "#datepicker" ).datepicker();

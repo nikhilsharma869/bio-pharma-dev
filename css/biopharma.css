@@ -1682,7 +1682,7 @@
     background: #fff;
     border: 1px solid #959595;
     margin-top: 0px;
-    padding-top: 10px;
+    padding-top: 3px;
     padding-bottom: 10px;
 }
 
@@ -2703,7 +2703,7 @@ cursor: pointer;
 .sv-dropdown ul li{cursor: pointer;}
 /*job_work_diary*/
 .job_work_diary .content-right{background: none; border:none;}
-.job_work_diary .profile_right{padding-top:30px;}
+.job_work_diary .profile_right{padding-top:10px;}
 .job_work_diary  .dd-name{width:265px;float: left; }
 .dd-timezone ul{
     width: 125px!important;
@@ -3372,6 +3372,7 @@ width: 38%;
 	width: 130px;
 	left: 56px;
 }
+#reports_activity_summary_after .profile_left{padding-top:40px;}
 #manageMyTeam_workDiary .content-right{padding: 0px 15px 15px;}
 #manageMyTeam_workDiary .profile_left{padding-top:30px;}
 #reports_activity_summary_after .right-content{padding: 0 15px 15px;}
@@ -3467,3 +3468,119 @@ text-align: right;
     width: 100%;
     margin: 40px 0 -40px 0;
 }
+/*1-10*/
+#reports_transactionHistory_after .content-right{
+    float: left;
+    width: 100%;
+    background:none;
+    border:none;
+}
+#report-form .t-from, #ds-team .t-from{
+    float: left;
+    font-weight: 700;
+    margin: 8px 10px 0 10px;
+}
+#ds-team .datetime{
+    float: left;
+    background: #fff;
+    border: 1px solid #959595;
+    padding: 5px;
+}
+#ds-team .to-time{float: left;}
+#ds-team .datetime input[type='text']{
+    border:none;
+    max-width: 100px;
+}
+#ds-team .from-time{
+float: left;
+}
+#ds-team .to-time .t-to{
+    margin: 8px 15px 0 15px;
+    float: left;
+    font-weight: 700;
+}
+#ds-team .sv-dropdown{
+    float: left;
+    width: 100px;
+}
+#ds-team .sv-dropdown ul, #ds-team .sv-dropdown .sv-dropSelect{width: inherit; left: 0;}
+.all-transactions{margin-left: 55px;}
+.all-transactions, .all-freelancers{margin-right:55px;}
+#ds-team .all-transactions, #ds-team  .all-freelancers{padding-top:3px;}
+#ds-team .bt-go{margin: 7px 0 0 0;}
+.current-active{
+    max-width: 200px;
+    padding:5px 0 40px 0;
+}
+#current-active{
+    width: 150px;
+    padding-left: 5px;
+    padding-bottom: 40px;
+}
+#current-active ul, #current-active .sv-dropSelect{
+    width: inherit;    
+    left:5px;
+}
+.report-history-detail{
+    float: left;
+    width: 100%;
+    padding-top:30px;
+}
+.report-history-detail .row-title{
+    float: left;
+    width: 96%;
+    padding: 1.5% 1.5% 0 1.5%;
+}
+.report-history-detail .row-content .j-col1{
+    width: 13%;
+    font-weight: normal;
+    color:#333;
+    font-size: 14px;
+}
+.report-history-detail .row-content .j-col2, .report-history-detail .row-title .j-col2{
+    width: 10%;
+}
+.report-history-detail .row-content p, .report-history-detail .row-title p{float: left;}
+.report-history-detail .row-content .j-col3, .report-history-detail .row-title .j-col3{width: 37%;}
+.report-history-detail .row-content .j-col4, .report-history-detail .row-title .j-col4{width: 12%;}
+.report-history-detail .row-content .j-col5, .report-history-detail .row-title .j-col5{width: 10%;}
+.report-history-detail .row-content .j-col6, .report-history-detail .row-title .j-col6{width: 8%;}
+.report-history-detail .row-content .j-col7, .report-history-detail .row-title .j-col7{width: 10%; text-align: right;}
+.report-history-detail .row-title .j-col1{width: 13%;}
+.statement-period{
+float: left;
+width: 100%;
+padding: 40px 0 20px 0;
+}
+.statement-period p{
+    float: right;
+    margin-right: 21%;
+}
+.beginning-balance{
+    float: left;
+    width: 100%;
+}
+.beginning-balance .wrap{
+    width: 280px;
+    float: right;
+}
+.beginning-balance .wrap .j-row{float: left;
+width: 100%;}
+.beginning-balance .wrap .j-row p{float: left; width: 50%; text-align: right;}
+.beginning-balance .wrap .j-row:last-child{border-bottom: 0;}
+#report-work-summary .row-content{margin-bottom: 10px;}
+.mrb-0{margin-bottom: 0!important;}
+.timesheet{
+    background: #c6c6c6;
+    padding: 15px 2.5%;
+    float: left;
+    width: 95%;
+    border: 1px solid #959595;
+}
+.timesheet p{float: left; margin-bottom:0;}
+.timesheet p:first-child{margin-right:20px;}
+#reports-weekly .tab-content{
+    background: none;
+    border:none;
+}
+#reports-weekly .text-bold{color: #000;}
