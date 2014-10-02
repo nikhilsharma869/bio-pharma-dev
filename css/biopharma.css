@@ -3579,8 +3579,187 @@ width: 100%;}
 }
 .timesheet p{float: left; margin-bottom:0;}
 .timesheet p:first-child{margin-right:20px;}
-#reports-weekly .tab-content{
-    background: none;
-    border:none;
+/*2-10*/
+.reports-weekly{padding-top:30px; float: left; width: 100%;}
+.reports-weekly  .row-title, .reports-weekly  .row-content,{
+    float: left;
+    width: 100%;
 }
-#reports-weekly .text-bold{color: #000;}
+.reports-weekly .j-row{float: left; width: 97%; padding:1.5%;}
+.reports-weekly .row-title .j-row{border-bottom:0;}
+.reports-weekly  .row-content .mt-address{
+    font-weight: normal;
+    color: #333;
+    font-size: 14px;
+}
+.reports-weekly .mt-title{margin-top:10px;}
+.reports-weekly p{text-align: center; float: left; margin:0;}
+.reports-weekly .row-title .j-col1, .reports-weekly .row-content .j-col1{text-align: left;}
+.reports-weekly .row-title .j-col1, .reports-weekly .row-content .j-col1{width: 34%}
+.reports-weekly .row-title .j-col2, .reports-weekly .row-content .j-col2,
+.reports-weekly .row-title .j-col3, .reports-weekly .row-content .j-col3,
+.reports-weekly .row-title .j-col4, .reports-weekly .row-content .j-col4,
+.reports-weekly .row-title .j-col5, .reports-weekly .row-content .j-col5,
+.reports-weekly .row-title .j-col6, .reports-weekly .row-content .j-col6,
+.reports-weekly .row-title .j-col7, .reports-weekly .row-content .j-col7,
+.reports-weekly .row-title .j-col8, .reports-weekly .row-content .j-col8,
+.reports-weekly .row-title .j-col9, .reports-weekly .row-content .j-col9{width: 7%;}
+.reports-weekly .row-title .j-col10, .reports-weekly .row-content .j-col10{width: 10%}
+.reports-weekly .row-content .j-col2, .reports-weekly .row-content .j-col3,
+.reports-weekly .row-content .j-col4, .reports-weekly .row-content .j-col5, 
+.reports-weekly .row-content .j-col6, .reports-weekly .row-content .j-col7,
+.reports-weekly .row-content .j-col8, .reports-weekly .row-content .j-col9,
+.reports-weekly .row-content .j-col10{margin-top:20px;}
+.reports-weekly .row-title .j-col9{padding-top:20px;}
+.reports-weekly .row-title .j-col1,
+.reports-weekly .row-title .j-col10{padding-top:20px;}
+#rate-total{
+    background: #c6c6c6;
+    text-align: right;
+    font-size: 15px;
+}
+#rate-total .price{margin-left:25px;}
+#userSettings_ContactInfo .user-wrap{
+    float: left;
+    width: 97%;
+    background: #fff;
+    padding:2% 1.5%;
+    border:1px solid #959595;
+}
+.info-box{
+    float: left;
+    width: 100%;    
+    border-radius: 5px;
+}
+.u-account{background: #c6c6c6;float: left; width: 97%; border-radius: 5px; padding:1.5%; margin-bottom: 40px}
+.u-account h5{
+    float: left;
+    font-weight: 700;
+    margin: 0;
+    padding-left: 10px;
+}
+.u-edit{
+    float: right;
+    font-weight: 700;
+    padding-right:10px;
+    color: #2272ba;
+}
+.u-info{float: left;
+width: 97%;
+padding:0 1.5%;
+}
+#userSettings_ContactInfo .profile_left{padding-top:40px;}
+.u-info, .u-info .p-row{
+    float: left;
+    width:100%;
+}
+.u-info .p-row p{float: left;}
+.u-info .p-row p:first-child{
+    width:30%;
+    font-weight: 700;
+}
+.u-info .p-row p:last-child{
+    width: 70%;
+}
+.protrait img{float: left;}
+.protrait span{float: left;}
+.pro-img{float: left; width: 25%;}
+.protrait .dag-photo{margin-top:40px;}
+.protrait .dag-photo, .protrait .u-control{width: 75%}
+.protrait .u-control a{color: #2272ba;}
+.protrait .edit-photo{margin-right:5px;}
+.protrait .delete-photo{margin-left:5px;}
+.close-account{
+    color: #fff;
+    float: right;
+    background: #2272ba;
+    padding: 8px 45px;
+    margin-right: 20px;
+}
+.close-account:hover{color:#fff; text-decoration: none;}
+.user-info{padding-bottom:30px;}
+.create-companay{
+    background: #be202e;
+    font-size: 14px;
+    padding: 8px 45px;
+    float: left;
+    border-radius: 20px;
+    margin:15px 0 0 10px;
+}
+.create-companay:hover{text-decoration: none; color: #fff;}
+.profile_left .profile-item{
+    float: left;
+    width: 85%;
+    padding: 8%;
+    margin-top: 15px;
+}
+.profile_left  .c-agency, .profile_left  .c-agency{color: #2272ba; float: left; width: 100%; margin-top:-10px;}
+.learn-more{margin-top: 15px; float: left; width: 100%;color: #2272ba}
+.userseting-wrap{
+    border: 1px solid #959595;
+    float: left;
+    width: 100%;
+    background: #fff;
+    min-height: 652px;
+}
+.userseting-getPaid{
+     border: 1px solid #959595;
+    float: left;
+    width: 94%;
+    background: #fff;
+    padding: 3%;
+}
+.userseting-getPaid .box{
+    border: none;
+    border-bottom: 1px solid #899191;
+    border-radius: 0;
+    float: left;
+    width: 100%;
+    padding: 30px 0 35px 0;
+}
+.userseting-getPaid .box:last-child{border-bottom: 0;}
+.userseting-getPaid .box .left-box{
+    float: left;
+    width: 30%;
+}
+.userseting-getPaid .box .left-box p{margin:0;}
+.userseting-getPaid .box .right-box{
+    float: left;
+    width: 70%;
+}
+.view-all{color: #2272ba;}
+.userseting-getPaid .box:first-child{margin-top:-15px;}
+.userseting-getPaid .p-row{float: left; width: 100%;padding: 10px 0 15px 0;}
+.userseting-getPaid .p-row .left-box{float: left; width: 30%;}
+.userseting-getPaid .p-row .right-box{float: left; width: 70%;}
+.userseting-myteam .box{
+    background: transparent;
+    border:none;
+    border-bottom: 1px solid #899191;
+    border-radius: 0;
+    float: left;
+    width: 100%;
+    padding:20px 0;
+}
+.userseting-myteam .box:first-child{
+background: transparent;
+margin-top: -50px;
+border-bottom: 0;
+padding-bottom: 0;
+}
+.userseting-myteam .box:last-child{border-bottom:0;}
+.these-teams{
+    margin-bottom: 60px;
+}
+.userseting-myteam{
+    border: 1px solid #959595;
+    float: left;
+    width: 94%;
+    background: #fff;
+    padding: 0 3%;
+}
+.userseting-myteam .right-box, .userseting-myteam .left-box{float: left; width: 50%;}
+.userseting-myteam .right-box{text-align: right;}
+.userseting-myteam p{margin-bottom: 0;}
+.sv-plus #ds-team .lb-team{width: 45px;}
+.sv-plus #ds-team .sv-dropdown{width: 170px; float: left;margin-right:70px;}

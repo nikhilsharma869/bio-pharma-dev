@@ -17,10 +17,10 @@ include "includes/header.php";
                 <!-- Content right -->
                 <div class="profile_right">
                     <!-- content data list -->
-                    <div class="content-right">
-                        <div class="search" id="ds-team">                
-                            <div class="sv-dropdown">
-                                <label class="lb-team">Team</label>
+                    <div class="content-right sv-plus">
+                        <div class="search" id="ds-team">       
+                            <label class="lb-team">Team</label>         
+                            <div class="sv-dropdown">                                
                                 <div class="sv-dropSelect">MyCS</div>
                                 <ul>
                                     <li>1</li>
