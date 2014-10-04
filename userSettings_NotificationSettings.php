@@ -1,5 +1,5 @@
 <?php
-include "includes/header.php";
+include "includes/header.php"; 
 ?>
 
 <div class="spage-container job_work_diary" id="userSettings_ContactInfo">
