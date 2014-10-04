@@ -3669,6 +3669,7 @@ padding:0 1.5%;
 .protrait .u-control a{color: #2272ba;}
 .protrait .edit-photo{margin-right:5px;}
 .protrait .delete-photo{margin-left:5px;}
+.edit-photo{color: #2272ba;}
 .close-account{
     color: #fff;
     float: right;
@@ -3727,6 +3728,7 @@ padding:0 1.5%;
     float: left;
     width: 70%;
 }
+.pd-bt-20{padding-bottom: 20px;}
 .view-all{color: #2272ba;}
 .userseting-getPaid .box:first-child{margin-top:-15px;}
 .userseting-getPaid .p-row{float: left; width: 100%;padding: 10px 0 15px 0;}
@@ -3814,3 +3816,10 @@ padding: 0 1.5% 30px 1.5%;
 .u-row p{margin-bottom: 0}
 .bd-bt-0{border-bottom: 0!important;}
 .someonce-send{padding-top:35px!important;}
+.profile_left p{
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+.company-seting{
+    margin-top:20px;
+}
