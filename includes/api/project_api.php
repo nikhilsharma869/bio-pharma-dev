@@ -12,6 +12,9 @@ function send_interview($project_id, $receiver_id, $sender_id, $message = '') {
 			$datetime
 		);
 	$result = mysql_query($query);
+	var_dump($query);
+	var_dump($result);
+	exit();
 }
 
 function get_hire_job($user_id) {
