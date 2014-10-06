@@ -3948,3 +3948,12 @@ a.btn-invite-user-toteam, a.btn-invite-user-toteam:hover, a.btn-invite-user-tote
 .v-t-first {
     left: 49.3%;
 }
+
+span.save-job-btn {
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ea6153;
+}

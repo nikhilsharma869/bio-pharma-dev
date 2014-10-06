@@ -24,7 +24,7 @@ function get_child_menu($parent, $current, $current_sub) {
 				),
 			'save_job' => array(
 				'title'=> 'Save Job',
-				'a_href' => 'Jobs'
+				'a_href' => 'saved_job.html'
 				),
 			'job_application' => array(
 				'title'=> 'Job Application',

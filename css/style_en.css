@@ -9570,6 +9570,7 @@ input[type="radio"]:checked + label.css-label {
 .resultinfor {
     color: #a5a5a5;
     margin-left: 40px;
+    position: relative;
 }
 
 .resultinfor a {
@@ -9578,7 +9579,7 @@ input[type="radio"]:checked + label.css-label {
     text-decoration: none;
     font-size: 19px;
     font-weight: bold;
-    width: 97%;
+    width: 87%;
 }
 
 .resultinfor p {
