@@ -550,7 +550,7 @@ function showrating($avg_rate)
 
 function check_permission($per, $page) {
 	$sme_noper = array();
-	$client_noper = array();
+	$client_noper = array('job_application');
 
 	// check permission for client (e) or sme (w)
 	if($per == 'w') {
