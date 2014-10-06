@@ -143,7 +143,7 @@ jQuery.noConflict();
 		   <div class="search-job-content clearfix">
 				<div class="resultinfor">
 					<a href="<?=$vpath?>project/<?php print $row[job_id];?>/<?=strtolower(str_replace("&",'+',str_replace(" ","-",$row['project'])))?>.html" > <?php echo ucwords($row['project']);?></a>
-					<span class="save-job-btn" data-user="<?php echo $_SESSION['user_id'];?>" data-save="<?php echo $row[job_id];?>"><i class="fa fa-heart"></i></span>
+					
 					<ul class="search-job-content-minili">
 						
 						<li><? if($row['project_type']=="F"){?><?=$lang['FXD_PRC']?>: <b><?=$lang[$budget_array1[$row[budget_id]]]?> </b> <? }else{?><?=$lang['HOURLY']?>: <b><?=$curn.$row['budgetmin']." to ".$curn.$row['budgetmax']?> </b><?} ?></li>
