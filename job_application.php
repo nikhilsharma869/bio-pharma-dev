@@ -38,18 +38,36 @@ include "includes/header.php";
                                             <p class="j-col3 text-bold">Client</p>
                                         </div>
                                         <!-- End Row Header -->
-                                        <!-- Row Content Loop -->
-                                        <div class="j-row">
-                                            <p class="j-col1">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>   
-                                        <div class="j-row last">
-                                            <p class="j-col1 text-bold">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>             
-                                        <!-- End Row Content Loop --> 
+                                         <!-- Row Content Loop -->
+                                        <?php
+                                            $list_hire = get_hire_job($_SESSION[user_id]);
+                                            // echo "<pre>";
+                                            // var_dump($list_inter);
+                                            for ($i=0; $i < count($list_hire); $i++) :
+                                                if($i == count($list_hire) - 1) {
+                                                    $last_row = 'last';
+                                                } else {
+                                                    $last_row = '';
+                                                }
+                                                $received_date = date('M d', strtotime($list_hire[$i]['sent']));
+                                                if($list_hire[$i]['date_diff'] == 0) {
+                                                    $time = 'Today';
+                                                } elseif ($list_hire[$i]['date_diff'] == 1) {
+                                                    $time = 'Yesterday';
+                                                } else {
+                                                    $time = $list_hire[$i]['date_diff'].' days ago';
+                                                }
+                                            ?>
+                                                <div class="j-row <?php echo $last_row; ?>">
+                                                    <p class="j-col1"><?php echo $received_date; ?><br/><span class="small-text"><?php echo $time; ?></span></p>
+                                                    <p class="j-col2"><a href="<? $vpath?>/project/<?php echo $list_hire[$i]['id'];?>"><?php echo $list_hire[$i]['project']; ?> (<?php echo $list_hire[$i]['id']; ?>) </a></p>
+                                                    <p class="j-col3"><a href="<? $vpath?>/publicprofile/<?php echo $list_hire[$i]['username'];?>"><?php echo $list_hire[$i]['fname'].' '.$list_hire[$i]['lname']; ?> </a></p>
+                                                </div>
+                                            <?php
+                                                
+                                            endfor;
+                                        ?>         
+                                        <!-- End Row Content Loop -->    
                                     </div>
                                     <div class="tab-item">
                                         <h4 class="j-title4">Invitations to Interview</h4>
@@ -133,65 +151,47 @@ include "includes/header.php";
                                     </div>                     
                                 </div>
                                 <div id="tabs-2" class="tab-pane fade">
+                                    
                                     <div class="tab-item">
-                                        <h4 class="j-title4">Active Candidacies</h4>
+                                        <h4 class="j-title4">Archive Sent Job Applications</h4>
+                                        <!-- Row Header -->
                                         <div class="j-row">
-                                            <p class="j-col1 text-bold">Received</p>
+                                            <p class="j-col1 text-bold">Sent</p>
                                             <p class="j-col2 text-bold">Job</p>
                                             <p class="j-col3 text-bold">Client</p>
                                         </div>
-                                        <div class="j-row">
-                                            <p class="j-col1">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>
-                                        <div class="j-row">
-                                            <p class="j-col1">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>
-                                        <div class="j-row last">
-                                            <p class="j-col1">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>
-                                    </div>
-                                    <div class="tab-item">
-                                        <h4 class="j-title4">Invitations to Interview</h4>
-                                        <div class="j-row">
-                                            <p class="j-col1 text-bold">Received</p>
-                                            <p class="j-col2 text-bold">Job</p>
-                                            <p class="j-col3 text-bold">Client</p>
-                                        </div>
-                                        <div class="j-row">
-                                            <p class="j-col1">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>   
-                                        <div class="j-row last">
-                                            <p class="j-col1 text-bold">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>                   
-                                    </div>  
-                                    <div class="tab-item">
-                                        <h4 class="j-title4">Sent Job Applications</h4>
-                                        <div class="j-row">
-                                            <p class="j-col1 text-bold">Received</p>
-                                            <p class="j-col2 text-bold">Job</p>
-                                            <p class="j-col3 text-bold">Client</p>
-                                        </div>
-                                        <div class="j-row">
-                                            <p class="j-col1">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>   
-                                        <div class="j-row last">
-                                            <p class="j-col1 text-bold">July 10<br/><span class="small-text">28 days ago</span></p>
-                                            <p class="j-col2">G'day Philippines ebrochure design (274608860) </p>
-                                            <p class="j-col3">G'day Philippines</p>
-                                        </div>                   
-                                    </div>                     
+                                        <!-- End Row Header -->
+                                        <!-- Row Content Loop -->
+                                        <?php
+                                            $list_archive_bid = get_archive_job($_SESSION[user_id]);
+                                            
+                                            for ($i=0; $i < count($list_archive_bid); $i++) :
+                                                if($i == count($list_archive_bid) - 1) {
+                                                    $last_row = 'last';
+                                                } else {
+                                                    $last_row = '';
+                                                }
+                                                $received_date = date('M d', strtotime($list_archive_bid[$i]['add_date']));
+                                                if($list_archive_bid[$i]['date_diff'] == 0) {
+                                                    $time = 'Today';
+                                                } elseif ($list_archive_bid[$i]['date_diff'] == 1) {
+                                                    $time = 'Yesterday';
+                                                } else {
+                                                    $time = $list_archive_bid[$i]['date_diff'].' days ago';
+                                                }
+                                            ?>
+                                                <div class="j-row <?php echo $last_row; ?>">
+                                                    <p class="j-col1"><?php echo $received_date; ?><br/><span class="small-text"><?php echo $time; ?></span></p>
+                                                    <p class="j-col2"><a href="<? $vpath?>/project/<?php echo $list_archive_bid[$i]['id'];?>"><?php echo $list_archive_bid[$i]['project']; ?> (<?php echo $list_archive_bid[$i]['id']; ?>) </a></p>
+                                                    <p class="j-col3"><a href="<? $vpath?>/publicprofile/<?php echo $list_archive_bid[$i]['username'];?>"><?php echo $list_archive_bid[$i]['fname'].' '.$list_archive_bid[$i]['lname']; ?> </a></p>
+                                                </div>
+                                            <?php
+                                                
+                                            endfor;
+                                            
+                                        ?>         
+                                        <!-- End Row Content Loop -->       
+                                    </div>                    
                                 </div>
                             </div>
                         </div>

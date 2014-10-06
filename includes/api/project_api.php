@@ -15,7 +15,19 @@ function send_interview($project_id, $receiver_id, $sender_id, $message = '') {
 }
 
 function get_hire_job($user_id) {
-
+	global $prev;
+	$datetime = date('Y-m-d H:i:s');
+	$q = "SELECT *, DATEDIFF('".$datetime."', i.sent) AS date_diff FROM ".$prev."interview AS i 
+	LEFT JOIN ".$prev."projects AS p ON i.project_id=p.id
+		INNER JOIN ".$prev."user AS u ON p.user_id=u.user_id
+	WHERE i.status='A' AND i.receiver_id='".$user_id."'
+	GROUP BY i.project_id";
+	$r = mysql_query($q);
+	$list = array();
+	while ($val = mysql_fetch_array($r)) {
+		array_push($list, $val);
+	}
+	return $list;
 }
 
 function get_interview_list($user_id) {
@@ -24,7 +36,7 @@ function get_interview_list($user_id) {
 	$q = "SELECT *, DATEDIFF('".$datetime."', i.sent) AS date_diff FROM ".$prev."interview AS i 
 	LEFT JOIN ".$prev."projects AS p ON i.project_id=p.id
 		INNER JOIN ".$prev."user AS u ON p.user_id=u.user_id
-	WHERE i.receiver_id='".$user_id."'
+	WHERE i.status='N' AND i.receiver_id='".$user_id."'
 	GROUP BY i.project_id";
 	$r = mysql_query($q);
 	$list = array();
@@ -35,6 +47,22 @@ function get_interview_list($user_id) {
 }
 
 function get_sent_job($user_id) {
+	global $prev;
+	$datetime = date('Y-m-d H:i:s');
+	$q = "SELECT *, DATEDIFF('".$datetime."', b.add_date) AS date_diff FROM ".$prev."buyer_bids AS b
+	LEFT JOIN ".$prev."projects AS p ON b.project_id=p.id
+		INNER JOIN ".$prev."user AS u ON p.user_id=u.user_id 
+	WHERE b.bidder_id='".$user_id."' AND b.chose != 'C' AND p.status='open' ORDER BY b.id DESC ";
+	
+	$r = mysql_query($q);
+	$list = array();
+	while ($val = mysql_fetch_array($r)) {
+		array_push($list, $val);
+	}
+	return $list;
+}
+
+function get_archive_job($user_id) {
 	global $prev;
 	$datetime = date('Y-m-d H:i:s');
 	$q = "SELECT *, DATEDIFF('".$datetime."', b.add_date) AS date_diff FROM ".$prev."buyer_bids AS b

@@ -67,6 +67,7 @@ if ($checkd['status'] == "open") {
 
                 if ($res) {
 
+
                     $rw = mysql_fetch_array(mysql_query("select * from " . $prev . "projects where id=" . $_POST['projectid_hid']));
 
 
@@ -77,7 +78,11 @@ if ($checkd['status'] == "open") {
 
                     $send = mysql_fetch_array(mysql_query("select * from " . $prev . "user where user_id = " . $_SESSION['user_id']));
 
+                    $inter = mysql_fetch_array(mysql_query("select * from " . $prev . "interview where sender_id=".$rw['user_id']." and project_id=".$_POST['projectid_hid']." and receiver_id=" . $_SESSION['user_id']));
 
+                    if($inter) {
+                        mysql_query("update " . $prev . "interview set status='A' where id=" . $inter['id']);
+                    }
 
                     $_REQUEST['firstname'] = $recv['fname'];
 
