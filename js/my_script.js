@@ -17,8 +17,15 @@ $(function() {
         $(this).parents(".sv-dropdown").find(".sv-dropSelect").text(vItem);
         $(this).parents("ul").hide(100);
     });
+    if($( "#datepicker" ).length != 0) {
      //datepicker
-     $( "#datepicker" ).datepicker();
-     $( "#form-time" ).datepicker();
-     $( "#to-time" ).datepicker();
+        $( "#datepicker" ).datepicker();
+    }
+    if($( "#form-time" ).length != 0) {
+        $( "#form-time" ).datepicker();
+    }
+    if($( "#to-time" ).length != 0) {
+        $( "#to-time" ).datepicker();
+    }
+    
 });

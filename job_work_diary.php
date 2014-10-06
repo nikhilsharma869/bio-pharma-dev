@@ -592,7 +592,7 @@ include "includes/header.php";
         </div>
     </div>  
 </div>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+ 
   <script src="js/jquery-1.10.2.js"></script>
   <script src="js/jquery-ui.js"></script>  
 <?php include 'includes/footer.php'; ?>

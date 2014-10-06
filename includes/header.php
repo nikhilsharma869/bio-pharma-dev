@@ -68,7 +68,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                 <meta name="document-rating" content="General" />
                 <meta name="document-distribution" content="Global" />
                 <meta name="document-state" content="Dynamic" />
-                <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+                <link rel="stylesheet" href="<?=$vpath;?>css/jquery-ui.smoothness.css">
                 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
                     <script language="javascript" src="<?= $vpath; ?>js/jquery-1.11.1.min.js" ></script>
                     <script language="javascript" src="<?= $vpath; ?>js/jquery-migrate-1.2.1.min.js" ></script>
