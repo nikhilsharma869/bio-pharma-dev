@@ -149,6 +149,12 @@ jQuery.noConflict();
 	
    <!--Inbox Left Start-->
 	<div class="profile_left" >
+		<?php
+			$parent = 'find_work';
+			$current = 'find_job';
+			$current_sub = '';
+			get_child_menu($parent, $current, $current_sub);
+		?>
 		<div id="open-by-default-example">
 								
 			<?

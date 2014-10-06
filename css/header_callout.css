@@ -4,7 +4,7 @@
 
 .top_header_ava {
     float: left !important;
-    margin-right: 10px !important;
+    margin-right: 15px !important;
     max-width: 90px;
 }
 
@@ -37,7 +37,7 @@ span.icon-callout {
     margin: 6px 100px;
     z-index: 99999;
     border-radius: 15px;
-    margin-left: -130px
+    margin-left: -127px
 }
 
 .popover.user-info-callout img {

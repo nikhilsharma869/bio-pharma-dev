@@ -1684,6 +1684,7 @@
     margin-top: 0px;
     padding-top: 3px;
     padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #up-tabs.nav-tabs > li {
@@ -2167,12 +2168,13 @@ a.endorse-item-name-text {
     .top_header_ava {
         float: right;
         margin-right: 20px;
-        border: 5px solid #fff;
+        
     }
 
     .top_header_ava img {
         height: 90px;
         width: 90px;
+        border: 5px solid #fff;
     }
 }
 
