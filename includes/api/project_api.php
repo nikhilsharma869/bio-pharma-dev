@@ -79,11 +79,19 @@ function get_archive_job($user_id) {
 }
 function get_my_job($user_id, $project_type) {
 	global $prev;
-	//$datetime = date('Y-m-d H:i:s');
-	$q = "SELECT *FROM ".$prev."projects AS p
-		LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
-	WHERE p.chosen_id='".$user_id."' AND p.project_type= '".$project_type."'";
-	
+	$q = "";
+	if($project_type!="*")
+		$q = "SELECT *FROM ".$prev."projects AS p
+			LEFT JOIN ".$prev."buyer_bids AS b ON p.id=b.project_id 
+			LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
+			WHERE p.chosen_id='".$user_id."' AND p.project_type= '".$project_type."'
+			AND p.status= 'open'";	
+	else
+		$q = "SELECT *FROM ".$prev."projects AS p
+			LEFT JOIN ".$prev."buyer_bids AS b ON p.id=b.project_id 
+			LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
+			WHERE p.chosen_id='".$user_id."'
+			AND p.status= 'open'";	
 	$r = mysql_query($q);	
 	$list = array();
 	while ($val = mysql_fetch_array($r)) {
@@ -91,3 +99,42 @@ function get_my_job($user_id, $project_type) {
 	}
 	return $list;
 }
+/*page nav*/
+/*function page_nav($num_row){
+	global $prev; 
+	$q = "SELECT *FROM ".$prev."projects AS p
+			LEFT JOIN ".$prev."buyer_bids AS b ON p.id=b.project_id 
+			LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
+			WHERE p.chosen_id='". $_SESSION['user_id']."'
+			AND p.status= 'open'";	
+	$r = mysql_query($q);	
+	$total_rows = mysql_num_rows($r);
+	$total_pages = ceil($total_rows/$num_row);
+
+	if(isset($_GET["p"]))
+	{
+		$p = intval($_GET["p"]);
+	}
+	else 
+	{
+		$p =1;
+	}
+	$pp = $p-1;
+	$np = $p+1;
+
+	$x = ($p-1) * $num_row;
+
+	$query_page  = "SELECT *FROM ".$prev."projects AS p
+			LEFT JOIN ".$prev."buyer_bids AS b ON p.id=b.project_id 
+			LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
+			WHERE p.chosen_id='". $_SESSION['user_id']."'
+			AND p.status= 'open' limit'".$x."','".$num_row."'";	
+	$r1 = mysql_query($query_page);	
+
+	$list1 = array();
+	while ($val1 = mysql_fetch_array($r1)) {
+		array_push($list1, $val1);
+	}
+	return $list1;
+	
+}*/

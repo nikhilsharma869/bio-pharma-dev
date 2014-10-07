@@ -27,7 +27,7 @@ include "includes/header.php";
                                 <label>Ended Contacts</label>
                             </form>
                         </div>
-                        <div class="page-nav">
+                        <div class="page-nav">                        
                             <ul class="nav-top">
                                 <li class="nav-prev"><a href="#">Previous</a></li>
                                 <li><a href="#">1</a></li>
@@ -44,42 +44,18 @@ include "includes/header.php";
                             <p class="j-col3 text-bold">Terms</p>
                         </div>
                         <div class="contract-content">
+                        <?php 
+                            $my_jobs = get_my_job($_SESSION['user_id'],'*');
+                            if($my_jobs!=NULL):
+                                foreach($my_jobs as $job):
+                        ?>
                             <div class="j-row">
-                                <p class="j-col1">Sr. Designer - myCS</p>
+                                <p class="j-col1"><?php echo $job['project']?></p>
                                 <p class="j-col2">May 14, 2014 - Present</p>
-                                <p class="j-col3"><span>$13.50/hour 1 maximum hours/week</span>
+                                <p class="j-col3"><span>$<?php echo $job['bid_amount'];?>/hour 1 maximum hours/week</span>
                                 <a href="">Work Diary</a></p>
                             </div>
-                            <div class="j-row">
-                                <p class="j-col1">Sr. Designer - myCS</p>
-                                <p class="j-col2">May 14, 2014 - Present</p>
-                                <p class="j-col3"><span>$13.50/hour 1 maximum hours/week</span>
-                                <a href="">Work Diary</a></p>
-                            </div>
-                            <div class="j-row">
-                                <p class="j-col1">Sr. Designer - myCS</p>
-                                <p class="j-col2">May 14, 2014 - Present</p>
-                                <p class="j-col3"><span>$13.50/hour 1 maximum hours/week</span>
-                                <a href="">Work Diary</a></p>
-                            </div>
-                            <div class="j-row">
-                                <p class="j-col1">Sr. Designer - myCS</p>
-                                <p class="j-col2">May 14, 2014 - Present</p>
-                                <p class="j-col3"><span>$13.50/hour 1 maximum hours/week</span>
-                                <a href="">Work Diary</a></p>
-                            </div>
-                            <div class="j-row">
-                                <p class="j-col1">Sr. Designer - myCS</p>
-                                <p class="j-col2">May 14, 2014 - Present</p>
-                                <p class="j-col3"><span>$13.50/hour 1 maximum hours/week</span>
-                                <a href="">Work Diary</a></p>
-                            </div>
-                            <div class="j-row last-item">
-                                <p class="j-col1">Sr. Designer - myCS</p>
-                                <p class="j-col2">May 14, 2014 - Present</p>
-                                <p class="j-col3"><span>$13.50/hour 1 maximum hours/week</span>
-                                <a href="">Work Diary</a></p>
-                            </div>
+                            <?php endforeach; endif;?>
                         </div>
                         <div class="page-nav">
                             <ul class="nav-bottom">

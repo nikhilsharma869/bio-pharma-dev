@@ -1,8 +1,8 @@
 <?php
 session_start();
 // Change these
-define('API_KEY',      '75l1h2cajk93eu'                                          );
-define('API_SECRET',   'eQQLZ3C3Lm5qDbEl'                                       );
+define('API_KEY',      '7555z2anaf9a1a'                                          );
+define('API_SECRET',   'Erpm4NOsIGts5XiS'                                       );
 define('REDIRECT_URI', 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME']);
 define('SCOPE',        'r_fullprofile r_emailaddress rw_nus'                        );
  

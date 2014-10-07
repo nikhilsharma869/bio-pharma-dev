@@ -20,12 +20,12 @@ include "includes/header.php";
                     <!-- content data list -->
                     <div class="content-right">
                     <?php
-                        $my_jobs = get_my_job($_SESSION['user_id'],'F');
-                        if($my_jobs!=NULL):?>                            
+                        $my_jobs = get_my_job($_SESSION['user_id'],'F');?>                            
                             <div class="job-item">    
                                 <h4 class="job-title">Hourly</h4>
                                 <div class="job-content">
                                 <?php     
+                                    if($my_jobs!=NULL):
                                     foreach ($my_jobs as $job): {?>
                                         <div class="box">
                                             <div class="left-box">
@@ -35,21 +35,20 @@ include "includes/header.php";
                                             </div>
                                             <div class="right-box">
                                                 <p class="time-week">4:00 of 20 hrs this week</p>
-                                                <p class="small-text">@$12.00/hr = $48.00</p>
+                                                <p class="small-text">@$<?php echo $job['bid_amount'];?>/hr = $<?php echo $job['paid_amount'];?></p>
                                                 <a href="#" class="view-load">view work load</a>
                                             </div>
                                         </div>
-                                <?php } endforeach; ?>
+                                <?php } endforeach;else: echo 'no project';endif; ?>
                                 </div>
-                            </div>
-                    <?php endif;?>                        
-                    <?php $my_jobs2 = get_my_job($_SESSION['user_id'],'H');
-                        if($my_jobs!=NULL):?>                            
+                            </div>                      
+                            <?php $my_jobs2 = get_my_job($_SESSION['user_id'],'H');?>                    
                             <div class="job-item">    
-                                <h4 class="job-title">Hourly</h4>
+                                <h4 class="job-title">Fixed Price</h4>
                                 <div class="job-content">
                                 <?php     
-                                    foreach ($my_jobs2 as $job): {?>
+                                    if($my_jobs2!=NULL):
+                                        foreach ($my_jobs2 as $job): {?>
                                         <div class="box">
                                             <div class="left-box">
                                                 <p class="name-member"><?php echo $job['project'];?></p>
@@ -57,16 +56,12 @@ include "includes/header.php";
                                                 <p><a href="#">job Details</a><span class="line">|</span><a href="#">Send Message</a></p>
                                             </div>
                                             <div class="right-box">
-                                                <p class="time-week">4:00 of 20 hrs this week</p>
-                                                <p class="small-text">@$12.00/hr = $48.00</p>
-                                                <a href="#" class="view-load">view work load</a>
+                                                <p class="time-of-price">$<?php echo $job['paid_amount'];?> paid of $<?php echo $job['bid_amount'];?> </p>
                                             </div>
                                         </div>
-                                <?php } endforeach; ?>
+                                <?php } endforeach; else: echo 'no project';endif; ?>
                                 </div>
-                            </div>
-                    <?php endif;?> 
-                        
+                            </div>             
                     </div>
                 </div>
             </div>
