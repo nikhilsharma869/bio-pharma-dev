@@ -3957,3 +3957,66 @@ span.save-job-btn {
     cursor: pointer;
     color: #ea6153;
 }
+/*7-10-2014*/
+.job-item{float: left; width: 100%;}
+.job-title{
+    background: #c6c6c6;
+    padding: 10px 2%;
+    border-radius: 5px;
+    margin-top: 30px;
+    float: left;
+    width: 96%;
+    font-size: 15px;
+    margin-bottom:30px;
+    font-weight: 700;
+}
+.job-content{
+    float: left;
+    width: 94%;
+    padding:1.5% 3%;
+    background: #fff;
+    border:1px solid #cacaca;
+}
+.job-content .left-box, .job-content .right-box{
+float: left;
+width: 50%;
+}
+.job-content .name-member{
+    font-weight: 700;
+    font-size: 18px;
+}
+.job-content .small-text{
+    color: #333;
+}
+.job-content a{
+    color: #2272ba;
+    text-transform: capitalize;
+}
+.job-content .box:first-child{padding-top:0;}
+.job-content .box:last-child{border-bottom:0;}
+.job-content .box{
+    border:none;
+    border-radius: 0;
+    float: left;
+    width: 100%;
+    border-bottom:1px solid #cacaca;
+    padding:20px 0;
+}
+.my_jobs_My_Jobs_SME_After .content-right{
+    padding-top: 0;
+    margin-top: -15px;
+    background: transparent;
+    border:0;
+}
+.my_jobs_My_Jobs_SME_After .inner-middle{padding-top:30px;}
+.job-content p{margin-bottom:0;}
+.job-content .line{padding:0 5px; color:#2272ba; }
+.job-content .right-box{
+    text-align: right;
+}
+.job-content .right-box .name-member{font-weight: 700;}
+.time-of-price{
+    font-weight: 700;
+    margin-top: 25px;
+}
+.job-content .right-box .time-week{font-weight: 700;}
