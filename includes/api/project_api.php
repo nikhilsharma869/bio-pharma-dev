@@ -77,3 +77,17 @@ function get_archive_job($user_id) {
 	}
 	return $list;
 }
+function get_my_job($user_id, $project_type) {
+	global $prev;
+	//$datetime = date('Y-m-d H:i:s');
+	$q = "SELECT *FROM ".$prev."projects AS p
+		LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
+	WHERE p.chosen_id='".$user_id."' AND p.project_type= '".$project_type."'";
+	
+	$r = mysql_query($q);	
+	$list = array();
+	while ($val = mysql_fetch_array($r)) {
+		array_push($list, $val);
+	}
+	return $list;
+}

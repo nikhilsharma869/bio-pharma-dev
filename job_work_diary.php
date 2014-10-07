@@ -9,11 +9,12 @@ include "includes/header.php";
                 <div class="profile_left contracts_left">
                     <!-- tabs left -->
                     <h3 class="title-page">Contracts</h3>
-                    <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                        <li><img class="job_icon" src="css/img/job_icon.png" alt=""/><a href="<?= $vpath ?>postjob.html">My Jobs</a></li>
-                        <li class="active"><img class="active contract_icon" src="css/img/contract_icon.png" alt=""/><a href="<?= $vpath ?>postjob.html">Contracts</a></li>
-                        <li><img class="work_icon"src="css/img/work_icon.png" alt=""/><a href="<?= $vpath ?>postjob.html">Work Diary</a></li>
-                    </ul>
+                   <?php
+                        $parent = 'my_job';
+                        $current = 'job_work_diary';
+                        $current_sub = '';
+                        get_child_menu($parent, $current, $current_sub);
+                    ?>
                 </div>
                 <!-- Content right -->
                 <div class="profile_right">
