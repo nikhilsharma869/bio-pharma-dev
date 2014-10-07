@@ -345,14 +345,14 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                                         <?php if($_SESSION['user_type'] == 'W') { ?>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>publicprofile/<?=$_SESSION['username']?>/">Profile</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="<?php echo $vpath;?>Jobs/">Find Work</a></li>                                                            
-                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>my-jobs.html">My Jobs</a></li>
-                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>report.html">Reports</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>my_jobs_sme.html">My Jobs</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>reports.html">Reports</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>message.html">Messages</a></li>
                                                         <?php } else { ?>
 															<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>publicprofile/<?=$_SESSION['username']?>/">Profile</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11" id="menu-item-11"><a href="<?php echo $vpath;?>find-talents/">Recruit</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13" id="menu-item-13"><a href="<?php echo $vpath;?>my-team/">Manage My Team</a></li>
-                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>report.html">Reports</a></li>
+                                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>reports.html">Reports</a></li>
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12" id="menu-item-12"><a href="<?php echo $vpath;?>message.html">Messages</a></li>
                                                         <?php } ?>
                                                     <?php } else { ?>

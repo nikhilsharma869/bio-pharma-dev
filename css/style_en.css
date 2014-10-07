@@ -1798,7 +1798,7 @@ a{color:#FFF;}
     float: right;
 }
 .pagination {
-    padding:22px 11px 15px 0;
+    width:auto;
     margin:0px;
     float: right
 }
@@ -7571,7 +7571,7 @@ img {
     vertical-align:middle;
 }
 .pagination {
-    width:374px;
+    width:auto;
     height:36px;
     float:right;
 
