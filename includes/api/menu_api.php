@@ -34,7 +34,7 @@ function get_child_menu($parent, $current, $current_sub) {
 		'my_job' => array(
 			'my_job' => array(
 				'title'=> 'My Job',
-				'a_href' => 'my_jobs_My_Jobs_SME_After.html'
+				'a_href' => 'my_jobs_sme.html'
 				),
 			'contracts' => array(
 				'title'=> 'Contracts',
