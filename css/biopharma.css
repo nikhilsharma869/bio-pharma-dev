@@ -2694,9 +2694,10 @@ background: #fff;
 .dd-name .sv-dropSelect{width: 233px;}
 .sv-dropdown{position: relative;}
 .sv-dropdown .sv-dropSelect{
+    border-radius: 5px;
 height: 20px;
-border: 1px solid #959595;
-background: #fff url(img/dropdown.png) no-repeat;
+border: 2px solid #cacaca;
+background: #fff url(img/lock1.png) no-repeat;
 background-position: 98% 5px;
 background-size: 20px 20px;
 padding: 5px 30px 5px 15px;
@@ -4031,3 +4032,38 @@ width: 50%;
     float: right;
 }
 .view-load:hover{text-decoration: none;}
+/**8-10**/
+.job-modal .modal-header{
+    background: #00aeec;
+    color:#fff;
+     border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.job-modal .modal-content{
+    border-radius: 12px;
+}
+.job-modal .modal-body .m-row{
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.job-modal .modal-body .m-row  label{
+    float: left;
+    width: 30%;
+}   
+.job-modal .modal-body .m-row  p, .m-ddrop{
+    float: left;
+    width: 70%;
+}   
+.job-modal .sv-dropdown .sv-dropSelect{
+    float: left;
+    width: 15%;
+}
+.job-modal .to{margin:5px 10px; float: left;}
+.ta-memo{
+float: left;
+width: 80%;
+height: 80px;
+border-radius: 5px;
+border: 2px solid #cacaca;
+}

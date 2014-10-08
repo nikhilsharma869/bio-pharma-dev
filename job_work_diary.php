@@ -601,25 +601,59 @@ include "includes/header.php";
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">My Working Projects</h4>
+        <h4 class="modal-title" id="myModalLabel">Add Manual Time</h4>
       </div>
       <div class="modal-body">
-       <table>
-           <th>Project name</th>
-           <th>Poster by</th>
-           <th>Posted date</th>
-           <th>ManualTime</th>    
-           <tr>
-               <td>a</td>
-               <td>b</td>
-               <td>c</td>
-               <td>d</td>
-           </tr>
-       </table>    
+        <div class="m-row">
+            <label>Date</label>
+            <p>Wed,Oct 08, 2014</p>
+        </div>   
+        <div class="m-row">
+            <label>Timezone</label>
+            <p>UCT+00</p>
+        </div>
+        <div class="m-row">
+            <label>From</label>
+            <div class="m-ddrop">
+                <div class="sv-dropdown f-time">
+                    <div class="sv-dropSelect">10:30pm</div>
+                    <ul>
+                        <?php for($i=1; $i<=; i++):?>
+                            <li>12:00am</li>    
+                        <?php endfor;?>
+                        
+                        <li>12:10am</li>
+                        <li>12:20am</li>
+                        <li>12:30am</li>
+                        <li>12:40pm</li>
+                        <li>12:50pm</li>
+                        <li>01:00pm</li>
+
+                    </ul>
+                </div>
+                <span class="to">to</span>
+                <div class="sv-dropdown to-time">
+                    <div class="sv-dropSelect">11:00pm</div>
+                    <ul>
+                        <li>10:40pm</li>
+                        <li>10:50pm</li>
+                        <li>11:00pm</li>
+                        <li>11:10pm</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="m-row">
+            <label>Memo</label>
+            <p><textarea class="ta-memo"></textarea></p>
+            <P class="note">Note: Manual time does to quanlify for gruaranteed payment.</p>
+            <a href="#">Learn more</a>
+        </div>
     </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        
       </div>
     </div>
   </div>
