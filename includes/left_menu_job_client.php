@@ -39,5 +39,5 @@ $alljobs = $openjobs+$frozenjobs+$completedjobs+$cancelledjobs+$processjobs+$exp
 	</ul>	
 	<li <?php if($cur_par_menu =='post_job' ) echo "class='active'"?>><a href="<?= $vpath ?>postjob.html">Post a Job</a></li>
 	<li <?php if($cur_par_menu =='find_freelancer' ) echo "class='active'"?>><a href="<?= $vpath ?>find-talents">Find Freelancers</a></li>
-	<li <?php if($cur_par_menu =='save_freelancer' ) echo "class='active'"?>><a href="<?= $vpath ?>postjob.html">Saved Freelancers</a></li>
+	<li <?php if($cur_par_menu =='saved_freelancers' ) echo "class='active'"?>><a href="<?= $vpath ?>saved_freelancers.html">Saved Freelancers</a></li>
 </ul>

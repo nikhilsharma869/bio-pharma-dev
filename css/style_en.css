@@ -7838,7 +7838,7 @@ p.mar-top a {
     display:block;
     float:left;
     color:#fff;
-    margin-bottom:10px;
+    margin-bottom:0px;
     background: #4E4C4D;
     box-shadow: 0 0 10px #363636 inset;
 }

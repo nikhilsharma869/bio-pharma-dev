@@ -1,5 +1,12 @@
 <?php
 include "includes/header.php";
+$current_page = "Saved Freelancers";
+$cur_par_menu = "saved_freelancers";
+$cur_child_menu = "";
+
+
+
+   // $sql = "select * from  " . $prev . "user left join " . $prev . "wishlist on " . $prev . "wishlist.uid=" . $prev . "user.user_id  where  status='Y' and " . $prev . "wishlist.uid=" . $prev . "user.user_id and " . $prev . "wishlist.user_id=" . $_SESSION['user_id'] . " ";
 ?>
 <div class="spage-container recruit_savedFreelancers">
     <div class="main_div2">
@@ -7,14 +14,7 @@ include "includes/header.php";
             <!-- Sidebar left -->
             <div class="profile_left contracts_left">
                 <!-- tabs left -->
-                <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                    <li class="active"><a href="<?= $vpath ?>postjob.html">Job Postings</a>
-
-                    </li>                        
-                    <li><a href="<?= $vpath ?>postjob.html">Post a Job</a></li>
-                    <li><a href="<?= $vpath ?>postjob.html">Find Freelancers</a></li>
-                    <li><a href="<?= $vpath ?>postjob.html">Saved Freelancers</a></li>                        
-                </ul>
+                <?php require("includes/left_menu_job_client.php");?>
             </div>
             <!-- Content right -->
             <div class="profile_right">

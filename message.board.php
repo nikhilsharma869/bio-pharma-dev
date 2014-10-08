@@ -68,10 +68,7 @@ if($_REQUEST['submit']){
             <div class="profile_left">
                 <!-- tabs left -->
                 <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                    <li><a href="<?= $vpath ?>postjob.html">Job Postings</a></li>
-                    <li class="active"><a href="<?= $vpath ?>postjob.html">Post a Job</a></li>
-                    <li><a href="<?= $vpath ?>postjob.html">Find Freelancers</a></li>
-                    <li><a href="<?= $vpath ?>postjob.html">Saved Freelancers</a></li>
+                    <li><a href="<?=$vpath?>/message.html">Inbox</a></li>
                 </ul>
             </div>
             <!-- Content right -->
@@ -140,7 +137,7 @@ if($_REQUEST['submit']){
 							if($_REQUEST['id'] &&  $_SESSION[user_id]!=''){?>
 							
 							<form onsubmit="javascript:return validatepost(this);" enctype="multipart/form-data" action="" method="POST">
-								<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center" class="table_class">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center" class="table_class" style="background:#FFFFFF">
 
 									<tbody><tr><td><table width="100%" cellspacing="0" cellpadding="4" border="0" align="center">
 
@@ -157,7 +154,7 @@ if($_REQUEST['submit']){
 									</tr>
 									<tr><td valign="top" align="right" class="tdclass"><b><?=$lang['ATTACH']?> :</b></td><td><input type="file" class="text_box" size="35" name="attachment"><br><span style="color:red;width:100%;float:left"><?=$lang['ZIP_RAR_H']?></span></td></tr><tr>
 
-									</tr><tr><td></td><td><input type="submit" class="submit_bott" value="<?=$lang['SUBMIT']?>" name="submit"> &nbsp;&nbsp;&nbsp;<input type="button" class="submit_bott" value="<?=$lang['CANCEL']?>" name="submit" onclick="avascript:history.go(-1);" style="margin-left:20px;">
+									</tr><tr><td></td><td><input type="submit" class="submit_bott" value="<?=$lang['SUBMIT']?>" name="submit">
 									
 									</td></tr></tbody></table></td></tr></tbody>
 								</table>

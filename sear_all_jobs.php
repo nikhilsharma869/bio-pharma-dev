@@ -153,7 +153,9 @@ jQuery.noConflict();
 			$parent = 'find_work';
 			$current = 'find_job';
 			$current_sub = '';
-			get_child_menu($parent, $current, $current_sub);
+			if (check_Login_Worker($_SESSION['user_id'],$_SESSION['user_type'])) {
+				get_child_menu($parent, $current, $current_sub);
+			}
 		?>
 		<div id="open-by-default-example">
 								

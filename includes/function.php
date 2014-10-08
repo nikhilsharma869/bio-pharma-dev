@@ -550,7 +550,12 @@ function showrating($avg_rate)
 
 function check_permission($per, $page) {
 	$sme_noper = array();
-	$client_noper = array('job_application');
+	$client_noper = array(	'job_application',
+							'saved_job',
+							'my_jobs_sme',
+							'contracts'
+							
+						);
 
 	// check permission for client (e) or sme (w)
 	if($per == 'w') {
@@ -563,5 +568,13 @@ function check_permission($per, $page) {
 		} 
 	}
 }
- 
+
+function check_Login_Worker($user_id,$user_type){
+
+	if($user_id != '' && $user_type=='W'){
+		return true;
+	}
+	
+	return false;
+} 
 ?>

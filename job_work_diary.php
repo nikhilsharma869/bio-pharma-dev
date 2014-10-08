@@ -1,5 +1,7 @@
 <?php
 include "includes/header.php";
+
+$current_date = date('m/d/Y');
 ?>
     <div class="spage-container job_work_diary">
         <div class="main_div2">
@@ -47,7 +49,7 @@ include "includes/header.php";
                                 </ul>
                             </div>
                             <div class="datetime">
-                                <input type="text" id="datepicker">
+                                <input type="text" id="datepicker" value='<?=$current_date?>'>
                                 <img class="clander-img" src="css/img/calender_icon.png" alt="">
                             </div>
                             <a href="#" class="pref">Pref</a>
@@ -618,11 +620,7 @@ include "includes/header.php";
                 <div class="sv-dropdown f-time">
                     <div class="sv-dropSelect">10:30pm</div>
                     <ul>
-                        <?php for($i=1; $i<=; i++):?>
-                            <li>12:00am</li>    
-                        <?php endfor;?>
-                        
-                        <li>12:10am</li>
+						<li>12:10am</li>
                         <li>12:20am</li>
                         <li>12:30am</li>
                         <li>12:40pm</li>

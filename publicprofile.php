@@ -60,9 +60,23 @@ if (!empty($row_user[logo])) {
         <div class="user-profile-sidebar">
             <?php if(!empty($_SESSION['user_id'])) { ?>
                 <?php if($_SESSION['user_type'] == 'E' && $_SESSION['user_id'] != $row_user['user_id']) { ?>
-                <a class="up-contact" href="javascript:;" onclick="getinvite()">Invite</a>
+					<a class="up-contact" href="javascript:;" onclick="getinvite()">Invite</a>
+					<?php
+						$n = mysql_num_rows(mysql_query("select *  from " . $prev . "wishlist where user_id='" . $_SESSION['user_id'] . "' and uid='" . $row_user['user_id'] . "'"));
+					?>
+					<a href="javascript:void(0);" onclick="addwistlist('<?= $row_user['user_id'] ?>');"  style="cursor:pointer"><span id="addlist">
+
+							<?php if ($n == 0) { ?>
+								<img src='<?= $vpath ?>images/unfill.png' border=0 align=absmiddle alt='add to wishlist' title='add to wishlist'>
+							<?php } else { ?>
+								<img src='<?= $vpath ?>images/fill.png' border=0 align=absmiddle alt='added to wishlist' title='added to wishlist'>
+							<?php } ?>
+
+						</span>
+					</a>
+
                 <?php } else { ?>
-                <a class="up-contact" href="javascript:;">Contact</a>
+					<a class="up-contact" href="javascript:;">Contact</a>
                 <?php } ?>
             <?php } ?>
             
@@ -483,7 +497,22 @@ if (!empty($row_user[logo])) {
     $(window).on("resize", function () {
         $('.modal:visible').each(centerModal);
     });
+		
+	function addwistlist(id) {
+		var info = "uid=" + id;
+        $.ajax({
+            type: "POST",
+            url: "<?= $vpath ?>addtowishlist.php",
+            data: info,
+            beforeSend: function() {
+                $('#addlist').html('<img src="<?= $vpath ?>images/login_loader2.GIF" height=22 width=22  />');
+            },
+            success: function(dd) {
 
+                $("#addlist").html(dd);
+            }
+	});	
+	}
 
 </script>
 

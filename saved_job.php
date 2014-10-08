@@ -47,6 +47,8 @@ jQuery.noConflict();
 				
 				LEFT JOIN ".$prev ."skill_linkedin ON " . $prev . "projects_cats.cat_id = ".$prev ."skill_linkedin.id 
 				
+				WHERE ".$prev ."projects.status = 'open' AND " . $prev . "job_save.user_id='".$_SESSION['user_id']."'
+				
 				GROUP BY ". $prev . "projects.id  ORDER BY " . $prev . "projects.date2 desc
 				";
 	

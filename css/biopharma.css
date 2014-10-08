@@ -2535,9 +2535,10 @@ margin-bottom:20px;
     margin:0 auto;
 }
 .text-bold{font-weight: 700;}
-#job_tabs .j-row p{display: inline-block; margin-bottom: 0; color: #000;}
+#job_tabs .j-row p{display: inline-block; margin-bottom: 0; color: #000;vertical-align:top;}
 #job_tabs .j-row p a {
 text-decoration: none;
+vertical-align:top;
 color: #000;
 }
 #job_tabs .j-col1{width: 15%;}
@@ -2695,13 +2696,14 @@ background: #fff;
 .sv-dropdown{position: relative;}
 .sv-dropdown .sv-dropSelect{
     border-radius: 5px;
-height: 20px;
-border: 2px solid #cacaca;
-background: #fff url(img/lock1.png) no-repeat;
-background-position: 98% 5px;
-background-size: 20px 20px;
-padding: 5px 30px 5px 15px;
-cursor: pointer;
+	overflow:hidden;
+	height: 20px;
+	border: 2px solid #cacaca;
+	background: #fff url(img/lock1.png) no-repeat;
+	background-position: 98% 5px;
+	background-size: 20px 20px;
+	padding: 5px 30px 5px 15px;
+	cursor: pointer;
 }
 .sv-dropdown ul li{cursor: pointer;}
 /*job_work_diary*/
@@ -4066,4 +4068,10 @@ width: 80%;
 height: 80px;
 border-radius: 5px;
 border: 2px solid #cacaca;
+}
+.hasDatepicker {
+    background: none repeat scroll 0 0 #c6c6c6;
+    border: medium none;
+    font-size: 20px;
+    width: 160px;
 }
