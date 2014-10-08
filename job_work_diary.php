@@ -1,7 +1,6 @@
 <?php
 include "includes/header.php";
 ?>
-
     <div class="spage-container job_work_diary">
         <div class="main_div2">
             <div class="inner-middle"> 
@@ -22,15 +21,18 @@ include "includes/header.php";
                     <div class="content-right">
                         <div class="container">
                             <div class="sv-dropdown dd-name">
-                                <div class="sv-dropSelect">Sr. Designer - myCS</div>
-                                <ul>                                    
-                                    <li>1</li>
-                                    <li>2</li>
-                                    <li>3</li>
-                                    <li>4</li>
-                                </ul>
+                            <?php $my_job = list_jobs();
+                                $count = 1;                                
+                                foreach ($my_job as $job):
+                                    if($count==1):?>
+                                        <div class="sv-dropSelect" for="<?php echo $job['id']?>"><?php echo $job['project']?></div> 
+                                    <ul> 
+                                    <?php endif;?>                                   
+                                    <li id="<?php echo $job['id']?>"><?php echo $job['project']?></li>
+                                <?php $count++; endforeach;?>
+                                    </ul>
                             </div>
-                            <a href="#" class="add-time">Add Manual Time</a>                        
+                            <a href="#" class="add-time" data-toggle="modal" data-target="#myModal">Add Manual Time</a>                        
                         </div>
                         <div class="container">
                         <div class="time-zone">
@@ -593,7 +595,35 @@ include "includes/header.php";
         </div>
     </div>  
 </div>
- 
+<!-- Modal -->
+<div class="modal fade job-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">My Working Projects</h4>
+      </div>
+      <div class="modal-body">
+       <table>
+           <th>Project name</th>
+           <th>Poster by</th>
+           <th>Posted date</th>
+           <th>ManualTime</th>    
+           <tr>
+               <td>a</td>
+               <td>b</td>
+               <td>c</td>
+               <td>d</td>
+           </tr>
+       </table>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="js/jquery-1.10.2.js"></script>
   <script src="js/jquery-ui.js"></script>  
 <?php include 'includes/footer.php'; ?>

@@ -14,7 +14,9 @@ $(function() {
     });
      $(".sv-dropdown ul li").click(function(){
         var vItem = $(this).text();
+        var value = $(this).attr("id");
         $(this).parents(".sv-dropdown").find(".sv-dropSelect").text(vItem);
+        $(this).parents(".sv-dropdown").find(".sv-dropSelect").attr("for",value);
         $(this).parents("ul").hide(100);
     });
     if($( "#datepicker" ).length != 0) {

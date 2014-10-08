@@ -102,3 +102,16 @@ function get_my_job($user_id, $project_type) {
 	}
 	return $list;
 }
+function list_jobs(){
+	global $prev;
+	
+		$q = "SELECT * FROM ".$prev."projects p
+				WHERE p.chosen_id='".$_SESSION['user_id']."' AND p.status= 'process' ORDER BY p.id DESC";	
+			
+	$r = mysql_query($q);	
+	$list = array();
+	while ($val = mysql_fetch_array($r)) {
+		array_push($list, $val);
+	}
+	return $list;
+}
