@@ -54,31 +54,33 @@ $cur_child_menu = "";
                                 <p class="text-bold"><?=ucfirst($d['slogan'])?></p>
                                 <p><? echo substr($d[profile],0,200);?></p>
                                     <div id="recruit_saved_tabs">
-                                      
-											<?
-       
-												$skill_q = "select skills from " . $prev . "user_profile where user_id=" . $d[user_id];
+										<?php
+											$skill_q = "select skills from " . $prev . "user_profile where user_id=" . $d[user_id] ." LIMIT 0,4";
 
-												$res_skill = mysql_query($skill_q);
-												$data_skills = @mysql_result($res_skill,0,"skills");
-												$data_skills = explode(',', $data_skills);
-
+											$res_skill = mysql_query($skill_q);
+											$data_skills = @mysql_result($res_skill,0,"skills");
+											$data_skills = explode(',', $data_skills);
+											if(count($data_skills)>1){
+										?>
+                                        <ul>
+											<?php
 												foreach ($data_skills as $skill) {
-													$data_skill_name.= "<a href='browse-freelancers.php?keyword=".$skill."' class='skils_links'>". $skill . '</a> ';
+													$data_skill_name.= "<li><a href='browse-freelancers.php?keyword=".$skill."' class='skils_links'>". $skill . '</a> </li> ';
 												}
 											   
 												$skill_name = $data_skill_name;
-												if($skill_name != ""){
-													echo $skill_name;
-												}
+												
+												echo $skill_name;
+												
 												
 												$data_skill_name = "";
 											?>	
-                                       <!--     <li class="active"><a data-toggle="tab" href="#tabs-1">adobe-photoshop  </a></li>
+                                        <!-- <li class="active"><a data-toggle="tab" href="#tabs-1">adobe-photoshop  </a></li>
                                             <li class=""><a data-toggle="tab" href="#tabs-2">adobe-illustrator</a></li>
                                             <li class=""><a data-toggle="tab" href="#tabs-3">corel-draw</a></li>
                                             <li class=""><a data-toggle="tab" href="#tabs-4">adobe-flash</a></li>-->
-                                      
+                                        </ul>
+										<?php } ?>
                                         <div class="tab-content">
                                             <div id="tabs-1" class="tab-pane fade tab-first active in">                                   
                                                 <p>$<?=$d['rate']?> /hr  -  Hours: 15,272  -  Philippines  -  Last active:  15 hours ago</p>
