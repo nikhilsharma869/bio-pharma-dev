@@ -55,7 +55,7 @@ $cur_child_menu = "";
                                 <p><? echo substr($d[profile],0,200);?></p>
                                     <div id="recruit_saved_tabs">
 										<?php
-											$skill_q = "select skills from " . $prev . "user_profile where user_id=" . $d[user_id] ." LIMIT 0,4";
+											$skill_q = "select skills from " . $prev . "user_profile where user_id=" . $d[user_id];
 
 											$res_skill = mysql_query($skill_q);
 											$data_skills = @mysql_result($res_skill,0,"skills");
@@ -65,6 +65,7 @@ $cur_child_menu = "";
                                         <ul>
 											<?php
 												foreach ($data_skills as $skill) {
+													if($count > 5 ) break;
 													$data_skill_name.= "<li><a href='browse-freelancers.php?keyword=".$skill."' class='skils_links'>". $skill . '</a> </li> ';
 												}
 											   
