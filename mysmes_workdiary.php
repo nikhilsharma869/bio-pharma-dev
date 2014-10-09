@@ -8,12 +8,12 @@ include "includes/header.php";
                 <!-- Sidebar left -->
                 <div class="profile_left contracts_left">
                     <!-- tabs left -->
-                    <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                        <li><a href="http://bio-pharma.dev/postjob.html">My Freelancers</a></li>                        
-                        <li class="active"><a href="http://bio-pharma.dev/postjob.html">Work Diary</a></li>
-                        <li><a href="http://bio-pharma.dev/postjob.html">Contracts</a></li>
-                        <li><a href="http://bio-pharma.dev/postjob.html">Activities</a></li>                        
-                    </ul>
+                     <?php
+                        $parent = 'manage_my_team';
+                        $current = 'my_team';
+                        $current_sub = 'work_diary';
+                        get_child_menu($parent, $current, $current_sub);
+                    ?>
                 </div>
                 <!-- Content right -->
                 <div class="profile_right">

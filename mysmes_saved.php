@@ -1,25 +1,17 @@
 <?php
 include "includes/header.php";
 ?>
-    <div class="spage-container managemyteam_message">
+    <div class="spage-container managemyteam">
         <div class="main_div2">
             <div class="inner-middle"> 
                 <!-- Sidebar left -->
                 <div class="profile_left contracts_left">
-                    <!-- tabs left -->
-                    <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                        <li class="active"><a href="<?= $vpath ?>postjob.html">My Freelancers</a>
-                            <ul class="sub-tabs">
-                                <li><a href="<?= $vpath ?>postjob.html">Hired</a></li>
-                                <li><a href="<?= $vpath ?>postjob.html">Past Hires</a></li>
-                                <li class="active"><a href="<?= $vpath ?>postjob.html">Messaged</a></li>
-                                <li><a href="<?= $vpath ?>postjob.html">Saved</a></li>
-                            </ul>
-                        </li>                        
-                        <li><a href="<?= $vpath ?>postjob.html">Work Diary</a></li>
-                        <li><a href="<?= $vpath ?>postjob.html">Contracts</a></li>
-                        <li><a href="<?= $vpath ?>postjob.html">Activities</a></li>                        
-                    </ul>
+                    <?php
+                        $parent = 'manage_my_team';
+                        $current = 'my_team';
+                        $current_sub = 'saved';
+                        get_child_menu($parent, $current, $current_sub);
+                    ?>
                 </div>
                 <!-- Content right -->
                 <div class="profile_right">
@@ -45,42 +37,67 @@ include "includes/header.php";
                         <div class="managemyteam-content">
                             <div class="j-row">
                                 <p class="j-col1">
-                                <img class="mt-img" src="images/myteam/person.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Victor Jr San Lorenzo</strong></span>
-                                <span class="mt-address">E-Commerce Manager/Data Entry Professional / Recruitment Assistant </span>
+                                <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
+                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
+                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
                                 </p>
+                                <p class="j-col2">
+                                    <span>Saved Nov 20 2012</span>
+                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                </p>
+                                <p class="j-col3"></p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                             <div class="j-row">
                                 <p class="j-col1">
-                                <img class="mt-img" src="images/myteam/person.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Victor Jr San Lorenzo</strong></span>
-                                <span class="mt-address">E-Commerce Manager/Data Entry Professional / Recruitment Assistant </span>
+                                <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
+                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
+                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
                                 </p>
+                                <p class="j-col2">
+                                    <span>Saved Nov 20 2012</span>
+                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                </p>
+                                <p class="j-col3"></p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                             <div class="j-row">
                                 <p class="j-col1">
-                                <img class="mt-img" src="images/myteam/person.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Victor Jr San Lorenzo</strong></span>
-                                <span class="mt-address">E-Commerce Manager/Data Entry Professional / Recruitment Assistant </span>
+                                <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
+                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
+                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
                                 </p>
+                                <p class="j-col2">
+                                    <span>Saved Nov 20 2012</span>
+                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                </p>
+                                <p class="j-col3"></p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                             <div class="j-row">
                                 <p class="j-col1">
-                                <img class="mt-img" src="images/myteam/person.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Victor Jr San Lorenzo</strong></span>
-                                <span class="mt-address">E-Commerce Manager/Data Entry Professional / Recruitment Assistant </span>
+                                <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
+                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
+                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
                                 </p>
+                                <p class="j-col2">
+                                    <span>Saved Nov 20 2012</span>
+                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                </p>
+                                <p class="j-col3"></p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                             <div class="j-row">
                                 <p class="j-col1">
-                                <img class="mt-img" src="images/myteam/person.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Victor Jr San Lorenzo</strong></span>
-                                <span class="mt-address">E-Commerce Manager/Data Entry Professional / Recruitment Assistant </span>
+                                <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
+                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
+                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
                                 </p>
+                                <p class="j-col2">
+                                    <span>Saved Nov 20 2012</span>
+                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                </p>
+                                <p class="j-col3"></p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                         </div>

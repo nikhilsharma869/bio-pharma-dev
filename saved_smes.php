@@ -1,5 +1,6 @@
 <?php
 include "includes/header.php";
+include("country.php");
 $current_page = "Saved Freelancers";
 $cur_par_menu = "saved_freelancers";
 $cur_child_menu = "";
@@ -14,7 +15,8 @@ $cur_child_menu = "";
 					where  status='Y' and " . $prev . "wishlist.uid=" . $prev . "user.user_id and " . $prev . "wishlist.user_id=" . $_SESSION['user_id'] . " ";
   
 	$r = mysql_query($sql);
-
+	
+	$portfolio = get_Count_Portfolio($user_id);
 ?>
 <div class="spage-container recruit_savedFreelancers">
     <div class="main_div2">
@@ -84,9 +86,9 @@ $cur_child_menu = "";
 										<?php } ?>
                                         <div class="tab-content">
                                             <div id="tabs-1" class="tab-pane fade tab-first active in">                                   
-                                                <p>$<?=$d['rate']?> /hr  -  Hours: 15,272  -  Philippines  -  Last active:  15 hours ago</p>
+                                                <p>$<?=$d['rate']?> /hr  -  Hours: 15,272  -  	<span><img src="<?=$vpath?>cuntry_flag/<?=strtolower($d['country']);?>.png" title="<?=$country_array[$d['country']];?>" width="16" height="11" > <?=$country_array[$d['country']];?></span>  -  Last active:  <?php print date('d-M-Y, h:i:s a', strtotime($d['ldate']));?></p>
 												
-                                                <p>Portfolio: 67 - <?=getrating($d[user_id])?></p> 
+                                                <p>Portfolio: <?=$portfolio?> - <?=getrating($d[user_id])?></p> 
                                             </div>
                                         </div>
                                     </div>

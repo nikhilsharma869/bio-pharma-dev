@@ -7,12 +7,12 @@ include "includes/header.php";
             <!-- Sidebar left -->
             <div class="profile_left contracts_left">
                 <!-- tabs left -->
-                <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                    <li><a href="http://bio-pharma.dev/postjob.html">Weekly Summary</a></li>                        
-                    <li class="active"><a href="http://bio-pharma.dev/postjob.html">Transaction History</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Work Summary</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Activity Summary</a></li>                        
-                </ul>
+              <?php
+					$parent = 'client_report';
+					$current = 'report_transaction_history';
+					$current_sub = '';
+					get_child_menu($parent, $current, $current_sub);
+				?>
             </div>
             <!-- Content right -->
             <div class="profile_right">

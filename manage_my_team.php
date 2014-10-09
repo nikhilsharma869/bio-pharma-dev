@@ -6,20 +6,15 @@ include "includes/header.php";
             <div class="inner-middle"> 
                 <!-- Sidebar left -->
                 <div class="profile_left contracts_left">
+				   <!-- tabs left -->
+                    <?php
+                        $parent = 'manage_my_team';
+                        $current = 'my_team';
+                        $current_sub = 'hired';
+                        get_child_menu($parent, $current, $current_sub);
+                    ?>
                     <!-- tabs left -->
-                    <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                        <li class="active"><a href="<?= $vpath ?>postjob.html">My Freelancers</a>
-                            <ul class="sub-tabs">
-                                <li><a href="<?= $vpath ?>postjob.html">Hired</a></li>
-                                <li><a href="<?= $vpath ?>postjob.html">Past Hires</a></li>
-                                <li><a href="<?= $vpath ?>postjob.html">Messaged</a></li>
-                                <li class="active"><a href="<?= $vpath ?>postjob.html">Saved</a></li>
-                            </ul>
-                        </li>                        
-                        <li><a href="<?= $vpath ?>postjob.html">Work Diary</a></li>
-                        <li><a href="<?= $vpath ?>postjob.html">Contracts</a></li>
-                        <li><a href="<?= $vpath ?>postjob.html">Activities</a></li>                        
-                    </ul>
+                 
                 </div>
                 <!-- Content right -->
                 <div class="profile_right">
@@ -46,66 +41,71 @@ include "includes/header.php";
                             <div class="j-row">
                                 <p class="j-col1">
                                 <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
-                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
+                                <span class="mt-title"><strong class="c-blue">Kim Moro</strong> Sr. Designer</span>
+                                <span class="mt-address">It's Mon 12:46 AM<br/>in Philippines </span>
                                 </p>
                                 <p class="j-col2">
-                                    <span>Saved Nov 20 2012</span>
-                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                    <img src="css/img/ratesskill.jpg" alt=""/>
+                                    <span class="c-blue">Last Worked about an hour ago</span>
+                                    working with Raj
                                 </p>
-                                <p class="j-col3"></p>
+                                <p class="j-col3"><span class="c-blue">7:10 (95.33)</span>This week</p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                             <div class="j-row">
                                 <p class="j-col1">
                                 <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
-                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
+                                <span class="mt-title"><strong class="c-blue">Kim Moro</strong> Sr. Designer</span>
+                                <span class="mt-address">It's Mon 12:46 AM<br/>in Philippines </span>
                                 </p>
                                 <p class="j-col2">
-                                    <span>Saved Nov 20 2012</span>
-                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                    <img src="css/img/ratesskill.jpg" alt=""/>
+                                    <span class="c-blue">Last Worked about an hour ago</span>
+                                    working with Raj
                                 </p>
-                                <p class="j-col3"></p>
+                                <p class="j-col3"><span class="c-blue">7:10 (95.33)</span>This week</p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                             <div class="j-row">
                                 <p class="j-col1">
                                 <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
-                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
+                                <span class="mt-title"><strong class="c-blue">Kim Moro</strong> Sr. Designer</span>
+                                <span class="mt-address">It's Mon 12:46 AM<br/>in Philippines </span>
                                 </p>
                                 <p class="j-col2">
-                                    <span>Saved Nov 20 2012</span>
-                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                    <img src="css/img/ratesskill.jpg" alt=""/>
+                                    <span class="c-blue">Last Worked about an hour ago</span>
+                                    working with Raj
                                 </p>
-                                <p class="j-col3"></p>
+                                <p class="j-col3"><span class="c-blue">7:10 (95.33)</span>This week</p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                             <div class="j-row">
                                 <p class="j-col1">
                                 <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
-                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
+                                <span class="mt-title"><strong class="c-blue">Kim Moro</strong> Sr. Designer</span>
+                                <span class="mt-address">It's Mon 12:46 AM<br/>in Philippines </span>
                                 </p>
                                 <p class="j-col2">
-                                    <span>Saved Nov 20 2012</span>
-                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                    <img src="css/img/ratesskill.jpg" alt=""/>
+                                    <span class="c-blue">Last Worked about an hour ago</span>
+                                    working with Raj
                                 </p>
-                                <p class="j-col3"></p>
+                                <p class="j-col3"><span class="c-blue">7:10 (95.33)</span>This week</p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                             <div class="j-row">
                                 <p class="j-col1">
                                 <img class="mt-img" src="images/myteam/budget_bott.jpg" alt=""/>
-                                <span class="mt-title"><strong class="c-blue">Kim M.</strong></span>
-                                <span class="mt-address">Senior Adobe Illustrator, Photoshop<br/>and InDesign</span>
+                                <span class="mt-title"><strong class="c-blue">Kim Moro</strong> Sr. Designer</span>
+                                <span class="mt-address">It's Mon 12:46 AM<br/>in Philippines </span>
                                 </p>
                                 <p class="j-col2">
-                                    <span>Saved Nov 20 2012</span>
-                                    <a href="#" class="c-blue edit-remove">Edit or Remove</a>
+                                    <img src="css/img/ratesskill.jpg" alt=""/>
+                                    <span class="c-blue">Last Worked about an hour ago</span>
+                                    working with Raj
                                 </p>
-                                <p class="j-col3"></p>
+                                <p class="j-col3"><span class="c-blue">7:10 (95.33)</span>This week</p>
                                 <p class="j-col4"><a href="#" class="mt-action">Actions</a></p>
                             </div>
                         </div>
@@ -127,4 +127,19 @@ include "includes/header.php";
         </div>
     </div>  
 </div>
+<script>
+    $(function() {
+        $('#job_tabs li a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show');            
+        });
+        $(".checkbox_icon input[type='checkbox']").click(function(){ //alert('true');
+            $(".checkbox_icon .fa").addClass("fa-chevron-down");
+        });
+        $(".checkbox_icon .fa").click(function(){
+            $(this).removeClass("fa-chevron-down");
+             $(".checkbox_icon input[type='checkbox']").attr('checked', false); 
+        })
+    });
+</script>
 <?php include 'includes/footer.php'; ?>

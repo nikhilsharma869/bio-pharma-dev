@@ -6,20 +6,14 @@ include "includes/header.php";
             <div class="inner-middle"> 
                 <!-- Sidebar left -->
                 <div class="profile_left contracts_left">
+                   <!-- tabs left -->
+                    <?php
+                        $parent = 'manage_my_team';
+                        $current = 'my_team';
+                        $current_sub = 'pasthired';
+                        get_child_menu($parent, $current, $current_sub);
+                    ?>
                     <!-- tabs left -->
-                    <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                        <li class="active"><a href="<?= $vpath ?>postjob.html">My Freelancers</a>
-                            <ul class="sub-tabs">
-                                <li><a href="<?= $vpath ?>postjob.html">Hired</a></li>
-                                <li class="active"><a href="<?= $vpath ?>postjob.html">Past Hires</a></li>
-                                <li><a href="<?= $vpath ?>postjob.html">Messaged</a></li>
-                                <li><a href="<?= $vpath ?>postjob.html">Saved</a></li>
-                            </ul>
-                        </li>                        
-                        <li><a href="<?= $vpath ?>postjob.html">Work Diary</a></li>
-                        <li><a href="<?= $vpath ?>postjob.html">Contracts</a></li>
-                        <li><a href="<?= $vpath ?>postjob.html">Activities</a></li>                        
-                    </ul>
                 </div>
                 <!-- Content right -->
                 <div class="profile_right">
