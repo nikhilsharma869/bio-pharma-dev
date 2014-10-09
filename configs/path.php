@@ -792,14 +792,14 @@ function new_pagingnew($adjacents, $targetpage, $param, $limit = 2, $page = 0, $
     $pagination = "";
     if( 1 < $lastpage ) 
     {
-        $pagination .= "<div class=\"pagination\"><ul>";
+        $pagination .= "<div class=\"page-nav\"><ul class=\"nav-bottom\">";
         if( 1 < $page ) 
         {
-            $pagination .= "<li><a href=\"" . $targetpage . "" . $prev . $param . "\">&#171; Previous</a></li>";
+            $pagination .= "<li class=\"nav-prev\"><a href=\"" . $targetpage . "" . $prev . $param . "\">&#171; Previous</a></li>";
         }
         else
         {
-            $pagination .= "<li class=\"disabled\">&#171; Previous</li>";
+            $pagination .= "<li class=\"disabled nav-prev\">&#171; Previous</li>";
         }
 
         if( $lastpage < 7 + $adjacents * 2 ) 
@@ -889,11 +889,11 @@ function new_pagingnew($adjacents, $targetpage, $param, $limit = 2, $page = 0, $
 
         if( $page < $counter - 1 ) 
         {
-            $pagination .= "<li><a href=\"" . $targetpage . "" . $next . $param . "\">Next &#187;</a></li>";
+            $pagination .= "<li class=\"nav-next\"><a href=\"" . $targetpage . "" . $next . $param . "\">Next &#187;</a></li>";
         }
         else
         {
-            $pagination .= "<li class=\"disabled\">Next &#187;</li>";
+            $pagination .= "<li class=\"disabled nav-next\">Next &#187;</li>";
         }
 
         $pagination .= "</div></ul>\n";

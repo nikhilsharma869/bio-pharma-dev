@@ -231,8 +231,10 @@ RewriteRule ^work_diary/([a-zA-Z0-9_-]+)$ job_work_diary.php?id=$1 [L]
 
 #client section 
 #manage-my-team
-RewriteRule ^manage-my-team/$ manage_my_team.php?page=$1 [L]
-
+RewriteRule ^manage_my_team/$ manage_my_team.php?page=$1 [L]
+RewriteRule ^manage_my_team/([a-zA-Z0-9_-]+)$ manage_my_team.php?page=$1 [L]
+RewriteRule ^manage_my_team/([a-zA-Z0-9_-]+)/$ manage_my_team.php?page=$1 [L]
+RewriteRule ^manage_my_team$ manage_my_team.php [L]
 #active job
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)/$ active_jobs.php?user=W&page=$1 [L]
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)$ active_jobs.php?user=W&page=$1 [L]

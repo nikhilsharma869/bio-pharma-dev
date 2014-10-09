@@ -4075,3 +4075,21 @@ border: 2px solid #cacaca;
     font-size: 20px;
     width: 160px;
 }
+
+.page-nav li.disabled {
+    display: none;
+}
+
+.search-team + .managemyteam-content {
+    margin-top: 57px;
+}
+
+.new-drd .dropdown-menu {
+    right: -66px;
+    left: inherit;
+    margin-top: 57px;
+}
+.mt-action {
+    color: #fff !important;
+    text-decoration: none !important;
+}
