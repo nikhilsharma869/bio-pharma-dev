@@ -4,6 +4,7 @@
 include('api/project_api.php');
 include('api/menu_api.php');
 include('api/portfolio_api.php');
+include('api/mn_freelance_api.php');
 
 function project_start_end_date($project_id){
 		global $prev,$lang;
