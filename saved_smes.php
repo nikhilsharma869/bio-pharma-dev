@@ -6,14 +6,31 @@ $cur_par_menu = "saved_freelancers";
 $cur_child_menu = "";
 
 
-
-  $sql = "select * from  " . $prev . "user 
+	$no_of_records = 1;
+	$sql = "select * from  " . $prev . "user 
 					left join " . $prev . "wishlist on " . $prev . "wishlist.uid=" . $prev . "user.user_id  
 					
 					left join ".$prev."user_profile on ".$prev."user_profile.user_id=".$prev."user.user_id
 					
 					where  status='Y' and " . $prev . "wishlist.uid=" . $prev . "user.user_id and " . $prev . "wishlist.user_id=" . $_SESSION['user_id'] . " ";
-  
+	//Paging
+	if($_REQUEST['page']){
+		$page=$_REQUEST['page'];
+	}else{
+		$page=0;
+	}
+	
+	$parr=array();
+	$parr=paging_new($sql,$no_of_records,$page);
+	
+	$limitvalue  = $parr[1];
+	$total_pages = $parr[2];
+	$total_item  = $parr[3];
+	
+	$sql .= " LIMIT $limitvalue, $no_of_records";
+	
+	
+	//Paging
 	$r = mysql_query($sql);
 	
 	$portfolio = get_Count_Portfolio($user_id);
@@ -29,7 +46,11 @@ $cur_child_menu = "";
             <!-- Content right -->
             <div class="profile_right">
                 <!-- content data list -->
-                <div class="content-right">                                                              
+                <div class="content-right">      
+					<?php
+						echo new_pagingnew(5,$vpath.'saved_smes/','/'.$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='');
+					?>
+					
                     <div class="recruit_saved_content">    
 						<?php
 						
@@ -97,7 +118,10 @@ $cur_child_menu = "";
 						<?php
 							}
                         ?>
-                        </div>                         
+                        </div>  
+						<?php
+							echo new_pagingnew(5,$vpath.'saved_smes/','/'.$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='');
+						?>
                     </div>
                 </div>
             </div>
