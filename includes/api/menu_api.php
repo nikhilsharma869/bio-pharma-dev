@@ -58,7 +58,7 @@ function get_child_menu($parent, $current, $current_sub) {
 						),
 					'pasthired' => array(
 						'title'=> 'Past Hires',
-						'a_href' => 'mysmes_pasthires.html'
+						'a_href' => 'mysmes_pasthires/'
 						),
 					'messages' => array(
 						'title'=> 'Messages',

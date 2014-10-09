@@ -3119,7 +3119,7 @@ margin-top: -10px;
 /*29-9*/
 .mt-rehire{
     background: #2272ba;
-    padding: 8px 15px;
+    padding: 9px 15px;
     position: relative;
     top: 9px;
     text-decoration: none;
@@ -4088,6 +4088,10 @@ border: 2px solid #cacaca;
     right: -66px;
     left: inherit;
     margin-top: 57px;
+}
+
+.new-drd.new-drd-pasthire .dropdown-menu  {
+    margin-top: 47px;
 }
 .mt-action {
     color: #fff !important;
