@@ -50,11 +50,11 @@ function get_child_menu($parent, $current, $current_sub) {
 		'manage_my_team' => array(
 			'my_team' => array(
 				'title'=> 'My team',
-				'a_href' => 'manage-my-team/',
+				'a_href' => 'manage_my_team/',
 				'sub' => array(
 					'hired' => array(
 						'title'=> 'Hired',
-						'a_href' => 'manage-my-team/'
+						'a_href' => 'manage_my_team/'
 						),
 					'pasthired' => array(
 						'title'=> 'Past Hires',
