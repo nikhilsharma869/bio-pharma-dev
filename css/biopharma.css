@@ -4137,3 +4137,18 @@ border: 2px solid #cacaca;
 .dropdown.pb-drd + a + #up-tabs {
     margin-top: 35px !important;
 }
+
+div.spage-container.manageMyTeam_contracts #up-tabs {
+    margin-top: 30px;
+}
+
+#ds-team + .row-title {
+    margin-top: 80px;
+    display: block;
+    position: relative;
+}
+
+label[for='check_ended'] {
+    margin-top: 9px;
+    margin-left: 20px;
+}

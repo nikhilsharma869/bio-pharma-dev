@@ -254,6 +254,12 @@ RewriteRule ^mysmes_saved/([a-zA-Z0-9_-]+)$ mysmes_saved.php?page=$1 [L]
 RewriteRule ^mysmes_saved/([a-zA-Z0-9_-]+)/$ mysmes_saved.php?page=$1 [L]
 RewriteRule ^mysmes_saved$ mysmes_saved.php [L]
 
+#mysmes_contracts
+RewriteRule ^mysmes_contracts/$ mysmes_contracts.php?page=$1 [L]
+RewriteRule ^mysmes_contracts/([a-zA-Z0-9_-]+)$ mysmes_contracts.php?page=$1 [L]
+RewriteRule ^mysmes_contracts/([a-zA-Z0-9_-]+)/$ mysmes_contracts.php?page=$1 [L]
+RewriteRule ^mysmes_contracts$ mysmes_contracts.php [L]
+
 #active job
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)/$ active_jobs.php?user=W&page=$1 [L]
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)$ active_jobs.php?user=W&page=$1 [L]

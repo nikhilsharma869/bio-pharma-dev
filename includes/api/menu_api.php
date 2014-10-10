@@ -76,7 +76,7 @@ function get_child_menu($parent, $current, $current_sub) {
 				),
 			'contracts' => array(
 				'title'=> 'Contracts',
-				'a_href' => 'mysmes_contracts.html'
+				'a_href' => 'mysmes_contracts/'
 				),
 			'activities' => array(
 				'title'=> 'Activities',
