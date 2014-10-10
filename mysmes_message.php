@@ -92,7 +92,7 @@ $r = mysql_query($sql);
                                 <p class="j-col1">
                                 <img class="mt-img" src="<?=$vpath?>viewimage.php?img=<?php echo $temp_logo;?>&amp;width=100&amp;height=100" alt=""/>
                                 <span class="mt-title"><strong class="c-blue"><?=$name?></strong></span>
-                                <span class="mt-address">From Project: <a class="c-blue" href="<?=$vpath?>conversation/<?php echo $d['id'];?>/<?=$d['user_id']?>/" title="Click Here to view Message"><?=$d['project']?></a></span>
+                                <span class="mt-address">From Project: <a class="c-blue" href="<?=$vpath?>conversation/<?php echo $d['id'];?>/<?=$d['private_id']?>/" title="Click Here to view Message"><?=$d['project']?></a></span>
                                 <span class="mt-ptime">Date: <?php echo date('M d, Y H:i:s ',strtotime($d['date']));?></span>
                                 </p>
                                 <div class="dropdown new-drd new-drd-pasthire">
