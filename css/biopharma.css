@@ -1363,6 +1363,7 @@
     display: inline-block;
     width: 78%;
     margin-left: 10px;
+    margin-top: 80px;
 }
 
 .up-infors h1 {
@@ -1378,7 +1379,7 @@
 
 .the-gru-of {
     overflow: hidden;
-    margin-top: 25px;
+    margin-top: 8px;
 }
 
 .the-gru-of h4 {
@@ -4100,4 +4101,39 @@ border: 2px solid #cacaca;
 
 .mt-address, .mt-ptime {
     display: block;
+}
+
+.mt-action-profile {
+    color: #fff !important;
+    text-decoration: none !important;
+    background: #2272ba;
+    display: inline-block;
+    padding: 10px 45px;
+    margin-top: 1em;
+    margin-right: 2em;
+    top: 9px;
+    float: left;
+    width: 40px;
+    position: relative;
+}
+
+.mt-action-profile:after {
+    content: "";
+    border: 6px solid transparent;
+    border-top: 7px solid #fff;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+.dropdown.pb-drd {
+    height: 28px;
+}
+
+.dropdown.pb-drd .dropdown-menu {
+    margin-top: 35px;
+}
+
+.dropdown.pb-drd + a + #up-tabs {
+    margin-top: 35px !important;
 }

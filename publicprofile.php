@@ -34,33 +34,21 @@ if (!empty($row_user[logo])) {
             </div>
             <div class="up-infors">
                 <h1 class="up-name"><?= ucwords($row_user['fname']) . '&nbsp;' . ucwords($row_user['lname']); ?></h1>
-                <p class="up-slogan"><?= ucfirst($row_user[slogan]) ?></p>
-                <div class="the-gru-of">
-                    <h4>The guru of</h4>
-                    <?php 
-                        $skill_q = "select skills from " . $prev . "user_profile where user_id=" . $row_user[user_id];
-
-                        $res_skill = mysql_query($skill_q);
-                        $data_skills = @mysql_result($res_skill,0,"skills");
-                        $data_skills = explode(',', $data_skills);
-                        $count = 1;
-                        foreach ($data_skills as $skill) {
-                            if($count > 5 ) break;
-                            $data_skill_name.= "<span><a href='javascript:;'>". $skill . '</a></span>';
-                            $count++;
-                        }
-                       
-                        $skill_name = $data_skill_name;
-                        echo $skill_name;
-                    ?>
-                </div>
+                <p class="up-slogan"><?= ucfirst($row_user[slogan]) ?></p>                
             </div>            
         </div>
         <div class="clear-fix"></div>
         <div class="user-profile-sidebar">
             <?php if(!empty($_SESSION['user_id'])) { ?>
                 <?php if($_SESSION['user_type'] == 'E' && $_SESSION['user_id'] != $row_user['user_id']) { ?>
-					<a class="up-contact" href="javascript:;" onclick="getinvite()">Invite</a>
+					<div class="dropdown pb-drd">
+                      <a id="dLabel" class="mt-action-profile" data-toggle="dropdown" data-target="#" href="/page.html">
+                        Action
+                      </a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li><a href="javascript:;" onclick="getinvite()">Invite</a></li>
+                      </ul>
+                    </div>
 					<?php
 						$n = mysql_num_rows(mysql_query("select *  from " . $prev . "wishlist where user_id='" . $_SESSION['user_id'] . "' and uid='" . $row_user['user_id'] . "'"));
 					?>
@@ -130,7 +118,25 @@ if (!empty($row_user[logo])) {
             <?php } ?>
         </div>
         <div class="user-profile-data-area">
-            <h2>Profile</h2>
+            <div class="the-gru-of">
+                <h4>The Subject Matter Expert of</h4>
+                <?php 
+                    $skill_q = "select skills from " . $prev . "user_profile where user_id=" . $row_user[user_id];
+
+                    $res_skill = mysql_query($skill_q);
+                    $data_skills = @mysql_result($res_skill,0,"skills");
+                    $data_skills = explode(',', $data_skills);
+                    $count = 1;
+                    foreach ($data_skills as $skill) {
+                        if($count > 4 ) break;
+                        $data_skill_name.= "<span><a href='javascript:;'>". $skill . '</a></span>';
+                        $count++;
+                    }
+                   
+                    $skill_name = $data_skill_name;
+                    echo $skill_name;
+                ?>
+            </div>
             <div id="up-content" class="tab-content">
                 <?php if(!empty($_SESSION['user_id'])) { ?>
                 <div class="up-content-section tab-pane" id="up-portfolio">
