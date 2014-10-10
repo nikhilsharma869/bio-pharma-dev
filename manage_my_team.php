@@ -105,6 +105,9 @@ $r = mysql_query($sql);
                                       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                                         <li><a href="#" class="">Invite</a></li>
                                         <li><a href="#" class="">Rehire</a></li>
+                                        <?php if($d['project_type'] == 'H') : ?>
+                                        <li><a href="#" class="">Edit Contract</a></li>
+                                        <?php endif?>
                                       </ul>
                                     </div>
                                 </p>
