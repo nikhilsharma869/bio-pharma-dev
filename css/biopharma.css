@@ -4152,3 +4152,15 @@ label[for='check_ended'] {
     margin-top: 9px;
     margin-left: 20px;
 }
+
+.save-rating{
+    margin-top: 5px;
+    display: block;
+}
+
+.managemyteam-content .j-row .j-col2 img.save-ct-img {
+    display: inline-block; 
+    text-align: center; 
+    max-width: 120px; 
+    margin: 4px 0 5px 0;
+}

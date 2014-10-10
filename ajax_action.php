@@ -29,3 +29,16 @@ function save_job() {
 		echo "Job has been saved!";
 	}
 }
+
+function remove_save_sme() {
+	global $prev;
+	$user_id = $_REQUEST['user_id'];
+	$uid = $_REQUEST['uid'];
+	
+	$result = mysql_query("DELETE FROM ".$prev."wishlist WHERE user_id=".$user_id." AND uid=".$uid);
+	if($result) {
+		echo "Remove sme successfully!";
+	} else {
+		echo "Remove failed!";
+	}
+}
