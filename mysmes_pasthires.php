@@ -1,5 +1,6 @@
 <?php
 include "includes/header.php";
+CheckLogin();
 $no_of_records = 5;
 $sql = "SELECT * FROM " . $prev . "user AS u
         LEFT JOIN ".$prev."projects AS p ON p.chosen_id=u.user_id
@@ -60,7 +61,7 @@ $r = mysql_query($sql);
                     <div class="content-right">
                         <div class="search-team">
                             <form name="search-frm" action="" method="post">
-                                <input type='text' name="keyword" placeholder="Search for Freelancers">                                
+                                <input type='text' name="keyword" placeholder="Search for SMEs">                                
                                 <input type="submit" value="" name="submit">
                             </form>
                         </div>

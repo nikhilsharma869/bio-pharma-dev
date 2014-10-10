@@ -230,17 +230,29 @@ RewriteRule ^contracts/([a-zA-Z0-9_-]+)$ contracts.php?page=$1 [L]
 RewriteRule ^work_diary/([a-zA-Z0-9_-]+)$ job_work_diary.php?id=$1 [L]
 
 #client section 
-#manage-my-team
+#manage_my_team
 RewriteRule ^manage_my_team/$ manage_my_team.php?page=$1 [L]
 RewriteRule ^manage_my_team/([a-zA-Z0-9_-]+)$ manage_my_team.php?page=$1 [L]
 RewriteRule ^manage_my_team/([a-zA-Z0-9_-]+)/$ manage_my_team.php?page=$1 [L]
 RewriteRule ^manage_my_team$ manage_my_team.php [L]
 
-#manage-my-team
+#mysmes_pasthires
 RewriteRule ^mysmes_pasthires/$ mysmes_pasthires.php?page=$1 [L]
 RewriteRule ^mysmes_pasthires/([a-zA-Z0-9_-]+)$ mysmes_pasthires.php?page=$1 [L]
 RewriteRule ^mysmes_pasthires/([a-zA-Z0-9_-]+)/$ mysmes_pasthires.php?page=$1 [L]
 RewriteRule ^mysmes_pasthires$ mysmes_pasthires.php [L]
+
+#mysmes_message
+RewriteRule ^mysmes_message/$ mysmes_message.php?page=$1 [L]
+RewriteRule ^mysmes_message/([a-zA-Z0-9_-]+)$ mysmes_message.php?page=$1 [L]
+RewriteRule ^mysmes_message/([a-zA-Z0-9_-]+)/$ mysmes_message.php?page=$1 [L]
+RewriteRule ^mysmes_message$ mysmes_message.php [L]
+
+#mysmes_saved
+RewriteRule ^mysmes_saved/$ mysmes_saved.php?page=$1 [L]
+RewriteRule ^mysmes_saved/([a-zA-Z0-9_-]+)$ mysmes_saved.php?page=$1 [L]
+RewriteRule ^mysmes_saved/([a-zA-Z0-9_-]+)/$ mysmes_saved.php?page=$1 [L]
+RewriteRule ^mysmes_saved$ mysmes_saved.php [L]
 
 #active job
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)/$ active_jobs.php?user=W&page=$1 [L]

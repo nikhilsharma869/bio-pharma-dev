@@ -62,11 +62,11 @@ function get_child_menu($parent, $current, $current_sub) {
 						),
 					'messages' => array(
 						'title'=> 'Messages',
-						'a_href' => 'mysmes_message.html'
+						'a_href' => 'mysmes_message/'
 						),
 					'saved' => array(
 						'title'=> 'Saved',
-						'a_href' => 'mysmes_saved.html'
+						'a_href' => 'mysmes_saved/'
 						)
 					)
 				),

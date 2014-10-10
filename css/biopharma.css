@@ -4097,3 +4097,7 @@ border: 2px solid #cacaca;
     color: #fff !important;
     text-decoration: none !important;
 }
+
+.mt-address, .mt-ptime {
+    display: block;
+}
