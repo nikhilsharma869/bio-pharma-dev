@@ -102,9 +102,9 @@ $r = mysql_query($sql);
                             ?>  
                             <div class="j-row">
                                 <p class="j-col1"><?=$name?><br/><span class="small-text"><?=ucfirst($d['slogan'])?></span></p>
-                                <p class="j-col2"><?php echo date('M d, Y', strtotime($d['ctime'])); ?> - <?php if($d['status']=='process') {echo 'Present';} else { echo 'Ended';} ?></p>
+                                <p class="j-col2"><?php echo date('M d, Y', strtotime($d['ctime'])); ?> - <?php if($d['status']=='process') {echo 'Present';} else { echo date('M d, Y', strtotime($d['edate']));} ?></p>
                                 <?php if($d['project_type_bid'] == 'H') : ?>
-                                <p class="j-col3"><span>$<?=$d['bid_amount']?>/hour<br/>20 maximum hours/week</span>
+                                <p class="j-col3"><span>$<?=$d['bid_amount']?>/hour<br/><?=$d['hour_limit']?> maximum hours/week</span>
                                 <a href="<?= $vpath ?>work_diary/<?= $d['p_id'] ?>" class="work-diary">Work Diary</a></p>
                                 <?php else: ?>
                                 <p class="j-col3"><span>$<?=$d['paid_amount']?> paid of $<?=$d['bid_amount']?></span>
