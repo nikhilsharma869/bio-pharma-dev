@@ -3380,7 +3380,7 @@ width: 38%;
 }
 #reports_activity_summary_after .profile_left{padding-top:40px;}
 #manageMyTeam_workDiary .content-right{padding: 0px 15px 15px;}
-#manageMyTeam_workDiary .profile_left{padding-top:30px;}
+#manageMyTeam_workDiary .profile_left{padding-top:10px;}
 #reports_activity_summary_after .right-content{padding: 0 15px 15px;}
 #reports_activity_summary_after .time-zone{margin-top:0; border: 1px solid #959595;border-radius: 0}
 .from-time .t-from{margin: 8px 10px 0 0;}

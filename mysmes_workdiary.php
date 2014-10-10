@@ -10,8 +10,8 @@ include "includes/header.php";
                     <!-- tabs left -->
                      <?php
                         $parent = 'manage_my_team';
-                        $current = 'my_team';
-                        $current_sub = 'work_diary';
+                        $current = 'work_diary';
+                        $current_sub = '';
                         get_child_menu($parent, $current, $current_sub);
                     ?>
                 </div>
