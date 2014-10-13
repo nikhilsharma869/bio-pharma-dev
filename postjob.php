@@ -189,6 +189,7 @@ function check_Selected_Skills($current_skill,$list_skills){
 			$_REQUEST[budget_id] = 0;
 			$budgetmin = $_POST['budget_min'];
 			$budgetmax = $_POST['budget_max'];
+			$hour_limit = $_POST['hour_limit'];
 		}
 		$amnt = $setting['currency'] . $budgetmin;
 		if ($budgetmax != '') {
@@ -203,7 +204,7 @@ function check_Selected_Skills($current_skill,$list_skills){
 		
 		//Fixed category don't use it
 		
-		$sql_inser_project = mysql_query("insert into " . $prev . "projects set chosen_id='',status='open',id='" . $ttoy . "',date2='" . $ttoy . "',project='" . mysql_real_escape_string($_REQUEST[project]) . "',special='" . $special . "',categories='" . $categories . "',expires='" . $expires . "',budget_id='" . $_REQUEST[budget_id] . "',budgetmin='" . $budgetmin . "',budgetmax='" . $budgetmax . "',creation='" . date("Y-m-d") . "',ctime='" . date("h:i") . "',user_id='" . $_SESSION[user_id] . "',project_type='" . $_POST['project_type'] . "',description='" . mysql_real_escape_string($_REQUEST[description]) . "',attachment='" . $rud . "',opsys='" . $_REQUEST[opsys] . "',datasys='" . $_REQUEST[datasys] . "',zip='" . $_REQUEST[zip] ."', enabled_manual_time='" . $_REQUEST[enabled_manual_time] . "',main_cat_id='" . $main_cat_id . "'");
+		$sql_inser_project = mysql_query("insert into " . $prev . "projects set chosen_id='',status='open',id='" . $ttoy . "',date2='" . $ttoy . "',project='" . mysql_real_escape_string($_REQUEST[project]) . "',special='" . $special . "',categories='" . $categories . "',expires='" . $expires . "',budget_id='" . $_REQUEST[budget_id] . "',budgetmin='" . $budgetmin . "',budgetmax='" . $budgetmax . "',creation='" . date("Y-m-d") . "',ctime='" . date("h:i") . "',user_id='" . $_SESSION[user_id] . "',project_type='" . $_POST['project_type'] . "',description='" . mysql_real_escape_string($_REQUEST[description]) . "',attachment='" . $rud . "',opsys='" . $_REQUEST[opsys] . "',datasys='" . $_REQUEST[datasys] . "',zip='" . $_REQUEST[zip] ."', enabled_manual_time='" . $_REQUEST[enabled_manual_time] . "',main_cat_id='" . $main_cat_id . "',hour_limit='".$hour_limit."'");
 
 		if ($sql_inser_project) {
 
@@ -597,6 +598,13 @@ function check_Selected_Skills($current_skill,$list_skills){
 								</div>
 							</div>
 					     </div>  
+
+					    <div class="form-group hourly" <?=$STYLE?>>
+                            <label for="" class="col-sm-3 control-label"><?= $lang['HOUR_LIMIT_LABEL'] ?></label>
+                            <div class="col-sm-2">
+                              <input type="text" class="form-control" name="hour_limit" id="hour_limit" value="<?=$row_edit['hour_limit']?>">
+                            </div>
+                        </div>
 						
 						
 						<div class="form-group hourly_price">
@@ -931,6 +939,10 @@ function check_Selected_Skills($current_skill,$list_skills){
                 txt += "Enter budget price.\n";
 
             }
+
+           	if(document.postjob.hour_limit.value < 1) {
+           		txt += "Enter hours limit per week.\n"
+           	}
 
         }
       

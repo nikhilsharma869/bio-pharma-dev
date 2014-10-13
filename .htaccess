@@ -260,6 +260,12 @@ RewriteRule ^mysmes_contracts/([a-zA-Z0-9_-]+)$ mysmes_contracts.php?page=$1 [L]
 RewriteRule ^mysmes_contracts/([a-zA-Z0-9_-]+)/$ mysmes_contracts.php?page=$1 [L]
 RewriteRule ^mysmes_contracts$ mysmes_contracts.php [L]
 
+#message
+RewriteRule ^message/$ message.php?page=$1 [L]
+RewriteRule ^message/([a-zA-Z0-9_-]+)$ message.php?page=$1 [L]
+RewriteRule ^message/([a-zA-Z0-9_-]+)/$ message.php?page=$1 [L]
+RewriteRule ^message$ message.php [L]
+
 #active job
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)/$ active_jobs.php?user=W&page=$1 [L]
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)$ active_jobs.php?user=W&page=$1 [L]

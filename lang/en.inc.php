@@ -1320,6 +1320,7 @@ $lang = array(
 'D_EXP_LV_3_D' => "I am willing to pay higher rates for the most experienced freelancers",
 'FR_LB_JOB_MANUAL_TIME_YES' => "YES",
 'FR_LB_JOB_MANUAL_TIME_NO' => "NO",
+'HOUR_LIMIT_LABEL' => "Hourly Limit Per Week",
 //POST JOB
 
 

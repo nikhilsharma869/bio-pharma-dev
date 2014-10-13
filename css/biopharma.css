@@ -4164,3 +4164,44 @@ label[for='check_ended'] {
     max-width: 120px; 
     margin: 4px 0 5px 0;
 }
+
+.alert.apllybid-success-page {
+    padding: 5px;
+    background: #6ADF3B;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.apllybid-success {
+    background: #fff;
+    overflow: hidden;
+    font-size: 14px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.apllybid-success > span {
+    font-size: 24px;
+    color: #248B25;
+    background: #6ADF3B;
+    padding: 10px;
+    float: left;
+    margin-right: 10px;
+}
+
+p.succ-job-info {
+    float: left;
+    padding: 10px;
+    margin: 0;
+    color: #000;
+}
+
+.apllybid-success .succ-job-info > a, .apllybid-success > a {
+    color: #21ABE0 !important;
+    text-decoration: none !important;
+}
+
+.apllybid-success > a {
+    float: right;
+    padding: 10px;
+}

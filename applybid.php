@@ -360,16 +360,19 @@ if ($checkd['status'] == "open") {
 
     $message = '<font color="#f00">' . $lang['CANNOT_BID_PROJECT'] . '</font>';
 }
+$pname = mysql_fetch_array(mysql_query("select project from " . $prev . "projects where id=" . $_POST['projectid_hid']));
 ?>
 <div class="browse_contract">
-   <div class="inner-middle">
-    <div class="howitworks_box">
-        <div class="howitworks_text">
-            <h1><?= $lang['MESSAGE'] ?></h1>
-            <p><?php echo $message; ?></p>
-            <br clear="all" />
-            <!--<a href="project-dtl.php?id=<?= $_POST['projectid_hid']; ?>">-->	  <a href="<?= $vpath ?>project/<?= $_POST['projectid_hid']; ?>" class="submit_bott" style="text-decoration:none; margin:6px 14px;">	<?= $lang['BACK'] ?></a> </div>
-    </div>
+   <div class="inner-middle">    
+        <div class="alert alert-success apllybid-success-page" role="alert">
+            <div class="apllybid-success">
+                <span><i class="fa fa-check"></i></span>
+                <p class="succ-job-info">
+                    Job application sent for <a href="<?=$vpath?>project/<?= $_POST['projectid_hid']; ?>"><?=$pname['project']?></a>
+                </p>
+                <a href="<?=$vpath?>job_application.html">View all my job aplication</a>
+            </div>
+        </div>
    </div>
 </div>
 <div style="clear:both; height:10px;"></div>

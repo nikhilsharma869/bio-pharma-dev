@@ -217,14 +217,59 @@ CheckLogin();
 	$rec_date=mysql_query($inbox_data);
 
 	$num_date=mysql_num_rows($rec_date);
+
+// New Query Messages	
+$no_of_records = 5;
+$sql = "SELECT * FROM " . $prev . "user AS u
+        LEFT JOIN (SELECT * FROM ".$prev."pmb ORDER BY ".$prev."pmb.mid DESC) AS pmb ON pmb.user_id=u.user_id
+            LEFT JOIN ".$prev."projects AS p ON p.id=pmb.id 
+        WHERE pmb.private_id=" . $_SESSION['user_id'];
+
+
+
+$condser = 0;
+if($_REQUEST['keyword']!=''){
+
+    $srt=@explode(" ",$_REQUEST['keyword']);
+    if(count($srt)>0){
+        foreach($srt as $val){
+            $condser = " AND (u.username like '%".$val."%' OR u.fname like '%".$val."%'  OR u.lname like '%".$val."%')";
+
+        }
+        if($condser){
+            $sql .= $condser;
+        }
+    }
+}
+
+$sql .= " GROUP BY pmb.user_id, pmb.id ORDER BY pmb.date DESC";
+
+$num=mysql_num_rows(mysql_query($sql));    
+//Paging
+if($_REQUEST['page']){
+    $page=$_REQUEST['page'];
+}else{
+    $page=0;
+}
+
+$parr=array();
+$parr=paging_new($sql,$no_of_records,$page);
+
+$limitvalue  = $parr[1];
+$total_pages = $parr[2];
+$total_item  = $parr[3];
+
+
+$sql .= " LIMIT $limitvalue, $no_of_records";
+$r = mysql_query($sql);
 ?>
 
 
-<div class="spage-container">
+<div class="spage-container managemyteam_message">
     <div class="main_div2">
         <div class="inner-middle"> 
             <!-- Sidebar left -->
-            <div class="profile_left">
+            <div class="profile_left" style="padding-top:30px;">
                 <!-- tabs left -->
                <ul id="up-tabs" class="nav nav-tabs" role="tablist">
                     <li><a href="<?= $vpath ?>message.html">Inbox</a></li>
@@ -234,305 +279,56 @@ CheckLogin();
             <div class="profile_right">
                 <!-- content data list -->
                 <div class="content-right">
-					<form action="" method="post" name="frm" id="frm">
-
-								<?php
-
-								if($_REQUEST['msg']!="")
-
-								{ 
-
-									?>
-
-								<div class="sort_text_box">
-
-								  <div class="sort_text_left">
-
-									<?php
-
-										echo '<p>'. base64_decode($msg1) .'</p>';
-
-										?>
-
-								  </div>
-
-								</div>
-
-								<?php
-
-								}
-
-								?>
-
-						
-								<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_class">
-
-								<tr>
-
-								  <td colspan="4">
-
-										  <table width="100%" border="0" cellspacing="0" cellpadding="5">
-
-											<tr style="height: 40px;  background-color:#f7f7f7;">
-
-											  <td align="center" >
-
-											  </td>
-
-											  <td align="left"><strong><?=$lang['MESSAGE_FRM']?></strong></td>
-
-											  <td align="left"><strong><?=$lang['MESSAGE_PROJ']?></strong></td>
-
-											  <td  align="center"><strong><?=$lang['MESSAGE_DT']?></strong></td>
-
-											</tr>
-
-											<?php
-
-											$i=1;
-
-											if($num>0)
-
-											{
-
-												$index=10;
-
-												$no_page=ceil($no/$index);
-
-												if($_GET['pg'])
-
-												{
-
-													$page=$_GET['pg'];
-
-												}
-
-												else
-
-												{
-
-													$page=1;
-
-												}
-
-												$upper=($page-1)*$index;
-
-												$i=1;
-
-												while($row=mysql_fetch_array($r))
-
-												{
-
-													if($i%2==0)
-
-													{
-
-													$c1='#f7f7f7';
-
-													}
-
-													else
-
-													{
-
-													$c1='white';
-
-													}
-
-													//echo "select * from ".$prev."user where user_id='".$row['user_id']."'";
-
-													
-
-													$res1=mysql_query("select * from ".$prev."user where user_id='".$row['user_id']."'");
-
-													$row1=mysql_fetch_array($res1);
-
-													$sendernm = $row1['fname']." ".$row1['lname'];
-
-												
-
-													?>
-
-																<tr style="height: 40px; <?php if($row['readyet']=='0'){ print "background-color:#CCDDB9";}else{echo "background-color:#fff";}?>">
-
-																 
-
-																  <td align="center"></td>
-
-																  <td align="left" valign="center" style="font-size:12px; color:#6d6d6d; padding-left:5px;"><?php print $sendernm;?> </td>
-
-																  <td align="left" style="padding-left:5px;">
-
-													<?php
-
-														$proj_nm = mysql_fetch_array(mysql_query("SELECT project from ".$prev."projects where id='$row[id]'"));
-
-														
-
-														?>			  
-
-																<a class="font_bold2" style="font-weight: inherit;" href="<?=$vpath?>conversation/<?php echo $row['id'];?>/<?=$row['user_id']?>/" title="Click Here to view Message"><?php if($proj_nm[project]!=''){print ucwords($proj_nm[project]);}else{echo "Not defined";}?></a>
-
-													
-
-														
-
-																  </td>
-
-																  <td align="center" ><?php echo date('M d, Y H:i:s ',strtotime($row['date']));?>
-
-																  </td>
-
-																</tr>
-
-																<?php
-
-											
-
-													$i++;
-
-											
-
-												}
-
-											}
-
-											else
-
-											{
-
-												?>
-
-												<tr>
-
-												<td colspan="4" style="color:#999999;padding-left: 250px;padding-top: 20px; font-size:12px; font-weight:bold;"><?=$lang['NO_MESSAGE']?></td>
-
-												</tr>
-
-												<?php
-
-											}
-
-										?>
-
-										</table>
-
-
-								</td>
-
-								</tr>
-
-								<tr>
-
-								<td>
-
-								<?php
-
-								if($total>$no_of_records)
-
-								{			 			
-									echo "<div align=right>" .new_pagingnew(0,$vpath.'message/','/',$no_of_records,$_REQUEST['page'],$total,$table_id='',$tbl_name='') . "</div>"; 
-								}
-
-								?> </td>
-
-								</tr>
-
-							  </table>
-					</form>	
-					<div class="clear"></div>
+                	<?php
+                        echo new_pagingnew(5,$vpath.'message/',$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='');
+                    ?>                         
+                    <div class="managemyteam-content">
+                        <?php
+                        while($d=@mysql_fetch_array($r))
+                        {
+
+                            $name = $d[fname]." ".$d[lname];
+                            if(!empty($d[logo]))
+                            {
+                                $temp_logo=$d[logo];
+                            }
+                            else
+                            {
+                               $temp_logo="images/face_icon.gif";
+                            }   
+                            
+                        ?>  
+                        <div class="j-row" style="<?php if($d['readyet']=='0'){ print "background-color:#CCDDB9";}else{echo "background-color:#fff";}?>">
+                            <p class="j-col1">
+                            <img class="mt-img" src="<?=$vpath?>viewimage.php?img=<?php echo $temp_logo;?>&amp;width=100&amp;height=100" alt=""/>
+                            <span class="mt-title"><strong class="c-blue"><?=$name?></strong></span>
+                            <span class="mt-address">From Project: <a class="c-blue" href="<?=$vpath?>conversation/<?php echo $d['id'];?>/<?=$d['user_id']?>/" title="Click Here to view Message"><?=$d['project']?></a></span>
+                            <span class="mt-ptime">Date: <?php echo date('M d, Y H:i:s ',strtotime($d['date']));?></span>
+                            </p>
+                            <div class="dropdown new-drd new-drd-pasthire">
+                                  <a id="dLabel" class="mt-action" data-toggle="dropdown" data-target="#" href="/page.html">
+                                    Action
+                                  </a>
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li><a href="#" class="">Mark as Unread</a></li>
+                                    <li><a href="#" class="">Mark as Read</a></li>
+                                    <li><a href="#" class="">Delete</a></li>
+                                  </ul>
+                            </div>
+                        </div>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                    <?php
+                        echo new_pagingnew(5,$vpath.'message/',$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='');
+                    ?> 
                 </div>
             </div>
 
         </div>
     </div>  
 </div>
-
-<script type="text/javascript">
-
-
-
-function validate()
-
-{
-
-var chks = document.getElementsByName('checkboxmsg[]');
-
-var hasChecked = false;
-
-	for (var i = 0; i < chks.length; i++)
-
-	{
-
-		if(chks[i].checked)
-
-		{
-
-			hasChecked = true;
-
-			break;
-
-		}
-
-	}
-
-	if (hasChecked == false)
-
-	{
-
-		alert("<?=$lang['SELECT_CHECKBOX']?>");
-
-		return false;
-
-	}
-
-return true;
-
-}
-
-
-
-function modify_boxes(to_be_checked,total_boxes)
-
-{
-
- for ( i=0 ; i < total_boxes ; i++ )
-
- {
-
-   if(to_be_checked)
-
-   {//alert(document.frm.chk[i]);  
-
- 		document.frm.chk[i].checked=true;
-
-		document.getElementById('checkboxtrue').style.display = 'none';
-
-		document.getElementById('checkboxfalse').style.display = '';
-
-		document.getElementById('checkboxfalse').checked = true;
-
-   }
-
-   else
-
-   {
-
-   		document.frm.chk[i].checked=false;
-
-		document.getElementById('checkboxtrue').style.display = '';
-
-		document.getElementById('checkboxfalse').style.display = 'none';
-
-		document.getElementById('checkboxtrue').checked=false;
-
-   }
-
- }  
-
-}
-
-
 
 </script>
 <?php include 'includes/footer.php'; ?>

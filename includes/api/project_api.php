@@ -52,7 +52,7 @@ function get_sent_job($user_id) {
 	$q = "SELECT *, DATEDIFF('".$datetime."', b.add_date) AS date_diff FROM ".$prev."buyer_bids AS b
 	LEFT JOIN ".$prev."projects AS p ON b.project_id=p.id
 		INNER JOIN ".$prev."user AS u ON p.user_id=u.user_id 
-	WHERE b.bidder_id='".$user_id."' AND b.chose != 'C' AND p.status='open' ORDER BY b.id DESC ";
+	WHERE b.bidder_id='".$user_id."' AND b.chose != 'C' AND p.status='open' GROUP BY p.id ORDER BY b.id DESC ";
 	
 	$r = mysql_query($q);
 	$list = array();
@@ -68,7 +68,7 @@ function get_archive_job($user_id) {
 	$q = "SELECT *, DATEDIFF('".$datetime."', b.add_date) AS date_diff FROM ".$prev."buyer_bids AS b
 	LEFT JOIN ".$prev."projects AS p ON b.project_id=p.id
 		INNER JOIN ".$prev."user AS u ON p.user_id=u.user_id 
-	WHERE b.bidder_id='".$user_id."' AND b.chose != 'C' ORDER BY b.id DESC ";
+	WHERE b.bidder_id='".$user_id."' AND b.chose != 'C' GROUP BY p.id ORDER BY b.id DESC ";
 	
 	$r = mysql_query($q);
 	$list = array();
