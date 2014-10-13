@@ -4225,3 +4225,21 @@ p.succ-job-info {
     width: 60px;
     left: 140px;
 }
+
+#add_manual_time_f *, #add_manual_time_f *:after, #add_manual_time_f *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#add_manual_time_f label {
+    text-align: left;
+}
+
+#add_manual_time_f .chosen-container {
+    width: 100% !important;
+}
+
+.date2add.hasDatepicker {
+    width: 180px;
+}
