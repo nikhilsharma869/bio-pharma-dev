@@ -661,7 +661,7 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                   <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-8">
                       <button type="submit" class="btn btn-default">Save</button>
-                      <button type="button" class="btn btn-default">Cancel</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     </div>
                   </div>
                 </form>            
@@ -701,6 +701,9 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                       if(result.success) {
                         $('.alert-success').html(result.success);
                         $('.alert-success').show();
+                        setTimeout(function(){
+                            $('#myModal').modal('hide');
+                        }, 4000);
                       }
                         setTimeout(function(){
                             $('.alert').fadeOut();

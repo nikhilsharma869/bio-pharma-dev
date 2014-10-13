@@ -63,8 +63,7 @@ function add_manual_time() {
 		exit();
 	}
 
-	$q_checker = sprintf("SELECT * FROM ".$prev."project_tracker WHERE project_id='%s' AND worker_id='%s' AND ((start_time <= '%s' AND start_time >= '%s') OR (stop_time <= '%s' AND stop_time >= '%s'))",
-		mysql_real_escape_string($project_id),
+	$q_checker = sprintf("SELECT * FROM ".$prev."project_tracker WHERE worker_id='%s' AND ((start_time <= '%s' AND start_time >= '%s') OR (stop_time <= '%s' AND stop_time >= '%s'))",
 		mysql_real_escape_string($user_id),
 		mysql_real_escape_string($stop_time),
 		mysql_real_escape_string($start_time),
