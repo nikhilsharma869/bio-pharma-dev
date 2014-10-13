@@ -31,10 +31,10 @@ include "includes/header.php";
                                             <div class="left-box">
                                                 <p class="name-member"><a href='<?= $vpath ?>project/<?php echo $job['project_id'];?>'><?php echo $job['project'];?></a></p>
                                                 <p class="small-text">Hired by <?php echo $job['username'];?></p>
-                                                <p><a href="#">Job Details</a><span class="line">|</span><a href="<?= $vpath ?>conversation/<?= $job['project_id']?>/<?= $job['user_id'] ?>/">Send Message</a></p>
+                                                <p><a href='<?= $vpath ?>project/<?php echo $job['project_id'];?>'>Job Details</a><span class="line">|</span><a href="<?= $vpath ?>conversation/<?= $job['project_id']?>/<?= $job['user_id'] ?>/">Send Message</a></p>
                                             </div>
                                             <div class="right-box">
-                                                <p class="time-week">4:00 of 20 hrs this week</p>
+                                                <p class="time-week">4:00 of <?php echo $job['hour_limit'];?> hrs this week</p>
                                                 <p class="small-text">@$<?php echo $job['bid_amount'];?>/hr = $<?php echo $job['paid_amount'];?></p>
                                                 <a href="<?= $vpath ?>work_diary/<?= $job['project_id']?>" class="view-load">view work diary</a>
                                             </div>
@@ -53,7 +53,7 @@ include "includes/header.php";
                                             <div class="left-box">
 												<p class="name-member"><a href='<?= $vpath ?>project/<?php echo $job['project_id'];?>'><?php echo $job['project'];?></a></p>
                                                 <p class="small-text">Hired by <?php echo $job['username'];?></p>
-                                                <p><a href="#">Job Details</a><span class="line">|</span><a href="<?= $vpath ?>conversation/<?= $job['project_id']?>/<?= $job['user_id'] ?>/">Send Message</a></p>
+                                                <p><a href='<?= $vpath ?>project/<?php echo $job['project_id'];?>'>Job Details</a><span class="line">|</span><a href="<?= $vpath ?>conversation/<?= $job['project_id']?>/<?= $job['user_id'] ?>/">Send Message</a></p>
                                             </div>
                                             <div class="right-box">
                                                 <p class="time-of-price">$<?php echo $job['paid_amount'];?> paid of $<?php echo $job['bid_amount'];?> </p>

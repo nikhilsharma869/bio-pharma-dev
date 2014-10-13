@@ -1,103 +1,109 @@
 <?php
 include "includes/header.php";
+CheckLogin();
+$no_of_records = 5;
+$sql = "SELECT *,p.status AS pstatus FROM ".$prev."projects AS p
+        LEFT JOIN ".$prev."buyer_bids AS b ON p.id=b.project_id 
+            LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
+        WHERE p.chosen_id=".$_SESSION['user_id'];
+
+if(isset($_REQUEST['end_pj']) && $_REQUEST['end_pj'] != 'all') {
+    $sql .= " AND p.status='complete'";
+} else {
+    $sql .= " AND (p.status='complete' OR p.status='process')";
+}
+
+$condser = 0;
+if($_REQUEST['keyword']!=''){
+
+    $srt=@explode(" ",$_REQUEST['keyword']);
+    if(count($srt)>0){
+        foreach($srt as $val){
+            $condser = " AND (p.project like '%".$val."%')";
+
+        }
+        if($condser){
+            $sql .= $condser;
+        }
+    }
+}
+// $sql .= " GROUP BY u.user_id";
+        
+//Paging
+if($_REQUEST['page']){
+    $page=$_REQUEST['page'];
+}else{
+    $page=0;
+}
+
+$parr=array();
+$parr=paging_new($sql,$no_of_records,$page);
+
+$limitvalue  = $parr[1];
+$total_pages = $parr[2];
+$total_item  = $parr[3];
+
+
+$sql .= " LIMIT $limitvalue, $no_of_records";
+$r = mysql_query($sql);
+
 ?>
-    <div class="spage-container contracts">
+    <div class="spage-container manageMyTeam_contracts">
         <div class="main_div2">
             <div class="inner-middle"> 
                 <!-- Sidebar left -->
+                <h3 class="title-page">Contracts</h3>
                 <div class="profile_left contracts_left">
                     <!-- tabs left -->
-                    <h3 class="title-page">Contracts</h3>
                     <?php
                         $parent = 'my_job';
                         $current = 'contracts';
                         $current_sub = '';
                         get_child_menu($parent, $current, $current_sub);
-				
-						// $my_jobs = get_my_job($_SESSION['user_id'],'*');
-						$no_of_records = 1;
-						$query1=" SELECT * FROM ".$prev."projects AS p
-										LEFT JOIN ".$prev."buyer_bids AS b ON p.id=b.project_id 
-										LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
-										WHERE p.chosen_id='".$_SESSION['user_id']."'
-									";
-						
-						if($_REQUEST['page']){
-							$page=$_REQUEST['page'];
-						}else{
-							$page=0;
-						}
-						
-						$parr=array();
-						$parr=paging_new($query1,$no_of_records,$page);
-						
-						$limitvalue  = $parr[1];
-						$total_pages = $parr[2];
-						$total_item  = $parr[3];
-						
-						$query1 .= " LIMIT $limitvalue, $no_of_records";
-						
-						$result=mysql_query($query1);
-					?>		
+                    ?>
                 </div>
                 <!-- Content right -->
                 <div class="profile_right">
                     <!-- content data list -->
-                    <div class="content-right">
-                        <div class="search">
-                            <form name="search-frm" action="" method="post">
-                                <input type='text' name="s" placeholder="Enter Name, Title or Team">
-                                <span class="checkbox_icon"><input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                <i class="fa"></i></span>
+                    <div class="content-right sv-plus">
+                        <div class="search" id="ds-team"> 
+                            <form name="search-frm" id="search-frm" action="" method="post">
+                                <input type='text' name="keyword" placeholder="Enter Name, Title or Team" value="<?=$_REQUEST['keyword']?>">
+                                <input id="check_ended" type="checkbox" class="css-input" name="end_pj" <?php if(isset($_REQUEST['end_pj']) && $_REQUEST['end_pj'] != 'all') {echo 'value="ended" checked="checked"';} else { echo "value='all'";}   ?> />    
+                                <label for="check_ended" class="css-label"></label>
                                 <label>Ended Contacts</label>
                             </form>
                         </div>
-                        <!--<div class="page-nav">                        
-                            <ul class="nav-top">
-                                <li class="nav-prev"><a href="#">Previous</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">...</a></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">10</a></li>
-                                <li class="nav-next"><a href="#">Next</a></li>
-                            </ul>
-                        </div>-->
-						<?php
-							echo new_pagingnew(5,$vpath.'contracts/','/'.$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='');
-						?>
-						
-                        <div class="contract-title">                            
+                        <?php
+                            echo new_pagingnew(5,$vpath.'contracts/',$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='');
+                        ?>
+                        <div class="row-title">                            
                             <p class="j-col1 text-bold">Contracts</p>
                             <p class="j-col2 text-bold">Time Period</p>
                             <p class="j-col3 text-bold">Terms</p>
                         </div>
-                        <div class="contract-content">
-                        <?php
-							
-                            if($result!=NULL){
-                                while($job=@mysql_fetch_array($result))
-								{
-                        ?>
+                        <div class="row-content">
+                            <?php
+                        
+                            while($d=@mysql_fetch_array($r))
+                            {      
+                                                     
+                            ?>  
                             <div class="j-row">
-								<a href='<?= $vpath ?>project/<?php echo $job['project_id'];?>'><p class="j-col1"><?php echo $job['project']?></p></a>
-                                <p class="j-col2"><?php echo date('M d, Y',$job['date2']); ?> - Present</p>
-								<?php if($job['project_type']=='H'){ ?>
-									<p class="j-col3"><span>$<?php echo $job['bid_amount'];?>/hour 1 maximum hours/week</span>
-								<?php }else{ ?>
-									<p class="j-col3"><span>$<?php echo $job['bid_amount'];?> fixed</span>
-								<?php } ?>
-                                <a href="<?= $vpath ?>work_diary/<?= $job['project_id']?>">Work Diary</a></p>
+                                <a href='<?= $vpath ?>project/<?php echo $d['project_id'];?>'><p class="j-col1"><?php echo $d['project']?></p></a>
+                                <p class="j-col2"><?php echo date('M d, Y', strtotime($d['ctime'])); ?> - <?php if($d['pstatus']=='process') {echo 'Present';} else { echo date('M d, Y', strtotime($d['edate']));} ?></p>
+                                <?php if($d['project_type_bid'] == 'H') : ?>
+                                <p class="j-col3"><span>$<?=$d['bid_amount']?>/hour<br/><?=$d['hour_limit']?> maximum hours/week</span>
+                                <a href="<?= $vpath ?>work_diary/<?= $d['p_id'] ?>" class="work-diary">Work Diary</a></p>
+                                <?php else: ?>
+                                <p class="j-col3"><span>$<?=$d['paid_amount']?> paid of $<?=$d['bid_amount']?></span>
+                                <?php endif; ?>
                             </div>
-                            <?php }
-							
-							}?>
+                            <?php } ?>
                         </div>
-                       
-						<?php
-						echo new_pagingnew(5,$vpath.'contracts/','/'.$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='');
-						?>
-                     
+                        <?php
+                            echo new_pagingnew(5,$vpath.'contracts/',$param,$no_of_records,0,$total_pages,$table_id='',$tbl_name='');
+                        ?>
                     </div>
                 </div>
             </div>
@@ -105,4 +111,17 @@ include "includes/header.php";
         </div>
     </div>  
 </div>
+<script type="text/javascript">
+    $('#check_ended').on('change', function(){
+        if($(this).is(':checked')) {
+            $(this).val('ended');
+            $('#search-frm').submit();
+        } else {
+            $(this).val('all');
+            $('#search-frm').submit();
+        }
+    })
+</script>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>  
 <?php include 'includes/footer.php'; ?>

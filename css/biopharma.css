@@ -2717,7 +2717,7 @@ background: #fff;
 .sv-dropdown ul{
     background: #fff;
     position: absolute;
-    margin-top: -1px;
+    margin-top: 0px;
     padding-right: 30px;
     border-left: 1px solid #959595;
     border-right: 1px solid #959595;
@@ -2726,8 +2726,8 @@ background: #fff;
      width: 233px;
     padding: 5px 30px 5px 15px;
     list-style: none; 
-    top:32px;
-    left: 0;
+    top:33px;
+    left: 1px;
     overflow-y: scroll;
     z-index: 200;
 }
@@ -4163,4 +4163,65 @@ label[for='check_ended'] {
     text-align: center; 
     max-width: 120px; 
     margin: 4px 0 5px 0;
+}
+
+.alert.apllybid-success-page {
+    padding: 5px;
+    background: #6ADF3B;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.apllybid-success {
+    background: #fff;
+    overflow: hidden;
+    font-size: 14px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.apllybid-success > span {
+    font-size: 24px;
+    color: #248B25;
+    background: #6ADF3B;
+    padding: 10px;
+    float: left;
+    margin-right: 10px;
+}
+
+p.succ-job-info {
+    float: left;
+    padding: 10px;
+    margin: 0;
+    color: #000;
+}
+
+.apllybid-success .succ-job-info > a, .apllybid-success > a {
+    color: #21ABE0 !important;
+    text-decoration: none !important;
+}
+
+.apllybid-success > a {
+    float: right;
+    padding: 10px;
+}
+
+.modal {
+    z-index: 99999;
+}
+
+.sv-dropdown.dd-timezone ul {
+    margin-top: 0px;
+    top: 33px;
+    left: 2px;
+}
+
+.sv-dropdown.f-time ul {
+    width: 60px;
+    left: 0;
+}
+
+.sv-dropdown.to-time ul{
+    width: 60px;
+    left: 140px;
 }
