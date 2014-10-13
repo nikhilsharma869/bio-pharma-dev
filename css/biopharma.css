@@ -2717,7 +2717,7 @@ background: #fff;
 .sv-dropdown ul{
     background: #fff;
     position: absolute;
-    margin-top: -1px;
+    margin-top: 0px;
     padding-right: 30px;
     border-left: 1px solid #959595;
     border-right: 1px solid #959595;
@@ -2726,8 +2726,8 @@ background: #fff;
      width: 233px;
     padding: 5px 30px 5px 15px;
     list-style: none; 
-    top:32px;
-    left: 0;
+    top:33px;
+    left: 1px;
     overflow-y: scroll;
     z-index: 200;
 }
@@ -4208,4 +4208,20 @@ p.succ-job-info {
 
 .modal {
     z-index: 99999;
+}
+
+.sv-dropdown.dd-timezone ul {
+    margin-top: 0px;
+    top: 33px;
+    left: 2px;
+}
+
+.sv-dropdown.f-time ul {
+    width: 60px;
+    left: 0;
+}
+
+.sv-dropdown.to-time ul{
+    width: 60px;
+    left: 140px;
 }
