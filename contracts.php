@@ -1,7 +1,7 @@
 <?php
 include "includes/header.php";
 CheckLogin();
-$no_of_records = 1;
+$no_of_records = 5;
 $sql = "SELECT *,p.status AS pstatus FROM ".$prev."projects AS p
         LEFT JOIN ".$prev."buyer_bids AS b ON p.id=b.project_id 
             LEFT JOIN ".$prev."user AS u ON p.user_id=u.user_id 
