@@ -4205,3 +4205,7 @@ p.succ-job-info {
     float: right;
     padding: 10px;
 }
+
+.modal {
+    z-index: 99999;
+}

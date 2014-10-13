@@ -266,6 +266,12 @@ RewriteRule ^message/([a-zA-Z0-9_-]+)$ message.php?page=$1 [L]
 RewriteRule ^message/([a-zA-Z0-9_-]+)/$ message.php?page=$1 [L]
 RewriteRule ^message$ message.php [L]
 
+#contracts
+RewriteRule ^contracts/$ contracts.php?page=$1 [L]
+RewriteRule ^contracts/([a-zA-Z0-9_-]+)$ contracts.php?page=$1 [L]
+RewriteRule ^contracts/([a-zA-Z0-9_-]+)/$ contracts.php?page=$1 [L]
+RewriteRule ^contracts$ contracts.php [L]
+
 #active job
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)/$ active_jobs.php?user=W&page=$1 [L]
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)$ active_jobs.php?user=W&page=$1 [L]
