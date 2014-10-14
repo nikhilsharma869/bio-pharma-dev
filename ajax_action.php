@@ -98,3 +98,12 @@ function add_manual_time() {
 	exit();
 }
 
+function load_work_diary() {
+	global $prev;
+	$user_id = $_REQUEST['user_id'];
+	$project_id = $_REQUEST['project_id'];
+	$load_date = $_REQUEST['load_date'];
+
+	
+}
+
