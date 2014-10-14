@@ -4,6 +4,7 @@ include "includes/header.php";
 $current_date = date('D, M d, Y');
 
 $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
+
 ?>
     <div class="spage-container job_work_diary">
         <div class="main_div2">
@@ -65,534 +66,86 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                             <p>Selected: <strong>00:00 min</strong></p>
                             </div>
                         </div>
-                        <div class="container">
-                            <div class="working-raj">
-                            <div class="left-content">
-                                <div class="time first-time">
-                                    <span class="time-title">7<br/>am</span>
-                                    <span class="checkbox_icon"><input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                    <i class="fa"></i></span>
-                                </div>
-                                <div class="time">
-                                    <span class="time-title">8<br/>am</span>
-                                    <span class="checkbox_icon"><input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                    <i class="fa"></i></span>
-                                </div>
-                                <div class="time">
-                                    <span class="time-title">9<br/>am</span>
-                                    <span class="checkbox_icon"><input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                    <i class="fa"></i></span>
-                                </div>
-                                <div class="time">
-                                    <span class="time-title">10<br/>am</span>
-                                    <span class="checkbox_icon"><input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                    <i class="fa"></i></span>
-                                </div>
-                            </div>
-                            <div class="right-content">
-                                <div class="r-time">
-                                    <h3>working with Raj</h3>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:10 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:20 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:30 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:40 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item last">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:50 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="r-time">
-                                    <h3>working with Raj</h3>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:10 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:20 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:30 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:40 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item last">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:50 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="r-time">
-                                    <h3>working with Raj</h3>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:10 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:20 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:30 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:40 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item last">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:50 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="r-time">
-                                    <h3>working with Raj</h3>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:10 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:20 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:30 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="r-item">
-                                        <img src="images/job_work_diary/edit_bott.jpg" alt=""/>
-                                        <div class="r-item-bottom">                                             
-                                            <span class="checkbox_icon">
-                                            <input type="checkbox" class="sv-checkbox" value="" name="ended" />
-                                            <i class="fa"></i></span>
-                                            <span class="time-title">7:40 am</span>
-                                            <ul class="r-code">
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>                                                
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li class="last-code"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
+                        <div id="workdiary-tracker-containter">
+                            <ul class="workdiary-tracker-list-snap">
+                                <li class="snap-list-label">
+                                    <h3>12</h3>
+                                    <p>pm</p>
+                                    <input id='snap_126ddYi3hbaLexIGn5' type='checkbox' data-check='12' class='css-input snap-list-check' />
+                                    <label for='snap_126ddYi3hbaLexIGn5' class='css-label'></label>
+                                </li>
+                                <li data-workdiary-time='12' data-workdiary-memo='2' class='first-workdiary-snap first-li-workdiary-snap'>
+                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
+                                    <img src='images/job_work_diary/edit_bott.jpg'>
+                                    <input id='workdiary_snap6ddYi3hbaLexIGn5' type='checkbox' class='css-input workdiary_snap_check_box' />
+                                    <label for='workdiary_snap6ddYi3hbaLexIGn5' class='css-label'>12:20 pm</label>
+                                </li>
+                                <li data-workdiary-time='12' data-workdiary-memo='2' class=''>
+                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
+                                    <img src='images/job_work_diary/edit_bott.jpg'>
+                                    <input id='workdiary_snapyz0yAHb50JRN3qrJ' type='checkbox' class='css-input workdiary_snap_check_box' />
+                                    <label for='workdiary_snapyz0yAHb50JRN3qrJ' class='css-label'>12:30 pm</label>
+                                </li>
+                                <li data-workdiary-time='12' data-workdiary-memo='2' class=''>
+                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
+                                    <img src='images/job_work_diary/edit_bott.jpg'>
+                                    <input id='workdiary_snapR4isiiKX10ZGuelV' type='checkbox' class='css-input workdiary_snap_check_box' />
+                                    <label for='workdiary_snapR4isiiKX10ZGuelV' class='css-label'>12:40 pm</label>
+                                </li>
+                                <li data-workdiary-time='12' data-workdiary-memo='2' class=''>
+                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
+                                    <img src='images/job_work_diary/edit_bott.jpg'>
+                                    <input id='workdiary_snapUslFMNuycP3cqfWf' type='checkbox' class='css-input workdiary_snap_check_box' />
+                                    <label for='workdiary_snapUslFMNuycP3cqfWf' class='css-label'>12:50 pm</label>
+                                </li>
+                                <li data-workdiary-time='12' data-workdiary-memo='2' class=''>
+                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
+                                    <img src='images/job_work_diary/edit_bott.jpg'>
+                                    <input id='workdiary_snapU2slFMNuycP3cqfWf' type='checkbox' class='css-input workdiary_snap_check_box' />
+                                    <label for='workdiary_snapU2slFMNuycP3cqfWf' class='css-label'>12:50 pm</label>
+                                </li>
+                            </ul>
+                            <ul class="workdiary-tracker-list-snap" id="snap_test">
+                                <li class="snap-list-label">
+                                    <h3>08</h3><p>am</p>
+                                    <input id="snap_08VxIxS8pPtRTPRcZQ" type="checkbox" data-check="08" class="css-input snap-list-check">
+                                    <label for="snap_08VxIxS8pPtRTPRcZQ" class="css-label"></label>
+                                </li>
+                                <li date-workdiary-postion="0" data-workdiary-time="08" data-workdiary-memo="Working 1" class="first-li-workdiary-snap workdiary-snap-item">
+                                    <span class="cwork-diary-label-memo">Working 1</span>
+                                    <img src="images/job_work_diary/edit_bott.jpg">
+                                    <input id="workdiary_snapVxIxS8pPtRTPRcZQ" type="checkbox" class="css-input workdiary_snap_check_box">
+                                    <label for="workdiary_snapVxIxS8pPtRTPRcZQ" class="css-label">08:00 am</label>
+                                </li>
+                                <li date-workdiary-postion="1" data-workdiary-time="08" data-workdiary-memo="Working 1" class=" workdiary-snap-item">
+                                    <span class="cwork-diary-label-memo">Working 1</span>
+                                    <img src="images/job_work_diary/edit_bott.jpg">
+                                    <input id="workdiary_snapBsySiv2x8yZs1lxi" type="checkbox" class="css-input workdiary_snap_check_box">
+                                    <label for="workdiary_snapBsySiv2x8yZs1lxi" class="css-label">08:10 am</label>
+                                </li>
+                                <li date-workdiary-postion="2" data-workdiary-time="08" data-workdiary-memo="Working 1" class=" workdiary-snap-item">
+                                    <span class="cwork-diary-label-memo">Working 1</span>
+                                    <img src="images/job_work_diary/edit_bott.jpg">
+                                    <input id="workdiary_snapTV0Q5v5TxE1pg8Ay" type="checkbox" class="css-input workdiary_snap_check_box">
+                                    <label for="workdiary_snapTV0Q5v5TxE1pg8Ay" class="css-label">08:20 am</label>
+                                </li>
+                                <li date-workdiary-postion="3" data-workdiary-time="08" data-workdiary-memo="Working 1" class="last-workdiary-snap  workdiary-snap-item">
+                                    <span class="cwork-diary-label-memo">Working 1</span><img src="images/job_work_diary/edit_bott.jpg">
+                                    <input id="workdiary_snapLsNrX9yxNCoFRiEB" type="checkbox" class="css-input workdiary_snap_check_box">
+                                    <label for="workdiary_snapLsNrX9yxNCoFRiEB" class="css-label">08:30 am</label>
+                                </li>
+                                <li date-workdiary-postion="4" data-workdiary-time="08" data-workdiary-memo="Working 2" class="first-workdiary-snap  workdiary-snap-item">
+                                    <span class="cwork-diary-label-memo">Working 2</span><img src="images/job_work_diary/edit_bott.jpg">
+                                    <input id="workdiary_snapow5l6biPOsw8HW9N" type="checkbox" class="css-input workdiary_snap_check_box">
+                                    <label for="workdiary_snapow5l6biPOsw8HW9N" class="css-label">08:40 am</label>
+                                </li>
+                                <li date-workdiary-postion="5" data-workdiary-time="08" data-workdiary-memo="Working 2" class=" workdiary-snap-item">
+                                    <span class="cwork-diary-label-memo">Working 2</span><img src="images/job_work_diary/edit_bott.jpg">
+                                    <input id="workdiary_snapsk88kGIqzHQUEYtX" type="checkbox" class="css-input workdiary_snap_check_box">
+                                    <label for="workdiary_snapsk88kGIqzHQUEYtX" class="css-label">08:50 am</label>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
                 </div>
             </div>
             </div>
@@ -689,6 +242,14 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                     },3000);
                     return false;
                 }
+                if(memo2add == '') {
+                    $('.alert-warning').html("Please enter a Memo");
+                    $('.alert-warning').show();
+                    setTimeout(function(){
+                        $('.alert').fadeOut();
+                    },3000);
+                    return false;
+                }
                 $.ajax({
                    url: '<?= $vpath; ?>ajax_action.php',
                    data: {action: 'add_manual_time', stime2add: stime2add, etime2add: etime2add, date2add: date2add, memo2add: memo2add, project_id: project_id, user_id: user_id},
@@ -739,6 +300,13 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
         $( "#datepicker" ).on('change', function(){
             $('#date2add').val($(this).val());
             $('.date2add').html($(this).val());
+            $.ajax({
+                   url: '<?= $vpath; ?>ajax_action.php',
+                   data: {action: 'load_work_diary', project_id: '<?=$_REQUEST['id']?>', user_id: '<?=$_SESSION['user_id']?>', load_date: $(this).val()},
+                   success: function(data) {
+                      $('#workdiary-tracker-containter').html(data);
+                   }
+                });
         })
       });
     </script>
