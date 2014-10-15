@@ -111,35 +111,35 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                                     <input id="snap_08VxIxS8pPtRTPRcZQ" type="checkbox" data-check="08" class="css-input snap-list-check">
                                     <label for="snap_08VxIxS8pPtRTPRcZQ" class="css-label"></label>
                                 </li>
-                                <li date-workdiary-postion="0" data-workdiary-time="08" data-workdiary-memo="Working 1" class="first-li-workdiary-snap workdiary-snap-item">
+                                <li data-workdiary-postion="0" data-workdiary-time="08" data-workdiary-memo="Working 1" class="first-li-workdiary-snap workdiary-snap-item">
                                     <span class="cwork-diary-label-memo">Working 1</span>
                                     <img src="images/job_work_diary/edit_bott.jpg">
                                     <input id="workdiary_snapVxIxS8pPtRTPRcZQ" type="checkbox" class="css-input workdiary_snap_check_box">
                                     <label for="workdiary_snapVxIxS8pPtRTPRcZQ" class="css-label">08:00 am</label>
                                 </li>
-                                <li date-workdiary-postion="1" data-workdiary-time="08" data-workdiary-memo="Working 1" class=" workdiary-snap-item">
+                                <li data-workdiary-postion="1" data-workdiary-time="08" data-workdiary-memo="Working 1" class=" workdiary-snap-item">
                                     <span class="cwork-diary-label-memo">Working 1</span>
                                     <img src="images/job_work_diary/edit_bott.jpg">
                                     <input id="workdiary_snapBsySiv2x8yZs1lxi" type="checkbox" class="css-input workdiary_snap_check_box">
                                     <label for="workdiary_snapBsySiv2x8yZs1lxi" class="css-label">08:10 am</label>
                                 </li>
-                                <li date-workdiary-postion="2" data-workdiary-time="08" data-workdiary-memo="Working 1" class=" workdiary-snap-item">
+                                <li data-workdiary-postion="2" data-workdiary-time="08" data-workdiary-memo="Working 1" class=" workdiary-snap-item">
                                     <span class="cwork-diary-label-memo">Working 1</span>
                                     <img src="images/job_work_diary/edit_bott.jpg">
                                     <input id="workdiary_snapTV0Q5v5TxE1pg8Ay" type="checkbox" class="css-input workdiary_snap_check_box">
                                     <label for="workdiary_snapTV0Q5v5TxE1pg8Ay" class="css-label">08:20 am</label>
                                 </li>
-                                <li date-workdiary-postion="3" data-workdiary-time="08" data-workdiary-memo="Working 1" class="last-workdiary-snap  workdiary-snap-item">
+                                <li data-workdiary-postion="6" data-workdiary-time="08" data-workdiary-memo="Working 1" class="last-workdiary-snap  workdiary-snap-item">
                                     <span class="cwork-diary-label-memo">Working 1</span><img src="images/job_work_diary/edit_bott.jpg">
                                     <input id="workdiary_snapLsNrX9yxNCoFRiEB" type="checkbox" class="css-input workdiary_snap_check_box">
                                     <label for="workdiary_snapLsNrX9yxNCoFRiEB" class="css-label">08:30 am</label>
                                 </li>
-                                <li date-workdiary-postion="4" data-workdiary-time="08" data-workdiary-memo="Working 2" class="first-workdiary-snap  workdiary-snap-item">
+                                <li data-workdiary-postion="4" data-workdiary-time="08" data-workdiary-memo="Working 2" class="first-workdiary-snap  workdiary-snap-item">
                                     <span class="cwork-diary-label-memo">Working 2</span><img src="images/job_work_diary/edit_bott.jpg">
                                     <input id="workdiary_snapow5l6biPOsw8HW9N" type="checkbox" class="css-input workdiary_snap_check_box">
                                     <label for="workdiary_snapow5l6biPOsw8HW9N" class="css-label">08:40 am</label>
                                 </li>
-                                <li date-workdiary-postion="5" data-workdiary-time="08" data-workdiary-memo="Working 2" class=" workdiary-snap-item">
+                                <li data-workdiary-postion="5" data-workdiary-time="08" data-workdiary-memo="Working 2" class=" workdiary-snap-item">
                                     <span class="cwork-diary-label-memo">Working 2</span><img src="images/job_work_diary/edit_bott.jpg">
                                     <input id="workdiary_snapsk88kGIqzHQUEYtX" type="checkbox" class="css-input workdiary_snap_check_box">
                                     <label for="workdiary_snapsk88kGIqzHQUEYtX" class="css-label">08:50 am</label>
@@ -286,12 +286,39 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
             $(window).on("resize", function () {
                 $('.modal:visible').each(centerModal);
             });
+
+            
         })        
 
     </script>
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script>
+    function sortLiSnap(ulContainer) {
+        var items = ulContainer.find('li').get();
+        items.sort(function(a,b){
+          var keyA = $(a).data('workdiary-postion');
+          var keyB = $(b).data('workdiary-postion');
+
+          if (keyA < keyB) return -1;
+          if (keyA > keyB) return 1;
+          return 0;
+        });
+        
+        $.each(items, function(i, li){
+          ulContainer.append(li);
+        });
+    }
+
+    function checkMissingPos(ulContainer) {
+        for (var i = 0; i <= 5; i++) {
+            if(ulContainer.find('li[data-workdiary-postion='+i+']').length == 0) {
+                ulContainer.append('<li data-workdiary-postion="'+i+'" class="workdiary-snap-item"></li>');
+            }
+        }
+
+        sortLiSnap(ulContainer);
+    }
       $(function() {
         $( "#datepicker" ).datepicker( "option", "dateFormat", "D, M dd, yy" ); 
         $( "#datepicker" ).datepicker( "setDate", "<?=$current_date?>" );
@@ -305,6 +332,10 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                    data: {action: 'load_work_diary', project_id: '<?=$_REQUEST['id']?>', user_id: '<?=$_SESSION['user_id']?>', load_date: $(this).val()},
                    success: function(data) {
                       $('#workdiary-tracker-containter').html(data);
+                      $('.workdiary-tracker-list-snap').each(function() {
+                        var ulContainer = $(this);
+                        checkMissingPos(ulContainer);
+                      });
                    }
                 });
         })

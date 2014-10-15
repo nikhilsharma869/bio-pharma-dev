@@ -171,7 +171,7 @@ function load_work_diary() {
 					$value_str
 				);
 
-				$li = sprintf("<li date-workdiary-postion='%s' data-workdiary-time='%s' data-workdiary-memo='%s' class='%s'>%s</li>", 
+				$li = sprintf("<li data-workdiary-postion='%s' data-workdiary-time='%s' data-workdiary-memo='%s' class='%s'>%s</li>", 
 					$li_pos,
 					date('H', strtotime($key_time)), 
 					$list[$i]['memo'], 
