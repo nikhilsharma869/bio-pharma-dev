@@ -151,6 +151,8 @@ function load_work_diary() {
 					$class = 'first-workdiary-snap ';
 				} else if ( date('H:i', strtotime($key_time)) == date('H:i', strtotime($list[$i]['stop_time'])) ) {
 					$class = 'last-workdiary-snap ';
+				} else if (date('i', strtotime($key_time)) == '50' && date('H:i', strtotime($key_time.' + 10 minutes')) == date('H:i', strtotime($list[$i]['stop_time']))) {
+					$class = 'last-workdiary-snap ';
 				} else {
 					$class = '';
 				}
@@ -167,7 +169,7 @@ function load_work_diary() {
 				$class .= ' workdiary-snap-item';
 				$li_id = create_random_str(16);
 				
-				$li_data = sprintf("<span class='cwork-diary-label-memo'>%s</span><img src='images/job_work_diary/edit_bott.jpg'><input id='workdiary_snap%s' type='checkbox' class='css-input workdiary_snap_check_box' /><label for='workdiary_snap%s' class='css-label'>%s</label>", 
+				$li_data = sprintf("<span class='cwork-diary-label-memo'>%s</span><img src='images/manual_time_bg.jpg'><input id='workdiary_snap%s' type='checkbox' class='css-input workdiary_snap_check_box' /><label for='workdiary_snap%s' class='css-label'>%s</label>", 
 					$list[$i]['memo'],
 					$li_id,
 					$li_id,
@@ -216,8 +218,9 @@ function load_work_diary() {
 function get_all_dates_snap() {
 	global $prev;
 	$user_id = $_REQUEST['user_id'];
+	$project_id = $_REQUEST['project_id'];
 
-	$q = "SELECT * FROM ".$prev."project_tracker WHERE worker_id=".$user_id;
+	$q = "SELECT * FROM ".$prev."project_tracker WHERE project_id=".$project_id." AND worker_id=".$user_id;
 	$r = mysql_query($q);
 	$list = array();
 

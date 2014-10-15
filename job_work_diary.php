@@ -1,11 +1,15 @@
 <?php
 include "includes/header.php";
 
-$current_date = date('D, M d, Y');
+
 
 $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
 
-
+if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
+    $current_date = date('D, M d, Y', strtotime($_REQUEST['date2load']));
+} else {
+    $current_date = date('D, M d, Y');
+}
 ?>
     <div class="spage-container job_work_diary">
         <div class="main_div2">
@@ -26,17 +30,18 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                     <!-- content data list -->
                     <div class="content-right">
                         <div class="container">
-                            <div class="sv-dropdown dd-name">
-                            <?php $my_job = list_jobs();
-                                $count = 1;                                
-                                foreach ($my_job as $job):
-                                    if($count==1):?>
-                                        <div class="sv-dropSelect" for="<?php echo $job['id']?>"><?php echo $job['project']?></div> 
-                                    <ul> 
-                                    <?php endif;?>                                   
-                                    <li id="<?php echo $job['id']?>"><?php echo $job['project']?></li>
-                                <?php $count++; endforeach;?>
-                                    </ul>
+                            <div class="select-box select-box-pj">
+                                <select name="select_pj" id="select-pj" class="selectyze2">
+                                    <?php $my_job = list_jobs();
+                                    foreach ($my_job as $job) { 
+                                        $selected = '';
+                                        if(isset($_REQUEST['id']) && $_REQUEST['id'] == $job['id']) {
+                                            $selected = 'selected';
+                                        }
+                                        ?>
+                                        <option value="<?php echo $job['id']?>" <?php echo $selected ?>><?php echo $job['project']?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <a href="#" class="add-time" data-toggle="modal" data-target="#myModal">Add Manual Time</a>                        
                         </div>
@@ -70,84 +75,7 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                             </div>
                         </div>
                         <div id="workdiary-tracker-containter">
-                            <ul class="workdiary-tracker-list-snap">
-                                <li class="snap-list-label">
-                                    <h3>12</h3>
-                                    <p>pm</p>
-                                    <input id='snap_126ddYi3hbaLexIGn5' type='checkbox' data-check='12' class='css-input snap-list-check' />
-                                    <label for='snap_126ddYi3hbaLexIGn5' class='css-label'></label>
-                                </li>
-                                <li data-workdiary-time='12' data-workdiary-memo='2' class='first-workdiary-snap first-li-workdiary-snap'>
-                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
-                                    <img src='images/job_work_diary/edit_bott.jpg'>
-                                    <input id='workdiary_snap6ddYi3hbaLexIGn5' type='checkbox' class='css-input workdiary_snap_check_box' />
-                                    <label for='workdiary_snap6ddYi3hbaLexIGn5' class='css-label'>12:20 pm</label>
-                                </li>
-                                <li data-workdiary-time='12' data-workdiary-memo='2' class=''>
-                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
-                                    <img src='images/job_work_diary/edit_bott.jpg'>
-                                    <input id='workdiary_snapyz0yAHb50JRN3qrJ' type='checkbox' class='css-input workdiary_snap_check_box' />
-                                    <label for='workdiary_snapyz0yAHb50JRN3qrJ' class='css-label'>12:30 pm</label>
-                                </li>
-                                <li data-workdiary-time='12' data-workdiary-memo='2' class=''>
-                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
-                                    <img src='images/job_work_diary/edit_bott.jpg'>
-                                    <input id='workdiary_snapR4isiiKX10ZGuelV' type='checkbox' class='css-input workdiary_snap_check_box' />
-                                    <label for='workdiary_snapR4isiiKX10ZGuelV' class='css-label'>12:40 pm</label>
-                                </li>
-                                <li data-workdiary-time='12' data-workdiary-memo='2' class=''>
-                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
-                                    <img src='images/job_work_diary/edit_bott.jpg'>
-                                    <input id='workdiary_snapUslFMNuycP3cqfWf' type='checkbox' class='css-input workdiary_snap_check_box' />
-                                    <label for='workdiary_snapUslFMNuycP3cqfWf' class='css-label'>12:50 pm</label>
-                                </li>
-                                <li data-workdiary-time='12' data-workdiary-memo='2' class=''>
-                                    <span class='cwork-diary-label-memo'>Working with Raj</span>
-                                    <img src='images/job_work_diary/edit_bott.jpg'>
-                                    <input id='workdiary_snapU2slFMNuycP3cqfWf' type='checkbox' class='css-input workdiary_snap_check_box' />
-                                    <label for='workdiary_snapU2slFMNuycP3cqfWf' class='css-label'>12:50 pm</label>
-                                </li>
-                            </ul>
-                            <ul class="workdiary-tracker-list-snap" id="snap_test">
-                                <li class="snap-list-label">
-                                    <h3>08</h3><p>am</p>
-                                    <input id="snap_08VxIxS8pPtRTPRcZQ" type="checkbox" data-check="08" class="css-input snap-list-check">
-                                    <label for="snap_08VxIxS8pPtRTPRcZQ" class="css-label"></label>
-                                </li>
-                                <li data-workdiary-postion="0" data-workdiary-time="08" data-workdiary-memo="Working 1" class="first-li-workdiary-snap workdiary-snap-item">
-                                    <span class="cwork-diary-label-memo">Working 1</span>
-                                    <img src="images/job_work_diary/edit_bott.jpg">
-                                    <input id="workdiary_snapVxIxS8pPtRTPRcZQ" type="checkbox" class="css-input workdiary_snap_check_box">
-                                    <label for="workdiary_snapVxIxS8pPtRTPRcZQ" class="css-label">08:00 am</label>
-                                </li>
-                                <li data-workdiary-postion="1" data-workdiary-time="08" data-workdiary-memo="Working 1" class=" workdiary-snap-item">
-                                    <span class="cwork-diary-label-memo">Working 1</span>
-                                    <img src="images/job_work_diary/edit_bott.jpg">
-                                    <input id="workdiary_snapBsySiv2x8yZs1lxi" type="checkbox" class="css-input workdiary_snap_check_box">
-                                    <label for="workdiary_snapBsySiv2x8yZs1lxi" class="css-label">08:10 am</label>
-                                </li>
-                                <li data-workdiary-postion="2" data-workdiary-time="08" data-workdiary-memo="Working 1" class=" workdiary-snap-item">
-                                    <span class="cwork-diary-label-memo">Working 1</span>
-                                    <img src="images/job_work_diary/edit_bott.jpg">
-                                    <input id="workdiary_snapTV0Q5v5TxE1pg8Ay" type="checkbox" class="css-input workdiary_snap_check_box">
-                                    <label for="workdiary_snapTV0Q5v5TxE1pg8Ay" class="css-label">08:20 am</label>
-                                </li>
-                                <li data-workdiary-postion="6" data-workdiary-time="08" data-workdiary-memo="Working 1" class="last-workdiary-snap  workdiary-snap-item">
-                                    <span class="cwork-diary-label-memo">Working 1</span><img src="images/job_work_diary/edit_bott.jpg">
-                                    <input id="workdiary_snapLsNrX9yxNCoFRiEB" type="checkbox" class="css-input workdiary_snap_check_box">
-                                    <label for="workdiary_snapLsNrX9yxNCoFRiEB" class="css-label">08:30 am</label>
-                                </li>
-                                <li data-workdiary-postion="4" data-workdiary-time="08" data-workdiary-memo="Working 2" class="first-workdiary-snap  workdiary-snap-item">
-                                    <span class="cwork-diary-label-memo">Working 2</span><img src="images/job_work_diary/edit_bott.jpg">
-                                    <input id="workdiary_snapow5l6biPOsw8HW9N" type="checkbox" class="css-input workdiary_snap_check_box">
-                                    <label for="workdiary_snapow5l6biPOsw8HW9N" class="css-label">08:40 am</label>
-                                </li>
-                                <li data-workdiary-postion="5" data-workdiary-time="08" data-workdiary-memo="Working 2" class=" workdiary-snap-item">
-                                    <span class="cwork-diary-label-memo">Working 2</span><img src="images/job_work_diary/edit_bott.jpg">
-                                    <input id="workdiary_snapsk88kGIqzHQUEYtX" type="checkbox" class="css-input workdiary_snap_check_box">
-                                    <label for="workdiary_snapsk88kGIqzHQUEYtX" class="css-label">08:50 am</label>
-                                </li>
-                            </ul>
+                            
                         </div>
                 </div>
             </div>
@@ -168,7 +96,7 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                     <div class="alert alert-success" role="alert">Success</div>
                     <div class="alert alert-warning" role="alert">Error</div>
 
-                    <input type="hidden" id="project_id" value="<?=$_REQUEST['id']?>">
+                    <!-- <input type="hidden" id="project_id" value="<?=$_REQUEST['id']?>"> -->
                     <input type="hidden" id="user_id" value="<?=$_SESSION['user_id']?>">
                   <div class="form-group">
                     <label for="" class="col-sm-4 control-label">Date</label>
@@ -227,29 +155,33 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
 </div>
     <script type="text/javascript">
         jQuery(document).ready(function($){
+            loadByDate('<?=$current_date?>');
+            $('#select-pj').on('change', function(){
+                loadByDate($('#datepicker').val());
+            })
             $(".time_select_box").chosen();
-            $('.alert').hide();
+            $('#add_manual_time_f .alert').hide();
 
             $('#add_manual_time_f').submit(function(){
                 var stime2add = $('#stime2add').val();
                 var etime2add = $('#etime2add').val();
                 var date2add = $('#date2add').val();
                 var memo2add = $('#memo2add').val();
-                var project_id = $('#project_id').val();
+                var project_id = $('#select-pj').val();
                 var user_id = $('#user_id').val();      
                 if(stime2add == '' || etime2add == '') {
-                    $('.alert-warning').html("Please select start time and stop time");
-                    $('.alert-warning').show();
+                    $('#add_manual_time_f .alert-warning').html("Please select start time and stop time");
+                    $('#add_manual_time_f .alert-warning').show();
                     setTimeout(function(){
-                        $('.alert').fadeOut();
+                        $('#add_manual_time_f .alert').fadeOut();
                     },3000);
                     return false;
                 }
                 if(memo2add == '') {
-                    $('.alert-warning').html("Please enter a Memo");
-                    $('.alert-warning').show();
+                    $('#add_manual_time_f .alert-warning').html("Please enter a Memo");
+                    $('#add_manual_time_f .alert-warning').show();
                     setTimeout(function(){
-                        $('.alert').fadeOut();
+                        $('#add_manual_time_f .alert').fadeOut();
                     },3000);
                     return false;
                 }
@@ -259,12 +191,12 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                    success: function(data) {
                       var result = JSON.parse(data);
                       if(result.error) {
-                        $('.alert-warning').html(result.error);
-                        $('.alert-warning').show();
+                        $('#add_manual_time_f .alert-warning').html(result.error);
+                        $('#add_manual_time_f .alert-warning').show();
                       }
                       if(result.success) {
-                        $('.alert-success').html(result.success);
-                        $('.alert-success').show();
+                        $('#add_manual_time_f .alert-success').html(result.success);
+                        $('#add_manual_time_f .alert-success').show();
 
                         setTimeout(function(){
                             loadByDate($('#datepicker').val());
@@ -273,7 +205,7 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                         }, 2000);
                       }
                         setTimeout(function(){
-                            $('.alert').fadeOut();
+                            $('#add_manual_time_f .alert').fadeOut();
                         },3000);
                    }
                 });
@@ -329,22 +261,29 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
     function loadByDate(val) {
         $('#date2add').val(val);
         $('.date2add').html(val);
+        var project_id = $('#select-pj').val();
         $.ajax({
            url: '<?= $vpath; ?>ajax_action.php',
-           data: {action: 'load_work_diary', project_id: '<?=$_REQUEST['id']?>', user_id: '<?=$_SESSION['user_id']?>', load_date: val},
+           data: {action: 'load_work_diary', project_id: project_id, user_id: '<?=$_SESSION['user_id']?>', load_date: val},
            success: function(data) {
-              $('#workdiary-tracker-containter').html(data);
-              $('.workdiary-tracker-list-snap').each(function() {
-                var ulContainer = $(this);
-                checkMissingPos(ulContainer);
-              });
+                if(data) {
+                    $('#workdiary-tracker-containter').html(data);
+                    $('.workdiary-tracker-list-snap').each(function() {
+                    var ulContainer = $(this);
+                    checkMissingPos(ulContainer);
+                    });
+                } else {
+                    $('#workdiary-tracker-containter').html('<div class="alert alert-warning" role="alert">No Snap Time</div>');
+                }
+                get_all_snap_dates();
            }
         });
     }
     function get_all_snap_dates() {
+        var project_id = $('#select-pj').val();
         $.ajax({
            url: '<?= $vpath; ?>ajax_action.php',
-           data: {action: 'get_all_dates_snap', user_id: '<?=$_SESSION['user_id']?>'},
+           data: {action: 'get_all_dates_snap', user_id: '<?=$_SESSION['user_id']?>', project_id: project_id},
            success: function(data) {
                 var arr = JSON.parse(data);
                 var SelectedDates = {};
