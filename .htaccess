@@ -52,6 +52,11 @@ RewriteRule ^project/([a-zA-Z0-9_-]+)$ project-dtl.php?id=$1 [L]
 RewriteRule ^project/([a-zA-Z0-9_-]+)/$ project-dtl.php?id=$1 [L]
 RewriteRule ^login/(.*)$ login.php?referer2=$1 [L]
 
+
+#offer section
+RewriteRule ^offer/([a-zA-Z0-9_-]+)/(.*).html$ offer.php?id=$1 [L]
+RewriteRule ^offer/([a-zA-Z0-9_-]+)$ offer.php?id=$1 [L]
+
 #snap view for timetracker
 RewriteRule ^snap/([a-zA-Z0-9_-]+)$ snap.php?id=$1 [L]
 RewriteRule ^snap/([a-zA-Z0-9_-]+)/$ snap.php?id=$1 [L]

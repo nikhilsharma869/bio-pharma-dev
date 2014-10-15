@@ -104,7 +104,7 @@ $update_bid_user = @mysql_num_rows(mysql_query("select id from " . $prev . "buye
 													</a>
 												
 										<?php } elseif (($_SESSION['user_id'] == $d['user_id'] || $_SESSION['user_id'] == $d['chosen_id']) && $d['status'] == "process" && $d[project_type] == 'H') {?>
-														<a  class="btn" href="<?= $vpath ?>snap/<?= $d['id'] ?>">View Progress</a>
+														<a  class="btn" href="<?= $vpath ?>work_diary/<?= $d['id'] ?>">View Progress</a>
 										<?php } ?>
 									<!--Button Ask and Bid-->	
 										

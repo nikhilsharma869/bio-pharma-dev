@@ -129,7 +129,7 @@ if($_REQUEST[confirm] && $_REQUEST[mode])
 							mail($to1, $subjecte, $mailbodye, $headers);
 
 
-						header($lang['LOCATION'].": ".$vpath."mybids.html");
+						header($lang['LOCATION'].": ".$vpath."my_jobs_sme.html");
 						//my bid
 
 			}
