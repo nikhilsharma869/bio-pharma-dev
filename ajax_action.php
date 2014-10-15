@@ -129,7 +129,17 @@ function load_work_diary() {
 		foreach ($every_10_minutes as $key_time => $value_str) {
 			if( date('H:i', strtotime($key_time)) >= date('H:i', strtotime($list[$i]['start_time'])) 
 				&& date('H:i', strtotime($key_time)) <= date('H:i', strtotime($list[$i]['stop_time'])) ) {
+				
+				$li_id = create_random_str(16);
 				if(date('i', strtotime($key_time)) == '00' && date('H:i', strtotime($key_time)) == date('H:i', strtotime($list[$i]['stop_time']))) {
+					echo '<ul class="workdiary-tracker-list-snap">';
+					echo sprintf("<li class='snap-list-label'><h3>%s</h3><p>%s</p><input id='snap_%s' type='checkbox' data-check='%s' class='css-input snap-list-check' /><label for='snap_%s' class='css-label'></label></li>",
+						date('h', strtotime($key_time)),
+						date('a', strtotime($key_time)),
+						date('H', strtotime($key_time)).$li_id,
+						date('H', strtotime($key_time)),
+						date('H', strtotime($key_time)).$li_id
+					);
 					continue;
 				}
 				if (date('i', strtotime($key_time)) == '00' && $ul_pos = 'ul_first') {
@@ -167,7 +177,7 @@ function load_work_diary() {
 				}
 
 				$class .= ' workdiary-snap-item';
-				$li_id = create_random_str(16);
+				
 				
 				$li_data = sprintf("<span class='cwork-diary-label-memo'>%s</span><img src='images/manual_time_bg.jpg'><input id='workdiary_snap%s' type='checkbox' class='css-input workdiary_snap_check_box' /><label for='workdiary_snap%s' class='css-label'>%s</label>", 
 					$list[$i]['memo'],
