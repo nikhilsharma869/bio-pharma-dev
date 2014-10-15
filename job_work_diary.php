@@ -51,10 +51,7 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                             <div class="sv-dropdown dd-timezone">
                                 <div class="sv-dropSelect">Mine (UTC +0:00)</div>
                                 <ul>
-                                    <li>1</li>
-                                    <li>2</li>
-                                    <li>3</li>
-                                    <li>4</li>
+                                    <li>UTC+00</li>
                                 </ul>
                             </div>
                             <div class="datetime">
