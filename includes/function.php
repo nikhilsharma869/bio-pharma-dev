@@ -599,4 +599,31 @@ function hoursRange( $lower = 0, $upper = 86400, $step = 3600, $format = '' ) {
 
     return $times;
 }
+
+function create_random_str($length=8,$use_upper=1,$use_lower=1,$use_number=1,$use_custom=""){
+	$upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	$lower = "abcdefghijklmnopqrstuvwxyz";
+	$number = "0123456789";
+	if($use_upper){
+		$seed_length += 26;
+		$seed .= $upper;
+	}
+	if($use_lower){
+		$seed_length += 26;
+		$seed .= $lower;
+	}
+	if($use_number){
+		$seed_length += 10;
+		$seed .= $number;
+	}
+	if($use_custom){
+		$seed_length +=strlen($use_custom);
+		$seed .= $use_custom;
+	}
+	for($x=1;$x<=$length;$x++){
+		$rstr .= $seed{rand(0,$seed_length-1)};
+	}
+	return($rstr);
+}
+
 ?>

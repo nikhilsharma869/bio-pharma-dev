@@ -4243,3 +4243,80 @@ p.succ-job-info {
 .date2add.hasDatepicker {
     width: 180px;
 }
+
+#workdiary-tracker-containter .workdiary-tracker-list-snap {
+    list-style: none;
+    background: #fff;
+    border: 1px solid #959595;
+    position: relative;
+    display: block;
+    float: left;
+    padding: 10px;
+    width: 100%;
+}
+
+.workdiary-tracker-list-snap li {
+    float: left;
+    display: inline-block;
+    width: 16.6%;
+    min-height: 30px;
+}
+
+.workdiary-tracker-list-snap li span,
+.workdiary-tracker-list-snap li img {
+    display: block;
+}
+
+span.cwork-diary-label-memo {
+    padding: 5px 0 5px 10px;
+    background: #51d800;
+    color: #fff;
+    font-size: 15px;
+    text-indent: -999999px;
+}
+
+.first-li-workdiary-snap span.cwork-diary-label-memo {
+    text-indent: 0;
+}
+
+li.snap-list-label {
+    position: absolute;
+    top: 5px;
+    left: -70px;
+    background: #c6c6c6;
+    height: 130px;
+    width: 40px;
+    text-align: center;
+    padding: 10px 10px 0;
+}
+
+li.snap-list-label h3 {
+    margin-bottom: 0;
+}
+
+li.snap-list-label p {
+    margin-top: 0;
+}
+
+.workdiary-tracker-list-snap li img {
+    width: 90%;
+    margin: 5px auto;
+}
+
+.workdiary-tracker-list-snap li label.css-label {
+    margin-left: 7px;
+}
+
+li.first-workdiary-snap span {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+li.last-workdiary-snap span {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+li + li.first-workdiary-snap span {
+    text-indent: 0;
+}
