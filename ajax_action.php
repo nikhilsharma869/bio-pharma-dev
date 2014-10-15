@@ -131,7 +131,6 @@ function load_work_diary() {
 				&& date('H:i', strtotime($key_time)) <= date('H:i', strtotime($list[$i]['stop_time'])) ) {
 				
 				$li_id = create_random_str(16);
-				
 				if(date('i', strtotime($key_time)) == '00' && date('H:i', strtotime($key_time)) == date('H:i', strtotime($list[$i]['stop_time']))) {
 					echo '<ul class="workdiary-tracker-list-snap">';
 					echo sprintf("<li class='snap-list-label'><h3>%s</h3><p>%s</p><input id='snap_%s' type='checkbox' data-check='%s' class='css-input snap-list-check' /><label for='snap_%s' class='css-label'></label></li>",
