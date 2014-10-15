@@ -3392,7 +3392,11 @@ width: 38%;
 #reports_activity_summary_after  #form-time, 
 #reports_activity_summary_after  #to-time{border:none;}
 .to-time .t-to{margin: 8px 10px 0 10px;}
-.clander-img{width: 35px;}
+.clander-img{
+    width: 35px;
+    margin-top: -5px;
+    margin-left: 10px;
+}
 .bt-go{
     background: #2272ba;
     font-weight: normal;
@@ -4319,4 +4323,23 @@ li.last-workdiary-snap span {
 
 li + li.first-workdiary-snap span {
     text-indent: 0;
+}
+
+.has-snap-shot a.ui-state-default  {
+    background: #42DD2D;
+    color: #fff;
+}
+
+.select-box-pj.select-box .selectyzeValue {
+    border: 2px solid #cacaca;
+    background: #fff url(img/lock1.png) no-repeat;
+    background-position: 98% 5px;   
+    background-size: 20px 20px;
+    padding: 5px 30px 5px 15px;
+    border-radius: 5px;
+}
+
+.select-box-pj.select-box .mac .UlSelectize {
+    left: -2px;
+    top: 33px;
 }

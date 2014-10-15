@@ -227,7 +227,10 @@ RewriteRule ^completed_jobs/([a-zA-Z0-9_-]+)$ completed_jobs.php?page=$1 [L]
 RewriteRule ^contracts/([a-zA-Z0-9_-]+)/$ contracts.php?page=$1 [L]
 RewriteRule ^contracts/([a-zA-Z0-9_-]+)$ contracts.php?page=$1 [L]
 #job_work_diary job
+RewriteRule ^work_diary$ job_work_diary.php [L]
+RewriteRule ^work_diary/$ job_work_diary.php [L]
 RewriteRule ^work_diary/([a-zA-Z0-9_-]+)$ job_work_diary.php?id=$1 [L]
+RewriteRule ^work_diary/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ job_work_diary.php?id=$1&date2load=$2 [L]
 
 #client section 
 #manage_my_team
