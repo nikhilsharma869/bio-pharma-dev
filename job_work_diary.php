@@ -5,6 +5,7 @@ $current_date = date('D, M d, Y');
 
 $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
 
+
 ?>
     <div class="spage-container job_work_diary">
         <div class="main_div2">
@@ -52,7 +53,9 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                                 </ul>
                             </div>
                             <div class="datetime">
+                                <span class="prev-day" style="margin-right: 15px;"><i class="fa fa-chevron-left"></i></span>
                                 <input type="text" id="datepicker" value='' class="date2add">
+                                <span class="next-day"><i class="fa fa-chevron-right"></i></span>
                                 <img class="clander-img" src="css/img/calender_icon.png" alt="">
                             </div>
                             <a href="#" class="pref">Pref</a>
@@ -262,9 +265,12 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
                       if(result.success) {
                         $('.alert-success').html(result.success);
                         $('.alert-success').show();
+
                         setTimeout(function(){
+                            loadByDate($('#datepicker').val());
+                            get_all_snap_dates();
                             $('#myModal').modal('hide');
-                        }, 4000);
+                        }, 2000);
                       }
                         setTimeout(function(){
                             $('.alert').fadeOut();
@@ -319,26 +325,89 @@ $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
 
         sortLiSnap(ulContainer);
     }
+
+    function loadByDate(val) {
+        $('#date2add').val(val);
+        $('.date2add').html(val);
+        $.ajax({
+           url: '<?= $vpath; ?>ajax_action.php',
+           data: {action: 'load_work_diary', project_id: '<?=$_REQUEST['id']?>', user_id: '<?=$_SESSION['user_id']?>', load_date: val},
+           success: function(data) {
+              $('#workdiary-tracker-containter').html(data);
+              $('.workdiary-tracker-list-snap').each(function() {
+                var ulContainer = $(this);
+                checkMissingPos(ulContainer);
+              });
+           }
+        });
+    }
+    function get_all_snap_dates() {
+        $.ajax({
+           url: '<?= $vpath; ?>ajax_action.php',
+           data: {action: 'get_all_dates_snap', user_id: '<?=$_SESSION['user_id']?>'},
+           success: function(data) {
+                var arr = JSON.parse(data);
+                var SelectedDates = {};
+
+                for (var i = 0; i < arr.length; i++) {
+                    SelectedDates[new Date(arr[i])] = new Date(arr[i]);
+                };
+                // console.log(SelectedDates);
+                $( "#datepicker" ).datepicker( "option", {
+                    dateFormat: "D, M dd, yy",
+                    beforeShowDay: function(date) {
+                        var Highlight = SelectedDates[date];                
+                        if(Highlight) {
+                            return [true, 'has-snap-shot', '']
+                        } else {
+                            return [true, '', ''];
+                        }
+                    } 
+                });
+                // if($( "#datepicker" ).val() == '') {
+                //     $( "#datepicker" ).datepicker( "setDate", "<?=$current_date?>" );
+                // }
+           }
+        });
+    }
       $(function() {
-        $( "#datepicker" ).datepicker( "option", "dateFormat", "D, M dd, yy" ); 
+        get_all_snap_dates();
+        // var SelectedDates = {};
+        // <?php for ($i=0; $i < count($all_dates_snap); $i++) { ?>
+        // SelectedDates[new Date("<?php echo $all_dates_snap[$i]?>")] = new Date("<?php echo $all_dates_snap[$i]?>");
+        // <?php } ?>
+
+        // $( "#datepicker" ).datepicker( "option", {
+        //     dateFormat: "D, M dd, yy",
+        //     beforeShowDay: function(date) {
+        //         var Highlight = SelectedDates[date];                
+        //         if(Highlight) {
+        //             return [true, 'has-snap-shot', '']
+        //         } else {
+        //             return [true, '', ''];
+        //         }
+        //     } 
+        // }); 
+        $( "#datepicker" ).datepicker( "option", "dateFormat", "D, M dd, yy");
         $( "#datepicker" ).datepicker( "setDate", "<?=$current_date?>" );
         $('#date2add').val($('#datepicker').val());
         $('.date2add').html($('#datepicker').val());
         $( "#datepicker" ).on('change', function(){
-            $('#date2add').val($(this).val());
-            $('.date2add').html($(this).val());
-            $.ajax({
-                   url: '<?= $vpath; ?>ajax_action.php',
-                   data: {action: 'load_work_diary', project_id: '<?=$_REQUEST['id']?>', user_id: '<?=$_SESSION['user_id']?>', load_date: $(this).val()},
-                   success: function(data) {
-                      $('#workdiary-tracker-containter').html(data);
-                      $('.workdiary-tracker-list-snap').each(function() {
-                        var ulContainer = $(this);
-                        checkMissingPos(ulContainer);
-                      });
-                   }
-                });
+            loadByDate($(this).val());
         })
+        $('.next-day').on("click", function () {
+            var date = $('#datepicker').datepicker('getDate');
+            date.setTime(date.getTime() + (1000*60*60*24))
+            $('#datepicker').datepicker("setDate", date);
+            loadByDate($('#datepicker').val());
+        });
+
+        $('.prev-day').on("click", function () {
+            var date = $('#datepicker').datepicker('getDate');
+            date.setTime(date.getTime() - (1000*60*60*24))
+            $('#datepicker').datepicker("setDate", date);
+            loadByDate($('#datepicker').val());
+        });
       });
     </script>
 <?php include 'includes/footer.php'; ?>
