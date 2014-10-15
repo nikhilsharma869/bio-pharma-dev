@@ -49,7 +49,7 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                         <div class="time-zone">
                             <p>Time Zone</p>
                             <div class="sv-dropdown dd-timezone">
-                                <div class="sv-dropSelect">Mine (UTC +8:00)</div>
+                                <div class="sv-dropSelect">Mine (UTC +0:00)</div>
                                 <ul>
                                     <li>1</li>
                                     <li>2</li>
