@@ -243,3 +243,20 @@ function get_all_dates_snap() {
 	}
 	echo json_encode($list);
 }
+
+function calculate_log_time() {
+	global $prev;
+	$user_id = $_REQUEST['user_id'];
+	$project_id = $_REQUEST['project_id'];
+
+	$q = "SELECT * FROM ".$prev."project_tracker WHERE project_id=".$project_id." AND worker_id=".$user_id;
+	$r = mysql_query($q);
+	$list = array();
+
+	while ($val = mysql_fetch_array($r)) {
+		if(!in_array(date('D M d Y', strtotime($val['start_time'])), $list)) {
+			array_push($list, date('D M d Y', strtotime($val['start_time'])));
+		}
+	}
+	echo json_encode($list);
+}
