@@ -7046,10 +7046,10 @@ border-radius:7px;*/
 .profile_righttext h1 {
     background: none repeat scroll 0 0 #CCCCCC;
     color: #363636;
-    float: left;
+    float: right;
     font-size: 13px;
     font-weight: bold;
-    margin:0 9px 9px 59%;
+    margin:0 9px 9px 0;
     padding: 8px 24px 9px 2px;
     text-align: right;
     width: 19%;

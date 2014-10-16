@@ -109,7 +109,7 @@ function get_child_menu($parent, $current, $current_sub) {
 				),
 			'publicprofile' => array(
 				'title'=> 'My SME Profile',
-				'a_href' => '/publicprofile/'.$_SESSION['username']
+				'a_href' => 'userSettings_MySMEProfile.html'
 				),
 			'userSettings_GetPaid' => array(
 				'title'=> 'Get Paid',

@@ -136,7 +136,7 @@ $_SESSION['username']	=$row['username'];
   
   <div class="profile_right">
    
-	  <div class="profile_righttext"><h1><?=$lang['BALANCE']?> : <?=$curn?> <?=$balsum?></h1> <div class="view_bnt"><a class="btn-custom-blue" href="<?=$vpath?>publicprofile/<?=$_SESSION[username]?>/"><?=$lang['VIEW_PROFILE']?></a></div></div>
+	  <div class="profile_righttext"><div class="view_bnt"><a class="btn-custom-blue" href="<?=$vpath?>publicprofile/<?=$_SESSION[username]?>/"><?=$lang['VIEW_PROFILE']?></a></div><h1><?=$lang['BALANCE']?> : <?=$curn?> <?=$balsum?></h1> </div>
 	   <!--**************Worker****************************************************************-->
    
  

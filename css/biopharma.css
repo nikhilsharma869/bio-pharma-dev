@@ -4361,6 +4361,9 @@ div.profile_left > div.user_box {
     border: 1px solid #959595 !important;
 }
 
-
-
+.btn-ch-cancel,
+.btn-change {
+    color: #2272ba;
+    margin-left: 5px;
+}
 

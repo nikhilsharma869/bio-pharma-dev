@@ -17,7 +17,7 @@ if (!empty($row_user[logo])) {
                 <ul id="up-tabs" class="nav nav-tabs" role="tablist">
                     <li class="active"><a href="<?=$vpath?>userSettings_ContactInfo.html">Contact Info</a></li>                        
                     <li><a href="<?=$vpath?>userSettings_TaxInformation.html">Tax Information</a></li>
-                    <li><a href="<?=$vpath?>publicprofile/<?=$row_user['username']?>">My SME Profile</a></li>
+                    <li><a href="<?=$vpath?>userSettings_MySMEProfile.html">My SME Profile</a></li>
                     <li><a href="<?=$vpath?>userSettings_GetPaid.html">Get Paid</a></li>                        
                     <li><a href="<?=$vpath?>userSettings_MyTeams.html">My Teams</a></li>
                     <li><a href="<?=$vpath?>userSettings_NotificationSettings.html">Notification Settings</a></li>
@@ -45,8 +45,6 @@ if (!empty($row_user[logo])) {
                                 <p class="tex">Protrait</p>
                                 <p class="protrait">
                                     <span class="pro-img"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=130&height=130" alt="" /></span>
-                                    <span class="dag-photo">Drag in a new photo, or: </span>
-                                    <span class="u-control"><a href="" class="edit-photo">Edit photo</a>|<a href="#" class="delete-photo">Delete photo</a></span></p>
                             </div>
                             <div class="p-row">
                                 <p>Email</p><p><?=$row_user['email']?></p>

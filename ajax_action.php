@@ -274,3 +274,14 @@ function calculate_log_time() {
     $total['total'] = gmdate("H:i", $timeM+$timeA);
     echo json_encode($total);
 }
+
+function update_user_field() {
+	global $prev;
+	$user_id = $_REQUEST['user_id'];
+	$f2change = explode('2', $_REQUEST['f2change']);
+	$f2change = $f2change[0];
+	$new_val = $_REQUEST['new_val'];
+
+	$q = sprintf("UPDATE ".$prev."user SET %s='%s' WHERE user_id='%s'",$f2change, mysql_real_escape_string($new_val), $user_id);
+	$r = mysql_query($q);
+}
