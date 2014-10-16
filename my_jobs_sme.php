@@ -1,9 +1,13 @@
 <?php
 include "includes/header.php";
 ?>
+	
     <div class="spage-container my_jobs_My_Jobs_SME_After">
         <div class="main_div2">
             <div class="inner-middle"> 
+				<?php
+					include('alert_offer.php');
+				?>
                 <!-- Sidebar left -->
                 <div class="profile_left contracts_left">
                     <!-- tabs left -->
@@ -19,6 +23,7 @@ include "includes/header.php";
                 <div class="profile_right">
                     <!-- content data list -->
                     <div class="content-right">
+					
                     <?php
                         $my_jobs = get_my_job($_SESSION['user_id'],'H');?>                            
                             <div class="job-item">    

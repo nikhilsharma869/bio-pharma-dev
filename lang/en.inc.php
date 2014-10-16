@@ -1321,6 +1321,9 @@ $lang = array(
 'FR_LB_JOB_MANUAL_TIME_YES' => "YES",
 'FR_LB_JOB_MANUAL_TIME_NO' => "NO",
 'HOUR_LIMIT_LABEL' => "Hourly Limit Per Week",
+'HOUR_LIMIT' => "Hourly Limit",
+
+'FR_LNK_JOB_DESCRIPTION' => "Job Description",
 //POST JOB
 
 

@@ -142,6 +142,10 @@ jQuery.noConflict();
 	<!--Search Bar -->
 	</div>
 	
+	<?php
+		include('alert_offer.php');
+	?>
+	
 	<div class="clear"></div>
 
 	<form name="postedwithin" id="postedwithin" action="" method="post">

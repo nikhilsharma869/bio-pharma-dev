@@ -72,7 +72,7 @@ $to1=$usr[email];                                                            $pr
 
                                                                          mail($to1, $subjecte, $mailbodye, $headers);
 }
-				header("Location: dashboard.html");
+				header("Location: Jobs/");
 
 			}
 
