@@ -4337,6 +4337,8 @@ li + li.first-workdiary-snap span {
     background-size: 20px 20px;
     padding: 5px 30px 5px 15px;
     border-radius: 5px;
+    height: 20px;
+    overflow: hidden;
 }
 
 .select-box-pj.select-box .mac .UlSelectize {

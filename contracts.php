@@ -84,7 +84,11 @@ $r = mysql_query($sql);
                         </div>
                         <div class="row-content">
                             <?php
-                        
+                            if(mysql_num_rows($r) == 0) { ?>
+                            <div class="j-row">
+                                <div class="alert alert-warning" role="alert"><?=$lang['NO_DATA']?></div>
+                            </div>
+                            <?php }
                             while($d=@mysql_fetch_array($r))
                             {      
                                                      

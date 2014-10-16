@@ -555,7 +555,7 @@ jQuery.noConflict();
 	else	
 	{	
 	?> 
-		<div align="center" style="color:#999999; font-size:14px; height:200px; margin:200px;"><?=$lang['NO_PRODUCT_FOUND']?></div>
+		<div class="alert alert-warning" role="alert"><?=$lang['NO_PRODUCT_FOUND']?></div>
 	<?php	
 	}
 	?>	

@@ -65,9 +65,9 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                         </div>
                         <div class="container">
                             <div class="total-time-logged">
-                            <p class="total-time">Total Time Logged: <strong>03:30</strong></p>
-                            <p class="auto-tracked">Auto-tracked: 03:30</p>
-                            <p class="manual-time">Manual time: 00:00</p>
+                            <p class="total-time">Total Time Logged: <strong>00:00</strong></p>
+                            <p class="auto-tracked">Auto-tracked: <span>00:00</span></p>
+                            <p class="manual-time">Manual time: <span>00:00</span></p>
                             <p>Selected: <strong>00:00 min</strong></p>
                             </div>
                         </div>
@@ -273,6 +273,7 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                     $('#workdiary-tracker-containter').html('<div class="alert alert-warning" role="alert">No Snap Time</div>');
                 }
                 get_all_snap_dates();
+                getTotalTime(val);
            }
         });
     }
@@ -306,8 +307,23 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
            }
         });
     }
+
+    function getTotalTime(val) {
+        var project_id = $('#select-pj').val();
+        $.ajax({
+           url: '<?= $vpath; ?>ajax_action.php',
+           data: {action: 'calculate_log_time', user_id: '<?=$_SESSION['user_id']?>', project_id: project_id, load_date: val},
+           success: function(data) {
+                var arr = JSON.parse(data);
+                $('.total-time strong').html(arr.total);
+                $('.auto-tracked span').html(arr.auto);
+                $('.manual-time span').html(arr.manual);
+           }
+        });
+    }
       $(function() {
         get_all_snap_dates();
+        
         // var SelectedDates = {};
         // <?php for ($i=0; $i < count($all_dates_snap); $i++) { ?>
         // SelectedDates[new Date("<?php echo $all_dates_snap[$i]?>")] = new Date("<?php echo $all_dates_snap[$i]?>");

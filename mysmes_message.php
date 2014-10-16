@@ -74,6 +74,11 @@ $r = mysql_query($sql);
                         ?>                         
                         <div class="managemyteam-content">
                             <?php
+                            if(mysql_num_rows($r) == 0) { ?>
+                            
+                            <div class="alert alert-warning" role="alert"><?=$lang['NO_DATA']?></div>
+                            
+                            <?php }
                             while($d=@mysql_fetch_array($r))
                             {
 

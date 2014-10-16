@@ -1324,6 +1324,7 @@ $lang = array(
 'HOUR_LIMIT' => "Hourly Limit",
 
 'FR_LNK_JOB_DESCRIPTION' => "Job Description",
+'NO_DATA' => 'No data found...'
 //POST JOB
 
 

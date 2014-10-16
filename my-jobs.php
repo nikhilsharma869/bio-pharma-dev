@@ -620,7 +620,7 @@ if($_REQUEST[confirm] && $_REQUEST[mode])
 				
 							<?php $i++;} if($total<1){?>
 
-								<div align="center" style="color:#999999; font-size:14px; height:200px; margin:200px;"><?=$lang['NO_RUNNING_PRO']?></div>
+								<div class="alert alert-warning" role="alert"><?=$lang['NO_RUNNING_PRO']?></div>
 
 							<? }?>
 

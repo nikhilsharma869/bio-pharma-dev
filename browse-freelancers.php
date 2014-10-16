@@ -1012,10 +1012,7 @@ if(!$total)
 
 
 ?>
-      <div style="height:100px;"></div>
-      <div align="center" style="color:#3B5998; font-weight:bold;">
-        <?=$lang['NO_RES_FOUND']?>
-      </div>
+      <div class="alert alert-warning" role="alert"><?=$lang['NO_RES_FOUND']?></div>
       <div style="height:100px;"></div>
       <?php
 

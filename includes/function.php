@@ -626,4 +626,22 @@ function create_random_str($length=8,$use_upper=1,$use_lower=1,$use_number=1,$us
 	return($rstr);
 }
 
+function getTimeDiff($dtime,$atime){ 
+	$time_diff = array();
+	$nextDay=$dtime>$atime?1:0;
+	$dep=explode(':',$dtime);
+	$arr=explode(':',$atime);
+	$diff=abs(mktime($dep[0],$dep[1],0,date('n'),date('j'),date('y'))-mktime($arr[0],$arr[1],0,date('n'),DATE('j')+$nextDay,date('y')));
+	$hours=floor($diff/(60*60));
+	$mins=floor(($diff-($hours*60*60))/(60));
+	$secs=floor(($diff-(($hours*60*60)+($mins*60))));
+	if(strlen($hours)<2){$hours="0".$hours;}
+	if(strlen($mins)<2){$mins="0".$mins;}
+	if(strlen($secs)<2){$secs="0".$secs;}
+	$time_diff['hours'] = $hours;
+	$time_diff['mins'] = $mins;
+	$time_diff['secs'] = $secs;
+	return $time_diff;
+}
+
 ?>

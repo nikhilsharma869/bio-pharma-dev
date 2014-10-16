@@ -248,15 +248,29 @@ function calculate_log_time() {
 	global $prev;
 	$user_id = $_REQUEST['user_id'];
 	$project_id = $_REQUEST['project_id'];
+	$load_date = date('Y-m-d H:i:s', strtotime($_REQUEST['load_date']));
 
-	$q = "SELECT * FROM ".$prev."project_tracker WHERE project_id=".$project_id." AND worker_id=".$user_id;
+	$q = sprintf("SELECT *,TIME_TO_SEC(TIMEDIFF(stop_time,start_time)) AS wt FROM ".$prev."project_tracker WHERE worker_id='%s' AND project_id='%s' AND DATEDIFF('%s', start_time)=0 AND DATEDIFF('%s', stop_time)=0 ORDER BY start_time ASC",
+		mysql_real_escape_string($user_id),
+		mysql_real_escape_string($project_id),
+		mysql_real_escape_string($load_date),
+		mysql_real_escape_string($load_date)
+	);
+	
 	$r = mysql_query($q);
-	$list = array();
+	$total = array();
+	$timeM = 0;
+	$timeA = 0;
 
-	while ($val = mysql_fetch_array($r)) {
-		if(!in_array(date('D M d Y', strtotime($val['start_time'])), $list)) {
-			array_push($list, date('D M d Y', strtotime($val['start_time'])));
-		}
-	}
-	echo json_encode($list);
+    while ($t = mysql_fetch_assoc($r)) {
+        if($t['time_added_by'] == 'M') {
+        	$timeM = $timeM + $t['wt'];
+    	} else {
+    		$timeA = $timeA + $t['wt'];
+    	}
+    }
+    $total['manual'] = gmdate("H:i", $timeM);
+    $total['auto'] = gmdate("H:i", $timeA);
+    $total['total'] = gmdate("H:i", $timeM+$timeA);
+    echo json_encode($total);
 }

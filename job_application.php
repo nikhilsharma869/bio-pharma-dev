@@ -1,5 +1,6 @@
 <?php
 include "includes/header.php";
+CheckLogin();
 ?>
 
 <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -43,6 +44,9 @@ include "includes/header.php";
                                             $list_hire = get_hire_job($_SESSION[user_id]);
                                             // echo "<pre>";
                                             // var_dump($list_inter);
+                                            if(count($list_hire) == 0) { ?>
+                                                <div class="alert alert-warning" role="alert" style="margin-top: 20px;"><?=$lang['NO_DATA']?></div>
+                                            <?php }
                                             for ($i=0; $i < count($list_hire); $i++) :
                                                 if($i == count($list_hire) - 1) {
                                                     $last_row = 'last';
@@ -83,6 +87,9 @@ include "includes/header.php";
                                             $list_inter = get_interview_list($_SESSION[user_id]);
                                             // echo "<pre>";
                                             // var_dump($list_inter);
+                                            if(count($list_inter) == 0) { ?>
+                                                <div class="alert alert-warning" role="alert" style="margin-top: 20px;"><?=$lang['NO_DATA']?></div>
+                                            <?php }
                                             for ($i=0; $i < count($list_inter); $i++) :
                                                 if($i == count($list_inter) - 1) {
                                                     $last_row = 'last';
@@ -121,7 +128,9 @@ include "includes/header.php";
                                         <!-- Row Content Loop -->
                                         <?php
                                             $list_sent_bid = get_sent_job($_SESSION[user_id]);
-                                            
+                                            if(count($list_sent_bid) == 0) { ?>
+                                                <div class="alert alert-warning" role="alert" style="margin-top: 20px;"><?=$lang['NO_DATA']?></div>
+                                            <?php }
                                             for ($i=0; $i < count($list_sent_bid); $i++) :
                                                 if($i == count($list_sent_bid) - 1) {
                                                     $last_row = 'last';
@@ -164,7 +173,9 @@ include "includes/header.php";
                                         <!-- Row Content Loop -->
                                         <?php
                                             $list_archive_bid = get_archive_job($_SESSION[user_id]);
-                                            
+                                            if(count($list_archive_bid) == 0) { ?>
+                                                <div class="alert alert-warning" role="alert" style="margin-top: 20px;"><?=$lang['NO_DATA']?></div>
+                                            <?php }
                                             for ($i=0; $i < count($list_archive_bid); $i++) :
                                                 if($i == count($list_archive_bid) - 1) {
                                                     $last_row = 'last';
