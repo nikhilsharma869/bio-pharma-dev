@@ -6352,7 +6352,7 @@ border-radius: 6px 6px 6px 6px;*/
     margin: 10px;
     min-height: 370px;
     padding: 0;
-    width:92%;
+    width:94%;
     /*width:1000px;*/
     margin:0 auto;
 }
@@ -7049,8 +7049,8 @@ border-radius:7px;*/
     float: left;
     font-size: 13px;
     font-weight: bold;
-    margin:2px 9px 9px 59%;
-    padding: 4px 24px 5px 2px;
+    margin:0 9px 9px 59%;
+    padding: 8px 24px 9px 2px;
     text-align: right;
     width: 19%;
 }
@@ -7060,7 +7060,7 @@ border-radius:7px;*/
     color:#0099ff;
 }
 .view_bnt {
-    margin:5px 5px 5px 8px;
+    margin:0px 5px 5px 8px;
     float:left;
 }
 .view_bnt a {
@@ -10142,7 +10142,26 @@ input[type="radio"]:checked + label.css-label {
     border-color: #c8c8c8;
 }
 
-.form-horizontal checkbox{
+.latest_text {
+    width: 30%;
+}
 
+.testing_box,
+.notifications,
+.latest_work,
+.profile_righttext {
+    width: 100%;
+}
 
+.view_bnt {
+    float: right;
+    margin-right: 0;
+}
+
+a.btn-custom-blue,
+.btn-custom-blue {
+    background: #2272ba;
+    display: inline-block;
+    padding: 5px 30px;
+    text-decoration: none;
 }

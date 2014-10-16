@@ -102,7 +102,28 @@ function get_child_menu($parent, $current, $current_sub) {
 				'a_href' => 'reports_activity_summary.html'
 				)
 		),
-		
+		'dashboard_sme' => array(
+			'userSettings_ContactInfo' => array(
+				'title'=> 'Contact Info',
+				'a_href' => 'userSettings_ContactInfo.html'
+				),
+			'publicprofile' => array(
+				'title'=> 'My SME Profile',
+				'a_href' => '/publicprofile/'.$_SESSION['username']
+				),
+			'userSettings_GetPaid' => array(
+				'title'=> 'Get Paid',
+				'a_href' => 'userSettings_GetPaid.html'
+				),
+			'userSettings_MyTeams' => array(
+				'title'=> 'My Teams',
+				'a_href' => 'userSettings_MyTeams.html'
+				),
+			'userSettings_NotificationSettings' => array(
+				'title'=> 'Notification Settings',
+				'a_href' => 'userSettings_NotificationSettings.html'
+				)
+		),
 	);
 
 	$menus = $menuArr[$parent];

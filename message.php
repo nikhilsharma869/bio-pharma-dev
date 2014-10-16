@@ -272,7 +272,7 @@ $r = mysql_query($sql);
             <div class="profile_left" style="padding-top:30px;">
                 <!-- tabs left -->
                <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                    <li><a href="<?= $vpath ?>message.html">Inbox</a></li>
+                    <li class="active"><a href="<?= $vpath ?>message.html">Inbox</a></li>
                 </ul>
             </div>
             <!-- Content right -->

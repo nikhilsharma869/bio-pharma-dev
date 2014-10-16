@@ -128,7 +128,7 @@ $_SESSION['username']	=$row['username'];
   
   <!--Profile Left Start-->
   
-  <?php include 'includes/leftpanel1.php';?>
+  <?php include 'includes/profile_menu_sme.php';?>
   
   <!--Profile Left End--> 
   
@@ -136,7 +136,7 @@ $_SESSION['username']	=$row['username'];
   
   <div class="profile_right">
    
-	  <div class="profile_righttext"><h1><?=$lang['BALANCE']?> : <?=$curn?> <?=$balsum?></h1> <div class="view_bnt"><a href="<?=$vpath?>publicprofile/<?=$_SESSION[username]?>/"><?=$lang['VIEW_PROFILE']?></a></div></div>
+	  <div class="profile_righttext"><h1><?=$lang['BALANCE']?> : <?=$curn?> <?=$balsum?></h1> <div class="view_bnt"><a class="btn-custom-blue" href="<?=$vpath?>publicprofile/<?=$_SESSION[username]?>/"><?=$lang['VIEW_PROFILE']?></a></div></div>
 	   <!--**************Worker****************************************************************-->
    
  
@@ -144,7 +144,7 @@ $_SESSION['username']	=$row['username'];
   <!--**************both****************************************************************-->
   
   <!-----------skills-------------->	
-<? include("includes/dashboard_skills.php")?>
+<? //include("includes/dashboard_skills.php")?>
 <!-----------skills-------------->
 
 <!-----------Notification-------------->

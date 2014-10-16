@@ -1,5 +1,11 @@
 <?php
 include "includes/header.php";
+$row_user = mysql_fetch_array(mysql_query("select * from " . $prev . "user where user_id='" . $_SESSION['user_id'] . "'"));
+if (!empty($row_user[logo])) {
+    $temp_logo = $row_user[logo];
+} else {
+    $temp_logo = "images/face_icon.gif";
+}
 ?>
 
 <div class="spage-container job_work_diary" id="userSettings_ContactInfo">
@@ -46,7 +52,7 @@ include "includes/header.php";
                             <div class="p-row">
                                 <p class="tex">Protrait</p>
                                 <p class="protrait">
-                                    <span class="pro-img"><img src="images/myteam/img5.png" alt=""/></span>
+                                    <span class="pro-img"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=130&height=130" alt="" /></span>
                                     <span class="dag-photo"><a href="" class="edit-photo">Add logo now</a></span>
                             </div>
                             <div class="p-row">

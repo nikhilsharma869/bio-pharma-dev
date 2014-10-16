@@ -27,7 +27,7 @@
 
 .header-main{
     text-align:center;
-    max-width:1000px;
+    max-width: 87%;
     margin: auto;
     margin-bottom: 0;
     margin-top: 34px;
@@ -1700,7 +1700,7 @@
     padding: 7px 15px;
     color: #413b39;
     font-weight: bold;
-    padding-left: 40px;
+    padding-left: 35px;
 }
 
 .up-icon-overview {
@@ -3040,7 +3040,7 @@ margin-top: -10px;
 .managemyteam .profile_left, .managemyteam_message .profile_left{padding-top:125px;}
 .managemyteam-content{
     float: left;
-    width: 100%;    
+    width: 103%;    
 }
 .managemyteam-content .j-row, .row-content .j-row{
     border:1px solid #959595;
@@ -3966,7 +3966,7 @@ span.save-job-btn {
     color: #ea6153;
 }
 /*7-10-2014*/
-.job-item{float: left; width: 100%;}
+.job-item{float: left; width: 103%;}
 .job-title{
     background: #c6c6c6;
     padding: 10px 2%;
@@ -4345,3 +4345,22 @@ li + li.first-workdiary-snap span {
     left: -2px;
     top: 33px;
 }
+
+div.profile_left > div.user_box > div.improve_icon {
+    width: 85% !important;
+}
+
+
+div.profile_left > div.user_box,
+div.profile_left > div.user_box > div.user_text,
+div.profile_left > div.user_box > div.improve_icon > div.improvebox {
+    width: 100% !important;
+}
+
+div.profile_left > div.user_box {
+    border: 1px solid #959595 !important;
+}
+
+
+
+
