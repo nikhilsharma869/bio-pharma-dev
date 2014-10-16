@@ -58,7 +58,7 @@ if($row[rate] > 0) {
                         <div class="user-info info-box">
                             <div class="u-account">
                                 <h5>My Account Summary</h5>
-                                <a href="#" class="u-edit">Edit</a>
+                                
                             </div>
                             <div class="u-info">    
                                 <div class="p-row">                            
@@ -70,7 +70,7 @@ if($row[rate] > 0) {
                                         <span class="pro-img"><img src="<?= $vpath ?>viewimage.php?img=<?php echo $temp_logo; ?>&width=130&height=130" alt="" /></span>
                                     </div>
                                     <div class="p-row">
-                                        <p>Personal Email</p><p>kimoro2003@yahoo.com</p>
+                                        <p>Personal Email</p><p><?=$row_user['email']?></p>
                                     </div>
                                     <div class="p-row">
                                         <p>Hourly Pay Rate</p><p id="rate2change">$<span class="val2change"><?=$row_user['rate']?></span> <a href="javascript:;" class="btn-change">Change</a></p>
@@ -84,7 +84,7 @@ if($row[rate] > 0) {
                         <div class="user-info info-box">
                             <div class="u-account">
                                 <h5>My Public Profile</h5>
-                                <a href="#" class="u-edit">Edit</a>
+                                
                             </div>      
                             <p class="view-profile"><a href="#">View My Profile as others see it</a></p>                                                  
                             <div class="u-info">                                    

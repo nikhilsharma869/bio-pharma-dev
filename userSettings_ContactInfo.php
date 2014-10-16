@@ -32,7 +32,7 @@ if (!empty($row_user[logo])) {
                     <div class="user-info info-box">
                         <div class="u-account">
                             <h5>Account</h5>
-                            <a href="#" class="u-edit">Edit</a>
+                            
                         </div>
                         <div class="u-info">    
                             <div class="p-row">                            
@@ -58,7 +58,7 @@ if (!empty($row_user[logo])) {
                     <div class="location-info info-box">
                         <div class="u-account">
                             <h5>Location</h5>
-                            <a href="#" class="u-edit">Edit</a>
+                            
                         </div>
                         <div class="u-info">    
                             <div class="p-row">
