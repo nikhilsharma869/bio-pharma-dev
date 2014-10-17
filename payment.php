@@ -58,6 +58,8 @@ document.depositpayment_frm.submit();
 			<li><a href="<?=$vpath?>transaction_history.html" ><?=$lang['TRANSACTION_HISTORY']?></a></li>
                         <li><a href="<?= $vpath ?>membership.html" ><?= $lang['MEMBERSHIP'] ?></a></li>						<li><a  href="<?= $vpath ?>gift.html" ><?= $lang['GIVE_BONUS'] ?></a></li>
 		</ul> -->
+    <div class="clear"></div>
+    <div class="latest_text latest_text_new"><h1><?=$lang['DEPOSIT_FUNDS']?></h1></div>
 		<div class="browse_tab-content"> 
             <div class="browse_job_middle">
 				

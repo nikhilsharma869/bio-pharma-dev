@@ -8,15 +8,19 @@ include "includes/header.php";
             <!-- Sidebar left -->
             <div class="profile_left contracts_left">
                 <!-- tabs left -->
-                <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                    <li><a href="http://bio-pharma.dev/postjob.html">Contact Info</a></li>                        
-                    <li><a href="http://bio-pharma.dev/postjob.html">Tax Information</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">My SME Profile</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Get Paid</a></li>                        
-                    <li class="active"><a href="http://bio-pharma.dev/postjob.html">My Teams</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Notification Settings</a></li>
-                    <a href="#" class="create-companay">Create a Company</a>
-                </ul>
+                <?php
+                    if(check_Login_Worker($_SESSION['user_id'], $_SESSION['user_type'])) {
+                        $parent = 'dashboard_sme';          
+                        $current = 'notification_setting';
+                        $current_sub = '';
+                        get_child_menu($parent, $current, $current_sub);
+                    } else {
+                        $parent = 'dashboard_client';          
+                        $current = 'notification_setting';
+                        $current_sub = '';
+                        get_child_menu($parent, $current, $current_sub);
+                    }
+                ?> 
             </div>
             <!-- Content right -->
             <div class="profile_right">

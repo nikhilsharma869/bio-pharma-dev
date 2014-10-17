@@ -8,20 +8,12 @@ include "includes/header.php";
             <!-- Sidebar left -->
             <div class="profile_left contracts_left">
                 <!-- tabs left -->
-                <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                    <p class="billing text-bold">Billing</p>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Payment Methods</a></li>                        
-                    <P class="company-seting text-bold">Company Setting</P>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Company Info</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Teams</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Staff & Permissions</a></li>   
-                    <P class="company-seting text-bold">User Settings</P>                     
-                    <li class="active"><a href="http://bio-pharma.dev/postjob.html">Contact Info</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">My Freelancer Profile</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">My Teams</a></li>
-                    <li><a href="http://bio-pharma.dev/postjob.html">Notification Settings</a></li>
-                    <a href="#" class="create-companay">Create a Company</a>
-                </ul>                
+                <?php
+                    $parent = 'dashboard_client';          
+                    $current = 'company_info_setting';
+                    $current_sub = '';
+                    get_child_menu($parent, $current, $current_sub);
+                ?>                
             </div>
             <!-- Content right -->
             <div class="profile_right">

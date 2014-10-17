@@ -251,6 +251,8 @@ if ($errmsg != '') {
                 unset($_SESSION['succ']);
             }
             ?>
+                <div class="clear"></div>
+    <div class="latest_text latest_text_new"><h1><?= $lang['GIVE_BONUS'] ?></h1></div>
             <div class="browse_tab-content"> 
                 <div class="browse_job_middle">
 

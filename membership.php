@@ -66,6 +66,8 @@ $balsum = (float) $rwbal['balsum1'] - (float) $rwbal2['baldeb'];
             }
             ?>
 </div>
+            <div class="clear"></div>
+    <div class="latest_text latest_text_new"><h1><?= $lang['MEMBERSHIP'] ?></h1></div>
             <div class="browse_tab-content">
                 <form action="upgrade.php" name="upgrdfrm" method="post">
                     <div class="browse_job_middle">

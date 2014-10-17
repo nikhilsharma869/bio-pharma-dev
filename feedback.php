@@ -156,7 +156,7 @@ hs.creditsText = '<i>Feedback Rating</i>';
 		<li><a href="feedback.php" class="selected" rel="tabs1"><?=$lang['FEEDBACK_PN']?></a></li>
 
 		</ul> -->
-
+    <div class="latest_text latest_text_new"><h1><?=$lang['FEEDBACK_PN']?></h1></div>
 		
 
 		<div class="browse_tab-content"> 

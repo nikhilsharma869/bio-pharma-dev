@@ -596,7 +596,7 @@ var browser=navigator.appName;
                 <!-- <ul class="tabs">
                     <li><a href="javascript:void(0)" class="selected"><?= $lang['setting'] ?></a></li>
                 </ul> -->
-
+                <div class="latest_text latest_text_new"><h1><?= $lang['setting'] ?></h1></div>
                 <div class="newclassborder">
 
 
