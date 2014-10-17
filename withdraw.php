@@ -46,11 +46,13 @@ $sum1=number_format($sum,2);
 	hs.creditsText = '<i><?=$lang['ENT_VLD_EMAIL_ID_H']?></i>';
 
 </script>
+<div style="width:100%; float:left; background:#FFF;">
+<div class="main_div2">
 <div class="inner-middle"> 
 <div class="dash_headding">
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="<?=$vpath?>payment/dsp/"><?=$lang['My_finance']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['WITHDRAW_FUNDS']?></a></p></div>
 <div class="clear"></div>
-  <?php include 'includes/leftpanel1.php';?>
+    <?php include 'includes/dashboard_menu.php';?>
   <!-- left side-->
   <!--middle -->
   <div class="profile_right">
@@ -59,13 +61,13 @@ $sum1=number_format($sum,2);
      <div class="balence"><span><?=$lang['BALANCE']?>:</span> <?=$curn?> <?php echo number_format($balsum,2)?></div>
    
    
-    <ul class="tabs">      
+   <!--  <ul class="tabs">      
 			<li ><a href="<?=$vpath?>payment/dsp/" ><?=$lang['DEPOSIT_FUNDS']?></a></li>
 			<li><a href="<?=$vpath?>milestone.html" ><?=$lang['MILDSTONE']?></a></li>
 			<li><a class="selected" href="withdraw.html" ><?=$lang['WITHDRAW_FUNDS']?></a></li>
 			<li><a href="<?=$vpath?>transaction_history.html" ><?=$lang['TRANSACTION_HISTORY']?></a></li>
                         <li><a href="<?= $vpath ?>membership.html" ><?= $lang['MEMBERSHIP'] ?></a></li>						<li><a  href="<?= $vpath ?>gift.html" ><?= $lang['GIVE_BONUS'] ?></a></li>
-		</ul>
+		</ul> -->
 		
 		<div class="browse_tab-content"> 
             <div class="browse_job_middle">
@@ -181,6 +183,8 @@ if($rw1['withdraw_paypal']=='Y') {?>
 	  
 </div></div></div>
   </div>
+</div>
+</div>
 </div>
 <div style="clear:both; height:10px;"></div>
 <?php include 'includes/footer.php';?>

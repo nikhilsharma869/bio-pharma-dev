@@ -582,7 +582,7 @@ var browser=navigator.appName;
 
             <!--Profile-->
 
-            <?php include 'includes/leftpanel1.php'; ?> 
+            <?php include 'includes/dashboard_menu.php';?>
 
             <!-- left side-->
 
@@ -593,9 +593,9 @@ var browser=navigator.appName;
             <div class="profile_right">
 
 
-                <ul class="tabs">
+                <!-- <ul class="tabs">
                     <li><a href="javascript:void(0)" class="selected"><?= $lang['setting'] ?></a></li>
-                </ul>
+                </ul> -->
 
                 <div class="newclassborder">
 

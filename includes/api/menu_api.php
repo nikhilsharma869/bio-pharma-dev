@@ -121,16 +121,16 @@ function get_child_menu($parent, $current, $current_sub) {
 				),
 			'my_finance' => array(
 				'title'=> 'My Finance',
-				'a_href' => 'get_paid_setting.html',
+				'a_href' => 'transaction_history.html',
 				'sub' => array(
-					'get_paid_setting' => array(
-						'title'=> 'Get Paid',
-						'a_href' => 'get_paid_setting.html'
-						),
 					'transaction_history' => array(
 						'title'=> 'Transaction History',
 						'a_href' => 'transaction_history.html'
-						)
+						),
+					'get_paid_setting' => array(
+						'title'=> 'Get Paid',
+						'a_href' => 'get_paid_setting.html'
+						)				
 					)
 				),			
 			'dispute' => array(
@@ -157,7 +157,7 @@ function get_child_menu($parent, $current, $current_sub) {
 				),
 			'my_finance' => array(
 				'title'=> 'My Finance',
-				'a_href' => 'get_paid_setting.html',
+				'a_href' => 'payment/dsp/',
 				'sub' => array(
 					'add_fund' => array(
 						'title'=> 'Add Fund',

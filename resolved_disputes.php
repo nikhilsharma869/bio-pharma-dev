@@ -18,11 +18,14 @@ else
 $r=mysql_query($sql);
 
 ?>
+<div style="width:100%; float:left; background:#FFF;">
+<div class="main_div2">
+
 <div class="inner-middle"> 
 <div class="dash_headding">
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="<?=$vpath?>active_dispute.html"><?=$lang['ACTIVE_DISPUTE']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['CLOSE_DISPUTE']?></a></p></div>
 <div class="clear"></div>
-  <?php include 'includes/leftpanel1.php';?>
+  <?php include 'includes/dashboard_menu.php';?>
   
   
  <div class="profile_right">
@@ -37,9 +40,9 @@ $r=mysql_query($sql);
 			<div class="browse_tab-content"> 
 			<div class="browse_job_middle">
               
-              <table border="0" width="750" align="center" cellpadding="0" cellspacing="0" >
+              <table border="0" width="100%" align="center" cellpadding="0" cellspacing="0" >
                   <tr>
-                    <td ><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <td ><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr class="tbl_bg_1">
                         <td width="100" align="left" class="space"><?=$lang['DUPLICATE_ID']?></td>
                         <td width="180" align="center"><?=$lang['PROJECT_NAMEE']?></td>
@@ -81,7 +84,7 @@ $r=mysql_query($sql);
 					}
 					?>
                      <tr><td colspan="2">
-					<a class="submit_bott" style="text-decoration:none; margin:5px;" href="<?=$vpath?>create_dispute.html"><?=$lang['CREATE_NEW_DISPUTE']?></a>
+					<a class="submit_bott" style="text-decoration:none; margin:5px;" href="<?=$vpath?>create_dispute.html"><img src="images/create.png" align="left" style="margin-left:-10px;"><?=$lang['CREATE_NEW_DISPUTE']?></a>
 					</td>
 					<td colspan="5">
 			 <?php
@@ -108,6 +111,8 @@ $r=mysql_query($sql);
               
 </div>
 
+</div>
+</div>
 </div>
 </div>
   

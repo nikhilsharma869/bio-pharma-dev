@@ -223,12 +223,13 @@ function change_amt(id)
 
 
 </script>
-
+<div style="width:100%; float:left; background:#FFF;">
+<div class="main_div2">
 <div class="inner-middle"> 
 <div class="dash_headding">
 <p><a href="<?=$vpath?>">Home</a> | <a href="<?=$vpath?>active_dispute.html">Disputes</a> | <a href="javascript:void(0);" class="selected">Create Dispute</a></p></div>
 <div class="clear"></div>
-  <?php include 'includes/leftpanel1.php';?>
+  <?php include 'includes/dashboard_menu.php';?>
 
   
 
@@ -238,7 +239,7 @@ function change_amt(id)
 <div id="wrapper_3">
               <ul class="tabs">      
                 <li><a href="<?=$vpath?>active_dispute.html" class="" ><?=$lang['ACTIVE_DISPUTE']?></a></li>
-                <li><a class="defaulttab " href="javascript:void(0);" ><?=$lang['CLOSE_DISPUTE']?> </a></li>
+                <li><a class="defaulttab " href="<?=$vpath?>resolved_disputes.html" ><?=$lang['CLOSE_DISPUTE']?> </a></li>
               </ul>
 
  <div class="browse_tab-content"> 
@@ -422,7 +423,8 @@ function change_amt(id)
 
 
 </div>	</div>
-
+</div>
+</div>
 <div style="clear:both; height:10px;"></div>
 
 

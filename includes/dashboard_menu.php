@@ -111,15 +111,60 @@ $prfcomplt =$prfcomplt+10;
 	<div class="clear-fix"></div>
 	
 	<?php
-		if(check_Login_Worker($_SESSION['user_id'], $_SESSION['user_type'])) {
-	        $parent = 'dashboard_sme';
-	        $current = '';
+	// var_dump($currentFile);
+	
+	switch ($currentFile) {
+		case 'active_dispute.php':
+			$current = 'dispute';
 	        $current_sub = '';
+			break;
+		case 'setting.php':
+			$current = 'change_password';
+	        $current_sub = '';
+			break;
+		case 'feedback.php':
+			$current = 'feedback';
+	        $current_sub = '';
+			break;			
+		case 'transaction_history.php':
+			$current = 'my_finance';
+	        $current_sub = 'transaction_history';
+			break;
+		case 'payment.php':
+			$current = 'my_finance';
+	        $current_sub = 'add_fund';
+	        break;
+	    case 'gift.php':
+			$current = 'my_finance';
+	        $current_sub = 'gift';
+	        break;
+	    case 'withdraw.php':
+	    	$current = 'my_finance';
+	        $current_sub = 'withdraw';
+	    	break;
+	    case 'milestone.php':
+	    	$current = 'my_finance';
+	        $current_sub = 'milestone';
+	    	break;
+	    case 'membership.php':
+	    	$current = 'my_finance';
+	        $current_sub = 'membership';
+	        break;
+		default:
+			$current = '';
+	        $current_sub = '';
+			break;
+	}
+	if(isset($_GET['type']) && $_GET['type']=='dsp') {
+		$current = 'my_finance';
+	    $current_sub = 'add_fund';
+	}
+
+		if(check_Login_Worker($_SESSION['user_id'], $_SESSION['user_type'])) {
+	        $parent = 'dashboard_sme';	        
 	        get_child_menu($parent, $current, $current_sub);
 	    } else {
 	    	$parent = 'dashboard_client';
-	        $current = '';
-	        $current_sub = '';
 	        get_child_menu($parent, $current, $current_sub);
 	    }
     ?>

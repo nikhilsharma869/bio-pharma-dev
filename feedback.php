@@ -139,7 +139,7 @@ hs.creditsText = '<i>Feedback Rating</i>';
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['FEEDBACK_PN']?></a></p></div>
 <div class="clear"></div>
 
-  <?php include 'includes/leftpanel1.php';?>
+  <?php include 'includes/dashboard_menu.php';?>
 
   <!-- left side-->
 
@@ -151,11 +151,11 @@ hs.creditsText = '<i>Feedback Rating</i>';
 
 
 
-		<ul class="tabs">      
+		<!-- <ul class="tabs">      
 
 		<li><a href="feedback.php" class="selected" rel="tabs1"><?=$lang['FEEDBACK_PN']?></a></li>
 
-		</ul>
+		</ul> -->
 
 		
 
@@ -167,7 +167,7 @@ hs.creditsText = '<i>Feedback Rating</i>';
 
 	
 
-		   <table width="750" border="0" align="center" cellpadding="0" cellspacing="0" >
+		   <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" >
 
            <tr>
 

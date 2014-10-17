@@ -9,6 +9,8 @@ $rwbal2 = mysql_fetch_array(mysql_query("select sum(balance) as baldeb from " . 
 $balsum = (float) $rwbal['balsum1'] - (float) $rwbal2['baldeb'];
 
 ?>
+<div style="width:100%; float:left; background:#FFF;">
+<div class="main_div2">
 <div class="inner-middle">
     <div class="dash_headding">
         <p><a href="<?= $vpath ?>">
@@ -20,7 +22,7 @@ $balsum = (float) $rwbal['balsum1'] - (float) $rwbal2['baldeb'];
             </a></p>
     </div>
     <div class="clear"></div>
-    <?php include 'includes/leftpanel1.php'; ?>
+    <?php include 'includes/dashboard_menu.php';?>
     <!-- left side--> 
     <!--middle -->
     <div class="profile_right">
@@ -30,7 +32,7 @@ $balsum = (float) $rwbal['balsum1'] - (float) $rwbal2['baldeb'];
                     :</span>
                 <?= $curn ?>
                     <?php echo number_format($balsum, 2) ?></div>
-            <ul class="tabs">
+            <!-- <ul class="tabs">
                 <li><a href="<?= $vpath ?>payment/dsp/" >
                         <?= $lang['DEPOSIT_FUNDS'] ?>
                     </a></li>
@@ -49,7 +51,7 @@ $balsum = (float) $rwbal['balsum1'] - (float) $rwbal2['baldeb'];
 				 <li><a  href="<?= $vpath ?>gift.html" >
 					<?= $lang['GIVE_BONUS'] ?>
 				</a></li>
-            </ul>
+            </ul> -->
 <div style="width: 743px;float:left">
             <?php
             if ($_SESSION['error']!= "") {
@@ -139,6 +141,8 @@ $balsum = (float) $rwbal['balsum1'] - (float) $rwbal2['baldeb'];
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 <div style="clear:both; height:10px;"></div>
 <?php include 'includes/footer.php'; ?>

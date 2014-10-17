@@ -215,12 +215,13 @@ if ($errmsg != '') {
     }
 </script>
 
-
+<div style="width:100%; float:left; background:#FFF;">
+<div class="main_div2">
 <div class="inner-middle"> 
     <div class="dash_headding">
         <p><a href="<?= $vpath ?>"><?= $lang['HOME_LINK'] ?></a> | <a href="<?= $vpath ?>payment/dsp/"><?= $lang['My_finance'] ?></a> | <a href="javascript:void(0);" class="selected"><?= $lang['MILDSTONE'] ?></a></p></div>
     <div class="clear"></div>
-    <?php include 'includes/leftpanel1.php'; ?> 
+    <?php include 'includes/dashboard_menu.php';?>
     <!-- left side-->
     <!--middle -->
     <div class="profile_right">
@@ -228,14 +229,14 @@ if ($errmsg != '') {
             <div class="balence"><span><?= $lang['BAL_H'] ?> :</span> <?= $curn ?> <?php echo number_format($balsum, 2, '.', ',') ?></div>
 
 
-            <ul class="tabs">      
+            <!-- <ul class="tabs">      
                 <li><a href="<?= $vpath ?>payment/dsp/" ><?= $lang['DEPOSIT_FUNDS'] ?></a></li>
                 <li><a href="<?= $vpath ?>milestone.html" ><?= $lang['MILDSTONE'] ?></a></li>
                 <li><a href="<?= $vpath ?>withdraw.html" ><?= $lang['WITHDRAW_FUND'] ?></a></li>
                 <li><a href="<?= $vpath ?>transaction_history.html" ><?= $lang['TRANSACTION_HISTORY'] ?></a></li>
                 <li><a href="<?= $vpath ?>membership.html" ><?= $lang['MEMBERSHIP'] ?></a></li>
 				<li><a  href="<?= $vpath ?>gift.html"  class="selected"><?= $lang['GIVE_BONUS'] ?></a></li>
-            </ul>
+            </ul> -->
 
 
             <?php
@@ -342,7 +343,9 @@ if (mysql_num_rows($res1) > 0) {
                 </div>
                 <!--Profile Right End-->
             </div></div></div>
-</div>		  
+</div>		
+</div>  
+</div>  
 
 <div style="clear:both; height:10px;"></div>
 

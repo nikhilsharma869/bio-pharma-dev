@@ -5515,7 +5515,7 @@ textarea {
     padding:0px;
     height: auto;
     overflow:hidden;
-    width:743px;
+    width:100%;
 }
 .tbl_bg_4 {
     font-family: Arial, Helvetica, sans-serif;
@@ -5529,7 +5529,7 @@ textarea {
     padding:0px;
 }
 #wrapper_3 {
-    width:745px;
+    width:100%;
     margin:0px auto;
     /*	padding:5px 10px 5px 5px;*/
 }
@@ -5852,8 +5852,15 @@ textarea {
     font-size: 12px;
     font-weight: normal;
     color: #7C7C7E;
-    margin:7px 15px 0px 0px;
-    padding:0px;
+    background: none repeat scroll 0 0 #CCCCCC;
+    color: #363636;
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 10px;
+    text-align: right;
+    width: 15%;
 }
 .balence span {
     font-family:Arial, Helvetica, sans-serif;
@@ -8241,7 +8248,7 @@ textarea {
     border:1px solid #e7e7e7;
     height: auto;
     overflow: hidden;
-    width: 743px;
+    width: 100%;
 }
 /*--------------------7/1/2014-----------------*/
 
@@ -10158,10 +10165,19 @@ input[type="radio"]:checked + label.css-label {
     margin-right: 0;
 }
 
+.submit_bott,
 a.btn-custom-blue,
 .btn-custom-blue {
     background: #2272ba;
     display: inline-block;
     padding: 5px 30px;
     text-decoration: none;
+    border: none !important;
+    color: #fff;
+}
+
+.submit_bott:hover,
+.btn-custom-blue:hover {
+    background: url(../images/btn_hover.jpg) 0 0 repeat-x;
+    color: #fff;
 }

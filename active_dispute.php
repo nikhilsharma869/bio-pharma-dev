@@ -25,7 +25,8 @@ $r=mysql_query($sql);
 <div class="dash_headding">
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="<?=$vpath?>active_dispute.html"><?=$lang['ACTIVE_DISPUTE']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['ACTIVE_DISPUTE']?></a></p></div>
 <div class="clear"></div>
-  <?php include 'includes/leftpanel1.php';?>
+  
+  <?php include 'includes/dashboard_menu.php';?>
   
   
  <div class="profile_right">
@@ -40,9 +41,9 @@ $r=mysql_query($sql);
 			<div class="browse_tab-content"> 
 			<div class="browse_job_middle">
               
-              <table border="0" width="750" align="center" cellpadding="0" cellspacing="0" >
+              <table border="0" width="100%" align="center" cellpadding="0" cellspacing="0" >
                   <tr>
-                    <td ><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <td ><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr class="tbl_bg_1">
                         <td width="100" align="left" class="space"><?=$lang['DUPLICATE_ID']?></td>
                         <td width="180" align="center"><?=$lang['PROJECT_NAMEE']?></td>

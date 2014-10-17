@@ -79,11 +79,13 @@ $sum1=number_format($sum,2);
 	});
 
 	</script>
+  <div style="width:100%; float:left; background:#FFF;">
+    <div class="main_div2">
 <div class="inner-middle"> 
 <div class="dash_headding">
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="<?=$vpath?>payment/dsp/"><?=$lang['My_finance']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['TRANSACTION_HISTORY']?></a></p></div>
 <div class="clear"></div>
-  <?php include 'includes/leftpanel1.php';?>
+  <?php include 'includes/dashboard_menu.php';?>
   <!-- left side-->
   <!--middle -->
   <div class="profile_right">
@@ -102,14 +104,14 @@ $sum1=number_format($sum,2);
 	
     
             	
-	 <ul class="tabs">      
+	 <!-- <ul class="tabs">      
 			<li ><a href="<?=$vpath?>payment/dsp/" ><?=$lang['DEPOSIT_FUNDS']?></a></li>
 			<li><a href="<?=$vpath?>milestone.html" ><?=$lang['MILDSTONE']?></a></li>
 			<li ><a  href="<?=$vpath?>withdraw.html" ><?=$lang['WITHDRAW_FUND']?></a></li>
 			<li ><a class="selected" href="<?=$vpath?>transaction_history.html" ><?=$lang['TRANSACTION_HISTORY']?></a></li>
             <li><a href="<?= $vpath ?>membership.html" ><?= $lang['MEMBERSHIP'] ?></a></li>
 			<li><a  href="<?= $vpath ?>gift.html" ><?= $lang['GIVE_BONUS'] ?></a></li>
-		</ul>
+		</ul> -->
 		
 		<div class="browse_tab-content"> 
             <div class="browse_job_middle">
@@ -410,9 +412,11 @@ if(isset($_POST['sub_go'])&&$_POST['sub_go']=='Go')
 <!---------------------------------------------------------------------------------------------------------------------------->
     </div>
   </div>
+</div>
   <!--end content-->
 </div>
 
+</div>
 </div>
 <div style="clear:both; height:10px;"></div>
 <?php include 'includes/footer.php';?>

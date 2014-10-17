@@ -43,7 +43,7 @@ document.depositpayment_frm.submit();
 <div class="dash_headding">
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="<?=$vpath?>payment/dsp/"><?=$lang['My_finance']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['DEPOSIT_FUNDS']?></a></p></div>
 <div class="clear"></div>
-  <?php include 'includes/leftpanel1.php';?>
+  <?php include 'includes/dashboard_menu.php';?>
   <!-- left side-->
   <!--middle -->
  <div class="profile_right">
@@ -51,13 +51,13 @@ document.depositpayment_frm.submit();
 	<div class="balence"><span><?=$lang['BAL_H']?>: </span><?=$paypal_settings['silver_member_currency']?> <?php print $balsum;?></div>
   
 	
-   		<ul class="tabs">      
+   		<!-- <ul class="tabs">      
 			<li><a href="<?=$vpath?>payment/dsp/" class="selected"><?=$lang['DEPOSIT_FUNDS']?></a></li>
 			<li><a href="<?=$vpath?>milestone.html" ><?=$lang['MILDSTONE']?></a></li>
 			<li><a href="<?=$vpath?>withdraw.html" ><?=$lang['WITHDRAW_FUND']?></a></li>
 			<li><a href="<?=$vpath?>transaction_history.html" ><?=$lang['TRANSACTION_HISTORY']?></a></li>
                         <li><a href="<?= $vpath ?>membership.html" ><?= $lang['MEMBERSHIP'] ?></a></li>						<li><a  href="<?= $vpath ?>gift.html" ><?= $lang['GIVE_BONUS'] ?></a></li>
-		</ul>
+		</ul> -->
 		<div class="browse_tab-content"> 
             <div class="browse_job_middle">
 				
@@ -101,7 +101,7 @@ document.depositpayment_frm.submit();
 					  </form>
                       </td>
                     <td class="space" align="left">
-                      <button class="submit_bott" style="margin-left:5px;" onclick="chkfrm()">&nbsp; <?=$lang['PAY']?> &nbsp;</button>
+                      <button class="submit_bott btn-custom-blue" style="margin-left:5px;" onclick="chkfrm()">&nbsp; <?=$lang['PAY']?> &nbsp;</button>
                    </td>
                   </tr>
 				  
