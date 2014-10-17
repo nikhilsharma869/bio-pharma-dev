@@ -95,24 +95,29 @@ function myamt(amt)
 	border-bottom:1px dotted #2f5b67; height:25px;
 }
 </style>
-
+<div style="width:100%; float:left; background:#FFF;">
+<div class="main_div2">
 <div class="inner-middle"> 
 <div class="dash_headding">
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="<?=$vpath?>payment/dsp/"><?=$lang['My_finance']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['WITHDRAW_FUND']?></a></p></div>
 <div class="clear"></div>
-<?php include 'includes/leftpanel1.php';?> 
+<?php include 'includes/dashboard_menu.php';?>
  <div class="profile_right">
     <div id="wrapper_3">
-	<div class="balence"><span><?=$lang['BAL_H']?>:</span><?=$paypal_settings['silver_member_currency']?><?php print $balsum;?></div>
-  
 	
-   		<ul class="tabs">      
+	
+   		<!-- <ul class="tabs">      
 			<li><a href="<?=$vpath?>payment/dsp/" ><?=$lang['DEPOSIT_FUNDS']?></a></li>
 			<li><a href="<?=$vpath?>milestone.html" ><?=$lang['MILDSTONE']?></a></li>
 			<li><a href="<?=$vpath?>withdraw.html" class="selected"><?=$lang['WITHDRAW_FUND']?></a></li>
 			<li><a href="<?=$vpath?>transaction_history.html" ><?=$lang['TRANSACTION_HISTORY']?></a></li>
 			<li><a href="<?=$vpath?>membership.html" >Membership</a></li>
-		</ul>
+		</ul> -->
+		<div class="box-title">
+        	<div class="latest_text latest_text_new"><h1><?=$lang['WITHDRAW_FUND']?></h1></div>
+        	<div class="balence"><span><?=$lang['BAL_H']?>:</span><?=$paypal_settings['silver_member_currency']?><?php print $balsum;?></div>
+  
+        </div>
 		<div class="browse_tab-content"> 
             <div class="browse_job_middle">
 		<table cellpadding="0" cellspacing="0" border="0" style="color:#6d6d6d; font-size:12px;" width="100%" align = "center" >
@@ -270,6 +275,10 @@ else
 </div>
 </div>
 </div>
+
+</div>
+</div>
+
 <?php include 'includes/footer.php';?> 
 </body>
 </html>

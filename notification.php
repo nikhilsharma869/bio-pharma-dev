@@ -64,7 +64,7 @@ $sum1=number_format($sum,2);
 <div class="dash_headding">
 <p><a href="<?=$vpath?>"><?=$lang['HOME_LINK']?></a> | <a href="javascript:void(0);" class="selected"><?=$lang['NOTIFICATION']?></a></p></div>
 <div class="clear"></div>
-<?php include 'includes/leftpanel1.php';?> 
+<?php include 'includes/dashboard_menu.php';?>
     <!-- left side-->
     <!--middle -->
 <?php
@@ -78,10 +78,10 @@ $sum1=number_format($sum,2);
 		}
 ?>
 <div class="profile_right">
-<ul class="tabs">
+<!-- <ul class="tabs">
   <li><a href="javascript:void(0)" class="selected"><?=$lang['NOTIFICATIONS']?>: ( <? echo $as."-".$en;?> )</a></li>
-  </ul>
-
+  </ul> -->
+<div class="latest_text latest_text_new"><h1><?=$lang['NOTIFICATIONS']?>: ( <? echo $as."-".$en;?> )</h1></div>
 <div class="newclassborder">
 
    

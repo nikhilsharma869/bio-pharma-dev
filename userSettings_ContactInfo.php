@@ -12,15 +12,7 @@ if (!empty($row_user[logo])) {
     <div class="main_div2">
         <div class="inner-middle"> 
             <!-- Sidebar left -->
-            <div class="profile_left contracts_left">
-                <!-- tabs left -->
-                <?php
-                    $parent = 'dashboard_sme';          
-                    $current = 'contact_info_setting';
-                    $current_sub = '';
-                    get_child_menu($parent, $current, $current_sub);
-                ?>                
-            </div>
+            <?php include 'includes/dashboard_menu.php';?> 
             <!-- Content right -->
             <div class="profile_right">
                 <!-- content data list -->

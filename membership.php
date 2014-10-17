@@ -27,11 +27,7 @@ $balsum = (float) $rwbal['balsum1'] - (float) $rwbal2['baldeb'];
     <!--middle -->
     <div class="profile_right">
         <div id="wrapper_3">
-            <div class="balence"><span>
-                    <?= $lang['BAL_H'] ?>
-                    :</span>
-                <?= $curn ?>
-                    <?php echo number_format($balsum, 2) ?></div>
+            
             <!-- <ul class="tabs">
                 <li><a href="<?= $vpath ?>payment/dsp/" >
                         <?= $lang['DEPOSIT_FUNDS'] ?>
@@ -66,8 +62,14 @@ $balsum = (float) $rwbal['balsum1'] - (float) $rwbal2['baldeb'];
             }
             ?>
 </div>
-            <div class="clear"></div>
-    <div class="latest_text latest_text_new"><h1><?= $lang['MEMBERSHIP'] ?></h1></div>
+            <div class="box-title">
+                <div class="latest_text latest_text_new"><h1><?= $lang['MEMBERSHIP'] ?></h1></div>
+                <div class="balence"><span>
+                    <?= $lang['BAL_H'] ?>
+                    :</span>
+                <?= $curn ?>
+                    <?php echo number_format($balsum, 2) ?></div>
+            </div>
             <div class="browse_tab-content">
                 <form action="upgrade.php" name="upgrdfrm" method="post">
                     <div class="browse_job_middle">

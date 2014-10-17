@@ -58,7 +58,7 @@ $sum1=number_format($sum,2);
   <div class="profile_right">
   
   <div id="wrapper_3">
-     <div class="balence"><span><?=$lang['BALANCE']?>:</span> <?=$curn?> <?php echo number_format($balsum,2)?></div>
+     
    
    
    <!--  <ul class="tabs">      
@@ -68,8 +68,10 @@ $sum1=number_format($sum,2);
 			<li><a href="<?=$vpath?>transaction_history.html" ><?=$lang['TRANSACTION_HISTORY']?></a></li>
                         <li><a href="<?= $vpath ?>membership.html" ><?= $lang['MEMBERSHIP'] ?></a></li>						<li><a  href="<?= $vpath ?>gift.html" ><?= $lang['GIVE_BONUS'] ?></a></li>
 		</ul> -->
-		<div class="clear"></div>
-    <div class="latest_text latest_text_new"><h1><?=$lang['WITHDRAW_FUNDS']?></h1></div>
+		<div class="box-title">
+      <div class="balence"><span><?=$lang['BALANCE']?>:</span> <?=$curn?> <?php echo number_format($balsum,2)?></div>
+      <div class="latest_text latest_text_new"><h1><?=$lang['WITHDRAW_FUNDS']?></h1></div>
+    </div>
 		<div class="browse_tab-content"> 
             <div class="browse_job_middle">
 
