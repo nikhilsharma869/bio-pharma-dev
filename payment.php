@@ -48,7 +48,7 @@ document.depositpayment_frm.submit();
   <!--middle -->
  <div class="profile_right">
     <div id="wrapper_3">
-	<div class="balence"><span><?=$lang['BAL_H']?>: </span><?=$paypal_settings['silver_member_currency']?> <?php print $balsum;?></div>
+	
   
 	
    		<!-- <ul class="tabs">      
@@ -58,8 +58,10 @@ document.depositpayment_frm.submit();
 			<li><a href="<?=$vpath?>transaction_history.html" ><?=$lang['TRANSACTION_HISTORY']?></a></li>
                         <li><a href="<?= $vpath ?>membership.html" ><?= $lang['MEMBERSHIP'] ?></a></li>						<li><a  href="<?= $vpath ?>gift.html" ><?= $lang['GIVE_BONUS'] ?></a></li>
 		</ul> -->
-    <div class="clear"></div>
-    <div class="latest_text latest_text_new"><h1><?=$lang['DEPOSIT_FUNDS']?></h1></div>
+    <div class="box-title">
+      <div class="latest_text latest_text_new"><h1><?=$lang['DEPOSIT_FUNDS']?></h1></div>
+      <div class="balence"><span><?=$lang['BAL_H']?>: </span><?=$paypal_settings['silver_member_currency']?> <?php print $balsum;?></div>
+    </div>
 		<div class="browse_tab-content"> 
             <div class="browse_job_middle">
 				

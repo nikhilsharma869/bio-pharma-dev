@@ -1,6 +1,7 @@
 <?php
 include "includes/header.php";
 include("country.php");
+CheckLogin();
 $current_page = "Saved Freelancers";
 $cur_par_menu = "saved_freelancers";
 $cur_child_menu = "";

@@ -111,9 +111,9 @@ function get_child_menu($parent, $current, $current_sub) {
 				'title'=> 'My SME Profile',
 				'a_href' => 'sme_profile_setting.html'
 				),
-			'notification_setting' => array(
+			'notification' => array(
 				'title'=> 'Notification',
-				'a_href' => 'notification_setting.html'
+				'a_href' => 'notification.html'
 				),
 			'feedback' => array(
 				'title'=> 'Feedback',
@@ -147,9 +147,9 @@ function get_child_menu($parent, $current, $current_sub) {
 				'title'=> 'Company Info',
 				'a_href' => 'company_info_setting.html'
 				),
-			'notification_setting' => array(
+			'notification' => array(
 				'title'=> 'Notification',
-				'a_href' => 'notification_setting.html'
+				'a_href' => 'notification.html'
 				),
 			'feedback' => array(
 				'title'=> 'Feedback',

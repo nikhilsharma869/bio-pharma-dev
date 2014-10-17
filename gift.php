@@ -226,7 +226,7 @@ if ($errmsg != '') {
     <!--middle -->
     <div class="profile_right">
         <div id="wrapper_3">
-            <div class="balence"><span><?= $lang['BAL_H'] ?> :</span> <?= $curn ?> <?php echo number_format($balsum, 2, '.', ',') ?></div>
+            
 
 
             <!-- <ul class="tabs">      
@@ -251,8 +251,10 @@ if ($errmsg != '') {
                 unset($_SESSION['succ']);
             }
             ?>
-                <div class="clear"></div>
-    <div class="latest_text latest_text_new"><h1><?= $lang['GIVE_BONUS'] ?></h1></div>
+            <div class="box-title">
+                <div class="latest_text latest_text_new"><h1><?= $lang['GIVE_BONUS'] ?></h1></div>
+                <div class="balence"><span><?= $lang['BAL_H'] ?> :</span> <?= $curn ?> <?php echo number_format($balsum, 2, '.', ',') ?></div>
+            </div>
             <div class="browse_tab-content"> 
                 <div class="browse_job_middle">
 

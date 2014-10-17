@@ -1,7 +1,7 @@
 <?php
 include "includes/header.php";
 
-
+CheckLogin();
 
 $every_10_minutes = hoursRange( 0, 86400, 60 * 10, 'h:i a' );
 

@@ -138,6 +138,7 @@ $prfcomplt =$prfcomplt+10;
 			$current = 'my_finance';
 	        $current_sub = 'gift';
 	        break;
+	    case 'withdrawfund.php':
 	    case 'withdraw.php':
 	    	$current = 'my_finance';
 	        $current_sub = 'withdraw';
@@ -150,6 +151,22 @@ $prfcomplt =$prfcomplt+10;
 	    	$current = 'my_finance';
 	        $current_sub = 'membership';
 	        break;
+	    case 'userSettings_ContactInfo.php':
+	    	$current = 'contact_info_setting';
+	        $current_sub = '';
+	        break;
+	    case 'userSettings_MySMEProfile.php':
+	    	$current = 'sme_profile_setting';
+	        $current_sub = '';
+	    	break;
+	   	case 'notification.php':
+	   		$current = 'notification';
+	        $current_sub = '';
+	    	break;
+	    case 'userSettings_CompanyInfo.php':
+	    	$current = 'company_info_setting';
+	    	$current_sub = '';
+	    	break;
 		default:
 			$current = '';
 	        $current_sub = '';

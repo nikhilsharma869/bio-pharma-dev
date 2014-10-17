@@ -1686,6 +1686,7 @@
     padding-top: 3px;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 #up-tabs.nav-tabs > li {
@@ -4368,3 +4369,10 @@ div.profile_left > div.user_box {
     margin-left: 5px;
 }
 
+.box-title {
+    position: relative;
+}
+
+table + .box-title {
+    margin-top: 10px;
+}
