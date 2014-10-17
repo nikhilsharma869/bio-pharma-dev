@@ -128,7 +128,7 @@ $_SESSION['username']	=$row['username'];
   
   <!--Profile Left Start-->
   
-  <?php include 'includes/profile_menu_sme.php';?>
+  <?php include 'includes/dashboard_menu.php';?>
   
   <!--Profile Left End--> 
   

@@ -111,10 +111,17 @@ $prfcomplt =$prfcomplt+10;
 	<div class="clear-fix"></div>
 	
 	<?php
-        $parent = 'dashboard_sme';
-        $current = '';
-        $current_sub = '';
-        get_child_menu($parent, $current, $current_sub);
+		if(check_Login_Worker($_SESSION['user_id'], $_SESSION['user_type'])) {
+	        $parent = 'dashboard_sme';
+	        $current = '';
+	        $current_sub = '';
+	        get_child_menu($parent, $current, $current_sub);
+	    } else {
+	    	$parent = 'dashboard_client';
+	        $current = '';
+	        $current_sub = '';
+	        get_child_menu($parent, $current, $current_sub);
+	    }
     ?>
 
   </div>

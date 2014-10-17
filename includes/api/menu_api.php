@@ -103,25 +103,95 @@ function get_child_menu($parent, $current, $current_sub) {
 				)
 		),
 		'dashboard_sme' => array(
-			'userSettings_ContactInfo' => array(
+			'contact_info_setting' => array(
 				'title'=> 'Contact Info',
-				'a_href' => 'userSettings_ContactInfo.html'
+				'a_href' => 'contact_info_setting.html'
 				),
-			'publicprofile' => array(
+			'sme_profile_setting' => array(
 				'title'=> 'My SME Profile',
-				'a_href' => 'userSettings_MySMEProfile.html'
+				'a_href' => 'sme_profile_setting.html'
 				),
-			'userSettings_GetPaid' => array(
-				'title'=> 'Get Paid',
-				'a_href' => 'userSettings_GetPaid.html'
+			'notification_setting' => array(
+				'title'=> 'Notification',
+				'a_href' => 'notification_setting.html'
 				),
-			'userSettings_MyTeams' => array(
-				'title'=> 'My Teams',
-				'a_href' => 'userSettings_MyTeams.html'
+			'feedback' => array(
+				'title'=> 'Feedback',
+				'a_href' => 'feedback.html'
 				),
-			'userSettings_NotificationSettings' => array(
-				'title'=> 'Notification Settings',
-				'a_href' => 'userSettings_NotificationSettings.html'
+			'my_finance' => array(
+				'title'=> 'My Finance',
+				'a_href' => 'get_paid_setting.html',
+				'sub' => array(
+					'get_paid_setting' => array(
+						'title'=> 'Get Paid',
+						'a_href' => 'get_paid_setting.html'
+						),
+					'transaction_history' => array(
+						'title'=> 'Transaction History',
+						'a_href' => 'transaction_history.html'
+						)
+					)
+				),			
+			'dispute' => array(
+				'title'=> 'Disputes',
+				'a_href' => 'active_dispute.html'
+				),
+			'change_password' => array(
+				'title'=> 'Change Password',
+				'a_href' => 'setting.html'
+				)
+		),
+		'dashboard_client' => array(
+			'company_info_setting' => array(
+				'title'=> 'Company Info',
+				'a_href' => 'company_info_setting.html'
+				),
+			'notification_setting' => array(
+				'title'=> 'Notification',
+				'a_href' => 'notification_setting.html'
+				),
+			'feedback' => array(
+				'title'=> 'Feedback',
+				'a_href' => 'feedback.html'
+				),
+			'my_finance' => array(
+				'title'=> 'My Finance',
+				'a_href' => 'get_paid_setting.html',
+				'sub' => array(
+					'add_fund' => array(
+						'title'=> 'Add Fund',
+						'a_href' => 'payment/dsp/'
+						),
+					'milestone' => array(
+						'title'=> 'Milestone',
+						'a_href' => 'milestone.html'
+						),
+					'withdraw' => array(
+						'title'=> 'Withdraw',
+						'a_href' => 'withdraw.html'
+						),
+					'gift' => array(
+						'title'=> 'Give Bonus',
+						'a_href' => 'gift.html'
+						),
+					'transaction_history' => array(
+						'title'=> 'Transaction History',
+						'a_href' => 'transaction_history.html'
+						),
+					'membership' => array(
+						'title'=> 'Membership',
+						'a_href' => 'membership.html'
+						)
+					)
+				),			
+			'dispute' => array(
+				'title'=> 'Disputes',
+				'a_href' => 'active_dispute.html'
+				),
+			'change_password' => array(
+				'title'=> 'Change Password',
+				'a_href' => 'setting.html'
 				)
 		),
 	);

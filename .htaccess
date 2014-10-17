@@ -281,6 +281,25 @@ RewriteRule ^contracts/([a-zA-Z0-9_-]+)$ contracts.php?page=$1 [L]
 RewriteRule ^contracts/([a-zA-Z0-9_-]+)/$ contracts.php?page=$1 [L]
 RewriteRule ^contracts$ contracts.php [L]
 
+
+#userSettings_MySMEProfile
+RewriteRule ^sme_profile_setting.html$ userSettings_MySMEProfile.php [L]
+
+#userSettings_ContactInfo
+RewriteRule ^contact_info_setting.html$ userSettings_ContactInfo.php [L]
+
+#userSettings_NotificationSettings
+RewriteRule ^notification_setting.html$ userSettings_NotificationSettings.php [L]
+
+#userSettings_GetPaid
+RewriteRule ^get_paid_setting.html$ userSettings_GetPaid.php [L]
+
+#userSettings_CompanyInfo
+RewriteRule ^company_info_setting.html$ userSettings_CompanyInfo.php [L]
+
+#contracts
+RewriteRule ^contracts/$ contracts.php?page=$1 [L]
+
 #active job
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)/$ active_jobs.php?user=W&page=$1 [L]
 RewriteRule ^active_jobs/([a-zA-Z0-9_-]+)$ active_jobs.php?user=W&page=$1 [L]
