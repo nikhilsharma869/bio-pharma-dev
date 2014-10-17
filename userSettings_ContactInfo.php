@@ -14,15 +14,12 @@ if (!empty($row_user[logo])) {
             <!-- Sidebar left -->
             <div class="profile_left contracts_left">
                 <!-- tabs left -->
-                <ul id="up-tabs" class="nav nav-tabs" role="tablist">
-                    <li class="active"><a href="<?=$vpath?>userSettings_ContactInfo.html">Contact Info</a></li>                        
-                    <li><a href="<?=$vpath?>userSettings_TaxInformation.html">Tax Information</a></li>
-                    <li><a href="<?=$vpath?>userSettings_MySMEProfile.html">My SME Profile</a></li>
-                    <li><a href="<?=$vpath?>userSettings_GetPaid.html">Get Paid</a></li>                        
-                    <li><a href="<?=$vpath?>userSettings_MyTeams.html">My Teams</a></li>
-                    <li><a href="<?=$vpath?>userSettings_NotificationSettings.html">Notification Settings</a></li>
-                    <a href="#" class="create-companay">Create a Company</a>
-                </ul>                
+                <?php
+                    $parent = 'dashboard_sme';          
+                    $current = 'contact_info_setting';
+                    $current_sub = '';
+                    get_child_menu($parent, $current, $current_sub);
+                ?>                
             </div>
             <!-- Content right -->
             <div class="profile_right">

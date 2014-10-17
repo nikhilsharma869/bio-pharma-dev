@@ -112,7 +112,8 @@ $sum1=number_format($sum,2);
             <li><a href="<?= $vpath ?>membership.html" ><?= $lang['MEMBERSHIP'] ?></a></li>
 			<li><a  href="<?= $vpath ?>gift.html" ><?= $lang['GIVE_BONUS'] ?></a></li>
 		</ul> -->
-		
+		<div class="clear"></div>
+    <div class="latest_text latest_text_new"><h1><?= $lang['TRANSACTION_HISTORY'] ?></h1></div>
 		<div class="browse_tab-content"> 
             <div class="browse_job_middle">
 

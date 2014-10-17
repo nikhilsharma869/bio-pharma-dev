@@ -121,15 +121,15 @@ function get_child_menu($parent, $current, $current_sub) {
 				),
 			'my_finance' => array(
 				'title'=> 'My Finance',
-				'a_href' => 'transaction_history.html',
+				'a_href' => 'withdraw.html',
 				'sub' => array(
+					'withdraw' => array(
+						'title'=> 'Get Paid',
+						'a_href' => 'withdraw.html'
+						),
 					'transaction_history' => array(
 						'title'=> 'Transaction History',
 						'a_href' => 'transaction_history.html'
-						),
-					'get_paid_setting' => array(
-						'title'=> 'Get Paid',
-						'a_href' => 'get_paid_setting.html'
 						)				
 					)
 				),			

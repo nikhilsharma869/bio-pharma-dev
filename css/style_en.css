@@ -10181,3 +10181,7 @@ a.btn-custom-blue,
     background: url(../images/btn_hover.jpg) 0 0 repeat-x;
     color: #fff;
 }
+
+.latest_text_new {
+    margin-top: 0;
+}
