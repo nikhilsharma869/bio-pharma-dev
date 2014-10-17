@@ -143,7 +143,7 @@ if (!empty($row_user[logo])) {
                     <div class="upps">
                         <h3>Portfolios</h3> 
                         <?php if($_SESSION['user_id'] == $row_user['user_id']) { ?>
-                            <div class="upload_bott"><a href="<?= $vpath ?>upload-portfolio.html">+&nbsp;<?= $lang['UPLOAD_NEW'] ?></a></div>                   
+                            <div class="upload_bott"><a href="#" data-toggle="modal" data-target="#md-upload-folio">+&nbsp;<?= $lang['UPLOAD_NEW'] ?></a></div>                   
                         <?php } ?>
                     </div>
                     <ul id="slider">
@@ -405,6 +405,77 @@ if (!empty($row_user[logo])) {
   </div>
 </div>
 
+<!-- Upload Portfolio -->
+<div class="modal fade" id="md-upload-folio" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="">Upload Folio</h4>
+      </div>
+      <div class="modal-body">        
+        <form action="<?= $vpath ?>upload-portfolio.html" method="post" enctype="multipart/form-data" name="exp_form" id="exp_form" onsubmit="return ValidateAndSubmit();">
+            <div class="alert alert-success hide" role="alert"></div>
+            <div class="alert alert-warning hide" role="alert"></div>
+            <table width="90%" align="center" border="0" cellspacing="0" cellpadding="0" >
+                <tr>
+                    <td align="center" valign="top" class="bx-border">
+                        <table width="100%" border="0" cellpadding="4" cellspacing="0" align="center" >
+
+                            <tr class='link'>
+                                <td ><?= $lang['PROJECT_TITLE'] ?> : *</td>
+                                <td><input type="text" name="project_title" id="project_title" style='width:300px' value="" size="100" class="from_input_box" /></td>
+                            </tr>
+                            <tr class='link'>
+                                <td ><?= $lang['DESCRIBING_SHORT'] ?> : *</td>
+                                <td><textarea name="description" id="description" rows="5" cols="10" class="text_box"></textarea>
+                                    <br />
+                                    <div style="
+                                         float: left;
+                                         width: 200px;
+                                         "> <small><?= $lang['NOT_MORE_THAN'] ?></small></div></td>
+                            </tr>
+                            <tr class='link'>
+                                <td >Tags: </td>
+                                <td><input type="text" name="tags" style='width:300px' value="" size="100" class="from_input_box" /></td>
+                            </tr>
+                            <tr class='link'>
+                                <td >Link: </td>
+                                <td><input type="text" name="link" style='width:300px' value="" size="100" class="from_input_box" /></td>
+                            </tr>
+                            <tr class='link'>
+                                <td ><?= $lang['PICTURES_EXAMPLES'] ?> : </td>
+                                <td><input type="file" name="thumb"  size="30" class="from_input_box" />
+                                </td>
+                            </tr>
+
+                            <tr class='link'>
+                                <td ><?= $lang['PORTFOLIO_ATTACHMENT'] ?> : </td>
+                                <td><input type="file" id="portfolio_attachment" name="portfolio_attachment"  size="30" class="from_input_box" />
+                                </td>
+                            </tr>
+
+
+
+                            <tr class='link'>
+                                <td ></td>
+                                
+                                    <input type="hidden" name='SBMT'  value='Submit' /></td>
+                            </tr>
+                        </table></td>
+                </tr>
+            </table>
+        </form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="btn-submit-folio">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <script type="text/javascript">
     $('#up-tabs a').click(function (e) {
@@ -445,6 +516,57 @@ if (!empty($row_user[logo])) {
                 }
              });
         })
+        $('#btn-submit-folio').click(function(){
+            if(document.getElementById("project_title").value=="") {
+               $('#exp_form .alert-warning').html("please enter project title");
+               $('#exp_form .alert-warning').removeClass('hide');
+                document.getElementById("project_title").focus();
+                setTimeout(function(){
+                        $('#exp_form .alert').addClass('hide');
+                    }, 3000);
+                return false;
+            }
+            if(document.getElementById("description").value=="") {
+                $('#exp_form .alert-warning').html("please enter description");
+                $('#exp_form .alert-warning').removeClass('hide');
+                document.getElementById("description").focus();
+               setTimeout(function(){
+                        $('#exp_form .alert').addClass('hide');
+                    }, 3000);
+                return false;
+            }
+            if(document.getElementById('portfolio_attachment').value!='') {
+                var filename = document.getElementById('portfolio_attachment').value;
+                var ext = filename.split('.');
+                var allow_exts = ["xls", "xlsx", "doc", "docx", "pdf"];
+                if(allow_exts.indexOf(ext[1]) == -1) {
+                    $('#exp_form .alert-warning').html("Attachment allows only word, excel and pdf file!");
+                    $('#exp_form .alert-warning').removeClass('hide');
+                    setTimeout(function(){
+                        $('#exp_form .alert').addClass('hide');
+                    }, 3000);
+                    return false;
+                }
+            }
+            $('#exp_form').ajaxSubmit({
+                success:function(data) {
+                    var text = $(data).find('.mess-info > td > table > tbody > tr > td').text();
+                    if(text == 'Portfolio details has been updated') {
+                        $('#exp_form .alert-success').html(text);
+                        $('#exp_form .alert-success').removeClass('hide');
+                        location.reload();
+                    } else {
+                        $('#exp_form .alert-warning').html(text);
+                        $('#exp_form .alert-warning').removeClass('hide');
+                    }
+                    
+                    
+                    setTimeout(function(){
+                        $('#exp_form .alert').addClass('hide');
+                    }, 4000);
+                }
+            })
+        });
 
          
     });

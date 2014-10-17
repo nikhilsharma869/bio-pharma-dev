@@ -128,13 +128,14 @@ $date_up = explode('-', $data[add_date]);
 $date = $date_up[2] . '-' . $date_up[1] . '-' . $date_up[0];
 ?>
 
-
+<div style="width:100%; float:left; background:#FFF;">
+<div class="main_div2">
 <div class="inner-middle"> 
     <div class="dash_headding">
         <p><a href="<?= $vpath ?>">Home</a> | <a href="<?= $vpath ?>userportfolio.html">Portfolio</a> | <a href="javascript:void(0);" class="selected">Edit Portfolio</a></p></div>
     <div class="clear"></div>
     <!--Profile-->
-    <?php include 'includes/leftpanel1.php'; ?>
+    <?php include 'includes/dashboard_menu.php';?>
     <!-- left side-->
     <!--middle -->
     <?php
@@ -295,6 +296,8 @@ $date = $date_up[2] . '-' . $date_up[1] . '-' . $date_up[0];
     <!--Dashboard Right End-->
 
 
+</div> 
+</div> 
 </div> 
 
 <script type="text/javascript">

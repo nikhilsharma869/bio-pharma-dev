@@ -283,12 +283,14 @@ function ValidateAndSubmit()
 }
 
 </script>
+<div style="width:100%; float:left; background:#FFF;">
+<div class="main_div2">
 <div class="inner-middle"> 
     <div class="dash_headding">
         <p><a href="<?= $vpath ?>">Home</a> | <a href="<?= $vpath ?>userportfolio.html">Portfolio</a> | <a href="javascript:void(0);" class="selected">Add New Portfolio</a></p></div>
     <div class="clear"></div>
     <!--Profile-->
-    <?php include 'includes/leftpanel1.php'; ?>
+    <?php include 'includes/dashboard_menu.php';?>
     <!-- left side-->
     <!--middle -->
     <?php
@@ -343,7 +345,7 @@ function ValidateAndSubmit()
                                                     <td valign='top' class='link' colspan="2">&nbsp;</td>
                                                 </tr>
 
-                                                <tr>
+                                                <tr class="mess-info">
                                                     <td colspan="2" align="center" >
                                                         <?php
                                                         if ($_SESSION['error'] != "") {

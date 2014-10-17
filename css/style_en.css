@@ -8132,7 +8132,7 @@ p.mar-top a {
 textarea {
     resize:none;
 }
-.savebnt {
+input[type="submit"].savebnt {
     margin:12px 6px 12px 0px;
     border:0px;
     background: none repeat scroll 0 0 #5bb25b;
