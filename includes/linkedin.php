@@ -4,7 +4,7 @@ session_start();
 define('API_KEY',      '75l1h2cajk93eu'                                          );
 define('API_SECRET',   'eQQLZ3C3Lm5qDbEl'                                       );
 define('REDIRECT_URI', 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME']);
-define('SCOPE',        'r_fullprofile r_emailaddress rw_nus'                        );
+define('SCOPE',        'r_fullprofile r_emailaddress rw_nus r_contactinfo'          );
  
 // You'll probably use a database
 // session_name('linkedin');
@@ -56,7 +56,7 @@ function insertSkillLinkedin($skills, $user_id, $prev) {
 
 $user_login_type = $_SESSION['user_login_type'];
 // Congratulations! You have a valid token. Now fetch your profile 
-$fields = 'id,email-address,firstName,lastName,headline,location:(name),industry,summary,specialties,positions,public-profile-url,proposal-comments,associations,interests,publications,patents,languages,skills,certifications,educations,courses,volunteer,three-current-positions,three-past-positions,num-recommenders,recommendations-received,following,job-bookmarks,suggestions,date-of-birth,picture-urls::(original),honors-awards';
+$fields = 'id,email-address,firstName,lastName,headline,location:(name),industry,summary,specialties,positions,public-profile-url,proposal-comments,associations,interests,publications,patents,languages,skills,certifications,educations,courses,volunteer,three-current-positions,three-past-positions,num-recommenders,recommendations-received,following,job-bookmarks,suggestions,date-of-birth,picture-urls::(original),honors-awards,main-address,phone-numbers';
 $user = fetch('GET', '/v1/people/~:('.$fields.')');
 
 // echo "<pre>";
@@ -102,7 +102,7 @@ $n=@mysql_num_rows($r);
   
 if($n>0){        
 
-    $query_update_user = "update ".$prev."user set user_type='" . strtoupper($user_login_type) . "', ip='" . $_SERVER['REMOTE_ADDR'] . "', ldate='".$datetime."', profile='".mysql_real_escape_string($user->summary)."', work_experience='".mysql_real_escape_string($positions)."' where user_id=".@mysql_result($r,0,"user_id");
+    $query_update_user = "update ".$prev."user set user_type='" . strtoupper($user_login_type) . "', ip='" . $_SERVER['REMOTE_ADDR'] . "', ldate='".$datetime."', profile='".mysql_real_escape_string($user->summary)."', work_experience='".mysql_real_escape_string($positions)."', waddress='".mysql_real_escape_string($user->mainAddress)."', phone='".mysql_real_escape_string($user->phoneNumbers->values[0]->phoneNumber)."' where user_id=".@mysql_result($r,0,"user_id");
     $ru=mysql_query($query_update_user);
 
     // $query_update_profile = "update ".$prev."user_profile set summary='" . $user->summary . "', experience='" . $positions . "', publications='" . $publications . "', languages='" . $languages . "', skills='" . $skills . "' where user_id=".@mysql_result($r,0,"user_id");
@@ -126,7 +126,7 @@ if($n>0){
 
 } else {
 
-    $query_insert_user = "Insert into ".$prev."user (user_type,email,username,password,fname,lname,status,reg_date,ldate,profile,ip,work_experience) values ('" . strtoupper($user_login_type) . "','".$user->emailAddress."','".$user->emailAddress."','".md5($user->emailAddress)."','".$user->firstName."','".$user->lastName."','Y','".$datetime."','".$datetime."','".mysql_real_escape_string($user->summary)."','".$_SERVER['REMOTE_ADDR']."','".mysql_real_escape_string($positions)."')";
+    $query_insert_user = "Insert into ".$prev."user (user_type,email,username,password,fname,lname,status,reg_date,ldate,profile,ip,work_experience,waddress,phone) values ('" . strtoupper($user_login_type) . "','".$user->emailAddress."','".$user->emailAddress."','".md5($user->emailAddress)."','".$user->firstName."','".$user->lastName."','Y','".$datetime."','".$datetime."','".mysql_real_escape_string($user->summary)."','".$_SERVER['REMOTE_ADDR']."','".mysql_real_escape_string($positions)."', '".mysql_real_escape_string($user->mainAddress)."', '".mysql_real_escape_string($user->phoneNumbers->values[0]->phoneNumber)."')";
     $ri = mysql_query($query_insert_user);
 
     $user_insert_id = mysql_insert_id();

@@ -55,9 +55,7 @@ if (!empty($row_user[logo])) {
                             </div>
                             <div class="p-row">
                                 <p>Address:</p>
-                                <p>65 F Llamas Street<br/>
-                                Labangon, Cebu City<br/>
-                                6000 Philippines</p>
+                                <p><?=$row_user['waddress']?></p>
                             </div>
                             <div class="p-row">
                                 <p>Phone</p><p><?=$row_user['phone']?></p>
