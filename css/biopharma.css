@@ -4376,3 +4376,87 @@ div.profile_left > div.user_box {
 table + .box-title {
     margin-top: 10px;
 }
+
+.select-date-form {
+    background: #c6c6c6;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.s-period-date {
+    float: left;
+    background: #fff;
+    border: 1px solid #959595;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.s-period-date input {
+    width: 110px;
+    padding-left: 10px;
+}
+
+.s-period-date img {
+    width: 35px;
+    margin-top: -5px;
+}
+
+input[type="submit"].btn-submit-period {
+    font-size: 15px;
+    padding: 8px;
+    margin-top: 3px;
+}
+
+span.s-span-period {
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    float: left;
+}
+
+.table-transaction-detail {
+    overflow: hidden;
+    display: block;
+    margin: 40px 0;
+}
+
+.table-transaction-detail > table > tbody > tr.tbl_bg_4 {
+    background: transparent !important;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.table-transaction-detail > table {
+    border-collapse: separate;
+} 
+
+.table-transaction-detail > table > tbody > tr.tbl_bg2 > td {
+    border-top: 1px solid #959595;
+    border-bottom: 1px solid #959595;
+}
+
+.table-transaction-detail > table > tbody > tr.tbl_bg2 > td:first-child {
+    border-left: 1px solid #959595;
+}
+.table-transaction-detail > table > tbody > tr.tbl_bg2 > td:last-child {
+    border-right: 1px solid #959595;
+}
+
+
+tr.tr-space {
+    height: 10px;
+}
+
+.transaction-info > table > tbody > tr > td > table {
+    width: 40%;
+    float: right;
+}
+
+.transaction-info .tbl_bg2 {
+    background: transparent;
+}
+
+.transaction-info .tbl_bg2 > td {
+    border-bottom: 1px solid #959595;
+}
