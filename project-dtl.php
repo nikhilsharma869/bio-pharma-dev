@@ -76,7 +76,7 @@ $update_bid_user = @mysql_num_rows(mysql_query("select id from " . $prev . "buye
                 
 				<div class="browse_contract_right">
 					<div class="browse_right_text">
-						<h1><?= $lang['CLIENT_DETAILS'] ?></h1>
+						<h1><?= $lang['CLIENT_DETAILS'] ?>- Tesst</h1>
 					</div>
 					
 					<div class="clear"></div>
