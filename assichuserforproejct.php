@@ -1,4 +1,5 @@
 <? include("configs/path.php");
+include("includes/function.php");
 if($_POST[project_id]!='' && $_SESSION[user_id]!='' && $_POST[bidder_id]!=''){
 
 $rowcheck = mysql_num_rows(mysql_query("select id from ".$prev."projects where id = '".$_POST[project_id]."' and user_id='".$_SESSION['user_id']."'"));
@@ -41,7 +42,10 @@ mail($mail_id,$setting[companyname] . $lang['BID_WON'],$body1,$headers);
 
  
 
-$notify = mysql_query("INSERT into ".$prev."notification set user_id=".$_POST['bidder_id'].", message='".$lang['HIRE_INFO']."', add_date='".date('Y-m-d')."'");
+// $notify = mysql_query("INSERT into ".$prev."notification set user_id=".$_POST['bidder_id'].", message='".$lang['HIRE_INFO']."', add_date='".date('Y-m-d')."'");
+$link = $vpath.'offer/'.$_POST[project_id];
+$notify = add_notification($_POST['bidder_id'], $lang['HIRE_INFO'], 'W', $link);
+
 
 /***************************/
 echo "<img src='".$vpath."images/".$ln."/invited_ic.jpg' alt='invided' title='invited'/>";

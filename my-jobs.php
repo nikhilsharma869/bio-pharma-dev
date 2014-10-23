@@ -84,7 +84,9 @@ if($_REQUEST[confirm] && $_REQUEST[mode])
 
 			
 
-						$notify = mysql_query("INSERT into ".$prev."notification set user_id=".$emp['user_id'].", message='".$lang['BID_ACCPT']."', add_date='".date('Y-m-d')."'");
+						// $notify = mysql_query("INSERT into ".$prev."notification set user_id=".$emp['user_id'].", message='".$lang['BID_ACCPT']."', add_date='".date('Y-m-d')."'");
+						$link = $vpath.'contract/'.$proj['id'];
+						$notify = add_notification($emp['user_id'], $lang['BID_ACCPT'], 'E', $link);
 
 						$to  = $emp['email'];
 						$to1=$usr['email'];
@@ -485,7 +487,9 @@ if($_REQUEST[confirm] && $_REQUEST[mode])
 																message_type='A'");
 
 			
-					$notify = mysql_query("INSERT into ".$prev."notification set user_id=".$_GET['id'].", message='".$lang['HIRE_INFO']."', date='".date('Y-m-d')."'");
+					// $notify = mysql_query("INSERT into ".$prev."notification set user_id=".$_GET['id'].", message='".$lang['HIRE_INFO']."', date='".date('Y-m-d')."'");
+					$link = $vpath.'offer/'.$_POST[project_id];
+					$notify = add_notification($_GET['id'], $lang['HIRE_INFO'], 'W', $link);
 
 					$alert .= '<tr><td colspan="6" class="link_class" style="text-decoration: none;text-align: justify;">'.$lang['MSG_JOB_3'].' <b>' . getusername($_REQUEST[chosen]) . '</b> '.$lang['MSG_JOB_4'].' <b>' . getproject($_REQUEST[pick]) . '</b> '.$lang['MSG_JOB_5'].'<br><br>
 

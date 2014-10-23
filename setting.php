@@ -751,7 +751,7 @@ var browser=navigator.appName;
     </td>
 
     </tr>-->
-                                <tr class="hilite1">
+                                <!-- <tr class="hilite1">
 
                                     <td class="tdclass"><b><?= $lang['PROFILE_TYPE'] ?>: </b></td>
 
@@ -771,8 +771,8 @@ var browser=navigator.appName;
                                         }
                                         ?> onclick="gtec('I')" /><?= $lang['COMPANY'] ?>  
 
-                                    </td></tr>
-                                <tr class="hilite1">
+                                    </td></tr> -->
+                               <!--  <tr class="hilite1">
 
                                     <td class="tdclass"><b><?= $lang['WORK_AS'] ?>: </b></td>
 
@@ -794,7 +794,7 @@ var browser=navigator.appName;
                                         if ($d['user_type'] == 'B') {
                                             echo 'checked';
                                         }
-                                        ?> name="user_type"> <?= $lang['BOTH'] ?></td></tr>
+                                        ?> name="user_type"> <?= $lang['BOTH'] ?></td></tr> -->
 
 
 
