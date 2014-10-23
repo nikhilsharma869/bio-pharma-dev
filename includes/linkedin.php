@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Change these
-define('API_KEY',      '75l1h2cajk93eu'                                          );
+define('API_KEY',      '75l1h2cajk93eu'                                       );
 define('API_SECRET',   'eQQLZ3C3Lm5qDbEl'                                       );
 define('REDIRECT_URI', 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME']);
 define('SCOPE',        'r_fullprofile r_emailaddress rw_nus r_contactinfo'          );
@@ -119,6 +119,7 @@ if($n>0){
         mysql_real_escape_string(json_encode($user->certifications)),
         @mysql_result($r,0,"user_id")
     );
+    var_dump($query_update_user); exit();
     $rup=mysql_query($query_update_profile);
     // var_dump($rup); exit();
 
@@ -145,7 +146,7 @@ if($n>0){
         mysql_real_escape_string(json_encode($user->recommendationsReceived)),
         mysql_real_escape_string(json_encode($user->certifications))
     );
-    
+    var_dump($query_insert_profile); exit();
     $rp = mysql_query($query_insert_profile);
     // var_dump($query_insert_profile); exit();
 
