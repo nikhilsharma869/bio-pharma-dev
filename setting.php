@@ -73,11 +73,11 @@ if (isset($_POST['hiddProfileSubmit'])) {
 
     $_SESSION['error'].=$cpasserror;
 
-    if (!$cpasserror && !$passerror && ($_REQUEST['oldPassword'] != "")) {
+    if (!$cpasserror && !$passerror) {
 
         $r2 = false;
 
-        $r3 = mysql_query("select user_id, username from " . $prev . "user where password='" . md5($_POST['oldPassword']) . "' and user_id=" . $_SESSION['user_id']);
+        $r3 = mysql_query("select user_id, username from " . $prev . "user where user_id=" . $_SESSION['user_id']);
 
         if (@mysql_num_rows($r3)) {
 
@@ -111,7 +111,7 @@ if (isset($_POST['hiddProfileSubmit'])) {
 
             $_SESSION['error'].=$opasserror;
         }
-    } elseif ($_REQUEST['oldPassword'] == "" && $_REQUEST['chkChangePassword'] != 1) {
+    } elseif ($_REQUEST['chkChangePassword'] != 1) {
 
         $r2 = true;
     }
@@ -261,17 +261,17 @@ $d = @mysql_fetch_array($r4);
 
         {
 
-            if (form1.elements['oldPassword'].value == "")
+            // if (form1.elements['oldPassword'].value == "")
 
-            {
+            // {
 
-                alert("<?= $lang['ALERT_P18'] ?>");
+            //     alert("<?= $lang['ALERT_P18'] ?>");
 
-                form1.elements['oldPassword'].focus();
+            //     form1.elements['oldPassword'].focus();
 
-                return false;
+            //     return false;
 
-            }
+            // }
 
             /*else if(passwordValidFlag == -1 || passwordValidFlag == 0)
              
@@ -377,70 +377,70 @@ $d = @mysql_fetch_array($r4);
 
 
 
-    function checkForOldPassword()
+    // function checkForOldPassword()
 
-    {//alert("sdfsdf");
+    // {//alert("sdfsdf");
 
-        var form1 = document.forms['_profile'];
-
-
-
-        if (form1.elements['chkChangePassword'].checked == true)
-
-        {
-
-            var requestOptions;
-
-            requestOptions = {
-                method: 'post',
-                parameters: 'oldPassword=' + form1.elements['oldPassword'].value + '',
-                onSuccess: function(t)
-
-                {//alert("sdrsrer");
-
-                    passwordValidFlag = t.responseText;
-
-                    //$('passwordErrorMessage').innerHTML = t.responseText;
-
-                    if (t.responseText == '0')
-
-                    {
-
-                        passwordValidFlag = 0;
-
-                        $('passwordErrorMessage').innerHTML = $lang['ALRT_30_H'];
-
-                    }
-
-                    else
-
-                    {
-
-                        passwordValidFlag = 1;
-
-                        $('passwordErrorMessage').innerHTML = "";
-
-                    }
+    //     var form1 = document.forms['_profile'];
 
 
 
-                },
-                onFailure: function(t) {
+    //     if (form1.elements['chkChangePassword'].checked == true)
 
-                    alert($lang['ALRT_31_H'] + t.statusText);
+    //     {
 
-                }
+    //         var requestOptions;
 
-            }
+    //         requestOptions = {
+    //             method: 'post',
+    //             parameters: 'oldPassword=' + form1.elements['oldPassword'].value + '',
+    //             onSuccess: function(t)
+
+    //             {//alert("sdrsrer");
+
+    //                 passwordValidFlag = t.responseText;
+
+    //                 //$('passwordErrorMessage').innerHTML = t.responseText;
+
+    //                 if (t.responseText == '0')
+
+    //                 {
+
+    //                     passwordValidFlag = 0;
+
+    //                     $('passwordErrorMessage').innerHTML = $lang['ALRT_30_H'];
+
+    //                 }
+
+    //                 else
+
+    //                 {
+
+    //                     passwordValidFlag = 1;
+
+    //                     $('passwordErrorMessage').innerHTML = "";
+
+    //                 }
 
 
 
-            new
-                    Ajax.Request("profilechk.php?action=validatePassword", requestOptions);
+    //             },
+    //             onFailure: function(t) {
 
-        }
+    //                 alert($lang['ALRT_31_H'] + t.statusText);
 
-    }
+    //             }
+
+    //         }
+
+
+
+    //         new
+    //                 Ajax.Request("profilechk.php?action=validatePassword", requestOptions);
+
+    //     }
+
+    // }
 
     function checkForEmailId()
 
@@ -532,7 +532,7 @@ var browser=navigator.appName;
 
         {
 
-            document.getElementById("olspass").style.display = displaystyle;
+            // document.getElementById("olspass").style.display = displaystyle;
 
             document.getElementById("newpass").style.display = displaystyle;
 
@@ -546,7 +546,7 @@ var browser=navigator.appName;
 
         {
 
-            document.getElementById("olspass").style.display = "none";
+            // document.getElementById("olspass").style.display = "none";
 
             document.getElementById("newpass").style.display = "none";
 
@@ -692,7 +692,7 @@ var browser=navigator.appName;
 
                                 </tr>
 
-                                <tr class="hilite1" style="display:none;" id="olspass">
+                                <!-- <tr class="hilite1" style="display:none;" id="olspass">
 
                                     <td  class="tdclass"><b><?= $lang['O_PASS'] ?>*</b></td>
 
@@ -708,7 +708,7 @@ var browser=navigator.appName;
 
                                         <div id='passwordErrorMessage'></div>          	</td>
 
-                                </tr>
+                                </tr> -->
 
 
 

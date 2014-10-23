@@ -88,7 +88,7 @@ $prfcomplt =$prfcomplt+10;
   
   }
   </script> 
-
+<?php include 'alert_changepass.php';?>
 <div class="profile_left">
 
 	<div class="user_box">

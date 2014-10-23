@@ -138,7 +138,7 @@ function get_child_menu($parent, $current, $current_sub) {
 				'a_href' => 'active_dispute.html'
 				),
 			'change_password' => array(
-				'title'=> 'Change Password',
+				'title'=> 'Settings',
 				'a_href' => 'setting.html'
 				)
 		),
@@ -190,7 +190,7 @@ function get_child_menu($parent, $current, $current_sub) {
 				'a_href' => 'active_dispute.html'
 				),
 			'change_password' => array(
-				'title'=> 'Change Password',
+				'title'=> 'Settings',
 				'a_href' => 'setting.html'
 				)
 		),
