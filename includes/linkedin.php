@@ -119,9 +119,8 @@ if($n>0){
         mysql_real_escape_string(json_encode($user->certifications)),
         @mysql_result($r,0,"user_id")
     );
-    var_dump($query_update_profile); 
     $rup=mysql_query($query_update_profile);
-    var_dump($rup); exit();
+    // var_dump($rup); exit();
 
     insertSkillLinkedin($user->skills->values,  @mysql_result($r,0,"user_id"), $prev);
 
@@ -146,9 +145,9 @@ if($n>0){
         mysql_real_escape_string(json_encode($user->recommendationsReceived)),
         mysql_real_escape_string(json_encode($user->certifications))
     );
-    var_dump($query_insert_profile);
+    
     $rp = mysql_query($query_insert_profile);
-    var_dump($rp); exit();
+    // var_dump($query_insert_profile); exit();
 
     insertSkillLinkedin($user->skills->values,  $user_insert_id, $prev);
 
