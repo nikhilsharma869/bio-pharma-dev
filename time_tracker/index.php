@@ -198,22 +198,23 @@ if ($ACT == "uploadSnap") {
             $pj_id = getProjectID($projectwork_id);
             $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
             run_quary($sql);
-            
-            $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
-            run_quary($sql);
-            $idd = mysql_insert_id();
-            $output_file = "";
+            mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$rcheck['wt']."')");
+            mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".mysql_real_escape_string($sql)."')");
+            // $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
+            // run_quary($sql);
+            // $idd = mysql_insert_id();
+            // $output_file = "";
 
-            $pro_id = getProjectID($idd);
+            // $pro_id = getProjectID($idd);
 
-            $output_file = MEDPATH . $pro_id . "_" . $idd . ".jpg";
-            $data = $pic_data;
-            $data = explode(",", $data);
-            $string = implode(array_map("chr", $data));
-            $ifp = fopen($output_file, "wb");
-            fwrite($ifp, $string);
-            fclose($ifp);
-            echo $idd;
+            // $output_file = MEDPATH . $pro_id . "_" . $idd . ".jpg";
+            // $data = $pic_data;
+            // $data = explode(",", $data);
+            // $string = implode(array_map("chr", $data));
+            // $ifp = fopen($output_file, "wb");
+            // fwrite($ifp, $string);
+            // fclose($ifp);
+            // echo $idd;
         }
     }
 
