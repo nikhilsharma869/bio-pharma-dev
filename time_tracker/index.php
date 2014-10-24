@@ -135,7 +135,7 @@ if ($ACT == "prowork") {
             }
         }
 
-        $sql = "INSERT INTO serv_project_tracker (`project_id`, `worker_id`, `start_time`, `note`, `work_type`) VALUES ('$project_id', '$user_id', NOW(), '$note', '$type');";
+        $sql = "INSERT INTO serv_project_tracker (`project_id`, `worker_id`, `start_time`, `stop_time`, `note`, `work_type`) VALUES ('$project_id', '$user_id', NOW(), NOW(), '$note', '$type');";
         run_quary($sql);
         $idd = mysql_insert_id();
         if ($idd != "") {
