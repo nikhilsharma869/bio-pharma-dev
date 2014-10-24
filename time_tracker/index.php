@@ -193,11 +193,12 @@ if ($ACT == "uploadSnap") {
     $projectwork_id = isset($R_Q['pwid']) ? $R_Q['pwid'] : "";
     if ($projectwork_id != "") {
         $rcheck = mysql_fetch_array(mysql_query("SELECT *,TIME_TO_SEC(TIMEDIFF(NOW(),stop_time)) AS wt FROM serv_project_tracker WHERE id=".$projectwork_id));
-        // $rcheckfirst = mysql_fetch_array(mysql_query("SELECT *,TIME_TO_SEC(TIMEDIFF(NOW(),stop_time)) AS wt FROM serv_project_tracker WHERE id=".$projectwork_id));
+        $rcheckfirst = mysql_fetch_array(mysql_query("SELECT *,TIME_TO_SEC(TIMEDIFF(start_time,stop_time)) AS wt FROM serv_project_tracker WHERE id=".$projectwork_id));
         // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$rcheck['wt']."')");
         $pj_id = getProjectID($projectwork_id);
         mysql_query("INSERT INTO table_debug (text_debug) VALUES ('projectword_id: ".$projectwork_id."')");
         mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".var_dump($pj_id=="")."')");
+        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('check first ".$rcheckfirst['wt']."')");
         if($rcheck['wt'] >= 600 || $rcheck['wt'] == "") {
             
             $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
