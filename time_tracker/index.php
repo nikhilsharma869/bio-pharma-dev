@@ -135,7 +135,7 @@ if ($ACT == "prowork") {
             }
         }
 
-        $sql = "INSERT INTO serv_project_tracker (`project_id`, `worker_id`, `start_time`, `note`, `work_type`) VALUES ('$project_id', '$user_id', NOW(), '$note', '$type');";
+        $sql = "INSERT INTO serv_project_tracker (`project_id`, `worker_id`, `start_time`, `stop_time`, `note`, `work_type`) VALUES ('$project_id', '$user_id', NOW(), NOW(), '$note', '$type');";
         run_quary($sql);
         $idd = mysql_insert_id();
         if ($idd != "") {
@@ -193,6 +193,7 @@ if ($ACT == "uploadSnap") {
     $projectwork_id = isset($R_Q['pwid']) ? $R_Q['pwid'] : "";
     if ($projectwork_id != "") {
         $rcheck = mysql_fetch_array(mysql_query("SELECT *,TIME_TO_SEC(TIMEDIFF(NOW(),stop_time)) AS wt FROM serv_project_tracker WHERE id=".$projectwork_id));
+        // $rcheckfirst = mysql_fetch_array(mysql_query("SELECT *,TIME_TO_SEC(TIMEDIFF(NOW(),stop_time)) AS wt FROM serv_project_tracker WHERE id=".$projectwork_id));
         // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$rcheck['wt']."')");
         $pj_id = getProjectID($projectwork_id);
         mysql_query("INSERT INTO table_debug (text_debug) VALUES ('projectword_id: ".$projectwork_id."')");
@@ -205,17 +206,17 @@ if ($ACT == "uploadSnap") {
             $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
             run_quary($sql);
             $idd = mysql_insert_id();
-            $output_file = "";
+            // $output_file = "";
 
-            $pro_id = getProjectID($idd);
+            // $pro_id = getProjectID($idd);
 
-            $output_file = MEDPATH . $pro_id . "_" . $idd . ".jpg";
-            $data = $pic_data;
-            $data = explode(",", $data);
-            $string = implode(array_map("chr", $data));
-            $ifp = fopen($output_file, "wb");
-            fwrite($ifp, $string);
-            fclose($ifp);
+            // $output_file = MEDPATH . $pro_id . "_" . $idd . ".jpg";
+            // $data = $pic_data;
+            // $data = explode(",", $data);
+            // $string = implode(array_map("chr", $data));
+            // $ifp = fopen($output_file, "wb");
+            // fwrite($ifp, $string);
+            // fclose($ifp);
             echo $idd;
         }
     }
