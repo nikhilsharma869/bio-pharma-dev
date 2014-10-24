@@ -122,7 +122,7 @@ if ($ACT == "project") {
 if ($ACT == "prowork") {
     $user_id = isset($R_Q['uid']) ? $R_Q['uid'] : "";
     $project_id = isset($R_Q['pid']) ? $R_Q['pid'] : "";
-    $type = isset($R_Q['type']) ? $R_Q['type'] : "";
+    $type = isset($R_Q['type']) ? $R_Q['type'] : "H";
     $note = isset($R_Q['note']) ? $R_Q['note'] : "";
     if ($user_id != "" && $project_id != "" && $type != "") {
         if ($type != "0") {
