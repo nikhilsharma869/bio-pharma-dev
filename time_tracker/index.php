@@ -197,7 +197,7 @@ if ($ACT == "uploadSnap") {
         
         $pj_id = getProjectID($projectwork_id);
         mysql_query("INSERT INTO table_debug (text_debug) VALUES ('projectword_id: ".$projectwork_id."')");
-        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('phj_id: ".$pj_id=."')");
+        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('phj_id: ".$pj_id."')");
         mysql_query("INSERT INTO table_debug (text_debug) VALUES ('check first: ".$rcheckfirst['wt']."')");
         if($rcheck['wt'] >= 600 || !$rcheckfirst['wt']) {
             
