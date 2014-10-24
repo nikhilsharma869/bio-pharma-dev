@@ -192,8 +192,8 @@ if ($ACT == "uploadSnap") {
     $pic_data = isset($R_Q['pic_data']) ? $R_Q['pic_data'] : "";
     $projectwork_id = isset($R_Q['pwid']) ? $R_Q['pwid'] : "";
     if ($projectwork_id != "") {
-
-        $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='getProjectID($projectwork_id)'";
+        $pj_id = getProjectID($projectwork_id);
+        $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
         run_quary($sql);
         mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".mysql_real_escape_string($sql)."')");
         $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
