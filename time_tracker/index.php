@@ -194,7 +194,7 @@ if ($ACT == "uploadSnap") {
     if ($projectwork_id != "") {
         $rcheck = mysql_fetch_array(mysql_query("SELECT *,TIME_TO_SEC(TIMEDIFF(NOW(),stop_time)) AS wt FROM serv_project_tracker WHERE id=".$projectwork_id));
         // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$rcheck['wt']."')");
-        if($rcheck['wt'] >= 600 || !$rcheck) {
+        if($rcheck['wt'] >= 600 || !$rcheck['wt']) {
             $pj_id = getProjectID($projectwork_id);
             $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
             run_quary($sql);
