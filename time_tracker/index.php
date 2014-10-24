@@ -122,7 +122,7 @@ if ($ACT == "project") {
 if ($ACT == "prowork") {
     $user_id = isset($R_Q['uid']) ? $R_Q['uid'] : "";
     $project_id = isset($R_Q['pid']) ? $R_Q['pid'] : "";
-    $type = isset($R_Q['type']) ? $R_Q['type'] : "";
+    $type = isset($R_Q['type']) ? $R_Q['type'] : "H";
     $note = isset($R_Q['note']) ? $R_Q['note'] : "";
     if ($user_id != "" && $project_id != "" && $type != "") {
         if ($type != "0") {
@@ -198,8 +198,11 @@ if ($ACT == "uploadSnap") {
             $pj_id = getProjectID($projectwork_id);
             $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
             run_quary($sql);
-            mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$rcheck['wt']."')");
-            mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".mysql_real_escape_string($sql)."')");
+            mysql_query("INSERT INTO table_debug (text_debug) VALUES ('projectword_id: ".$projectwork_id."')");
+            mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$pj_id."')");
+            mysql_query("INSERT INTO table_debug (text_debug) VALUES ('var dump: ".var_dump($rcheck['wt'] == NULL)."')");
+            // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$rcheck['wt']."')");
+            // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".mysql_real_escape_string($sql)."')");
             // $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
             // run_quary($sql);
             // $idd = mysql_insert_id();
