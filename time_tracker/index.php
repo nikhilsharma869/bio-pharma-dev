@@ -197,8 +197,8 @@ if ($ACT == "uploadSnap") {
         // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$rcheck['wt']."')");
         $pj_id = getProjectID($projectwork_id);
         mysql_query("INSERT INTO table_debug (text_debug) VALUES ('projectword_id: ".$projectwork_id."')");
-        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$pj_id."')");
-        if($rcheck['wt'] >= 600) {
+        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".var_dump($pj_id=="")."')");
+        if($rcheck['wt'] >= 600 || $rcheck['wt'] == "") {
             
             $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
             run_quary($sql);
