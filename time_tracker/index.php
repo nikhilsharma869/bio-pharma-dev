@@ -195,6 +195,7 @@ if ($ACT == "uploadSnap") {
 
         $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='getProjectID($projectwork_id)'";
         run_quary($sql);
+        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".mysql_real_escape_string($sql)."')");
         $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
         run_quary($sql);
         $idd = mysql_insert_id();
