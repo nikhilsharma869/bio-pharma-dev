@@ -196,10 +196,9 @@ if ($ACT == "uploadSnap") {
         $rcheckfirst = mysql_fetch_array(mysql_query("SELECT *,TIME_TO_SEC(TIMEDIFF(start_time,stop_time)) AS wt FROM serv_project_tracker WHERE id=".$projectwork_id));
         
         $pj_id = getProjectID($projectwork_id);
-        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('projectword_id: ".$projectwork_id."')");
-        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('phj_id: ".$pj_id."')");
-        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('check first: ".$rcheckfirst['wt']."')");
-        if($rcheck['wt'] >= 600 || !$rcheckfirst['wt']) {
+        // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('projectword_id: ".$projectwork_id."')");
+        // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('phj_id: ".$pj_id."')");
+        if($rcheck['wt'] >= 600 || $rcheckfirst['wt'] == 0) {
             
             $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
             run_quary($sql);
@@ -207,17 +206,17 @@ if ($ACT == "uploadSnap") {
             $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
             run_quary($sql);
             $idd = mysql_insert_id();
-            // $output_file = "";
+            $output_file = "";
 
-            // $pro_id = getProjectID($idd);
+            $pro_id = getProjectID($idd);
 
-            // $output_file = MEDPATH . $pro_id . "_" . $idd . ".jpg";
-            // $data = $pic_data;
-            // $data = explode(",", $data);
-            // $string = implode(array_map("chr", $data));
-            // $ifp = fopen($output_file, "wb");
-            // fwrite($ifp, $string);
-            // fclose($ifp);
+            $output_file = MEDPATH . $pro_id . "_" . $idd . ".jpg";
+            $data = $pic_data;
+            $data = explode(",", $data);
+            $string = implode(array_map("chr", $data));
+            $ifp = fopen($output_file, "wb");
+            fwrite($ifp, $string);
+            fclose($ifp);
             echo $idd;
         }
     }

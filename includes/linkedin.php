@@ -102,7 +102,7 @@ $n=@mysql_num_rows($r);
   
 if($n>0){        
 
-    $query_update_user = "update ".$prev."user set user_type='" . strtoupper($user_login_type) . "', ip='" . $_SERVER['REMOTE_ADDR'] . "', ldate='".$datetime."', profile='".mysql_real_escape_string($user->summary)."', work_experience='".mysql_real_escape_string($positions)."', waddress='".mysql_real_escape_string($user->mainAddress)."', phone='".mysql_real_escape_string($user->phoneNumbers->values[0]->phoneNumber)."' where user_id=".@mysql_result($r,0,"user_id");
+    $query_update_user = "update ".$prev."user set v_stat='Y', user_type='" . strtoupper($user_login_type) . "', ip='" . $_SERVER['REMOTE_ADDR'] . "', ldate='".$datetime."', profile='".mysql_real_escape_string($user->summary)."', work_experience='".mysql_real_escape_string($positions)."', waddress='".mysql_real_escape_string($user->mainAddress)."', phone='".mysql_real_escape_string($user->phoneNumbers->values[0]->phoneNumber)."' where user_id=".@mysql_result($r,0,"user_id");
     $ru=mysql_query($query_update_user);
 
     // $query_update_profile = "update ".$prev."user_profile set summary='" . $user->summary . "', experience='" . $positions . "', publications='" . $publications . "', languages='" . $languages . "', skills='" . $skills . "' where user_id=".@mysql_result($r,0,"user_id");
@@ -126,7 +126,7 @@ if($n>0){
 
 } else {
 
-    $query_insert_user = "Insert into ".$prev."user (user_type,email,username,password,fname,lname,status,reg_date,ldate,profile,ip,work_experience,waddress,phone) values ('" . strtoupper($user_login_type) . "','".$user->emailAddress."','".$user->emailAddress."','".md5($user->emailAddress.$user->firstName.$user->lastName)."','".$user->firstName."','".$user->lastName."','Y','".$datetime."','".$datetime."','".mysql_real_escape_string($user->summary)."','".$_SERVER['REMOTE_ADDR']."','".mysql_real_escape_string($positions)."', '".mysql_real_escape_string($user->mainAddress)."', '".mysql_real_escape_string($user->phoneNumbers->values[0]->phoneNumber)."')";
+    $query_insert_user = "Insert into ".$prev."user (user_type,email,username,password,fname,lname,status,reg_date,ldate,profile,ip,work_experience,waddress,phone,v_stat) values ('" . strtoupper($user_login_type) . "','".$user->emailAddress."','".$user->emailAddress."','".md5($user->emailAddress.$user->firstName.$user->lastName)."','".$user->firstName."','".$user->lastName."','Y','".$datetime."','".$datetime."','".mysql_real_escape_string($user->summary)."','".$_SERVER['REMOTE_ADDR']."','".mysql_real_escape_string($positions)."', '".mysql_real_escape_string($user->mainAddress)."', '".mysql_real_escape_string($user->phoneNumbers->values[0]->phoneNumber)."', 'Y')";
     $ri = mysql_query($query_insert_user);
 
     $user_insert_id = mysql_insert_id();
