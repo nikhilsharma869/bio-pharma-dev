@@ -192,11 +192,12 @@ if ($ACT == "uploadSnap") {
     $pic_data = isset($R_Q['pic_data']) ? $R_Q['pic_data'] : "";
     $projectwork_id = isset($R_Q['pwid']) ? $R_Q['pwid'] : "";
     if ($projectwork_id != "") {
-        function_exists(getProjectID);
+        $rcheck = mysql_fetch_array(mysql_query("SELECT *,TIME_TO_SEC(TIMEDIFF(NOW(),project_work_snap_time)) AS wt FROM serv_project_tracker WHERE id=".$projectwork_id));
+        // if()
         $pj_id = getProjectID($projectwork_id);
         $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
         run_quary($sql);
-        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".function_exists(getProjectID)."')");
+        mysql_query("INSERT INTO table_debug (text_debug) VALUES ('".$rcheck['wt']."')");
         $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
         run_quary($sql);
         $idd = mysql_insert_id();
