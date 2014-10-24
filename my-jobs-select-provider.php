@@ -184,8 +184,9 @@ $no_of_records = 20;
 
 
 
-                                        $notify = mysql_query("INSERT into " . $prev . "notification set user_id=" . $emp['user_id'] . ", message='" . $lang['BID_ACCPT'] . "', add_date='" . date('Y-m-d') . "'");
-
+                                        // $notify = mysql_query("INSERT into " . $prev . "notification set user_id=" . $emp['user_id'] . ", message='" . $lang['BID_ACCPT'] . "', add_date='" . date('Y-m-d') . "'");
+                                        $link = $vpath.'contract/'.$proj['id'];
+                                        $notify = add_notification($emp['user_id'], $lang['BID_ACCPT'], 'E', $link);
 
 
                                         $res2 = mysql_query("select * from " . $prev . "mailsetup where mail_type=\"hire_contract_begins\"");
@@ -613,7 +614,9 @@ $no_of_records = 20;
 						' . $lang['PROJECT_NAMEE'] . ': ' . $proj['project'];
 
 
-                                                                        $notify = mysql_query("INSERT into " . $prev . "notification set user_id='" . $_POST['chosen'] . "', message='" . $lang['HIRE_INFO'] . "', `add_date`='" . date('Y-m-d') . "'");
+                                                                        // $notify = mysql_query("INSERT into " . $prev . "notification set user_id='" . $_POST['chosen'] . "', message='" . $lang['HIRE_INFO'] . "', `add_date`='" . date('Y-m-d') . "'");
+                                                                        $link = $vpath.'offer/'.$_POST[project_id];
+                                                                        $notify = add_notification($_POST['chosen'], $lang['HIRE_INFO'], 'W', $link);
                                                                         ?>
                                                                 <tr><td colspan="6" class="link_class" style="text-decoration: none;text-align: justify;">
                                                                         <?= $lang['MSG_JOB_3'] ?> <b><?= getusername($_REQUEST[chosen]) ?></b><?= $lang['MSG_JOB_4'] ?> <b><?= getproject($_REQUEST[pick]) ?></b><?= $lang['MSG_JOB_5'] ?><br><br>

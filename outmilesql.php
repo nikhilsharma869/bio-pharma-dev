@@ -3,6 +3,7 @@
 session_start();
 include "configs/config.php";
 include "configs/path.php";
+include("includes/function.php");
 CheckLogin();
 ob_start();
 ?>
@@ -39,14 +40,14 @@ if ($_POST['action_select'] != 'select') {
 					// user_id = '" . $rw3['bidder_id'] . "',
 					// message = 'Milestone payment deposited in your account',
 					// date = now()");
-                    $link = $vpath.'transaction_history.html';
+                    $link = $vpath.'milestone.html';
 					$notify = add_notification($rw3['bidder_id'], 'Milestone payment deposited in your account', 'W', $link);
 
      //                mysql_query("insert into " . $prev . "notification set 
 					// user_id = '" . $rw3['user_id'] . "',
 					// message = 'Milestone payment released to contractor',
 					// date = now()");
-					$link = $vpath.'transaction_history.html';
+					$link = $vpath.'milestone.html';
 					$notify = add_notification($rw3['user_id'], 'Milestone payment released to contractor', 'E', $link);
 
                     $rw5 = mysql_fetch_array(mysql_query("select * from " . $prev . "user where user_id ='" . $rw3['bidder_id'] . "'"));

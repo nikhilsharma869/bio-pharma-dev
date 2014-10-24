@@ -101,10 +101,14 @@ if($_POST['rep']=="Reply")
 		view_user='".$view_user."'
 		");
 
-		$res4=mysql_query("insert into ".$prev."notification set
-		user_id='".$_SESSION['user_id']."',
-		message='You have sent a Reply message to ".$row1['fname']." ".$row1['lname']."',
-		date='".date('Y-m-d',time())."'");
+		// $res4=mysql_query("insert into ".$prev."notification set
+		// user_id='".$_SESSION['user_id']."',
+		// message='You have sent a Reply message to ".$row1['fname']." ".$row1['lname']."',
+		// date='".date('Y-m-d',time())."'");
+		$mess_s = "You have sent a Reply message to ".$row1['fname']." ".$row1['lname'];
+		$link = $vpath.'showmessage.php?id='.$id.'&sucs='.$sucs.'&message='.$message1;
+		$res4 = add_notification($_SESSION['user_id'], $mess_s, 'B', $link);
+
 		$sucs="success";
 		$id=base64_encode($_REQUEST['id_con']);
 

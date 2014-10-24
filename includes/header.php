@@ -92,21 +92,76 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
 					
 					<!-- jquery-tokeninput -->
                     <script>
+                        function readNotif(id, url) {
+                            $.ajax({
+                               url: '<?= $vpath; ?>ajax_action.php',
+                               data: {action: 'read_notification_ajax', id: id},
+                               success: function(data) {
+                                    window.open(url,'_self');        
+                               }
+                            });
+                            
+                        }
+                        function countNotif() {
+                            $.ajax({
+                               url: '<?= $vpath; ?>ajax_action.php',
+                               data: {action: 'count_notification_ajax', user_id: '<?=$_SESSION['user_id']?>', type: '<?=$_SESSION['user_type']?>'},
+                               success: function(data) {
+                                   $('.count-notif').text(data);        
+                               }
+                            });
+
+                            setTimeout(function(){
+                                countNotif();
+                                // loadNotif();
+                            }, 7000);
+                        }
+
+                        function loadNotif() {
+                            $.ajax({
+                               url: '<?= $vpath; ?>ajax_action.php',
+                               data: {action: 'load_notification_ajax', user_id: '<?=$_SESSION['user_id']?>', type: '<?=$_SESSION['user_type']?>'},
+                               beforeSend: function() {
+                                    $('.popover.user-notification-callout div.popover-content ul').html(
+                                        '<div class="loading-notif" style="text-align: center;">'
+                                        + '<img src="<? $vpath?>/images/ajax-loader2.gif">'
+                                        +'</div>');
+                               },
+                               success: function(data) {
+                                    $('.popover.user-notification-callout div.popover-content ul').html(data);
+                               }
+                            });
+                        }
+
+                        function removeNotif(id) {
+                            var parent = $('li.notif_'+id);
+                            var text = $('.count-notif').text();
+                            
+                            $.ajax({
+                               url: '<?= $vpath; ?>ajax_action.php',
+                               data: {action: 'read_notification_ajax', id: id},
+                               success: function(data) {                                      
+                                    // $('.count-notif').text(eval(text-1));
+                                    parent.remove();
+                                    countNotif(); 
+                               }
+                            });
+                        }
                         (function($) {
                             $("#accordion").accordion();
                         });
 
                         $(document).ready(function(){
+                            countNotif();
                             $('a.callout-notification').click(function(){
                                 if($('.popover.user-notification-callout').is(':hidden')) {
                                     $('.popover.user-notification-callout').show();
-                                    $('.popover.user-notification-callout div.popover-content').html(
-                                        '<div class="loading-notif" style="text-align: center;">'
-                                        + '<img src="<? $vpath?>/images/ajax-loader2.gif">'
-                                        +'</div>');
+                                    loadNotif();
+                                    // console.log('hidden');
                                 }
                                 else if($('.popover.user-notification-callout').is(':visible')) {
                                     $('.popover.user-notification-callout').hide();
+                                    // console.log('visible');
                                 }
                                  
                             })
@@ -307,20 +362,17 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                                 </div>
                                             </span>
                                             <!-- <a class="login" href="<?php echo $vpath;?>logout.html">Sign out</a> -->
-                                            <a href="javascript:;" class="callout-notification"><span class="icon-callout" style="padding: 2px 2px 5px 6px"><i class="fa fa-info"></i></span>
+                                            <a href="javascript:;" class="callout-notification">
+                                                <span class="icon-callout" style="padding: 2px 2px 5px 6px"><i class="fa fa-info"></i></span>
+                                                <span class="count-notif"></span>
+                                            </a>
                                             <div class="popover bottom user-notification-callout">
                                               <div class="arrow"></div>                                           
                                               <div class="popover-content">                                             
-                                                
-                                                <!-- <ul>
-                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
-                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
-                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
-                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
-                                                    <li>You have received an invitation to interview for the job opening "Design Work"<span><i class="fa fa-times"></i></span></li>
-                                                </ul> -->
+                                                <ul>
+                                                </ul>
                                               </div>
-                                            </div></a>
+                                            </div>
                                             <a href="<? $vpath?>/dashboard.html"><span class="icon-callout" style="padding: 3px 5px 4px 4px; font-size: 13px;"><i class="fa fa-cog"></i></span></a>
                                             
                                             

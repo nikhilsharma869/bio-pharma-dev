@@ -2,6 +2,7 @@
 session_start();
 include "configs/config.php";
 include "configs/path.php";
+include("includes/function.php");
 //include "logincheck.php";
 if($_SESSION['user_id'])
 	{$user_id=$_SESSION['user_id'];}else
@@ -85,15 +86,19 @@ if($_POST['action_select']!='select')
 			subject='Request To Release Milestone Payment',
 			message='".$body."',
 			sent_time='".date('Y-m-d,h:i:s',time())."',status='Y'");
-			mysql_query("insert into ".$prev."notification set 
-			user_id = '".$rw3['bidder_id']."',
-			message = 'Request to release Milestone Payment sent',
-			add_date = now()");
+			// mysql_query("insert into ".$prev."notification set 
+			// user_id = '".$rw3['bidder_id']."',
+			// message = 'Request to release Milestone Payment sent',
+			// add_date = now()");
+			$link = $vpath.'milestone.html';
+			$notify = add_notification($rw3['bidder_id'], 'Request to release Milestone Payment sent', 'W', $link);
 
-			mysql_query("insert into ".$prev."notification set 
-			user_id = '".$rw3['user_id']."',
-			message = 'Request to release Milestone Payment received',
-			add_date = now()");
+			// mysql_query("insert into ".$prev."notification set 
+			// user_id = '".$rw3['user_id']."',
+			// message = 'Request to release Milestone Payment received',
+			// add_date = now()");
+			$link = $vpath.'milestone.html';
+			$notify = add_notification($rw3['user_id'], 'Request to release Milestone Payment received', 'E', $link);
 			header('location:milestone.php');
 		}		
 	}
@@ -103,14 +108,20 @@ if($_POST['action_select']!='select')
 		if(mysql_num_rows($rw9)>0)
 		{
 			mysql_query("update ".$prev."escrow set status = 'D' where escrow_id = '".$_POST['hides']."'");
-			mysql_query("insert into ".$prev."notification set 
-			user_id = '".$rw3['bidder_id']."',
-			message = 'You have disputed ane Milestone Payment',
-			add_date = now()");
-			mysql_query("insert into ".$prev."notification set 
-			user_id = '".$rw3['user_id']."',
-			message = 'Contractor has disputed one Milestone Payment',
-			add_date = now()");
+			// mysql_query("insert into ".$prev."notification set 
+			// user_id = '".$rw3['bidder_id']."',
+			// message = 'You have disputed ane Milestone Payment',
+			// add_date = now()");
+			$link = $vpath.'milestone.html';
+			$notify = add_notification($rw3['bidder_id'], 'You have disputed ane Milestone Payment', 'W', $link);
+
+			// mysql_query("insert into ".$prev."notification set 
+			// user_id = '".$rw3['user_id']."',
+			// message = 'Contractor has disputed one Milestone Payment',
+			// add_date = now()");
+			$link = $vpath.'milestone.html';
+			$notify = add_notification($rw3['user_id'], 'Contractor has disputed one Milestone Payment', 'E', $link);
+
 			header('location:milestone.php');
 		}
 	}
@@ -120,14 +131,19 @@ if($_POST['action_select']!='select')
 		if(mysql_num_rows($rw10)>0)
 		{
 			mysql_query("update ".$prev."escrow set status = 'C' where escrow_id = '".$_POST['hides']."'");
-			mysql_query("insert into ".$prev."notification set 
-			user_id = '".$rw3['bidder_id']."',
-			message = 'You have cancelled one Milestone Payment',
-			add_date = now()");
-			mysql_query("insert into ".$prev."notification set 
-			user_id = '".$rw3['user_id']."',
-			message = 'Contractor has cancelled one Milestone Payment',
-			add_date = now()");
+			// mysql_query("insert into ".$prev."notification set 
+			// user_id = '".$rw3['bidder_id']."',
+			// message = 'You have cancelled one Milestone Payment',
+			// add_date = now()");
+			$link = $vpath.'milestone.html';
+			$notify = add_notification($rw3['bidder_id'], 'You have cancelled one Milestone Payment', 'E', $link);
+
+			// mysql_query("insert into ".$prev."notification set 
+			// user_id = '".$rw3['user_id']."',
+			// message = 'Contractor has cancelled one Milestone Payment',
+			// add_date = now()");
+			$link = $vpath.'milestone.html';
+			$notify = add_notification($rw3['user_id'], 'Contractor has cancelled one Milestone Payment', 'E', $link);
 			header('location:milestone.php');
 		}
 	}

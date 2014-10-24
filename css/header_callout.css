@@ -94,7 +94,7 @@ a.callout-notification:hover {
     z-index: 99999;
     border-radius: 15px;
     max-width: 500px;
-    left: -230px;
+    left: -236px;
     top: 25px;
     /*display: block;*/
 }
@@ -124,4 +124,33 @@ a.callout-notification:hover {
     border-radius: 15px;
     font-size: 8px;
     padding: 3px 4px;
+}
+
+.popover.user-notification-callout ul li a {
+    color: #818285;
+}
+
+.callout-notification {
+    position: relative;
+}
+
+.count-notif{
+    color: #fff;
+    font-weight: bold;
+    font-size: 10px;
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    background: #ea6153;
+    border-radius: 5px;
+    padding: 0 3px;
+}
+
+li#view-more-notif {
+    text-align: center;
+}
+
+#view-more-notif a {
+    color: #2272ba;
+    text-decoration: none;
 }

@@ -96,14 +96,20 @@ if ($_GET['resolved'] == 'yes' && $disputes['resolve'] == 'N') {
 				paypaltran_id = '" . $payment_id . "',
 				status = 'Y',amttype = 'CR'");
 
-        mysql_query("insert into " . $prev . "notification set 
-			user_id = '" . $dispute_for['user_id'] . "',
-			message = 'Employer has release one Milestone Payment',
-			add_date = now()");
-        mysql_query("insert into " . $prev . "notification set 
-			user_id = '" . $disputes['user_id'] . "',
-			message = 'You Release a one Milestone Payment',
-			add_date = now()");
+   //      mysql_query("insert into " . $prev . "notification set 
+			// user_id = '" . $dispute_for['user_id'] . "',
+			// message = 'Employer has release one Milestone Payment',
+			// add_date = now()");
+        $link = $vpath.'transaction_history.html';
+        $notify = add_notification($dispute_for['user_id'], 'Employer has release one Milestone Payment', 'W', $link);
+
+   //      mysql_query("insert into " . $prev . "notification set 
+			// user_id = '" . $disputes['user_id'] . "',
+			// message = 'You Release a one Milestone Payment',
+			// add_date = now()");
+        $link = $vpath.'transaction_history.html';
+        $notify = add_notification($disputes['user_id'], 'You Release a one Milestone Payment', 'E', $link);
+
         $_SESSION['succ'] = "Thank you for accepting the offer. You will get $" . $rec_amt . " in your account soon.";
         /*         * *************check for completed status update************ */
         $rw1 = mysql_fetch_array(mysql_query("select bidid from " . $prev . "escrow where escrow_id = '" . $disputes['escrow_id'] . "'"));

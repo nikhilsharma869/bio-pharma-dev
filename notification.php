@@ -68,7 +68,7 @@ $sum1=number_format($sum,2);
     <!-- left side-->
     <!--middle -->
 <?php
-		 $res_notification = mysql_query("select * from ".$prev."notification where user_id='".$_SESSION['user_id']."'order by add_date desc LIMIT $start, $limit");
+		 $res_notification = mysql_query("select * from ".$prev."notification where user_id='".$_SESSION['user_id']."' AND (type ='".$_SESSION['user_type']."' OR type='B' ) AND readyet=0  order by add_date desc LIMIT $start, $limit");
 		 
 		$as=$start+1;
 		$en=$as*10;
