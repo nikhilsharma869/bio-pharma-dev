@@ -116,9 +116,12 @@ function load_work_diary() {
 	$list = array();
 	while ($val = mysql_fetch_array($r_word_diary)) {
 		$timesheet = array();
-		$timesheet['start_time'] = date('H:i', strtotime($val['start_time']));
-		$timesheet['stop_time'] = date('H:i', strtotime($val['stop_time']));
+		$timesheet['start_time'] = minutes_round(date('H:i', strtotime($val['start_time'])), 10);
+		$timesheet['stop_time'] = minutes_round(date('H:i', strtotime($val['stop_time'])), 10);
 		$timesheet['memo'] = $val['note'];
+		$timesheet['time_added_by'] = $val['time_added_by'];
+		$timesheet['project_tracker_id'] = $val['id'];
+		$timesheet['project_id'] = $val['project_id'];
 		array_push($list, $timesheet);
 	}
 	
@@ -129,6 +132,14 @@ function load_work_diary() {
 		foreach ($every_10_minutes as $key_time => $value_str) {
 			if( date('H:i', strtotime($key_time)) >= date('H:i', strtotime($list[$i]['start_time'])) 
 				&& date('H:i', strtotime($key_time)) <= date('H:i', strtotime($list[$i]['stop_time'])) ) {
+				if($list[$i]['time_added_by'] == "M") {
+					$img = '<img src="images/manual_time_bg.jpg">';	
+				} else {
+					$snap_time = date('Y-m-d', strtotime($load_date))." ".date('H:i:s', strtotime($key_time));
+					$img_link = get_project_snap($list[$i]['project_id'], $list[$i]['project_tracker_id'], $snap_time);
+					$img = sprintf('<a class="fancyclass" rel="gallery" href="%s"><img src="%s"></a>', $img_link, $img_link);
+				}			
+				
 				
 				$li_id = create_random_str(16);
 				if(date('i', strtotime($key_time)) == '00' && date('H:i', strtotime($key_time)) == date('H:i', strtotime($list[$i]['stop_time']))) {
@@ -181,8 +192,9 @@ function load_work_diary() {
 				$class .= ' workdiary-snap-item';
 				
 				
-				$li_data = sprintf("<span class='cwork-diary-label-memo'>%s</span><img src='images/manual_time_bg.jpg'><input id='workdiary_snap%s' type='checkbox' class='css-input workdiary_snap_check_box' /><label for='workdiary_snap%s' class='css-label'>%s</label>", 
+				$li_data = sprintf("<span class='cwork-diary-label-memo'>%s</span>%s<input id='workdiary_snap%s' type='checkbox' class='css-input workdiary_snap_check_box' /><label for='workdiary_snap%s' class='css-label'>%s</label>", 
 					$list[$i]['memo'],
+					$img,
 					$li_id,
 					$li_id,
 					$value_str

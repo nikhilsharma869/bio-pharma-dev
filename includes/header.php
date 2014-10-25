@@ -186,7 +186,8 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
 
                     <link rel="stylesheet" href="<?=$vpath;?>jplugins/chosen/chosen.min.css">
                     <script type="text/javascript" src="<?=$vpath;?>jplugins/chosen/chosen.jquery.js"></script>
-
+                    <link rel="stylesheet" href="<?=$vpath;?>jplugins/fancybox/jquery.fancybox.css">
+                    
                     <link rel="stylesheet" href="<?=$vpath;?>css/anythingslider.css">
                     <script src="<?=$vpath;?>js/jquery.anythingslider.js"></script>
                     <script type="text/javascript" src="<?=$vpath;?>js/jquery.form.min.js"></script>

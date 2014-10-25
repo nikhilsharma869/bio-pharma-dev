@@ -646,4 +646,11 @@ function getTimeDiff($dtime,$atime){
 	return $time_diff;
 }
 
+function minutes_round($hour, $minutes, $format = "H:i")
+{
+    $seconds = strtotime($hour);
+    $rounded = round($seconds / ($minutes * 60)) * ($minutes * 60);
+    return date($format, $rounded);
+}
+
 ?>

@@ -116,3 +116,22 @@ function list_jobs(){
 	return $list;
 }
 
+
+function get_project_snap($project_id, $project_tracker_id, $time) {
+	global $prev;
+
+	$q = sprintf("SELECT *,ABS(TIME_TO_SEC(TIMEDIFF('%s',project_work_snap_time))) AS time_check FROM ".$prev."project_tracker_snap WHERE project_tracker_id='%s'",
+		mysql_real_escape_string($time),
+		mysql_real_escape_string($project_tracker_id)
+	);
+
+	$r = mysql_query($q);
+	while ($val = mysql_fetch_array($r)) { 
+		if($val['time_check'] <= 300) {
+			return 'time_tracker/mediafile/'.$project_id.'_'.$val['id'].'.jpg';
+		}
+	}
+
+	return 'images/manual_time_bg.jpg';
+
+}

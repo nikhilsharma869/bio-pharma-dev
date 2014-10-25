@@ -274,6 +274,7 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                 }
                 get_all_snap_dates();
                 getTotalTime(val);
+                $(".fancyclass").fancybox();
            }
         });
     }

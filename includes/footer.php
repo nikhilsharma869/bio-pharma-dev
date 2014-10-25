@@ -44,7 +44,7 @@
             </div><!--Footer main-->
             
 		</footer>
-
+<script type="text/javascript" src="<?=$vpath;?>jplugins/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
  var height = jQuery('#footer_main').height() ;
  var window_width = jQuery(window).width() + 17;
