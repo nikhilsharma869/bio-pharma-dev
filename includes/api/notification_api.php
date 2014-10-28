@@ -36,7 +36,7 @@ function load_notification_ajax() {
 		if(!$val['readyet']) {
 			$readyet = 'notif-notread';
 		} else {
-			$readyet = '';
+			$readyet = ''; 
 		}
 		$li = sprintf('<li class="notif_%s %s"><a onclick="readNotif(\'%s\',\'%s\')" class="read-notif" href="javacript:;">%s</a><span class="notif-remove" onclick="removeNotif(\'%s\')" data-notif-remove="%s"><i class="fa fa-times"></i></span></li>',
 			$val['id'],
