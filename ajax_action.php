@@ -297,3 +297,12 @@ function update_user_field() {
 	$q = sprintf("UPDATE ".$prev."user SET %s='%s' WHERE user_id='%s'",$f2change, mysql_real_escape_string($new_val), $user_id);
 	$r = mysql_query($q);
 }
+
+function check_add_manual() {
+	global $prev;
+	$project_id = $_REQUEST['project_id'];
+
+	$r = mysql_fetch_array(mysql_query("SELECT enabled_manual_time FROM ".$prev."projects WHERE id=".$project_id));
+
+	echo $r['enabled_manual_time'];
+}

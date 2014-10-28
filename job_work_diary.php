@@ -43,7 +43,7 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                                     <?php } ?>
                                 </select>
                             </div>
-                            <a href="#" class="add-time" data-toggle="modal" data-target="#myModal">Add Manual Time</a>                        
+                            <a href="#" class="add-time" style="display:none;" data-toggle="modal" data-target="#myModal">Add Manual Time</a>                        
                         </div>
                         <div class="container">
                         <div class="time-zone">
@@ -259,6 +259,7 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
         $('#date2add').val(val);
         $('.date2add').html(val);
         var project_id = $('#select-pj').val();
+        checkAddManual(project_id);
         $.ajax({
            url: '<?= $vpath; ?>ajax_action.php',
            data: {action: 'load_work_diary', project_id: project_id, user_id: '<?=$_SESSION['user_id']?>', load_date: val},
@@ -321,6 +322,21 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                 $('.manual-time span').html(arr.manual);
            }
         });
+    }
+
+    function checkAddManual(project_id) {
+        $.ajax({
+           url: '<?= $vpath; ?>ajax_action.php',
+           data: {action: 'check_add_manual', project_id: project_id},
+           success: function(data) {
+                if(data == 'N') {
+                    $('.add-time').hide();
+                } else {
+                    $('.add-time').show();
+                }
+           }
+        });
+        
     }
       $(function() {
         get_all_snap_dates();

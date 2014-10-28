@@ -1029,6 +1029,7 @@ $lang = array(
 'HIRD_PROJ' => "You are hired for a project",
 'NEW_RT' => "New Rate",
 'HIRE_INFO' => "Hire Information",
+'INVITE_INFO' => "Invite Information",
 'MSG_JOB_3' => "The provider",
 'Financial_Account' => "Financial Account",
 'Bank_AC_No' => "Bank A/C No",
