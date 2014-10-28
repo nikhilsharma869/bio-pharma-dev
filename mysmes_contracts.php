@@ -27,7 +27,7 @@ if($_REQUEST['keyword']!=''){
         }
     }
 }
-// $sql .= " GROUP BY u.user_id";
+$sql .= " GROUP BY u.user_id";
         
 //Paging
 if($_REQUEST['page']){

@@ -94,7 +94,7 @@ function get_my_job($user_id, $project_type) {
 				WHERE p.chosen_id='".$user_id."' AND p.status= 'process'";	
 	}		
 			
-			
+	$q .= " GROUP BY p.id";	
 	$r = mysql_query($q);	
 	$list = array();
 	while ($val = mysql_fetch_array($r)) {

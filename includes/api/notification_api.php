@@ -20,7 +20,7 @@ function load_notification_ajax() {
 	$user_id = $_REQUEST['user_id'];
 	$type = $_REQUEST['type'];
 
-	$r = mysql_query("SELECT * FROM ".$prev."notification WHERE user_id=".$user_id." AND (type ='".$type."' OR type='B' ) AND readyet=0 ORDER BY add_date DESC");
+	$r = mysql_query("SELECT * FROM ".$prev."notification WHERE user_id=".$user_id." AND (type ='".$type."' OR type='B' ) ORDER BY add_date DESC");
 	if(mysql_num_rows($r) == 0) {
 		echo "<li>No notification now.</li>";
 		exit();
@@ -29,12 +29,18 @@ function load_notification_ajax() {
 	$count = 0;
 	while ($val = mysql_fetch_array($r)) {
 		if($count == 5) {
-			$li = '<li id="view-more-notif"><a href="'.$vpath.'notification.html">View All Notification</a></li>';
+			$li = '<li id="view-more-notif"><a href="javacript:;" onclick="readAllNotif()">View All Notification</a></li>';
 			$list .= $li;
 			break;
 		}
-		$li = sprintf('<li class="notif_%s"><a onclick="readNotif(\'%s\',\'%s\')" class="read-notif" href="javacript:;">%s</a><span class="notif-remove" onclick="removeNotif(\'%s\')" data-notif-remove="%s"><i class="fa fa-times"></i></span></li>',
+		if(!$val['readyet']) {
+			$readyet = 'notif-notread';
+		} else {
+			$readyet = '';
+		}
+		$li = sprintf('<li class="notif_%s %s"><a onclick="readNotif(\'%s\',\'%s\')" class="read-notif" href="javacript:;">%s</a><span class="notif-remove" onclick="removeNotif(\'%s\')" data-notif-remove="%s"><i class="fa fa-times"></i></span></li>',
 			$val['id'],
+			$readyet,
 			$val['id'],
 			$val['link'],
 			$val['message'],
@@ -63,4 +69,16 @@ function count_notification_ajax() {
 	if(mysql_num_rows($r) > 0) {
 		echo mysql_num_rows($r);
 	}
+}
+
+function read_all_notification_ajax() {
+	global $prev;
+	$type = $_REQUEST['type'];
+	$r = mysql_query("UPDATE ".$prev."notification SET readyet='1' WHERE (type ='".$type."' OR type='B' )");
+}
+
+function remove_notification_ajax() {
+	global $prev;
+	$id = $_REQUEST['id'];
+	$r = mysql_query("DELETE FROM ".$prev."notification WHERE id=".$id);
 }

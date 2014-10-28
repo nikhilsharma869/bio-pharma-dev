@@ -108,7 +108,7 @@ a.callout-notification:hover {
 .popover.user-notification-callout ul li {
     position: relative;
     display: block;
-    padding: 10px 10px 10px 0px;
+    padding: 10px 10px 10px 10px;
     color: #818285;
     border-bottom: 1px solid #ebebeb; 
     cursor: default;
@@ -117,7 +117,7 @@ a.callout-notification:hover {
 .popover.user-notification-callout ul li span {
     position: absolute;
     top: 12px;
-    right: 0;
+    right: 5px;
     cursor: pointer;
     background: #818285;
     color: #fff;
@@ -153,4 +153,12 @@ li#view-more-notif {
 #view-more-notif a {
     color: #2272ba;
     text-decoration: none;
+}
+
+.notif-notread {
+    background: #97EF97;
+}
+
+.popover.user-notification-callout ul li.notif-notread a {
+    color: #fff;
 }

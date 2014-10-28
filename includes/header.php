@@ -139,7 +139,7 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                             
                             $.ajax({
                                url: '<?= $vpath; ?>ajax_action.php',
-                               data: {action: 'read_notification_ajax', id: id},
+                               data: {action: 'remove_notification_ajax', id: id},
                                success: function(data) {                                      
                                     // $('.count-notif').text(eval(text-1));
                                     parent.remove();
@@ -147,6 +147,18 @@ if (isset($_REQUEST['categoryinput']) && $_REQUEST['categoryinput'] != "") {//ec
                                }
                             });
                         }
+
+                        function readAllNotif() {
+                            urln = '<?=$vpath?>notification.html';
+                            $.ajax({
+                               url: '<?= $vpath; ?>ajax_action.php',
+                               data: {action: 'read_all_notification_ajax', type: '<?=$_SESSION['user_type']?>'},
+                               success: function(data) {
+                                    window.open(urln,'_self');  
+                               }
+                            });
+                        }
+
                         (function($) {
                             $("#accordion").accordion();
                         });

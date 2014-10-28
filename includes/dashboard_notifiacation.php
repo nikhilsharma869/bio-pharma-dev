@@ -7,8 +7,8 @@
 <div class="latest_work">
 <div class="notifications">
           <?php
-$res_notificationcount=@mysql_num_rows(mysql_query("select * from ".$prev."notification where user_id='".$_SESSION['user_id']."'order by add_date desc "));
-		 $res_notification = mysql_query("select * from ".$prev."notification where user_id='".$_SESSION['user_id']."'order by add_date desc limit 0,3");
+$res_notificationcount=@mysql_num_rows(mysql_query("select * from ".$prev."notification where user_id='".$_SESSION['user_id']."' AND (type ='".$_SESSION['user_type']."' OR type='B' ) order by add_date desc "));
+		 $res_notification = mysql_query("select * from ".$prev."notification where user_id='".$_SESSION['user_id']."' AND (type ='".$_SESSION['user_type']."' OR type='B' ) order by add_date desc limit 0,3");
 
 		 if(mysql_num_rows($res_notification)>0)
 
