@@ -11,7 +11,7 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
 }
 
 $q = "SELECT * FROM ".$prev."projects p
-        WHERE p.user_id='".$_SESSION['user_id']."' AND p.status= 'process' ORDER BY p.id DESC";   
+        WHERE p.user_id='".$_SESSION['user_id']."' AND p.status= 'process' AND p.project_type='H' ORDER BY p.id DESC";   
         
 $r = mysql_query($q);   
 $list = array();
@@ -51,7 +51,6 @@ while ($val = mysql_fetch_array($r)) {
                                     <?php } ?>
                                 </select>
                             </div>
-                            <a href="#" class="add-time" style="display:none;" data-toggle="modal" data-target="#myModal">Add Manual Time</a>                       
                         </div>
                         <div class="container">
                         <div class="time-zone">
@@ -87,76 +86,6 @@ while ($val = mysql_fetch_array($r)) {
             </div>
         </div>
     </div>  
-</div>
-<!-- Modal -->
-<div class="modal fade job-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Manual Time</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" role="form" id="add_manual_time_f" name="add_manual_time_f">
-                    <div class="alert alert-success" role="alert">Success</div>
-                    <div class="alert alert-warning" role="alert">Error</div>
-
-                    <!-- <input type="hidden" id="project_id" value="<?=$_REQUEST['id']?>"> -->
-                    <input type="hidden" id="user_id" value="<?=$_SESSION['user_id']?>">
-                  <div class="form-group">
-                    <label for="" class="col-sm-4 control-label">Date</label>
-                    <div class="col-sm-8">
-                       <span class="date2add"></span> 
-                       <input class="form-control" type="hidden" name="date2add" id="date2add">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="" class="col-sm-4 control-label">Timezone</label>
-                    <div class="col-sm-8">
-                        <span class="timezone2add">UTC+00</span> 
-                        <input class="form-control" type="hidden" name="timezone2add" id="timezone2add">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="" class="col-sm-4 control-label">From</label>
-                    <div class="col-sm-8">
-                        <div class="row">
-                          <div class="col-xs-5">                            
-                            <select class="form-control time_select_box" name="stime2add" id="stime2add">
-                                <option value="">Select</option>
-                                <?php foreach ($every_10_minutes as $key_time => $value) : ?>
-                                <option value="<?=$key_time?>"><?=$value?></option>
-                                <?php endforeach; ?>
-                            </select>                            
-                          </div>
-                          <div style="display: inline-block;float: left;padding: 3px 0; width: 15px;">To</div>
-                          <div class="col-xs-5">                            
-                            <select class="form-control time_select_box" name="etime2add" id="etime2add">
-                                <option value="">Select</option>
-                                <?php foreach ($every_10_minutes as $key_time => $value) : ?>
-                                <option value="<?=$key_time?>"><?=$value?></option>
-                                <?php endforeach; ?>
-                            </select>                                
-                          </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="" class="col-sm-4 control-label">Memo</label>
-                    <div class="col-sm-8">
-                      <textarea class="form-control" rows="3" name="memo2add" id="memo2add"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-8">
-                      <button type="submit" class="btn btn-default">Save</button>
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    </div>
-                  </div>
-                </form>            
-            </div>           
-        </div>
-    </div>
 </div>
     <script type="text/javascript">
         jQuery(document).ready(function($){
@@ -267,7 +196,7 @@ while ($val = mysql_fetch_array($r)) {
         $('#date2add').val(val);
         $('.date2add').html(val);
         var project_id = $('#select-pj').val();
-        checkAddManual(project_id);
+        
         $.ajax({
            url: '<?= $vpath; ?>ajax_action.php',
            data: {action: 'load_work_diary', project_id: project_id, user_id: '<?=$_SESSION['user_id']?>', load_date: val},
@@ -330,21 +259,6 @@ while ($val = mysql_fetch_array($r)) {
                 $('.manual-time span').html(arr.manual);
            }
         });
-    }
-
-    function checkAddManual(project_id) {
-        $.ajax({
-           url: '<?= $vpath; ?>ajax_action.php',
-           data: {action: 'check_add_manual', project_id: project_id},
-           success: function(data) {
-                if(data == 'N') {
-                    $('.add-time').hide();
-                } else {
-                    $('.add-time').show();
-                }
-           }
-        });
-        
     }
       $(function() {
         get_all_snap_dates();

@@ -106,7 +106,7 @@ function list_jobs(){
 	global $prev;
 	
 		$q = "SELECT * FROM ".$prev."projects p
-				WHERE p.chosen_id='".$_SESSION['user_id']."' AND p.status= 'process' ORDER BY p.id DESC";	
+				WHERE p.chosen_id='".$_SESSION['user_id']."' AND p.status= 'process' AND p.project_type='H' ORDER BY p.id DESC";	
 			
 	$r = mysql_query($q);	
 	$list = array();
