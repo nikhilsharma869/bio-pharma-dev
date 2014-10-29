@@ -133,11 +133,13 @@ function load_work_diary() {
 			if( date('H:i', strtotime($key_time)) >= date('H:i', strtotime($list[$i]['start_time'])) 
 				&& date('H:i', strtotime($key_time)) <= date('H:i', strtotime($list[$i]['stop_time'])) ) {
 				if($list[$i]['time_added_by'] == "M") {
-					$img = '<img src="images/manual_time_bg.jpg">';	
-				} else {
+					$img = '<img src="images/manual_time_bg.jpg">';
+					$label_time	= $value_str;
+				} else {					
 					$snap_time = date('Y-m-d', strtotime($load_date))." ".date('H:i:s', strtotime($key_time));
-					$img_link = get_project_snap($list[$i]['project_id'], $list[$i]['project_tracker_id'], $snap_time);
-					$img = sprintf('<a class="fancyclass" rel="gallery" href="%s"><img src="%s"></a>', $img_link, $img_link);
+					$data_snap = get_project_snap($list[$i]['project_id'], $list[$i]['project_tracker_id'], $snap_time);
+					$img = sprintf('<a class="fancyclass" rel="gallery" href="%s"><img src="%s"></a>', $data_snap['img'], $data_snap['img']);
+					$label_time	= $data_snap['time'];
 				}			
 				
 				
@@ -197,7 +199,7 @@ function load_work_diary() {
 					$img,
 					$li_id,
 					$li_id,
-					$value_str
+					$label_time
 				);
 
 				$li = sprintf("<li data-workdiary-postion='%s' data-workdiary-time='%s' data-workdiary-memo='%s' class='%s'>%s</li>", 
@@ -218,6 +220,9 @@ function load_work_diary() {
 						date('H', strtotime($key_time)).$li_id
 					);
 					echo $li;
+					if(date('i', strtotime($key_time)) == '50') {
+						echo '</ul>';
+					}
 					$ul_pos = 'ul_last';
 					$isul_f = false;
 					continue;

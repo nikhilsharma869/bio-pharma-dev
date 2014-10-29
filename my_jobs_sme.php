@@ -1,5 +1,9 @@
 <?php
 include "includes/header.php";
+
+function getTotalAMT($ts, $bid_amt) {
+    return round((($bid_amt * $ts) / 3600), 2);
+}
 ?>
 	
     <div class="spage-container my_jobs_My_Jobs_SME_After">
@@ -31,7 +35,9 @@ include "includes/header.php";
                                 <div class="job-content">
                                 <?php     
                                     if($my_jobs!=NULL):
-                                    foreach ($my_jobs as $job): {?>
+                                    foreach ($my_jobs as $job): {
+                                        $total_log = calculate_worktime_of_week($_SESSION['user_id'], $job['project_id']);
+                                        ?>
                                         <div class="box">
                                             <div class="left-box">
                                                 <p class="name-member"><a href='<?= $vpath ?>project/<?php echo $job['project_id'];?>'><?php echo $job['project'];?></a></p>
@@ -39,8 +45,8 @@ include "includes/header.php";
                                                 <p><a href='<?= $vpath ?>project/<?php echo $job['project_id'];?>'>Job Details</a><span class="line">|</span><a href="<?= $vpath ?>conversation/<?= $job['project_id']?>/<?= $job['user_id'] ?>/">Send Message</a></p>
                                             </div>
                                             <div class="right-box">
-                                                <p class="time-week">4:00 of <?php echo $job['hour_limit'];?> hrs this week</p>
-                                                <p class="small-text">@$<?php echo $job['bid_amount'];?>/hr = $<?php echo $job['paid_amount'];?></p>
+                                                <p class="time-week"><?php echo sec2hm($total_log['total_in_sec']); ?> of <?php echo $job['hour_limit'];?> hrs this week</p>
+                                                <p class="small-text">@&dollar;<?php echo $job['bid_amount'];?>/hr = &dollar;<?php echo getTotalAMT($total_log['total_in_sec'], $job['bid_amount']); ?></p>
                                                 <a href="<?= $vpath ?>work_diary/<?= $job['project_id']?>" class="view-load">view work diary</a>
                                             </div>
                                         </div>
@@ -61,7 +67,7 @@ include "includes/header.php";
                                                 <p><a href='<?= $vpath ?>project/<?php echo $job['project_id'];?>'>Job Details</a><span class="line">|</span><a href="<?= $vpath ?>conversation/<?= $job['project_id']?>/<?= $job['user_id'] ?>/">Send Message</a></p>
                                             </div>
                                             <div class="right-box">
-                                                <p class="time-of-price">$<?php echo $job['paid_amount'];?> paid of $<?php echo $job['bid_amount'];?> </p>
+                                                <p class="time-of-price">&dollar;<?php echo $job['paid_amount'];?> paid of &dollar;<?php echo $job['bid_amount'];?> </p>
                                             </div>
                                         </div>
                                 <?php } endforeach; else: echo 'no project';endif; ?>
