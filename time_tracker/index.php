@@ -198,9 +198,13 @@ if ($ACT == "uploadSnap") {
         $pj_id = getProjectID($projectwork_id);
         // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('projectword_id: ".$projectwork_id."')");
         // mysql_query("INSERT INTO table_debug (text_debug) VALUES ('phj_id: ".$pj_id."')");
-        if($rcheck['wt'] >= 600 || $rcheckfirst['wt'] == 0) {
+		
+		//Random time to get upload from 8-10 mins
+		$rand_time = rand ( 480 , 600 );
+		
+        if($rcheck['wt'] >= $rand_time || $rcheckfirst['wt'] == 0) {
             
-            $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `project_id` ='".$pj_id."'";
+            $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `id` ='".$projectwork_id."'";
             run_quary($sql);
             
             $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
