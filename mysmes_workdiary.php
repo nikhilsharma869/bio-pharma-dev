@@ -94,71 +94,6 @@ while ($val = mysql_fetch_array($r)) {
                 loadByDate($('#datepicker').val());
             })
             $(".time_select_box").chosen();
-            $('#add_manual_time_f .alert').hide();
-
-            $('#add_manual_time_f').submit(function(){
-                var stime2add = $('#stime2add').val();
-                var etime2add = $('#etime2add').val();
-                var date2add = $('#date2add').val();
-                var memo2add = $('#memo2add').val();
-                var project_id = $('#select-pj').val();
-                var user_id = $('#user_id').val();      
-                if(stime2add == '' || etime2add == '') {
-                    $('#add_manual_time_f .alert-warning').html("Please select start time and stop time");
-                    $('#add_manual_time_f .alert-warning').show();
-                    setTimeout(function(){
-                        $('#add_manual_time_f .alert').fadeOut();
-                    },3000);
-                    return false;
-                }
-                if(memo2add == '') {
-                    $('#add_manual_time_f .alert-warning').html("Please enter a Memo");
-                    $('#add_manual_time_f .alert-warning').show();
-                    setTimeout(function(){
-                        $('#add_manual_time_f .alert').fadeOut();
-                    },3000);
-                    return false;
-                }
-                $.ajax({
-                   url: '<?= $vpath; ?>ajax_action.php',
-                   data: {action: 'add_manual_time', stime2add: stime2add, etime2add: etime2add, date2add: date2add, memo2add: memo2add, project_id: project_id, user_id: user_id},
-                   success: function(data) {
-                      var result = JSON.parse(data);
-                      if(result.error) {
-                        $('#add_manual_time_f .alert-warning').html(result.error);
-                        $('#add_manual_time_f .alert-warning').show();
-                      }
-                      if(result.success) {
-                        $('#add_manual_time_f .alert-success').html(result.success);
-                        $('#add_manual_time_f .alert-success').show();
-
-                        setTimeout(function(){
-                            loadByDate($('#datepicker').val());
-                            get_all_snap_dates();
-                            $('#myModal').modal('hide');
-                        }, 2000);
-                      }
-                        setTimeout(function(){
-                            $('#add_manual_time_f .alert').fadeOut();
-                        },3000);
-                   }
-                });
-                return false;
-            })
-            
-            function centerModal() {
-                $(this).css('display', 'block');
-                var $dialog = $(this).find(".modal-dialog");
-                var offset = ($(window).height() - $dialog.height()) / 2;
-                // Center modal vertically in window
-                $dialog.css("margin-top", offset);
-            }
-
-            $('.modal').on('show.bs.modal', centerModal);
-            $(window).on("resize", function () {
-                $('.modal:visible').each(centerModal);
-            });
-
             
         })        
 
@@ -193,7 +128,6 @@ while ($val = mysql_fetch_array($r)) {
     }
 
     function loadByDate(val) {
-        $('#date2add').val(val);
         $('.date2add').html(val);
         var project_id = $('#select-pj').val();
         
@@ -281,8 +215,6 @@ while ($val = mysql_fetch_array($r)) {
         // }); 
         $( "#datepicker" ).datepicker( "option", "dateFormat", "D, M dd, yy");
         $( "#datepicker" ).datepicker( "setDate", "<?=$current_date?>" );
-        $('#date2add').val($('#datepicker').val());
-        $('.date2add').html($('#datepicker').val());
         $( "#datepicker" ).on('change', function(){
             loadByDate($(this).val());
         })
