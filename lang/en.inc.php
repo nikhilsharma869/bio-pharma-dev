@@ -193,6 +193,7 @@ $lang = array(
 'F_NAME' => "First Name",
 'L_NAME' => "Last Name",
 'EMAIL' => "Email",
+'C_TIMEZONE' => "Timezone",
 'C_PASS' => "Sercurity Pin",
 'O_PASS' => "Old Password",
 'N_PASS' => "New Sercurity Pin",

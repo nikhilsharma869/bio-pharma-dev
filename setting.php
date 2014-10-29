@@ -135,6 +135,9 @@ if (isset($_POST['hiddProfileSubmit'])) {
 		where user_id=" . $_SESSION['user_id']);
     }
 
+    if($_REQUEST['change_timezone']) {
+        $r = mysql_query("update " . $prev . "user set time_zone_id='".$_REQUEST['change_timezone']."' where user_id=" . $_SESSION['user_id']); 
+    }
 
 
 
@@ -691,6 +694,7 @@ var browser=navigator.appName;
                                     <td class="grid"><input type="checkbox" id="chkChangePassword" name="chkChangePassword"  value="1" onclick="showpass();"  /></td>
 
                                 </tr>
+                                
 
                                 <!-- <tr class="hilite1" style="display:none;" id="olspass">
 
@@ -751,6 +755,33 @@ var browser=navigator.appName;
     </td>
 
     </tr>-->
+                            <tr><td>&nbsp;</td></tr>
+                                <tr>
+
+                                    <td  class="tdclass"><b><?= $lang['C_TIMEZONE'] ?></b></td>
+
+
+
+                                    <td class="grid">
+                                        <select name="change_timezone" class="from_input_box1">
+                                           <option value="">---Select Timezone---</option>
+                                           <?php 
+                                           $r = mysql_query("SELECT * FROM ".$prev."timezone");
+                                            while ($val = mysql_fetch_array($r)) { 
+                                            if($d['time_zone_id']== $val['id']) {
+                                                $selected = 'selected';
+                                            } else {
+                                                $selected = '';
+                                            }
+
+                                        
+                                           ?>
+                                            <option value="<?=$val['id']?>" <?=$selected?>><?=$val['display_name']?></option>
+                                           <?php } ?>
+                                        </select>
+                                    </td>
+
+                                </tr>
                                 <!-- <tr class="hilite1">
 
                                     <td class="tdclass"><b><?= $lang['PROFILE_TYPE'] ?>: </b></td>
