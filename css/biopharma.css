@@ -4278,6 +4278,7 @@ span.cwork-diary-label-memo {
     color: #fff;
     font-size: 15px;
     text-indent: -999999px;
+    min-height: 21px;
 }
 
 .first-li-workdiary-snap span.cwork-diary-label-memo {
