@@ -138,7 +138,7 @@ function load_work_diary() {
 				} else {					
 					$snap_time = date('Y-m-d', strtotime($load_date))." ".date('H:i:s', strtotime($key_time));
 					$data_snap = get_project_snap($list[$i]['project_id'], $list[$i]['project_tracker_id'], $snap_time);
-					$img = sprintf('<a class="fancyclass" rel="gallery" href="%s"><img src="%s"></a>', $data_snap['img'], $data_snap['img']);
+					$img = sprintf('<a class="fancyclass" rel="gallery" href="%s"><img src="viewimage.php?img=%s&width=400&height=400"></a>', $data_snap['img'], $data_snap['img']);
 					$label_time	= $data_snap['time'];
 				}			
 				
