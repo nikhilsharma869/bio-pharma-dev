@@ -177,6 +177,7 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                     url: '<?= $vpath; ?>ajax_action.php',
                     data: {action: 'set_current_timezone', time_zone_id: time_zone_id, user_id: '<?=$_SESSION['user_id']?>'},
                 });
+                loadByDate($('#datepicker').val());
             })
             $('#add_manual_time_f').submit(function(){
                 var stime2add = $('#stime2add').val();
