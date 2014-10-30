@@ -204,12 +204,13 @@ if ($ACT == "uploadSnap") {
 		
         if($rcheck['wt'] >= $rand_time || $rcheckfirst['wt'] == 0) {
             
-            $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `id` ='".$projectwork_id."'";
-            run_quary($sql);
-            
             $sql = "INSERT INTO `serv_project_tracker_snap` (`project_tracker_id`, `project_work_snap_time`) VALUES ('$projectwork_id', NOW());";
             run_quary($sql);
             $idd = mysql_insert_id();
+            if($idd) {
+                $sql = "UPDATE `serv_project_tracker` SET  `stop_time`=NOW() WHERE `id` ='".$projectwork_id."'";
+                run_quary($sql);
+            }
             $output_file = "";
 
             $pro_id = getProjectID($idd);
