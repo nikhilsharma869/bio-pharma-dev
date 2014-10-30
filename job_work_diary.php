@@ -278,10 +278,11 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
         $('#date2add').val(val);
         $('.date2add').html(val);
         var project_id = $('#select-pj').val();
+        var time_zone_id = $('#select_timezone').val();
         checkAddManual(project_id);
         $.ajax({
            url: '<?= $vpath; ?>ajax_action.php',
-           data: {action: 'load_work_diary', project_id: project_id, user_id: '<?=$_SESSION['user_id']?>', load_date: val},
+           data: {action: 'load_work_diary', project_id: project_id, user_id: '<?=$_SESSION['user_id']?>', load_date: val, time_zone_id: time_zone_id},
            success: function(data) {
                 if(data) {
                     $('#workdiary-tracker-containter').html(data);
@@ -331,9 +332,10 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
 
     function getTotalTime(val) {
         var project_id = $('#select-pj').val();
+        var time_zone_id = $('#select_timezone').val();
         $.ajax({
            url: '<?= $vpath; ?>ajax_action.php',
-           data: {action: 'calculate_log_time', user_id: '<?=$_SESSION['user_id']?>', project_id: project_id, load_date: val},
+           data: {action: 'calculate_log_time', user_id: '<?=$_SESSION['user_id']?>', project_id: project_id, load_date: val, time_zone_id: time_zone_id},
            success: function(data) {
                 var arr = JSON.parse(data);
                 $('.total-time strong').html(arr.total);

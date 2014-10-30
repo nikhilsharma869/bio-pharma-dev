@@ -104,14 +104,17 @@ function load_work_diary() {
 	$user_id = $_REQUEST['user_id'];
 	$project_id = $_REQUEST['project_id'];
 	$load_date = date('Y-m-d H:i:s', strtotime($_REQUEST['load_date']));
+	$timezone_id = $_REQUEST['time_zone_id'];
+	$rtimezone = mysql_fetch_array(mysql_query("select * from " . $prev . "timezone where id =".$timezone_id));
 
-	$q_work_diary = sprintf("SELECT * FROM ".$prev."project_tracker WHERE worker_id='%s' AND project_id='%s' AND DATEDIFF('%s', start_time)=0 AND DATEDIFF('%s', stop_time)=0 ORDER BY start_time ASC",
+	$q_work_diary = sprintf("SELECT * FROM ".$prev."project_tracker WHERE worker_id='%s' AND project_id='%s' AND DATEDIFF('%s', CONVERT_TZ(start_time,'+00:00','%s'))=0 AND DATEDIFF('%s', CONVERT_TZ(stop_time,'+00:00','%s'))=0 ORDER BY start_time ASC",
 		mysql_real_escape_string($user_id),
 		mysql_real_escape_string($project_id),
 		mysql_real_escape_string($load_date),
-		mysql_real_escape_string($load_date)
+		$rtimezone['offset'],
+		mysql_real_escape_string($load_date),
+		$rtimezone['offset']
 	);
-
 	$r_word_diary = mysql_query($q_work_diary);
 	$list = array();
 	while ($val = mysql_fetch_array($r_word_diary)) {
@@ -271,12 +274,16 @@ function calculate_log_time() {
 	$user_id = $_REQUEST['user_id'];
 	$project_id = $_REQUEST['project_id'];
 	$load_date = date('Y-m-d H:i:s', strtotime($_REQUEST['load_date']));
+	$timezone_id = $_REQUEST['time_zone_id'];
+	$rtimezone = mysql_fetch_array(mysql_query("select * from " . $prev . "timezone where id =".$timezone_id));
 
-	$q = sprintf("SELECT *,TIME_TO_SEC(TIMEDIFF(stop_time,start_time)) AS wt FROM ".$prev."project_tracker WHERE worker_id='%s' AND project_id='%s' AND DATEDIFF('%s', start_time)=0 AND DATEDIFF('%s', stop_time)=0 ORDER BY start_time ASC",
+	$q = sprintf("SELECT *,TIME_TO_SEC(TIMEDIFF(stop_time,start_time)) AS wt FROM ".$prev."project_tracker WHERE worker_id='%s' AND project_id='%s' AND DATEDIFF('%s', CONVERT_TZ(start_time,'+00:00','%s'))=0 AND DATEDIFF('%s', CONVERT_TZ(stop_time,'+00:00','%s'))=0 ORDER BY start_time ASC",
 		mysql_real_escape_string($user_id),
 		mysql_real_escape_string($project_id),
 		mysql_real_escape_string($load_date),
-		mysql_real_escape_string($load_date)
+		$rtimezone['offset'],
+		mysql_real_escape_string($load_date),
+		$rtimezone['offset']
 	);
 	
 	$r = mysql_query($q);
