@@ -107,7 +107,9 @@ function load_work_diary() {
 	$timezone_id = $_REQUEST['time_zone_id'];
 	$rtimezone = mysql_fetch_array(mysql_query("select * from " . $prev . "timezone where id =".$timezone_id));
 
-	$q_work_diary = sprintf("SELECT * FROM ".$prev."project_tracker WHERE worker_id='%s' AND project_id='%s' AND DATEDIFF('%s', CONVERT_TZ(start_time,'+00:00','%s'))=0 AND DATEDIFF('%s', CONVERT_TZ(stop_time,'+00:00','%s'))=0 ORDER BY start_time ASC",
+	$q_work_diary = sprintf("SELECT *,CONVERT_TZ(start_time,'+00:00','%s') AS stime,CONVERT_TZ(stop_time,'+00:00','%s') AS etime FROM ".$prev."project_tracker WHERE worker_id='%s' AND project_id='%s' AND DATEDIFF('%s', CONVERT_TZ(start_time,'+00:00','%s'))=0 AND DATEDIFF('%s', CONVERT_TZ(stop_time,'+00:00','%s'))=0 ORDER BY start_time ASC",
+		$rtimezone['offset'],
+		$rtimezone['offset'],
 		mysql_real_escape_string($user_id),
 		mysql_real_escape_string($project_id),
 		mysql_real_escape_string($load_date),
@@ -119,8 +121,8 @@ function load_work_diary() {
 	$list = array();
 	while ($val = mysql_fetch_array($r_word_diary)) {
 		$timesheet = array();
-		$timesheet['start_time'] = minutes_round(date('H:i', strtotime($val['start_time'])), 10);
-		$timesheet['stop_time'] = minutes_round(date('H:i', strtotime($val['stop_time'].' - 10 minutes')), 10);
+		$timesheet['start_time'] = minutes_round(date('H:i', strtotime($val['stime'])), 10);
+		$timesheet['stop_time'] = minutes_round(date('H:i', strtotime($val['etime'].' - 10 minutes')), 10);
 		$timesheet['memo'] = $val['note'];
 		$timesheet['time_added_by'] = $val['time_added_by'];
 		$timesheet['project_tracker_id'] = $val['id'];
