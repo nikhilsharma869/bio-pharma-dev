@@ -117,7 +117,7 @@ function load_work_diary() {
 	while ($val = mysql_fetch_array($r_word_diary)) {
 		$timesheet = array();
 		$timesheet['start_time'] = minutes_round(date('H:i', strtotime($val['start_time'])), 10);
-		$timesheet['stop_time'] = minutes_round(date('H:i', strtotime($val['stop_time'])), 10);
+		$timesheet['stop_time'] = minutes_round(date('H:i', strtotime($val['stop_time'].' - 10 minutes')), 10);
 		$timesheet['memo'] = $val['note'];
 		$timesheet['time_added_by'] = $val['time_added_by'];
 		$timesheet['project_tracker_id'] = $val['id'];
@@ -144,19 +144,20 @@ function load_work_diary() {
 				
 				
 				$li_id = create_random_str(16);
-				if(date('i', strtotime($key_time)) == '00' && date('H:i', strtotime($key_time)) == date('H:i', strtotime($list[$i]['stop_time']))) {
-					if(strtotime($list[$i+1]['start_time']) && date('H', strtotime($key_time)) == date('H', strtotime($list[$i+1]['start_time']))) {
-						echo '<ul class="workdiary-tracker-list-snap">';
-						echo sprintf("<li class='snap-list-label'><h3>%s</h3><p>%s</p><input id='snap_%s' type='checkbox' data-check='%s' class='css-input snap-list-check' /><label for='snap_%s' class='css-label'></label></li>",
-							date('h', strtotime($key_time)),
-							date('a', strtotime($key_time)),
-							date('H', strtotime($key_time)).$li_id,
-							date('H', strtotime($key_time)),
-							date('H', strtotime($key_time)).$li_id
-						);
-					}
-					continue;
-				}
+				// if(date('i', strtotime($key_time)) == '00' && date('H:i', strtotime($key_time)) == date('H:i', strtotime($list[$i]['stop_time']))) {
+				// 	if(strtotime($list[$i+1]['start_time']) && date('H', strtotime($key_time)) == date('H', strtotime($list[$i+1]['start_time']))) {
+				// 		echo '<ul class="workdiary-tracker-list-snap">';
+				// 		echo sprintf("<li class='snap-list-label'><h3>%s</h3><p>%s</p><input id='snap_%s' type='checkbox' data-check='%s' class='css-input snap-list-check' /><label for='snap_%s' class='css-label'></label></li>",
+				// 			date('h', strtotime($key_time)),
+				// 			date('a', strtotime($key_time)),
+				// 			date('H', strtotime($key_time)).$li_id,
+				// 			date('H', strtotime($key_time)),
+				// 			date('H', strtotime($key_time)).$li_id
+				// 		);
+				// 	}
+				// 	$isul_ll = true;
+				// 	// continue;
+				// }
 				if (date('i', strtotime($key_time)) == '00' && $ul_pos = 'ul_first') {
 					$isul_f = true;
 				}
@@ -176,15 +177,19 @@ function load_work_diary() {
 					$class = 'first-workdiary-snap ';
 				} else if ( date('H:i', strtotime($key_time)) == date('H:i', strtotime($list[$i]['stop_time'])) ) {
 					$class = 'last-workdiary-snap ';
-				} else if (date('i', strtotime($key_time)) == '50' && date('H:i', strtotime($key_time.' + 10 minutes')) == date('H:i', strtotime($list[$i]['stop_time']))) {
-					$class = 'last-workdiary-snap ';
-				} else {
+				}
+				// else if (date('i', strtotime($key_time)) == '50' && date('H:i', strtotime($key_time.' + 10 minutes')) == date('H:i', strtotime($list[$i]['stop_time']))) {
+				// 	$class = 'last-workdiary-snap ';
+				// }
+				else {
 					$class = '';
 				}
 				if($isul_f) {
 					$class .= 'first-li-workdiary-snap';
 				}
-
+				if (date('H:i', strtotime($list[$i]['start_time'])) == date('H:i', strtotime($list[$i]['stop_time']))) {
+					$class .= ' last-workdiary-snap ';
+				}
 				if(date('i', strtotime($key_time)) == '00') {
 					$li_pos = 0;
 				} else {
@@ -220,7 +225,7 @@ function load_work_diary() {
 						date('H', strtotime($key_time)).$li_id
 					);
 					echo $li;
-					if(date('i', strtotime($key_time)) == '50') {
+					if(date('i', strtotime($key_time)) == '50' || (date('H:i', strtotime($key_time)) == date('H:i', strtotime($list[$i]['stop_time']))) && date('H', strtotime($key_time)) != date('H', strtotime($list[$i+1]['start_time']))) {
 						echo '</ul>';
 					}
 					$ul_pos = 'ul_last';
@@ -310,4 +315,12 @@ function check_add_manual() {
 	$r = mysql_fetch_array(mysql_query("SELECT enabled_manual_time FROM ".$prev."projects WHERE id=".$project_id));
 
 	echo $r['enabled_manual_time'];
+}
+
+function set_current_timezone() {
+	global $prev;
+	$user_id = $_REQUEST['user_id'];
+	$timezone = $_REQUEST['time_zone_id'];
+
+	$r = mysql_query("UPDATE ".$prev."user SET current_time_zone='".$timezone."' WHERE user_id=".$user_id);
 }

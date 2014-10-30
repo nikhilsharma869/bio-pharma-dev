@@ -48,11 +48,24 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
                         <div class="container">
                         <div class="time-zone">
                             <p>Time Zone</p>
-                            <div class="sv-dropdown dd-timezone">
-                                <div class="sv-dropSelect">Mine (UTC +0:00)</div>
-                                <ul>
-                                    <li>UTC+00</li>
-                                </ul>
+                            <!-- Mine (UTC +0:00) -->
+                            <div class="select-box select-box-pj select-box-timezone">
+                                <select name="select_timezone" id="select_timezone" class="selectyze2">
+
+                                    <?php 
+                                    $rtimezone = mysql_fetch_array(mysql_query("select current_time_zone,time_zone_id from " . $prev . "user where user_id = '" . $_SESSION['user_id'] . "'"));
+                                    ?>
+                                    <option value="13" <?php if($rtimezone['current_time_zone'] == '13') echo "selected" ?>>(UTC - 0:00) Casablanca, Dublin, Edinburgh, London, Lisbon, Monrovia</option>
+                                    <?php
+                                    $r = mysql_query("SELECT * FROM ".$prev."timezone");
+                                    while ($val = mysql_fetch_array($r)) {
+                                        if($val['id']==$rtimezone['time_zone_id']) {
+                                        ?>
+                                            <option value="<?=$val['id']?>" <?php if($rtimezone['current_time_zone'] == $val['id']) echo "selected" ?>>Mine <?=$val['display_name']?></option>
+                                        <?php 
+                                        }
+                                    } ?>
+                                </select>
                             </div>
                             <div class="datetime">
                                 <span class="prev-day" style="margin-right: 15px;"><i class="fa fa-chevron-left"></i></span>
@@ -158,7 +171,13 @@ if(isset($_REQUEST['date2load']) && strtotime($_REQUEST['date2load'])) {
             })
             $(".time_select_box").chosen();
             $('#add_manual_time_f .alert').hide();
-
+            $('#select_timezone').on('change', function(){
+                var time_zone_id = $(this).val();
+                $.ajax({
+                    url: '<?= $vpath; ?>ajax_action.php',
+                    data: {action: 'set_current_timezone', time_zone_id: time_zone_id, user_id: '<?=$_SESSION['user_id']?>'},
+                });
+            })
             $('#add_manual_time_f').submit(function(){
                 var stime2add = $('#stime2add').val();
                 var etime2add = $('#etime2add').val();

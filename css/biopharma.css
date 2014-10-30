@@ -4461,3 +4461,16 @@ tr.tr-space {
 .transaction-info .tbl_bg2 > td {
     border-bottom: 1px solid #959595;
 }
+
+.select-box.select-box-timezone .selectyzeValue {
+    width: 140px;
+    /*margin: 0 10px;*/
+}
+
+.time-zone > p {
+    margin-right: 10px;
+}
+
+.time-zone > .datetime {
+    margin-left: 10px;
+}
