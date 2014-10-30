@@ -117,11 +117,13 @@ function list_jobs(){
 }
 
 
-function get_project_snap($project_id, $project_tracker_id, $time) {
+function get_project_snap($project_id, $project_tracker_id, $time, $offset) {
 	global $prev;
 
-	$q = sprintf("SELECT *,ABS(TIME_TO_SEC(TIMEDIFF('%s',project_work_snap_time))) AS time_check FROM ".$prev."project_tracker_snap WHERE project_tracker_id='%s'",
+	$q = sprintf("SELECT *,ABS(TIME_TO_SEC(TIMEDIFF('%s',CONVERT_TZ(project_work_snap_time,'+00:00','%s')))) AS time_check, CONVERT_TZ(project_work_snap_time,'+00:00','%s') AS time_a FROM ".$prev."project_tracker_snap WHERE project_tracker_id='%s'",
 		mysql_real_escape_string($time),
+		$offset,
+		$offset,
 		mysql_real_escape_string($project_tracker_id)
 	);
 
@@ -129,7 +131,7 @@ function get_project_snap($project_id, $project_tracker_id, $time) {
 	$r = mysql_query($q);
 	while ($val = mysql_fetch_array($r)) { 
 		if($val['time_check'] <= 300) {
-			$data_snap['time'] = date('H:i', strtotime($val['project_work_snap_time']));
+			$data_snap['time'] = date('H:i', strtotime($val['time_a']));
 			$data_snap['img'] = 'time_tracker/mediafile/'.$project_id.'_'.$val['id'].'.jpg';
 			return $data_snap;
 		}
