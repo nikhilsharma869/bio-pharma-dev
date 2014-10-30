@@ -131,7 +131,7 @@ function get_project_snap($project_id, $project_tracker_id, $time, $offset) {
 	$r = mysql_query($q);
 	while ($val = mysql_fetch_array($r)) { 
 		if($val['time_check'] <= 300) {
-			$data_snap['time'] = date('H:i', strtotime($val['time_a']));
+			$data_snap['time'] = date('h:i a', strtotime($val['time_a']));
 			$data_snap['img'] = 'time_tracker/mediafile/'.$project_id.'_'.$val['id'].'.jpg';
 			return $data_snap;
 		}
